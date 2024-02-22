@@ -5744,7 +5744,6 @@ blockquote p {
   -ms-flex-align: center;
   align-items: center;
   margin-right: 20px;
-  white-space: nowrap;
 }
 
 .reviews-form__check .item-checkbox span:before {
@@ -7504,6 +7503,10 @@ blockquote p {
     max-width: 400px;
   }
 
+  .delivery-modal .delivery-acc__comp {
+    max-width: 300px;
+  }
+
   .cert-modal .modal__content {
     max-width: 880px;
   }
@@ -7833,13 +7836,7 @@ blockquote p {
   }
 
   .reviews-form {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: start;
-    -ms-flex-align: start;
-    align-items: flex-start;
+    display: block;
   }
 
   .reviews-form .item-toggle span {
@@ -12015,6 +12012,7 @@ blockquote p {
   .mobile-menu__inner {
     max-width: 100%;
     border-radius: 0;
+    padding-bottom: 60px;
   }
 
   .intro__content .main-btn {
@@ -12055,10 +12053,6 @@ blockquote p {
 
   .delivery-acc .stroke-btn {
     width: 100%;
-  }
-
-  .delivery-acc__comp {
-    max-width: 300px;
   }
 
   .item-cart {

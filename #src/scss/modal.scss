@@ -591,7 +591,12 @@
         .delivery-acc__comp {
             max-width: 400px;
         }
-    }  
+    } 
+    @media (max-width: $bp1) {
+        .delivery-acc__comp {
+            max-width: 300px;
+        }
+    } 
 }
 .cert-modal {
     .modal__content {

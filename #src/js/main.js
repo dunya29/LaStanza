@@ -1143,7 +1143,7 @@ if (product) {
     window.addEventListener("resize", () => {
       if (window.innerWidth > 992.98 && document.querySelector(".self-modal.open")) {       
         closeModal(document.querySelector(".self-modal"))
-      } else if (window.innerWidth < 992.98 && document.querySelector(".self-size.active")) {
+      } else if (window.innerWidth < 992.98 && document.querySelector(".self-size.active") && !document.querySelector(".self-modal.open") ) {
        // openModal(document.querySelector(".self-modal"))
         sizeProduct.querySelectorAll(".size-product__btn")[0].click()
       }

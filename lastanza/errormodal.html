@@ -17,7 +17,7 @@
     <link href="css/fancybox.min.css" type="text/css" rel="stylesheet">
     <link href="css/cropper.min.css" type="text/css" rel="stylesheet">
     <link href="css/style.min.css" type="text/css" rel="stylesheet">
-    <title>Корзина</title>
+    <title>Главная</title>
 </head>
 
 <body>
@@ -235,328 +235,553 @@
 </header>
         <!--main-->
         <main class="main">
-            <!--breadcrumbs-->
-<nav class="breadcrumbs">
-    <div class="container">
-        <ul>
-            <li><a href="#" class="link">Главная</a></li>
-            <li class="active">Корзина</li>
-        </ul>
-    </div>
-</nav>
-            <!--cart-->
-            <section class="section cart">
+            <!--intro-->
+            <section class="section intro">
+                <div class="intro__top">
+                    <div class="swiper intro__textswiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="intro__content">
+                                    <h2>Фрески La Stanza — дизайн-студия<br>и интернет-магазин в Москве</h2>
+                                    <div class="intro-stat">
+                                        <div class="intro-stat__item">
+                                            <span class="h3">>3000</span>
+                                            <span>изображений в каталоге</span>
+                                        </div>
+                                        <div class="intro-stat__item">
+                                            <span class="h3">>15</span>
+                                            <span>фактур на выбор</span>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="btn main-btn">Открыть каталог<svg>
+                                            <use xlink:href="img/icons/sprite.svg#arrow-right"></use>
+                                        </svg></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="intro__content">
+                                    <h2>Фрески La Stanza — дизайн-студия<br>и интернет-магазин в Москве</h2>
+                                    <div class="intro-stat">
+                                        <div class="intro-stat__item">
+                                            <span class="h3">>3000</span>
+                                            <span>изображений в каталоге</span>
+                                        </div>
+                                        <div class="intro-stat__item">
+                                            <span class="h3">>15</span>
+                                            <span>фактур на выбор</span>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="btn main-btn">Открыть каталог<svg>
+                                            <use xlink:href="img/icons/sprite.svg#arrow-right"></use>
+                                        </svg></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="intro__content">
+                                    <h2>Фрески La Stanza — дизайн-студия<br>и интернет-магазин в Москве</h2>
+                                    <div class="intro-stat">
+                                        <div class="intro-stat__item">
+                                            <span class="h3">>3000</span>
+                                            <span>изображений в каталоге</span>
+                                        </div>
+                                        <div class="intro-stat__item">
+                                            <span class="h3">>15</span>
+                                            <span>фактур на выбор</span>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="btn main-btn">Открыть каталог<svg>
+                                            <use xlink:href="img/icons/sprite.svg#arrow-right"></use>
+                                        </svg></a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="intro__content">
+                                    <h2>Фрески айн-студия<br>и интернет-магазин в Москве</h2>
+                                    <div class="intro-stat">
+                                        <div class="intro-stat__item">
+                                            <span class="h3">>3000</span>
+                                            <span>изображений в каталоге</span>
+                                        </div>
+                                        <div class="intro-stat__item">
+                                            <span class="h3">>15</span>
+                                            <span>фактур на выбор</span>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="btn main-btn">Открыть каталог<svg>
+                                            <use xlink:href="img/icons/sprite.svg#arrow-right"></use>
+                                        </svg></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper intro__bgswiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="media-cover" data-swiper-parallax="50%">
+                                    <picture><source srcset="img/intro.webp" type="image/webp"><img src="img/intro.jpg" alt=""></picture>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="media-cover" data-swiper-parallax="50%">
+                                    <picture><source srcset="img/product-1-1.webp" type="image/webp"><img src="img/product-1-1.jpg" alt=""></picture>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="media-cover" data-swiper-parallax="50%">
+                                    <picture><source srcset="img/intro.webp" type="image/webp"><img src="img/intro.jpg" alt=""></picture>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="media-cover" data-swiper-parallax="50%">
+                                    <picture><source srcset="img/product-1-1.webp" type="image/webp"><img src="img/product-1-1.jpg" alt=""></picture>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="container">
-                    <h1>Корзина (1)</h1>
-                    <form class="cart-form">
-                        <div class="cart-form__body">
-                            <div class="section-sm cart-form__items">
-                                <div class="item-cart">
-    <div class="item-cart__top">
-        <a href="#" class="item-cart__action edit">
-            <svg><use xlink:href="img/icons/sprite.svg#edit"></use></svg>
-            <span>Изменить</span>
-        </a>
-        <button type="button" class="item-cart__action del">
-            <svg><use xlink:href="img/icons/sprite.svg#del"></use></svg>
-            <span>Удалить</span>
-        </button>
-        <button type="button" class="item-cart__action toFav">
-            <svg><use xlink:href="img/icons/sprite.svg#favorites"></use></svg>
-            <span>В избранное</span>
-        </button>
-    </div>
-    <div class="item-cart__left">
-        <label class="item-checkbox">
-            <input type="checkbox" checked>
-            <span></span>
-        </label>
-        <div class="item-cart__preview"><a href="#" class="media-cover"><picture><source srcset="img/product-1-sm.webp" type="image/webp"><img src="img/product-1-sm.jpg" alt="Фреска Applico 01202-G"></picture></a></div>
-    </div>
-    <h5 class="item-cart__title"><a href="#">Фреска Applico 01202-G</a></h5>
-    <div class="item-cart__content">
-        <div class="item-cart__info">
-            <div class="item-cart__details extra-list">
-                <div class="item-cart__det">
-                    <span>Размер:</span>
-                    <span>150 см х 90 см</span>
-                </div>
-                <div class="item-cart__det">
-                    <span>Фактура:</span>
-                    <span><picture><source srcset="img/texture-1.webp" type="image/webp"><img src="img/texture-1.jpg" alt="Breeze Light"></picture>Breeze Light</span>
-                </div>
-                <div class="item-cart__det">
-                    <span>Цвет:</span>
-                    <span>Без изменений</span>
-                </div>
-                <div class="item-cart__det">
-                    <span>Цветопроба:</span>
-                    <span>Нет</span>
-                </div>
-                <div class="item-cart__det">
-                    <span>Площадь:</span>
-                    <span>1,35 м²</span>
-                </div>
-                <div class="item-cart__det">
-                    <span>Цена с дизайном:</span>
-                    <span>Нет</span>
-                </div>
-                <button type="button" class="icon-chevron extra-list__btn" data-open="Развернуть" data-close="Свернуть">
-                    <span>Развернуть</span>
-                    <svg><use xlink:href="img/icons/sprite.svg#chevron"></use></svg>
-                </button>
-            </div>
-        </div>
-        <div class="item-cart__total">
-            <div class="quantity">
-                <button class="quantity__btn js-minus" type="button"></button>
-                <input type="number" value="1"/>
-                <button class="quantity__btn js-plus" type="button"></button>
-            </div>
-            <div class="h4 rub item-cart__price">41 220</div>
-        </div>
-        <div class="item-cart__comment">
-            <span class="item-cart__comment-btn">Комментарий к товару</span>
-            <div class="item-form item-cart__comment-txt">
-                <textarea placeholder="Напишите комментарий" name="" maxlength="1000" oninput="this.style.height = this.scrollHeight + 'px'"></textarea>
-            </div>
-        </div>
-    </div>
-</div>
-                                <div class="item-cart">
-    <div class="item-cart__top">
-        <a href="#" class="item-cart__action edit">
-            <svg><use xlink:href="img/icons/sprite.svg#edit"></use></svg>
-            <span>Изменить</span>
-        </a>
-        <button type="button" class="item-cart__action del">
-            <svg><use xlink:href="img/icons/sprite.svg#del"></use></svg>
-            <span>Удалить</span>
-        </button>
-        <button type="button" class="item-cart__action toFav">
-            <svg><use xlink:href="img/icons/sprite.svg#favorites"></use></svg>
-            <span>В избранное</span>
-        </button>
-    </div>
-    <div class="item-cart__left">
-        <label class="item-checkbox">
-            <input type="checkbox" checked>
-            <span></span>
-        </label>
-        <div class="item-cart__preview"><a href="#" class="media-cover"><picture><source srcset="img/product-1-sm.webp" type="image/webp"><img src="img/product-1-sm.jpg" alt="Фреска Applico 01202-G"></picture></a></div>
-    </div>
-    <h5 class="item-cart__title"><a href="#">Фреска Applico 01202-G</a></h5>
-    <div class="item-cart__content">
-        <div class="item-cart__info">
-            <div class="item-cart__details extra-list">
-                <div class="item-cart__det">
-                    <span>Размер:</span>
-                    <span>150 см х 90 см</span>
-                </div>
-                <div class="item-cart__det">
-                    <span>Фактура:</span>
-                    <span><picture><source srcset="img/texture-1.webp" type="image/webp"><img src="img/texture-1.jpg" alt="Breeze Light"></picture>Breeze Light</span>
-                </div>
-                <div class="item-cart__det">
-                    <span>Цвет:</span>
-                    <span>Без изменений</span>
-                </div>
-                <div class="item-cart__det">
-                    <span>Цветопроба:</span>
-                    <span>Нет</span>
-                </div>
-                <div class="item-cart__det">
-                    <span>Площадь:</span>
-                    <span>1,35 м²</span>
-                </div>
-                <div class="item-cart__det">
-                    <span>Цена с дизайном:</span>
-                    <span>Нет</span>
-                </div>
-                <button type="button" class="icon-chevron extra-list__btn" data-open="Развернуть" data-close="Свернуть">
-                    <span>Развернуть</span>
-                    <svg><use xlink:href="img/icons/sprite.svg#chevron"></use></svg>
-                </button>
-            </div>
-        </div>
-        <div class="item-cart__total">
-            <div class="quantity">
-                <button class="quantity__btn js-minus" type="button"></button>
-                <input type="number" value="1"/>
-                <button class="quantity__btn js-plus" type="button"></button>
-            </div>
-            <div class="h4 rub item-cart__price">41 220</div>
-        </div>
-        <div class="item-cart__comment">
-            <span class="item-cart__comment-btn">Комментарий к товару</span>
-            <div class="item-form item-cart__comment-txt">
-                <textarea placeholder="Напишите комментарий" name="" maxlength="1000" oninput="this.style.height = this.scrollHeight + 'px'"></textarea>
-            </div>
-        </div>
-    </div>
-</div>
+                    <div class="intro__bottom">
+                        <div class="intro__bottom--inner">
+                            <div class="swiper intro__thumbswiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="intro-thumb">
+                                            <span class="intro-thumb__nmb">1</span>
+                                            <h5>Огромный выбор</h5>
+                                            <h6>Специальное предложение</h6>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="intro-thumb">
+                                            <span class="intro-thumb__nmb">2</span>
+                                            <h5>Дизайн-консультации</h5>
+                                            <h6>Осень `23</h6>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="intro-thumb">
+                                            <span class="intro-thumb__nmb">3</span>
+                                            <h5>Экологичность</h5>
+                                            <h6>Подтвержденная сертификатами</h6>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="intro-thumb">
+                                            <span class="intro-thumb__nmb">4</span>
+                                            <h5>Дизайн-консультации</h5>
+                                            <h6>Поможем в выборе</h6>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="cart-form__details">
-                                <div class="mb-60 cart-form__fieldset">
-                                    <h3>Покупатель</h3>
-                                    <div class="form__grid">
-                                        <div class="item-form"><input type="text" maxlength="100" placeholder="Фамилия"></div>
-                                        <div class="item-form error">
-                                            <input type="text" maxlength="100" placeholder="Имя">
-                                            <span class="item-form__error">Введите имя</span>
-                                        </div>
-                                        <div class="item-form"><input type="text" placeholder="E-mail"></div>
-                                        <div class="item-form"><input type="tel" placeholder="Телефон"></div>
-                                    </div>
-                                </div>
-                                <div class="mb-60 cart-form__fieldset cart-del">
-                                    <h3>Доставка</h3>
-                                    <div class="item-info">
-                                        <label class="item-radio">
-                                            <input name="cart-delivery" type="radio"  data-del-nav="" class="pickup">
-                                            <span>Самовывоз</span>
-                                        </label>
-                                        <div class="tippy" data-content="Если вы находитесь в Москве или Московской области, мы сможем бесплатно доставить ваш заказ курьерской службой."></div>
-                                    </div>
-                                    <div class="item-info">
-                                        <label class="item-radio">
-                                            <input name="cart-delivery" type="radio"  data-del-nav="" checked>
-                                            <span>Доставка курьером по Москве и МО</span>
-                                        </label>
-                                        <div class="tippy" data-content="Если вы находитесь в Москве или Московской области, мы сможем бесплатно доставить ваш заказ курьерской службой."></div>
-                                    </div>
-                                    <div class="item-info">
-                                        <label class="item-radio">
-                                            <input name="cart-delivery" type="radio" data-del-nav="">
-                                            <span>Транспортная компания</span>
-                                        </label>
-                                        <div class="tippy" data-content="Если вы находитесь в Москве или Московской области, мы сможем бесплатно доставить ваш заказ курьерской службой."></div>
-                                    </div>
-                                    <div class="cart-del__content" data-del-block="">
-                                        <div class="cart-del__items">
-                                            <div class="cart-del__item">
-                                                <div class="cart-del__lbl">Самовывоз по адресу:</div>
-                                                <div class="cart-del__address">
-                                                    <div class="item-contact">
-                                                        <svg><use xlink:href="img/icons/sprite.svg#address"></use></svg>г.Москва, м. Академическая,<br>ул. Дмитрия Ульянова, д. 42
-                                                    </div>
-                                                    <a href="https://yandex.ru/maps/213/moscow/?ll=37.593038%2C55.682577&mode=usermaps&source=constructorLink&um=constructor%3A49e1d43eb0f6c5b828ce5ab48e416b552eb6fe2a119dbe84b399b889e621d3fd&z=12" target="_blank" class="btn stroke-btn">Смотреть на карте</a>    
-                                                </div>
-                                            </div>
-                                            <div class="cart-del__item">
-                                                <div class="cart-del__lbl">Часы работы:</div>
-                                                <div class="item-contact">
-                                                    <svg><use xlink:href="img/icons/sprite.svg#time"></use></svg>
-                                                    Пн-Пт: 10.00-19.00.<br>
-                                                    Сб-Вс: выходной
-                                                </div>
-                                            </div>
-                                            <div class="cart-del__item">
-                                                <div class="cart-del__lbl">Контакты:</div>
-                                                <a href="tel:84959951524" class="item-contact phone">
-                                                    <svg><use xlink:href="img/icons/sprite.svg#phone"></use></svg>+7 (495) 995-15-24
-                                                </a>
-                                                <a href="mailto:info@lastanza.ru" class="item-contact">
-                                                    <svg><use xlink:href="img/icons/sprite.svg#mail"></use></svg>info@lastanza.ru
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="cart-del__content active" data-del-block="">
-                                        <div class="form__grid">
-                                            <div class="item-form"><input type="text" placeholder="Город доставки"></div>
-                                            <div class="item-form"><input type="text" placeholder="Улица"></div>
-                                            <div class="item-form"><input type="text" placeholder="Дом"></div>
-                                            <div class="item-form"><input type="text" placeholder="Кв/офис"></div>
-                                        </div>
-                                        <div class="item-form">
-                                            <textarea placeholder="Комментарий" name="" maxlength="1000" oninput="this.style.height = this.scrollHeight + 'px'"></textarea>
-                                        </div>
-                                    </div>
-                                    <div class="cart-del__content" data-del-block>
-                                        <div class="cart-del__lbl">Мы работаем с транспортными компаниями:</div>
-                                        <div class="cart-del__comp">
-                                            <img src="img/delivery/sdek.svg" alt="">
-                                            <img src="img/delivery/delovie-linii.svg" alt="">
-                                            <img src="img/delivery/pek.svg" alt="">
-                                            <img src="img/delivery/jde.svg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mb-60 cart-form__fieldset cart-payment">
-                                    <h3>Оплата</h3>
-                                    <div class="item-info">
-                                        <label class="item-radio">
-                                            <input name="cart-payment" type="radio">
-                                            <span>Онлайн на сайте</span>
-                                        </label>
-                                        <div class="tippy" data-content="Если вы находитесь в Москве или Московской области, мы сможем бесплатно доставить ваш заказ курьерской службой."></div>
-                                    </div>
-                                    <div class="item-info">
-                                        <label class="item-radio">
-                                            <input name="cart-payment" type="radio">
-                                            <span>Безналичная оплата по счету</span>
-                                        </label>
-                                        <div class="tippy" data-content="Если вы находитесь в Москве или Московской области, мы сможем бесплатно доставить ваш заказ курьерской службой."></div>
-                                    </div>
-                                    <div class="item-info pickup">
-                                        <label class="item-radio">
-                                            <input name="cart-payment" type="radio">
-                                            <span>В офисе La Stanza</span>
-                                        </label>
-                                        <div class="tippy" data-content="Если вы находитесь в Москве или Московской области, мы сможем бесплатно доставить ваш заказ курьерской службой."></div>
-                                    </div>
-                                </div>
+                            <div class="swiper-nav">
+                                <button class="nav-btn nav-btn--prev"><svg>
+                                        <use xlink:href="img/icons/sprite.svg#arrow-left"></use>
+                                    </svg></button>
+                                <button class="nav-btn nav-btn--next"><svg>
+                                        <use xlink:href="img/icons/sprite.svg#arrow-right"></use>
+                                    </svg></button>
                             </div>
                         </div>
-                        <div class="cart-total">
-                            <div class="cart-total__top">
-                                <span class="h5 mb-40 cart-total__lbl">Добавить услуги:</span>
-                                <div class="cart-total__toggle">
-                                    <span>Монтаж</span>
-                                    <label class="item-toggle">
-                                        <input type="checkbox">
-                                        <span></span>
-                                    </label>
-                                </div>
-                                <div class="cart-total__toggle">
-                                    <span>Дизайн</span>
-                                    <label class="item-toggle">
-                                        <input type="checkbox">
-                                        <span></span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="cart-total__bottom">
-                                <div class="cart-total__bottom-inner">
-                                    <span class="h5 mb-40 cart-total__lbl">Ваш заказ</span>
-                                <div class="cart-total__det">
-                                    <span>Товары (1)</span>
-                                    <span>41 220 ₽</span>
-                                </div>
-                                <div class="cart-total__det">
-                                    <span>Общий вес</span>
-                                    <span>9 кг</span>
-                                </div>
-                                <div class="cart-total__det">
-                                    <span>Доставка</span>
-                                    <span>бесплатно</span>
-                                </div>
-                                <div class="cart-total__total">
-                                    <span class="h5">Итого</span>
-                                    <span class="rub h5">41 220</span>
-                                </div>
-                                <div class="form__footer">
-                                    <button type="submit" class="btn main-btn">Заказать<span class="rub mobprice cart-total__mobprice">6 183</span></button>
-                                    <p>Нажимая на кнопку «Заказать», вы даете <a href="#" target="_blank">согласие</a> на обработку своих персональных данных</p>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </section>
+            <!--main-cat-->
+            <section class="section main-cats">
+                <div class="container">
+                    <div class="main-cats__item">
+                        <h3>Фрески и фотообои La Stanza</h3>
+                        <a href="#" class="media-cover">
+                            <picture><source srcset="img/cat-card-1.webp" type="image/webp"><img src="img/cat-card-1.jpg" alt="Фрески и фотообои La Stanza"></picture>
+                        </a>
+                    </div>
+                    <div class="main-cats__item">
+                        <h3>Дизайнерские фотообои</h3>
+                        <a href="#" class="media-cover">
+                            <picture><source srcset="img/cat-card-2.webp" type="image/webp"><img src="img/cat-card-2.jpg" alt="Дизайнерские фотообои"></picture>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!--main-colls-->
+            <section class="section main-cols">
+                <div class="container">
+                    <div class="section main-cols__items">
+                        <div class="main-cols__item">
+                            <div class="main-cols__content">
+                                <h2>Коллекция Alba</h2>
+                                <p>Вдохновением для каталог Alba явилась природа и сама жизнь. Изображения в нем удивительно универсальны и применимы к любым интерьерам от концертных залов, кафе, ресторанов и гостиниц до детских комнат, ванных, спален. Этой коллекцией мы говорим вселенной, что открыты ей, и надеемся, что в этот путь вы отправитесь вместе с нами!</p>
+                            </div>
+                            <div class="media-cover">
+                                <picture><source srcset="img/col-card-1.webp" type="image/webp"><img src="img/col-card-1.jpg" alt="Коллекция Alba"></picture>
+                            </div>
+                        </div>
+                        <div class="main-cols__item">
+                            <div class="media-cover">
+                                <picture><source srcset="img/col-card-2.webp" type="image/webp"><img src="img/col-card-2.jpg" alt="Коллекция Alba"></picture>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section main-cols__items">
+                        <div class="main-cols__item">
+                            <div class="media-cover">
+                                <picture><source srcset="img/col-card-3.webp" type="image/webp"><img src="img/col-card-3.jpg" alt="Коллекция Mystic"></picture>
+                            </div>
+                            <div class="media-cover">
+                                <picture><source srcset="img/col-card-4.webp" type="image/webp"><img src="img/col-card-4.jpg" alt="Коллекция Mystic"></picture>
+                            </div>
+                        </div>
+                        <div class="main-cols__item">
+                            <div class="media-cover">
+                                <picture><source srcset="img/col-card-5.webp" type="image/webp"><img src="img/col-card-5.jpg" alt="Коллекция Mystic"></picture>
+                            </div>
+                            <div class="main-cols__content">
+                                <h2>Коллекция Mystic</h2>
+                                <p>Орнаменты и мозаика из натурального камня, мистика тропической зелени и африканских масок, магия цветных кристаллов во всю стену...</p>
+                                <p>Завораживающие картины из фактур и срезов природных материалов, фрески, сотканные из кружевных и графических переплетений, сделают ваш дом неотразимым</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--bestsellers-->
+            <section class="section bestsellers">
+                <div class="container">
+                    <div class="mb-60 swiper-top">
+                        <h2>Хиты продаж</h2>
+                        <div class="swiper-nav">
+                            <button class="nav-btn nav-btn--prev"><svg>
+                                    <use xlink:href="img/icons/sprite.svg#arrow-left"></use>
+                                </svg></button>
+                            <button class="nav-btn nav-btn--next"><svg>
+                                    <use xlink:href="img/icons/sprite.svg#arrow-right"></use>
+                                </svg></button>
+                        </div>
+                    </div>
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><!--card-->
+<article class="card">
+    <button class="btn card__heart"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-1.webp" type="image/webp"><img src="img/product-1.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(../img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-4.jpg)"></a>
+        </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
+        </div>
+    </div>
+</article></div>
+                            <div class="swiper-slide"><!--card-->
+<article class="card">
+    <button class="btn card__heart"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-2.webp" type="image/webp"><img src="img/product-2.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(../img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-4.jpg)"></a>
+        </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
+        </div>
+    </div>
+</article></div>
+                            <div class="swiper-slide"><!--card-->
+<article class="card">
+    <button class="btn card__heart"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-3.webp" type="image/webp"><img src="img/product-3.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(../img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-4.jpg)"></a>
+        </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
+        </div>
+    </div>
+</article></div>
+                            <div class="swiper-slide"><!--card-->
+<article class="card">
+    <button class="btn card__heart"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-4.webp" type="image/webp"><img src="img/product-4.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(../img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-4.jpg)"></a>
+        </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
+        </div>
+    </div>
+</article></div>
+                            <div class="swiper-slide"><!--card-->
+<article class="card">
+    <button class="btn card__heart"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-1.webp" type="image/webp"><img src="img/product-1.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(../img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-4.jpg)"></a>
+        </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
+        </div>
+    </div>
+</article></div>
+                            <div class="swiper-slide"><!--card-->
+<article class="card">
+    <button class="btn card__heart"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-2.webp" type="image/webp"><img src="img/product-2.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(../img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(../img/color-4.jpg)"></a>
+        </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
+        </div>
+    </div>
+</article></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--main-why-->
+            <section class="section main-why">
+                <div class="container">
+                    <div class="mb-80 page-top">
+                        <h2>Почему именно мы?</h2>
+                        <div class="page-top__content">
+                            <p>Являясь фабрикой полного цикла, мы осуществляем полный контроль на всех этапах производства своей декоративной настенной продукции — от создания уникальных авторских изображений до профессиональных монтажных работ любой сложности.</p>
+                            <a href="#" class="btn main-btn">Смотреть больше</a>
+                        </div>
+                    </div>
+                    <div class="main-why__items">
+                        <div class="item-why">
+    <div class="item-why__img">
+        <img src="img/icons/delivery.svg" alt="">
+    </div>
+    <h6>Бесплатная доставка</h6>
+</div>
+                        <div class="item-why">
+    <div class="item-why__img">
+        <img src="img/icons/measurements.svg" alt="">
+    </div>
+    <h6>Бесплатный выезд дизайнера</h6>
+</div>
+                        <div class="item-why">
+    <div class="item-why__img">
+        <img src="img/icons/time.svg" alt="">
+    </div>
+    <h6>Срок исполнения 3 дня</h6>
+</div>
+                        <div class="item-why">
+    <div class="item-why__img">
+        <img src="img/icons/technologic.svg" alt="">
+    </div>
+    <h6>Бесшовные технологии</h6>
+</div>
+                        <div class="item-why">
+    <div class="item-why__img">
+        <img src="img/icons/eco.svg" alt="">
+    </div>
+    <h6>Экологичность</h6>
+</div>
+                        <div class="item-why">
+    <div class="item-why__img">
+        <img src="img/icons/textures.svg" alt="">
+    </div>
+    <h6>Большой выбор фактур</h6>
+</div>
+                        <div class="item-why">
+    <div class="item-why__img">
+        <img src="img/icons/designers.svg" alt="">
+    </div>
+    <h6>Профессиональные дизайнеры</h6>
+</div>
+                        <div class="item-why">
+    <div class="item-why__img">
+        <img src="img/icons/individ-heart.svg" alt="">
+    </div>
+    <h6>Индивиду­альный подход</h6>
+</div>
+                    </div>
+                </div>
+            </section>
+            <!--main-articles-->
+            <section class="section main-articles">
+                <div class="container">
+                    <div class="mb-60 swiper-top">
+                        <h2>Статьи</h2>
+                        <div class="swiper-nav">
+                            <button class="nav-btn nav-btn--prev">
+                                <svg><use xlink:href="img/icons/sprite.svg#arrow-left"></use></svg>
+                            </button>
+                            <button class="nav-btn nav-btn--next">
+                                <svg><use xlink:href="img/icons/sprite.svg#arrow-right"></use></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mb-60 swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <article class="item-article">
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/article-1-sm.webp" type="image/webp"><img src="img/article-1-sm.jpg" alt="Фрески с пейзажем средиземноморском стиле"></picture>
+    </a>
+    <h6>Фрески с пейзажем в средиземноморском стиле</h6>
+    <a href="#" class="main-link">Читать далее</a>
+</article>
+                            </div>
+                            <div class="swiper-slide">
+                                <article class="item-article">
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/article-2-sm.webp" type="image/webp"><img src="img/article-2-sm.jpg" alt="Фрески с пейзажем средиземноморском стиле"></picture>
+    </a>
+    <h6>Фрески с пейзажем в средиземноморском стиле</h6>
+    <a href="#" class="main-link">Читать далее</a>
+</article>
+                            </div>
+                            <div class="swiper-slide">
+                                <article class="item-article">
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/article-3-sm.webp" type="image/webp"><img src="img/article-3-sm.jpg" alt="Фрески с пейзажем средиземноморском стиле"></picture>
+    </a>
+    <h6>Фрески с пейзажем в средиземноморском стиле</h6>
+    <a href="#" class="main-link">Читать далее</a>
+</article>
+                            </div>
+                            <div class="swiper-slide">
+                                <article class="item-article">
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/article-4-sm.webp" type="image/webp"><img src="img/article-4-sm.jpg" alt="Фрески с пейзажем средиземноморском стиле"></picture>
+    </a>
+    <h6>Фрески с пейзажем в средиземноморском стиле</h6>
+    <a href="#" class="main-link">Читать далее</a>
+</article>
+                            </div>
+                            <div class="swiper-slide">
+                                <article class="item-article">
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/article-1-sm.webp" type="image/webp"><img src="img/article-1-sm.jpg" alt="Фрески с пейзажем средиземноморском стиле"></picture>
+    </a>
+    <h6>Фрески с пейзажем в средиземноморском стиле</h6>
+    <a href="#" class="main-link">Читать далее</a>
+</article>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-align"><a href="#" class="btn stroke-btn">Все статьи</a></div>
+                </div>
+            </section>
+            <!--main-cond-->
+            <section class="section main-cond">
+                <div class="container">
+                    <div class="mb-60 page-top">
+                        <h2>Выгодные условия<br>для сотрудничества</h2>
+                        <div class="page-top__content">
+                            <p>Фрески La Stanza — это эксклюзивная продукция, универсальная для декорирования и
+                                оформления интерьеров. Мы готовы выполнять требования клиентов на самом высоком уровне,
+                                обеспечивая качество и оперативность. Современное оборудование, высокие технологии и
+                                квалифицированный персонал позволяют нам гарантировать высокий результат.</p>
+                            <a href="partners.html#partner-form" class="btn main-btn">Стать партнером</a>
+                        </div>
+                    </div>
+                    <div class="main-cond__items">
+                        <div class="item-cond">
+    <div class="item-cond__img">
+        <img src="img/icons/marketing.svg" alt="Маркетинговая поддержка">
+    </div>
+    <div class="item-cond__content">
+        <h4>Маркетинговая поддержка</h4>
+        <p>Размещение информации о партнере на сайте и в каталогах, а также предоставление рекламных материалов, буклетов и образцов фактур в необходимых количествах</p>
+    </div>
+</div>
+                        <div class="item-cond">
+    <div class="item-cond__img">
+        <img src="img/icons/individual.svg" alt="Индивидуальный подход">
+    </div>
+    <div class="item-cond__content">
+        <h4>Индивидуальный подход</h4>
+        <p>Обучение, консультирование, мастер-классы по монтажу фресок, и наш инновационный подход в совместной работе позволит вашему бизнесу занять перспективную нишу в продаже отделочных материалов высокого класса.</p>
+    </div>
+</div>
+                        <div class="item-cond">
+    <div class="item-cond__img">
+        <img src="img/icons/complect.svg" alt="Комплект партнера">
+    </div>
+    <div class="item-cond__content">
+        <h4>Комплект партнера</h4>
+        <p>Разработан для вас, позволит вам значительно увеличить круг потенциальных клиентов и получить дополнительный доход</p>
+    </div>
+</div>
+                        <div class="item-cond">
+    <div class="item-cond__img">
+        <img src="img/icons/discount.svg" alt="Система скидок">
+    </div>
+    <div class="item-cond__content">
+        <h4>Система скидок</h4>
+        <p>Гибкая система скидок, подробности можно получить у нашего представителя</p>
+    </div>
+</div>
+                    </div>
+                </div>
+            </section>
+            <!--mail-form-->
+<section class="section main-form mail-form">
+    <div class="container">
+        <div class="media-cover">
+            <picture><source srcset="img/mail-form-bg.webp" type="image/webp"><img src="img/mail-form-bg.jpg" alt=""></picture>
+        </div>
+        <div class="main-form__right">
+            <div class="main-form__content">
+                <h4>Подпишитесь и будьте в курсе интерьерных изменений</h4>
+                <form action="" class="form" onsubmit="event.preventDefault();mailFormSuccess(this)">
+                    <div class="item-form">
+                        <input name="e-mail" type="text" placeholder="E-mail">
+                    </div>
+                    <div class="form__footer">
+                        <button type="submit" class="btn main-btn">Подписаться</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
         </main>
+        <!--footer-->
         <!--footer-->
 <footer class="footer">
     <div class="container">
@@ -634,7 +859,7 @@
         </div>
     </div>
 </footer>
-        <!--modal-->
+<!--modal-->
 <div class="overlay"></div>
 <!--tippy-->
 <div class="tippy-content"></div>
@@ -692,7 +917,7 @@
     </div>
 </div>
 <!--error-modal-->
-<div class="modal error-modal" id="error-modal">
+<div class="modal error-modal open" id="error-modal">
     <div class="modal__overlay">
         <div class="modal__content">
             <div class="modal__scroll">

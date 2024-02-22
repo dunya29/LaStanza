@@ -10300,6 +10300,10 @@ blockquote p {
     border-radius: 12px;
   }
 
+  .item-form__error {
+    font-size: 12px;
+  }
+
   .item-radio span:before {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 20px;

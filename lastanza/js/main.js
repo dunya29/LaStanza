@@ -177,7 +177,6 @@ if (cityModal) {
 }
 // fixed header
 window.addEventListener("scroll", () => {
-   console.log(document.querySelector(".header__top").getBoundingClientRect().bottom)
    if (document.querySelector(".header__top").getBoundingClientRect().bottom < 0) {
     header.classList.add("fixed")
     document.querySelector(".header__bottom").classList.add("fixed-block")
@@ -283,7 +282,7 @@ $(".js-anchor").click((function(e) {
   let href = $(this).attr("href")
   let dest = $(href).offset().top;
   return $("html,body").animate({
-      scrollTop: dest - 30
+      scrollTop: dest - $(".header__bottom").height() - 20 
   }, 500)
   }
 ))
@@ -429,6 +428,11 @@ if (mainArt) {
 }
 //accordion
 $(".accordion__header").on("click", function () {
+  $(".accordion").each(function() {
+    if($(this).find("video").length > 0) {
+      $(this).find("video").get(0).pause()
+    }
+  })
   $(this).toggleClass("open")
       .siblings(".accordion__body")
       .slideToggle()
@@ -759,6 +763,7 @@ if (intro) {
   })
 }
 const product = document.querySelector(".product")
+
 if (product) {
   const itemTexture = document.querySelectorAll(".item-texture")
   const textureModal = document.querySelector(".texture-modal")
@@ -770,6 +775,7 @@ if (product) {
   const sizeProduct = document.querySelector(".size-product")
   const imageCrop = document.getElementById("imageCrop")
   const mainImg = document.querySelector(".main-product__img")
+
   let cropper
   let cropperCanvas
   let cropBox
@@ -794,8 +800,7 @@ if (product) {
     priceTotal: +orderForm.querySelector("input[name=priceTotal]").value,
     imgURl: orderForm.querySelector("input[name=imgURl]").value,
   }
-  const modifiedData = Object.assign({}, initialData)
-
+  let modifiedData = Object.assign({}, initialData)
   function setTotal() {
     document.querySelector(".total-product__price").textContent = String(modifiedData.designPrice ? modifiedData.priceDesign : modifiedData.priceStandart).replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()
     document.querySelector(".total-product__square").textContent = modifiedData.square
@@ -847,8 +852,9 @@ if (product) {
   let previousCall = 0
   let lastCallTimer
   let doc
+  let lastCall = Date.now()
   function setImg(t) {
-    let lastCall = Date.now();
+    lastCall = Date.now();
     if ((lastCall - previousCall) <= t) {
       clearTimeout(lastCallTimer);
     }
@@ -1154,7 +1160,6 @@ if (product) {
     },
     crop: function (event) {
       if (cropBox) {
-        console.log(shiftImg)
         cropBox.style.backgroundSize = `${cropper.containerData.width}px ${cropper.containerData.height}px`
         let reflectDiff = cropper.containerData.width - cropper.getCropBoxData().width
         if (modifiedData.reflectX) {
@@ -1347,7 +1352,8 @@ if (serviceAside) {
     anchors.forEach((item,i) => {
       const elementClick = item.getAttribute("href")
       const destination = document.querySelector(`${elementClick}`)
-      let offTop = parseInt(getComputedStyle(destination).marginBottom) < 30 ? 50 : parseInt(getComputedStyle(destination).marginBottom) 
+      //let offTop = parseInt(getComputedStyle(destination).marginBottom) < 30 ? 100 : (parseInt(getComputedStyle(destination).marginBottom) + 20)
+      let offTop = document.querySelector(".header__bottom").clientHeight + (parseInt(getComputedStyle(destination).marginBottom) < 30 ? 20 : (parseInt(getComputedStyle(destination).marginBottom) / 2))
       if (destination.getBoundingClientRect().top < offTop) {
         anchors.forEach(el => {
           el.classList.remove("active")

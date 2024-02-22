@@ -951,6 +951,9 @@ blockquote {
       min-height: 100px;
       border-radius: 12px;
     }
+    &__error {
+      font-size: 12px;
+    }
   }
 }
 .item-radio {

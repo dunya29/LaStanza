@@ -4505,7 +4505,6 @@ blockquote p {
   right: 32px;
   top: 32px;
   z-index: 2;
-  background-color: #fff;
 }
 
 .modal__close:hover {
@@ -9491,10 +9490,6 @@ blockquote p {
 
   .modal p {
     font-size: 16px;
-  }
-
-  .modal .swiper {
-    overflow: visible;
   }
 
   .modal .success-close {

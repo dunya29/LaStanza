@@ -742,6 +742,11 @@
 .greyscale {
     filter: grayscale(1);
 }
+.cropBox {
+    picture {
+        display: block;
+    }
+}
 .cropper-view-box {
     outline: none;
     img {

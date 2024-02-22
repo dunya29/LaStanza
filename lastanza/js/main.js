@@ -763,24 +763,30 @@ if (intro) {
   })
 }
 const product = document.querySelector(".product")
-
+const itemTexture = document.querySelectorAll(".item-texture")
+const textureModal = document.querySelector(".texture-modal")
+const textureAllModal = document.querySelector("#texture-modal-all")
+const orderForm = document.querySelector("#orderPafarmsForm")
+const colorize = document.querySelector(".params-product__colorize")
+const reflect = document.querySelector(".params-product__reflect")
+const greyscale = document.querySelector(".params-product__greyscale")
+const sizeProduct = document.querySelector(".size-product")
+const imageCrop = document.getElementById("imageCrop")
+const mainImg = document.querySelector(".main-product__img")
+let initialData
+let modifiedData
+let cropper
+let cropperCanvas
+let cropBox
+let shiftImg = 0
+let previousCall = 0
+let lastCallTimer
+let doc
+let lastCall = Date.now()
+let interval
+let activeTextureIdx = 0
 if (product) {
-  const itemTexture = document.querySelectorAll(".item-texture")
-  const textureModal = document.querySelector(".texture-modal")
-  const textureAllModal = document.querySelector("#texture-modal-all")
-  const orderForm = document.querySelector("#orderPafarmsForm")
-  const colorize = document.querySelector(".params-product__colorize")
-  const reflect = document.querySelector(".params-product__reflect")
-  const greyscale = document.querySelector(".params-product__greyscale")
-  const sizeProduct = document.querySelector(".size-product")
-  const imageCrop = document.getElementById("imageCrop")
-  const mainImg = document.querySelector(".main-product__img")
-
-  let cropper
-  let cropperCanvas
-  let cropBox
-  let shiftImg = 0
-  const initialData = {
+  initialData = {
     width: +orderForm.querySelector("input[name=width]").value,
     height: +orderForm.querySelector("input[name=height]").value,
     aRatio: +orderForm.querySelector("input[name=aRatio]").value,
@@ -800,7 +806,7 @@ if (product) {
     priceTotal: +orderForm.querySelector("input[name=priceTotal]").value,
     imgURl: orderForm.querySelector("input[name=imgURl]").value,
   }
-  let modifiedData = Object.assign({}, initialData)
+  modifiedData = Object.assign({}, initialData)
   function setTotal() {
     document.querySelector(".total-product__price").textContent = String(modifiedData.designPrice ? modifiedData.priceDesign : modifiedData.priceStandart).replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()
     document.querySelector(".total-product__square").textContent = modifiedData.square
@@ -849,10 +855,6 @@ if (product) {
     mainImg.style.backgroundPosition = `${document.querySelector(".main-product__btn").clientWidth + shiftImg}px center`
     cropper.setCropBoxData(cropper.getCropBoxData())
   }
-  let previousCall = 0
-  let lastCallTimer
-  let doc
-  let lastCall = Date.now()
   function setImg(t) {
     lastCall = Date.now();
     if ((lastCall - previousCall) <= t) {
@@ -907,7 +909,6 @@ if (product) {
   //select texture
   if (textureModal) {
     //select texture
-    let activeTextureIdx = 0
     function selectTexture() {
       itemTexture.forEach(item => {
         item.classList.remove("selected")
@@ -1119,7 +1120,6 @@ if (product) {
     })
   })
   //shift image
-  let interval
   document.querySelectorAll(".main-product__btn").forEach(item => {
     item.addEventListener("mousedown", e => {
       clearInterval(interval)
@@ -1157,6 +1157,7 @@ if (product) {
       cropBox.style.backgroundImage = `url(${cropper.image.currentSrc}`
       cropBox.style.backgroundSize = `${cropper.containerData.width}px ${cropper.containerData.height}px`
       cropBox.style.backgroundPosition = `-${cropper.getCropBoxData().left - shiftImg}px -${cropper.getCropBoxData().top}px`
+      console.log("re")
     },
     crop: function (event) {
       if (cropBox) {

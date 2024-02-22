@@ -116,6 +116,7 @@
         right: 32px;
         top: 32px;
         z-index: 2;
+        background-color: #fff;
         &:hover {
             transform: rotate(90deg);
         }
@@ -184,6 +185,7 @@
             height: 24px;
             top: 24px;
             right: 24px;
+            z-index: 4;
         }
         &__top {
             padding-bottom: 4px;
@@ -419,9 +421,19 @@
         }
     }
 }
+.texture-modal, .texture-all {
+    @media (max-width: $bp3) {
+        &__btns {
+            .btn {
+                padding: 10px 20px;
+                flex: 0 0 calc(50% - 6px)
+            }
+        }
+    }
+}
 .texture-modal {
     .modal__top {
-        margin-right: 210px;
+        padding-right: 210px;
         h3 {
             min-height: 54px;
             display: flex;
@@ -511,7 +523,7 @@
     }
     @media (max-width: $bp3) {
         .modal__top {
-            margin-right: 0;
+            padding-right: 0;
             h3 {
                 min-height: 0;
             }
@@ -839,6 +851,7 @@
     @media (max-width: $bp2) {
         &__btns {
             .btn {
+                padding: 10px 20px;
                 flex: 0 0 calc(50% - 16px);
             }
         }

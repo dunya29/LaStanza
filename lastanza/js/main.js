@@ -681,10 +681,13 @@ if (customSelect) {
   customSelect.forEach(select => {
     select.querySelector(".custom-select__selected").addEventListener("click", () => {
       if (!select.classList.contains("open")) {
-        openSelectCustom(select)
         if (window.innerWidth < 992.98 && select.querySelector(".modal")) {
           openModal(select.querySelector(".modal"))
         }
+        if (window.innerWidth < 992.98 && document.querySelector(".self-size.active")) {
+          sizeProduct.querySelectorAll(".size-product__btn")[0].click()
+        }
+        openSelectCustom(select)
       } else {
         closeSelectCustom(select)
       }
@@ -994,6 +997,11 @@ if (product) {
         closeModal(textureModal)
       })
     })
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 699.98 && textureAllModal.classList.contains("open")) {
+        closeModal(textureAllModal)
+      }
+    })
   }
   // order colorize
   colorize.querySelector("input").addEventListener("change", e => {
@@ -1036,7 +1044,10 @@ if (product) {
         modifiedData.selfSize = true
         document.querySelector(".main-product__top").classList.add("size-show")
         document.querySelector(".main-product__preview").classList.remove("swiper-show")
-        cropper.resize()      
+        cropper.resize() 
+        if (window.innerWidth < 992.98) {
+          openModal(sizeProduct.querySelector(".self-modal"))
+        }    
       } else {
         shiftImg = 0
         modifiedData.selfSize = false
@@ -1119,6 +1130,25 @@ if (product) {
       }
     })
   })
+  //self-modal__btns onlick
+  if (document.querySelector(".self-modal")) {
+    document.querySelectorAll(".self-modal .btn").forEach(item => {
+      item.addEventListener("click", () => {
+        if(item.classList.contains("stroke-btn")) {
+          sizeProduct.querySelectorAll(".size-product__btn")[0].click()
+        }
+        closeModal(document.querySelector(".self-modal.open"))
+      })
+    })
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 992.98 && document.querySelector(".self-modal.open")) {       
+        closeModal(document.querySelector(".self-modal"))
+      } else if (window.innerWidth < 992.98 && document.querySelector(".self-size.active")) {
+       // openModal(document.querySelector(".self-modal"))
+        sizeProduct.querySelectorAll(".size-product__btn")[0].click()
+      }
+    })
+  }
   //shift image
   document.querySelectorAll(".main-product__btn").forEach(item => {
     item.addEventListener("mousedown", e => {
@@ -1157,7 +1187,6 @@ if (product) {
       cropBox.style.backgroundImage = `url(${cropper.image.currentSrc}`
       cropBox.style.backgroundSize = `${cropper.containerData.width}px ${cropper.containerData.height}px`
       cropBox.style.backgroundPosition = `-${cropper.getCropBoxData().left - shiftImg}px -${cropper.getCropBoxData().top}px`
-      console.log("re")
     },
     crop: function (event) {
       if (cropBox) {

@@ -4505,6 +4505,7 @@ blockquote p {
   right: 32px;
   top: 32px;
   z-index: 2;
+  background-color: #fff;
 }
 
 .modal__close:hover {
@@ -4605,7 +4606,7 @@ blockquote p {
 }
 
 .texture-modal .modal__top {
-  margin-right: 210px;
+  padding-right: 210px;
 }
 
 .texture-modal .modal__top h3 {
@@ -6599,14 +6600,24 @@ blockquote p {
 }
 
 @media (min-width: 992.98px) {
-  .custom-select .modal {
+  .size-product .modal {
     position: absolute;
     top: 100%;
     width: auto;
     height: auto;
   }
 
-  .custom-select .modal__overlay {
+  .size-product .modal.self-modal {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .size-product .self-modal__btns {
+    display: none;
+  }
+
+  .size-product .modal__overlay {
     display: block;
     padding: 0;
     position: static;
@@ -6614,7 +6625,7 @@ blockquote p {
     overflow: visible;
   }
 
-  .custom-select .modal__content {
+  .size-product .modal__content {
     padding: 0 !important;
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
@@ -6624,12 +6635,12 @@ blockquote p {
     border-radius: 0;
   }
 
-  .custom-select .modal__top,
-  .custom-select .modal__close {
+  .size-product .modal__top,
+  .size-product .modal__close {
     display: none;
   }
 
-  .custom-select .container {
+  .size-product .container {
     padding: 0;
   }
 
@@ -8333,19 +8344,8 @@ blockquote p {
     padding: 10px 17px;
   }
 
-  .custom-select label span {
-    font-size: 14px;
-  }
-
   .custom-select.open {
     z-index: 4;
-  }
-
-  .custom-select .modal {
-    margin-top: 0;
-    background: transparent;
-    -webkit-box-shadow: none;
-    box-shadow: none;
   }
 
   .custom-select .modal label {
@@ -8410,32 +8410,6 @@ blockquote p {
 
   .custom-select .modal label input:checked + span:after {
     opacity: 1;
-  }
-
-  .custom-select .modal__overlay {
-    overflow: hidden;
-  }
-
-  .custom-select .modal__content {
-    max-height: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-  }
-
-  .custom-select .container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    overflow: hidden;
   }
 
   .custom-select__items {
@@ -9031,6 +9005,97 @@ blockquote p {
     display: none;
   }
 
+  .size-product label span {
+    font-size: 16px;
+  }
+
+  .size-product .item-toggle span {
+    color: #242626;
+  }
+
+  .size-product .modal {
+    margin-top: 0;
+    background: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .size-product .self-modal__items {
+    overflow: auto;
+  }
+
+  .size-product .self-modal__btns {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-top: 24px;
+  }
+
+  .size-product .self-modal__btns .btn {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 calc(50% - 6px);
+    flex: 0 0 calc(50% - 6px);
+  }
+
+  .size-product .modal__overlay {
+    overflow: hidden;
+  }
+
+  .size-product .modal__content {
+    max-height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .size-product .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .size-product__inputs {
+    margin: 0 0 24px;
+  }
+
+  .size-product__inp {
+    border-radius: 8px;
+    margin-right: 8px;
+  }
+
+  .size-product__inp input,
+  .size-product__inp span {
+    font-weight: 500;
+  }
+
+  .size-product__container:first-child .size-product__btn {
+    display: none !important;
+  }
+
+  .size-product__container:last-child .size-product__btn {
+    display: block !important;
+  }
+
+  .size-product__action {
+    display: block;
+  }
+
   .item-texture {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 98px;
@@ -9466,6 +9531,7 @@ blockquote p {
     height: 24px;
     top: 24px;
     right: 24px;
+    z-index: 4;
   }
 
   .modal__top {
@@ -9625,6 +9691,7 @@ blockquote p {
   }
 
   .city-modal__btns .btn {
+    padding: 10px 20px;
     -webkit-box-flex: 0;
     -ms-flex: 0 0 calc(50% - 16px);
     flex: 0 0 calc(50% - 16px);
@@ -10767,6 +10834,10 @@ blockquote p {
     display: inline-flex;
   }
 
+  .size-product label span {
+    font-size: 14px;
+  }
+
   .size-product__btn {
     font-size: 14px;
   }
@@ -11104,8 +11175,16 @@ blockquote p {
     font-size: 14px;
   }
 
+  .texture-modal__btns .btn,
+  .texture-all__btns .btn {
+    padding: 10px 20px;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 calc(50% - 6px);
+    flex: 0 0 calc(50% - 6px);
+  }
+
   .texture-modal .modal__top {
-    margin-right: 0;
+    padding-right: 0;
   }
 
   .texture-modal .modal__top h3 {

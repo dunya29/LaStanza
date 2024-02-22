@@ -489,6 +489,42 @@
             white-space: nowrap;
         }
     }
+    @media (min-width: $bp2) {
+        .modal {
+            position: absolute;
+            top: 100%;
+            width: auto;
+            height: auto;
+            &.self-modal {
+                position: static;
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+        .self-modal__btns {
+            display: none;
+        }
+        .modal__overlay {
+            display: block;
+            padding: 0;
+            position: static;
+            background: transparent;
+            overflow: visible;
+        }
+        .modal__content {
+            padding: 0 !important;
+            transform: scale(1);
+            opacity: 1;
+            border: none;
+            border-radius: 0;
+        }
+        .modal__top, .modal__close {
+            display: none;
+        }
+        .container {
+            padding: 0;
+        }
+    }
     @media (max-width: $bp1) {
         .custom-select {
             max-width: 209px;
@@ -500,7 +536,74 @@
             font-size: 16px;
         }
     }
+    @media (max-width: $bp2) {
+        label span {
+          font-size: 16px;
+        }
+        .item-toggle span {
+            color: $maincolor;
+        }
+        .modal {
+              margin-top: 0;
+              background: transparent;
+              box-shadow: none;
+        }
+        .self-modal__items {
+            overflow: auto;
+        }
+        .self-modal__btns {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 24px;
+            .btn {
+                flex: 0 0 calc(50% - 6px);
+            }
+        }
+        .modal__overlay {
+              overflow: hidden;
+        }
+        .modal__content {
+              max-height: 100%;
+              display: flex;
+              flex-direction: column;
+        }
+        .container {
+              display: flex;
+              flex-direction: column;
+              overflow: hidden;
+        }
+        &__inputs {
+            margin: 0 0 24px;
+        }
+        &__inp {
+            border-radius: 8px;
+            margin-right: 8px;
+            input, span {
+                font-weight: 500;
+            }
+        }
+        &__container {
+            &:first-child {
+                .size-product__btn {
+                    display: none!important;
+                }
+            }
+            &:last-child {
+                .size-product__btn {
+                    display: block!important;
+                }
+            }
+        }
+        &__action {
+            display: block;
+        }
+      }
     @media (max-width: $bp3) {
+        label span {
+            font-size: 14px;
+        }
         &__btn {
             font-size: 14px;
         }

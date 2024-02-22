@@ -1092,10 +1092,13 @@ blockquote p {
 
 .file-form__header span:nth-child(2) {
   font-size: 16px;
+  font-weight: 500;
   color: #989898;
 }
 
 .file-form__item {
+  font-size: 16px;
+  font-weight: 500;
   color: rgba(0, 0, 0, 0.5);
   display: grid;
   grid-template-columns: 60px 1fr auto auto;
@@ -4692,10 +4695,6 @@ blockquote p {
 
 .cert-modal .modal__content {
   max-width: 966px;
-}
-
-.cert-modal .modal__top {
-  display: block;
 }
 
 .cert-modal .modal__top span {
@@ -9429,6 +9428,10 @@ blockquote p {
     font-size: 16px;
   }
 
+  .modal .swiper {
+    overflow: visible;
+  }
+
   .modal .success-close {
     width: 100%;
   }
@@ -9466,7 +9469,12 @@ blockquote p {
   }
 
   .modal__top {
-    margin-bottom: 24px;
+    padding-bottom: 4px;
+    background: #ffffff;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    margin-bottom: 20px;
   }
 
   .modal__content {
@@ -10254,6 +10262,10 @@ blockquote p {
   }
 
   .file-form label span {
+    font-size: 14px;
+  }
+
+  .file-form__item {
     font-size: 14px;
   }
 

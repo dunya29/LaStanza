@@ -835,10 +835,13 @@ blockquote {
     }
     span:nth-child(2) {
       font-size: 16px;
+      font-weight: 500;
       color: $light-gray;
     }
   }
   &__item {
+    font-size: 16px;
+    font-weight: 500;
     color: rgba($black, 0.5);
     display: grid;
     grid-template-columns: 60px 1fr auto auto;
@@ -877,6 +880,9 @@ blockquote {
       span {
         font-size: 14px;
       }
+    }
+    &__item {
+      font-size: 14px;
     }
     &__header {
       span:first-child {

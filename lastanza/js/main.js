@@ -1501,7 +1501,7 @@ if (portfolioPage) {
                       <div class="swiper">
                         <div class="swiper-wrapper">
                           ${imgSrc.map((item,idx) => `<div class="swiper-slide">
-                          <div class="mb-40">
+                          <div class="mb-40 modal__top">
                             <h3>${title[idx]}</h3>
                             <span class="portfolio-modal__art">${art[idx]}</span>
                           </div>

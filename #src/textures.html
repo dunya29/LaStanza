@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('_head.html', {   
+    "title": "Фактуры и цены"
+})
+
+<body>
+    <div class="wrap">
+        <!--header-->
+        @@include('_header.html')
+        <!--main-->  
+        <main class="main">
+            <!--breadcrumbs-->
+            <nav class="breadcrumbs breadcrumbs--shift">
+                <div class="container">
+                    <ul>
+                        <li><a href="#" class="link">Главная</a></li>
+                        <li class="active">Фактуры и цены</li>
+                    </ul>
+                </div>
+            </nav>
+            <!--textures-->
+            <section class="section textures">
+                <div class="container">
+                    <div class="shift-x">
+                        <div class="mb-60 textures__top">
+                            <h1>Фактуры и цены</h1>
+                            <p>Компания La Stanaza ведущий производитель отделочных материалов премиум-класса. В нашем распоряжении уникальная производственная база, благодаря которой мы можем наносить изображения на продукцию любого формата: от мозаики 10х10 мм до фресок и фотообоев без стыков 10х3,14 м.</p>
+                        </div>
+                        <div class="section-sm textures__col">
+                            <h3 class="mb-40">Интерьерные фрески</h3>
+                            @@include('_col-texture.html', {"name": "Breeze Light"})
+                            @@include('_col-texture.html', {"name": "Argento"})
+                            @@include('_col-texture.html', {"name": "Stacco"})
+                            @@include('_col-texture.html', {"name": "Maestro/Кварц"})
+                            @@include('_col-texture.html', {"name": "Palermo/Песок"})
+                        </div>
+                        <div class="section-sm textures__col">
+                            <h3 class="mb-40">Фасадные фрески</h3>
+                            @@include('_col-texture.html', {"name": "Palermo/Песок Фасад"})
+                            @@include('_col-texture.html', {"name": "Кварц Фасад"})
+                        </div>
+                        <div class="section-sm textures__col">
+                            <h3 class="mb-40">Фактуры фотообоев</h3>
+                            @@include('_col-texture.html', {"name": "Платинум"})
+                            @@include('_col-texture.html', {"name": "Велюр"})
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+         <!--footer-->
+        @@include('_footer.html')
+        @@include('_modal.html')
+    </div>
+    @@include('_js.html')
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: -12px;
+    &__link, &__item {
+        font-size: 16px;
+        line-height: 1;
+        color: $maincolor;
+        min-width: 40px;
+        height: 40px;
+        padding: 10px;
+        border-radius: 20px;
+        background: #F2F3F5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 6px;
+        transition: all .4s linear;
+        white-space: nowrap;
+        &:hover {
+            background: $white-gray;
+        }
+        &.current, &:active {
+            color: $white;
+            background: $maincolor;
+            pointer-events: none;
+        }
+    }
+    &__link, &__item, .nav-btn {
+        margin-bottom: 12px;
+    }
+    span {
+        pointer-events: none;
+    }
+    .nav-btn {
+        flex: 0 0 40px;
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+    }
+    .nav-btn:first-child {
+        margin-right: 18px;
+    }
+    .nav-btn:last-child {
+        margin-left: 18px;
+    }
+    @media (max-width: $bp1) {
+        margin-top: 60px;
+    }
+    @media (max-width: $bp4) {
+        .nav-btn {
+            display: none;
+           /*  flex: 0 0 20px;
+            width: 20px;
+            height: 34px;
+            padding: 0;
+            border-radius: 0;
+            border: none; 
+            &:first-child {
+                margin-right: 6px;
+            }
+            &:last-child {
+               margin-left: 6px;
+            }*/
+        }
+        &__link, &__item {
+            font-size: 14px;
+            min-width: 34px;
+            height: 34px;
+            padding: 7px;
+            border-radius: 17px;
+            margin: 0 3px 12px;
+        }
+    }
+}

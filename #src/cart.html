@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('_head.html', {
+"title": "Корзина"
+})
+
+<body>
+    <div class="wrap">
+        @@include('_header.html')
+        <!--main-->
+        <main class="main">
+            @@include('_breadcrumbs.html', {
+            "page": "Корзина"
+            })
+            <!--cart-->
+            <section class="section cart">
+                <div class="container">
+                    <h1>Корзина (1)</h1>
+                    <form class="cart-form">
+                        <div class="cart-form__body">
+                            <div class="section-sm cart-form__items">
+                                @@include('_item-cart.html')
+                                @@include('_item-cart.html')
+                            </div>
+                            <div class="cart-form__details">
+                                <div class="mb-60 cart-form__fieldset">
+                                    <h3>Покупатель</h3>
+                                    <div class="form__grid">
+                                        <div class="item-form"><input type="text" maxlength="100" placeholder="Фамилия"></div>
+                                        <div class="item-form"><input type="text" maxlength="100" placeholder="Имя"></div>
+                                        <div class="item-form"><input type="text" placeholder="E-mail"></div>
+                                        <div class="item-form"><input type="tel" placeholder="Телефон"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-60 cart-form__fieldset cart-del">
+                                    <h3>Доставка</h3>
+                                    <div class="item-info">
+                                        <label class="item-radio">
+                                            <input name="cart-delivery" type="radio"  data-del-nav="" class="pickup">
+                                            <span>Самовывоз</span>
+                                        </label>
+                                        <div class="tippy" data-content="Если вы находитесь в Москве или Московской области, мы сможем бесплатно доставить ваш заказ курьерской службой."></div>
+                                    </div>
+                                    <div class="item-info">
+                                        <label class="item-radio">
+                                            <input name="cart-delivery" type="radio"  data-del-nav="" checked>
+                                            <span>Доставка курьером по Москве и МО</span>
+                                        </label>
+                                        <div class="tippy" data-content="Если вы находитесь в Москве или Московской области, мы сможем бесплатно доставить ваш заказ курьерской службой."></div>
+                                    </div>
+                                    <div class="item-info">
+                                        <label class="item-radio">
+                                            <input name="cart-delivery" type="radio" data-del-nav="">
+                                            <span>Транспортная компания</span>
+                                        </label>
+                                        <div class="tippy" data-content="Если вы находитесь в Москве или Московской области, мы сможем бесплатно доставить ваш заказ курьерской службой."></div>
+                                    </div>
+                                    <div class="cart-del__content" data-del-block="">
+                                        <div class="cart-del__items">
+                                            <div class="cart-del__item">
+                                                <div class="cart-del__lbl">Самовывоз по адресу:</div>
+                                                <div class="cart-del__address">
+                                                    <div class="item-contact">
+                                                        <svg><use xlink:href="img/icons/sprite.svg#address"></use></svg>г.Москва, м. Академическая,<br>ул. Дмитрия Ульянова, д. 42
+                                                    </div>
+                                                    <a href="https://yandex.ru/maps/213/moscow/?ll=37.593038%2C55.682577&mode=usermaps&source=constructorLink&um=constructor%3A49e1d43eb0f6c5b828ce5ab48e416b552eb6fe2a119dbe84b399b889e621d3fd&z=12" target="_blank" class="btn stroke-btn">Смотреть на карте</a>    
+                                                </div>
+                                            </div>
+                                            <div class="cart-del__item">
+                                                <div class="cart-del__lbl">Часы работы:</div>
+                                                <div class="item-contact">
+                                                    <svg><use xlink:href="img/icons/sprite.svg#time"></use></svg>
+                                                    Пн-Пт: 10.00-19.00.<br>
+                                                    Сб-Вс: выходной
+                                                </div>
+                                            </div>
+                                            <div class="cart-del__item">
+                                                <div class="cart-del__lbl">Контакты:</div>
+                                                <a href="tel:84959951524" class="item-contact phone">
+                                                    <svg><use xlink:href="img/icons/sprite.svg#phone"></use></svg>+7 (495) 995-15-24
+                                                </a>
+                                                <a href="mailto:info@lastanza.ru" class="item-contact">
+                                                    <svg><use xlink:href="img/icons/sprite.svg#mail"></use></svg>info@lastanza.ru
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart-del__content active" data-del-block="">
+                                        <div class="form__grid">
+                                            <div class="item-form"><input type="text" placeholder="Город доставки"></div>
+                                            <div class="item-form"><input type="text" placeholder="Улица"></div>
+                                            <div class="item-form"><input type="text" placeholder="Дом"></div>
+                                            <div class="item-form"><input type="text" placeholder="Кв/офис"></div>
+                                        </div>
+                                        <div class="item-form">
+                                            <textarea placeholder="Комментарий" name="" maxlength="1000" oninput="this.style.height = this.scrollHeight + 'px'"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="cart-del__content" data-del-block>
+                                        <div class="cart-del__lbl">Мы работаем с транспортными компаниями:</div>
+                                        <div class="cart-del__comp">
+                                            <img src="img/delivery/sdek.svg" alt="">
+                                            <img src="img/delivery/delovie-linii.svg" alt="">
+                                            <img src="img/delivery/pek.svg" alt="">
+                                            <img src="img/delivery/jde.svg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-60 cart-form__fieldset cart-payment">
+                                    <h3>Оплата</h3>
+                                    <div class="item-info">
+                                        <label class="item-radio">
+                                            <input name="cart-payment" type="radio">
+                                            <span>Онлайн на сайте</span>
+                                        </label>
+                                        <div class="tippy" data-content="Если вы находитесь в Москве или Московской области, мы сможем бесплатно доставить ваш заказ курьерской службой."></div>
+                                    </div>
+                                    <div class="item-info">
+                                        <label class="item-radio">
+                                            <input name="cart-payment" type="radio">
+                                            <span>Безналичная оплата по счету</span>
+                                        </label>
+                                        <div class="tippy" data-content="Если вы находитесь в Москве или Московской области, мы сможем бесплатно доставить ваш заказ курьерской службой."></div>
+                                    </div>
+                                    <div class="item-info pickup">
+                                        <label class="item-radio">
+                                            <input name="cart-payment" type="radio">
+                                            <span>В офисе La Stanza</span>
+                                        </label>
+                                        <div class="tippy" data-content="Если вы находитесь в Москве или Московской области, мы сможем бесплатно доставить ваш заказ курьерской службой."></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cart-total">
+                            <div class="cart-total__top">
+                                <span class="h5 mb-40 cart-total__lbl">Добавить услуги:</span>
+                                <div class="cart-total__toggle">
+                                    <span>Монтаж</span>
+                                    <label class="item-toggle">
+                                        <input type="checkbox">
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="cart-total__toggle">
+                                    <span>Дизайн</span>
+                                    <label class="item-toggle">
+                                        <input type="checkbox">
+                                        <span></span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="cart-total__bottom">
+                                <div class="cart-total__bottom-inner">
+                                    <span class="h5 mb-40 cart-total__lbl">Ваш заказ</span>
+                                <div class="cart-total__det">
+                                    <span>Товары (1)</span>
+                                    <span>41 220 ₽</span>
+                                </div>
+                                <div class="cart-total__det">
+                                    <span>Общий вес</span>
+                                    <span>9 кг</span>
+                                </div>
+                                <div class="cart-total__det">
+                                    <span>Доставка</span>
+                                    <span>бесплатно</span>
+                                </div>
+                                <div class="cart-total__total">
+                                    <span class="h5">Итого</span>
+                                    <span class="rub h5">41 220</span>
+                                </div>
+                                <div class="form__footer">
+                                    <button type="submit" class="btn main-btn">Заказать<span class="rub mobprice cart-total__mobprice">6 183</span></button>
+                                    <p>Нажимая на кнопку «Заказать», вы даете <a href="#" target="_blank">согласие</a> на обработку своих персональных данных</p>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+        </main>
+        @@include('_footer.html')
+        @@include('_modal.html')
+    </div>
+    @@include('_js.html')
+</body>
+
+</html>

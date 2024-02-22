@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('_head.html', {   
+    "title": "Контакты"
+})
+
+<body>
+    <div class="wrap">
+        @@include('_header.html')
+        <!--main-->  
+        <main class="main">
+            <!--breadcrumbs-->
+            <nav class="breadcrumbs breadcrumbs--shift-tab">
+                <div class="container">
+                    <ul>
+                        <li><a href="#" class="link">Главная</a></li>
+                        <li class="active">Контакты</li>
+                    </ul>
+                </div>
+            </nav>
+            <!--contacts-->
+            <section class="section contacts">
+                <div class="container">
+                    <div class="mb-40 page-top">
+                        <h1>Контакты</h1>
+                    </div>
+                </div>
+                <div class="contacts__row">
+                    <div class="contacts__map">
+                        <div class="map" id="map1"></div>
+                    </div>
+                    <div class="container">
+                        <div class="contacts-block">
+                            <div class="mb-40 contacts-block__top">
+                                <h5>Головной офис в Москве</h5>
+                            </div>
+                            <div class="contacts-block__body">
+                                <div class="item-contact">
+                                    <svg><use xlink:href="img/icons/sprite.svg#address"></use></svg>м. Академическая,<br>ул. Дмитрия Ульянова, д. 42
+                                </div>
+                                <div class="item-contact">
+                                    <svg><use xlink:href="img/icons/sprite.svg#time"></use></svg>
+                                    Пн-Пт: 10.00-19.00.<br>
+                                    Сб-Вс: выходной
+                                </div>
+                                <a href="tel:84959951524" class="item-contact phone">
+                                    <svg><use xlink:href="img/icons/sprite.svg#phone"></use></svg>+7 (495) 995-15-24
+                                </a>
+                                <a href="mailto:info@lastanza.ru" class="item-contact">
+                                    <svg><use xlink:href="img/icons/sprite.svg#mail"></use></svg>info@lastanza.ru
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+             <!--contacts-partner-->
+             <section class="section contacts-partner">
+                <div class="container">
+                    <div class="mb-60 page-top">
+                        <h2>Наши партнеры<span> в г. Нижний Новгород</span></h2>
+                        <div class="page-top__content">
+                            <button type="button" class="btn stroke-btn modal-show-btn" data-modal="city-partner-modal">Другой город</button>
+                        </div>
+                    </div>
+                    <div class="contacts-partner__row">
+                        <div class="contacts-partner__content">
+                            <div class="contacts-block">
+                                <div class="mb-40 contacts-block__top">
+                                    <h5>Нижний Новгород <span>«Dessa Decor»</span></h5>
+                                </div>
+                                <div class="contacts-block__body">
+                                    <div class="item-contact">
+                                        <svg><use xlink:href="img/icons/sprite.svg#address"></use></svg>м. Академическая,<br>ул. Дмитрия Ульянова, д. 42
+                                    </div>
+                                    <div class="item-contact">
+                                        <svg><use xlink:href="img/icons/sprite.svg#time"></use></svg>
+                                        Пн-Пт: 10.00-19.00.<br> 
+                                        Сб-Вс: выходной
+                                    </div>
+                                    <a href="tel:84959951524" class="item-contact phone">
+                                        <svg><use xlink:href="img/icons/sprite.svg#phone"></use></svg>+7 (495) 995-15-24
+                                    </a>
+                                    <a href="mailto:info@lastanza.ru" class="item-contact">
+                                        <svg><use xlink:href="img/icons/sprite.svg#mail"></use></svg>info@lastanza.ru
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="contacts-block">
+                                <div class="mb-40 contacts-block__top">
+                                    <h5>Нижний Новгород <span>«Dessa Decor»</span></h5>
+                                </div>
+                                <div class="contacts-block__body">
+                                    <div class="item-contact">
+                                        <svg><use xlink:href="img/icons/sprite.svg#address"></use></svg>м. Академическая,<br>ул. Дмитрия Ульянова, д. 42
+                                    </div>
+                                    <div class="item-contact">
+                                        <svg><use xlink:href="img/icons/sprite.svg#time"></use></svg>
+                                        Пн-Пт: 10.00-19.00.<br>
+                                        Сб-Вс: выходной
+                                    </div>
+                                    <a href="tel:84959951524" class="item-contact phone">
+                                        <svg><use xlink:href="img/icons/sprite.svg#phone"></use></svg>+7 (495) 995-15-24
+                                    </a>
+                                    <a href="mailto:info@lastanza.ru" class="item-contact">
+                                        <svg><use xlink:href="img/icons/sprite.svg#mail"></use></svg>info@lastanza.ru
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contacts-partner__map">
+                            <div class="map" id="map2"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            @@include('_feedback-form.html')
+        </main>
+         <!--footer-->
+        @@include('_footer.html')
+        @@include('_modal.html')
+        @@include('_map.html')
+    </div>
+    @@include('_js.html')
+</body>
+
+</html>

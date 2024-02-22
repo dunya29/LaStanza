@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('_head.html', {   
+    "title": "О студии"
+})
+
+<body>
+    <div class="wrap">
+        <!--header-->
+        @@include('_header.html')
+        <!--main-->  
+        <main class="main">
+            @@include('_breadcrumbs.html', {
+                "page": "О студии"
+            })
+            <!--main-why-->
+            <section class="section main-why">
+                <div class="container">
+                    <h1>Студия фрески La Stanza это:</h1>
+                    <div class="main-why__items">
+                        @@include('_item-why.html', {"img":"delivery", "txt":"Бесплатная доставка"})
+                        @@include('_item-why.html', {"img":"measurements", "txt":"Бесплатный выезд дизайнера"})
+                        @@include('_item-why.html', {"img":"time", "txt":"Срок исполнения 3 дня"})
+                        @@include('_item-why.html', {"img":"technologic", "txt":"Бесшовные технологии"})
+                        @@include('_item-why.html', {"img":"eco", "txt":"Экологичность"})
+                        @@include('_item-why.html', {"img":"textures", "txt":"Большой выбор фактур"})
+                        @@include('_item-why.html', {"img":"designers", "txt":"Профессиональные дизайнеры"})
+                        @@include('_item-why.html', {"img":"individ-heart", "txt":"Индивиду­альный подход"})
+                    </div>
+                </div>
+            </section>
+            <!--about-->
+            <section class="section about">
+                <div class="container">
+                    <div class="about__areas">
+                        <div class="about__area">
+                            <div class="media-cover"><img src="img/partner-complect.jpg" alt=""></div>
+                        </div>
+                        <div class="about__area">
+                            <p>Хотите, чтобы искусство всегда присутствовало в вашем доме, а интерьер вашего жилья вызывал восхищенные и завистливые взгляды гостей Вашего дома? Тогда фабрика фрески La Stanza — это именно то, что Вам нужно. На рынке дизайнерских услуг разнообразие всевозможных дизайн-студий порою заводит в тупик многих потребителей, и не мудрено — обещание качественных поставок, быстрого монтажа, низких цен и бонусных скидок прельстит каждого. Мы не будем Вам ничего обещать! Вместо обещаний, мы просто качественно выполняем свою работу и соблюдаем точные сроки. Более того, наша студия фрески — это исключительно итальянское качество, ведь в производстве оригинальных фресок нашими специалистами используются новейшие технологии и наработки мастеров старой итальянской школы.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--about-->
+            <section class="section about">
+                <div class="container">
+                    <div class="mb-40 page-top">
+                        <h2>Заказать фреску авторского исполнения</h2>
+                    </div>
+                    <div class="page-grid">
+                        <p>Студия фрески La Stanza — это новое веяние в интерьере. Индивидуальный подход к каждому клиенту, выезд на предполагаемое место монтажа, консультации с опытными дизайнерами помогут вам определиться с выбором необходимого сюжета. Если вы не можете подобрать сюжет в нашей коллекции, не стоит переживать — вы можете заказать фреску авторского исполнения, правда, авторский заказ обойдется вам чуть дороже, однако и уникальность его стопроцентна. Говоря о наших изделиях, мы можем смело сказать, что фрески от La Stanza — это высокое качество, несомненная экологичность, безупречная прочность, влагостойкость и демократичная цена. В выборе заказа нет никаких ограничений. Вы можете заказать фреску с известными традиционными сюжетами, ставшими классикой, или выбрать футуристический сюжет будущего.</p>
+                        <p>Кстати, размер фрески вы также определяете самостоятельно, наши же специалисты изготавливают фрески любых размеров, даже монументальных — для помещений сталинских построек с высокими потолками. Широкие потолочные фрески смотрятся особенно эффектно. Кроме того, заказать фреску вы можете даже по Интернету, не выходя из дома, точнее определиться с сюжетом и фактурой. Далее вам необходимо лишь связаться с менеджером. Ваш заказ моментально принимается к исполнению и, в течение кратчайшего времени, вы станете обладателем превосходного шедевра в вашем интерьере.</p>
+                    </div>
+                </div>
+            </section>
+            <!--main-articles-->
+            <section class="section main-articles">
+                <div class="container">
+                    <div class="mb-60 swiper-top">
+                        <h2>Статьи</h2>
+                        <div class="swiper-nav">
+                            <button class="nav-btn nav-btn--prev">
+                                <svg><use xlink:href="img/icons/sprite.svg#arrow-left"></use></svg>
+                            </button>
+                            <button class="nav-btn nav-btn--next">
+                                <svg><use xlink:href="img/icons/sprite.svg#arrow-right"></use></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mb-60 swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                @@include('_item-article.html', {"nmb":"1"})
+                            </div>
+                            <div class="swiper-slide">
+                                @@include('_item-article.html', {"nmb":"2"})
+                            </div>
+                            <div class="swiper-slide">
+                                @@include('_item-article.html', {"nmb":"3"})
+                            </div>
+                            <div class="swiper-slide">
+                                @@include('_item-article.html', {"nmb":"4"})
+                            </div>
+                            <div class="swiper-slide">
+                                @@include('_item-article.html', {"nmb":"1"})
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-align"><a href="#" class="btn stroke-btn">Все статьи</a></div>
+                </div>
+            </section>
+            @@include('_feedback-form.html')
+        </main>
+         <!--footer-->
+        @@include('_footer.html')
+        @@include('_modal.html')
+    </div>
+    @@include('_js.html')
+</body>
+
+</html>

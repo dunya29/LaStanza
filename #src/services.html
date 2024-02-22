@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('_head.html', {   
+    "title": "Наши услуги"
+})
+
+<body>
+    <div class="wrap">
+        <!--header-->
+        @@include('_header.html')
+        <!--main-->  
+        <main class="main">
+            <!--breadcrumbs-->
+            <nav class="breadcrumbs breadcrumbs--shift">
+                <div class="container">
+                    <ul>
+                        <li><a href="#" class="link">Главная</a></li>
+                        <li class="active">Услуги</li>
+                    </ul>
+                </div>
+            </nav>
+            <!--services-->
+            <section class="section services">
+                <div class="container">
+                    <h1 class="shift-x">Наши услуги</h1>
+                    <div class="services__cols">
+                        <div class="col-services">
+                            <div class="col-services__top">
+                                <div class="col-services__content">
+                                    <h3>Дизайн</h3>
+                                    <a href="#">Подробнее</a>
+                                </div>
+                                <button class="btn main-btn modal-show-btn" data-modal="feedback-modal">Заказать</button>
+                            </div>
+                            <div class="media-cover">
+                                <img src="img/cat-card-1.jpg" alt="Дизайн">
+                            </div>
+                        </div>
+                        <div class="col-services">
+                            <div class="col-services__top">
+                                <div class="col-services__content">
+                                    <h3>Монтаж</h3>
+                                    <a href="#">Подробнее</a>
+                                </div>
+                                <button class="btn main-btn modal-show-btn" data-modal="feedback-modal">Заказать</button>
+                            </div>
+                            <div class="media-cover">
+                                <img src="img/cat-card-2.jpg" alt="Монтаж">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+         <!--footer-->
+        @@include('_footer.html')
+        @@include('_modal.html')
+    </div>
+    @@include('_js.html')
+</body>
+
+</html>

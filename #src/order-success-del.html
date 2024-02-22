@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('_head.html', {   
+    "title": "Заказ успешно оформлен"
+})
+
+<body>
+    <div class="wrap">
+        <!--header-->
+        @@include('_header.html')
+        <!--main-->  
+        <main class="main">
+            <nav class="breadcrumbs">
+                <div class="container">
+                    <a class="backward" href="#">
+                        <svg><use xlink:href="img/icons/sprite.svg#chevron"></use></svg>
+                        <span>В каталог</span>
+                    </a>
+                </div>
+            </nav>
+            <!--order-->
+            <section class="section order">
+                <div class="container">
+                    <div class="mb-60 order__top">
+                        <h1>Ваш заказ успешно оформлен</h1>
+                        <h3>Номер заказа 3478392853</h3>
+                        <h5>Наш менеджер свяжется с вами в течении дня</h5>
+                    </div>
+                    <div class="mb-60 order__items">
+                        <div class="item-cart">
+                            <div class="item-cart__left">
+                                <div class="item-cart__preview"><div class="media-cover"><img src="img/product-1-sm.jpg" alt="Фреска Applico 01202-G"></div></div>
+                            </div>
+                            <div class="item-cart__content">
+                                <div class="item-cart__info">
+                                    <h5 class="item-cart__title">Фреска Applico 01202-G</h5>
+                                    <div class="item-cart__details">
+                                        <div class="item-cart__det">
+                                            <span>Размер:</span>
+                                            <span>150 см х 90 см</span>
+                                        </div>
+                                        <div class="item-cart__det">
+                                            <span>Фактура:</span>
+                                            <span><img src="img/texture-1.jpg" alt="Breeze Light">Breeze Light</span>
+                                        </div>
+                                        <div class="item-cart__det">
+                                            <span>Цвет:</span>
+                                            <span>Без изменений</span>
+                                        </div>
+                                        <div class="item-cart__det">
+                                            <span>Цветопроба:</span>
+                                            <span>Нет</span>
+                                        </div>
+                                        <div class="item-cart__det">
+                                            <span>Площадь:</span>
+                                            <span>1,35 м²</span>
+                                        </div>
+                                        <div class="item-cart__det">
+                                            <span>Цена с дизайном:</span>
+                                            <span>Нет</span>
+                                        </div>
+                                        <div class="item-cart__det">
+                                            <span>Вес:</span>
+                                            <span>9 кг</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item-cart__total">
+                                    <h5 class="item-cart__price">Сумма к оплате: <span class="h4 rub">41 220</span></h5>
+                                    <span>Банковской картой или наличными</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-60 cart-del">
+                        <div class="cart-del__items">
+                            <div class="cart-del__item">
+                                <div class="cart-del__lbl">Доставка по адресу:</div>
+                                <div class="cart-del__address">
+                                    <div class="item-contact">
+                                        <svg><use xlink:href="img/icons/sprite.svg#address"></use></svg>г. Москва, ул. Фрунзе, д. 42, кв. 98
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-60 order__comment">
+                        <span>Комментарий к заказу:</span>
+                        <p>Осуществлять доставку после 18:00</p>
+                    </div>
+                    <div class="order__footer">
+                        <a href="#" class="btn main-btn">На главную</a>
+                        <a href="#" class="btn  main-link order__btn">Сохранить чек</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+         <!--footer-->
+        @@include('_footer.html')
+        @@include('_modal.html')
+    </div>
+    @@include('_js.html')
+</body>
+
+</html>

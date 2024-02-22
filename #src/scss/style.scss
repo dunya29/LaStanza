@@ -1,0 +1,34 @@
+@import "fonts";
+@import "null";
+@import "vars";
+@import "general";
+@import "header";
+@import "breadcrumbs";
+@import "pagination";
+@import "search";
+@import "intro";
+@import "categories";
+@import "colls";
+@import "article";
+@import "catalog";
+@import "product";
+@import "textures";
+@import "services";
+@import "404";
+@import "about";
+@import "modal";
+@import "delivery";
+@import "cart";
+@import "main-form";
+@import "cond";
+@import "order";
+@import "nouislider";
+@import "reviews";
+@import "partner";
+@import "contacts";
+@import "portfolio";
+@import "footer";
+
+.fancybox__button--fullscreen,.fancybox__button--slideshow,.fancybox__button--thumbs,.fancybox__button--zoom,.fancybox__thumbs {
+    display: none
+}

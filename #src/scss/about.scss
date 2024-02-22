@@ -1,0 +1,123 @@
+.main-why {
+    h1 {
+        margin-bottom: 40px;
+    }
+    .page-top h2 {
+        max-width: 397px;
+    }
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        gap: 40px 30px;
+    }
+    @media (max-width: $bp1) {
+        &__items {
+            gap: 20px;
+        }
+    }
+    @media (max-width: $bp2) {
+        h1 {
+            margin-bottom: 24px;
+        }
+        &__items {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    @media (max-width: $bp3) {
+        h1 {
+            max-width: 220px;
+        }
+        &__items {
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+    }
+}
+.item-why {
+    padding: 20px 28px;
+    border-radius: 16px;
+    border: 1px solid #EAEAEA;
+    box-shadow: 0px 1.51px 3.02px 0px rgba(199, 199, 199, 0.25);
+    &__img {
+        width: 60px;
+        height: 60px;
+        padding: 15px;
+        border-radius: 8px;
+        background: #F2F3F5;
+        margin-bottom: 32px;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+    @media (max-width: $bp1) {
+        display: flex;
+        flex-direction: column;
+        h6 {
+            flex: 1 1 auto;
+            display: flex;
+            align-items: flex-end;
+        }
+        &__img {
+            margin-bottom: 10px;
+        }
+    }
+    @media (max-width: 1279.98px) {
+        padding: 16px 24px;
+    }
+    @media (max-width: $bp2) {
+        h6 {
+            min-height: 44px;
+        }
+    }
+    @media (max-width: $bp3) {
+        h6 {
+            min-height: 0;
+        }
+        &__img {
+            width: 40px;
+            height: 40px;
+            padding: 10px;
+            margin-bottom: 24px;
+        }
+    }
+}
+.about {
+    .page-top h2 {
+        max-width: calc(100% / 11 * 8 - 15px);
+    }
+    .media-cover {
+        padding-top: 55.77%;
+    }
+	&__areas {
+        display: grid;
+        grid-template-columns: 7fr 5fr;
+        gap: 30px;
+        align-items: start;
+    }
+    @media (max-width: $bp1) {
+        &__areas {
+            grid-template-columns: 1.3fr 1fr;
+            gap: 30px 76px;
+        }
+    }
+    @media (max-width: $bp2) {
+        .page-top h2 {
+            max-width: none;
+        }
+        &__areas {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+    }
+    @media (max-width: $bp3) {
+        p {
+            font-size: 14px;
+        }
+        &__areas {
+            gap: 24px;
+        }
+    }
+}
+

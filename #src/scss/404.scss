@@ -1,0 +1,97 @@
+.notfound {
+    padding-top: 60px;
+    overflow: hidden;
+    h1 {
+        margin-bottom: 40px;
+    }
+    .container {
+        display: grid;
+        grid-template-columns: 1.21fr 1fr;
+        gap: 170px;
+        align-items: center;
+    }
+	.media-cover {
+        height: 538px;
+    }
+    .main-btn {
+        white-space: nowrap;
+    }
+    &__img {
+        margin-left: calc((100vw - 1650px) / -2);
+    }
+    &__content {
+        span {
+            display: inline-block;
+            font-size: clamp(60px, 15.6vw, 300px); 
+            font-weight: 600;
+            line-height: 1.2;
+        }
+    }
+    @media (max-width: $bp1) {
+        padding-top: 40px;
+        .container {
+            grid-template-columns: 1fr 1.08fr;
+            gap: 60px;
+        }
+        .media-cover {
+            height: 454px;
+        }
+        &__img {
+            margin-left: calc((100vw - 1180px) / -2);
+        }
+        &__content {
+            span {
+                font-size: clamp(60px, 21.87vw, 280px); 
+                line-height: 1;
+            }
+        }
+    }
+    @media (max-width: 1220px) {
+        &__img {
+            margin-left: -20px;
+        }
+    }
+    @media (max-width: $bp2) {
+        .mb-40 {
+            margin-bottom: 16px;
+        }
+        .container {
+            grid-template-columns: 1fr;
+        }
+        .media-cover {
+            height: auto;
+            padding-top: 56.52%;
+        }
+        &__content {
+            grid-row: 1/2;
+            span {
+                font-size: clamp(40px, 26vw, 200px); 
+            }
+        }
+        &__img {
+            margin-left: 0;
+        }
+    }
+    @media (max-width: $bp3) {
+        .container {
+            gap: 40px;
+        }
+        .mb-40 {
+            margin-bottom: 24px;
+        }
+        &__content {
+            span {
+                font-size: 120px;
+            }
+            h1 {
+                font-size: 20px;
+                margin-bottom: 24px;
+            }
+        }
+    }
+    @media (max-width: $bp5) {
+        .main-btn {
+            width: 100%;
+        }
+    }
+}

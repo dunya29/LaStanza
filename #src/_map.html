@@ -1,0 +1,56 @@
+<script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&amp;lang=ru_RU"></script>
+<script>
+    let center1 = [55.681316, 37.590120];  
+    function init1() {
+        let map = new ymaps.Map('map1', {
+           center: center1,
+           zoom: 15
+        });
+        let placemark1 = new ymaps.Placemark([55.681316, 37.590120], {}, {
+            iconLayout: 'default#image',
+            iconImageHref: 'img/icons/mark-lastanza.svg',
+            iconImageSize: [107, 100],
+            iconImageOffset: [-53, -100],
+        })
+      map.controls.remove('geolocationControl'); // удаляем геолокацию
+      map.controls.remove('searchControl'); // удаляем поиск
+      map.controls.remove('trafficControl'); // удаляем контроль трафика
+      map.controls.remove('typeSelector'); // удаляем тип
+      map.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
+      map.controls.remove('rulerControl'); // удаляем контрол правил
+
+      map.geoObjects.add(placemark1)
+    } 
+    ymaps.ready(init1);
+</script>
+<script>
+    let center2 = [55.681316, 37.590120];  
+    function init2() {
+        let map = new ymaps.Map('map2', {
+           center: center2,
+           zoom: 15
+        });
+        let placemark1 = new ymaps.Placemark([55.681316, 37.590120], {}, {
+            iconLayout: 'default#image',
+            iconImageHref: 'img/icons/mark-partners.svg',
+            iconImageSize: [60, 60],
+            iconImageOffset: [-30, -60],
+        })
+        let placemark2 = new ymaps.Placemark([55.680, 37.586], {}, {
+            iconLayout: 'default#image',
+            iconImageHref: 'img/icons/mark-partners.svg',
+            iconImageSize: [60, 60],
+            iconImageOffset: [-30, -60],
+        })
+        map.controls.remove('geolocationControl'); // удаляем геолокацию
+        map.controls.remove('searchControl'); // удаляем поиск
+        map.controls.remove('trafficControl'); // удаляем контроль трафика
+        map.controls.remove('typeSelector'); // удаляем тип
+        map.controls.remove('fullscreenControl'); // удаляем кнопку перехода в полноэкранный режим
+        map.controls.remove('rulerControl'); // удаляем контрол правил
+
+        map.geoObjects.add(placemark1)
+        .add(placemark2)
+    } 
+    ymaps.ready(init2);
+</script>

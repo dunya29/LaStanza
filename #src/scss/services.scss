@@ -1,0 +1,567 @@
+.services {
+    h1 {
+        margin-bottom: 40px;
+    }
+	&__cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+    @media (max-width: $bp1) {
+        &__cols {
+            gap: 20px;
+        }
+    }
+    @media (max-width: $bp2) {
+        h1 {
+            margin-bottom: 60px;
+        }
+        &__cols {
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+    }
+    @media (max-width: $bp3) {
+        h1 {
+            margin-bottom: 40px;
+        }
+    }
+}
+.col-services {
+    .media-cover {
+        padding-top: 93.94%;
+    }
+	&__top {
+        margin-left: calc(100% / 6 + 3px);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 20px;
+        align-items: end;
+        margin-bottom: 26px;
+        h3 {
+            margin-bottom: 12px;
+        }
+    }
+    &__content {
+        a {
+            font-size: 20px;
+            font-weight: 600;
+            color: $dark-gray;
+        }
+    }
+    @media (max-width: $bp1) {
+        &__top h3 {
+            margin-bottom: 6px;
+        }
+    }
+    @media (max-width: $bp2) {
+        &__top {
+            margin-left: 0;
+        }
+        &__content {
+            a {
+                font-size: 16px;
+            }
+        }
+    }
+    @media (max-width: $bp3) {
+        &__top {
+            align-items: start;
+            margin-bottom: 20px;
+        }
+        &__content a {
+            font-size: 14px;
+        }
+    }
+}
+.service {
+    overflow: visible;
+    h1 {
+        margin-bottom: 24px;
+    }
+    h2 {
+        margin-bottom: 40px;
+    }
+    &__row {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 30px;
+    }
+    &__content {
+        grid-column: 4/13;
+    }
+    &__mobBtn {
+        display: none;
+    }
+	&__text {
+        display: grid;
+        grid-template-columns: 0.93fr 1fr;
+        gap: 24px 40px;
+        margin-bottom: 60px;
+        p {
+            max-width: 570px;
+        }
+    }
+    &__btns {
+        grid-column: 1/3;
+        margin: -20px -20px 0;
+        .btn {
+            margin: 20px 20px 0;
+        }
+    }
+    @media (max-width: $bp1) {
+        &__text {
+            grid-template-columns: 1fr 1fr;
+        }
+    }  
+    @media (max-width: $bp2) {
+        h2 {
+            margin-bottom: 24px;
+        }
+        &__row {
+            grid-template-columns: 1fr;
+        }
+        &__content {
+            grid-column: 1/2;
+        }
+        &__mobBtn {
+            display: inline-flex;
+            justify-self: start;
+            margin-top: 8px;
+        }
+        &__text {
+            grid-template-columns: 1fr;
+            gap: 16px;
+            p {
+                max-width: none;
+            }
+        }
+        &__btns {
+            grid-column: 1/2;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: -8px 0 0;
+            .btn {
+                margin: 16px 0 0;
+            }
+        }
+    }
+    @media (max-width: $bp3) {
+        h2 {
+            font-size: 22px;
+        }
+        &__text {
+            gap: 24px;
+            p {
+                font-size: 14px;
+                line-height: 1.2;
+            }
+        }
+        &__mobBtn {
+            margin-top: 0;
+        }
+    }
+    @media (max-width: $bp5) {
+        &__mobBtn {
+            width: 100%;
+        }
+        &__btns {
+            .main-btn {
+                width: 100%;
+            }
+        }
+    }
+}
+.service-aside {
+    grid-column: 1/4;
+    position: relative;
+    top: -70px;
+    h5 {
+        font-weight: 600;
+    }
+    .js-anchor {
+        font-size: 20px;
+        max-width: 310px;
+        display: block;
+        color: $light-gray;
+        &.active {
+            font-weight: 600;
+            padding-left: 20px;
+            color: $maincolor;
+        }
+    }
+    &__close {
+        display: none
+    }
+    &__sticky {
+        position: sticky;
+        top: 0;
+    }
+    &__inner {
+        padding: 32px 24px;
+        max-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    &__links {
+        overflow: auto;
+    }
+    @media (min-width: $bp2) {
+        &__links {
+            scrollbar-width: none;
+            &::-webkit-scrollbar {
+                display: none;
+                width: 0;
+                height: 0;
+            }
+        }
+    }
+    @media (max-width: $bp1) {
+        h5 {
+            font-size: 18px;
+        }
+       .js-anchor {
+            font-size: 16px;
+            font-weight: 500;
+        }
+    }
+    @media (max-width: $bp2) {
+        padding-top: 44px;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        z-index: 1000;
+        background: rgba(64, 64, 64, 0.50);
+        visibility: hidden;
+        opacity: 0;
+        transition: all .3s .1s ease-out;
+        .js-anchor {
+            max-width: none;
+        }
+        &.open {
+            visibility: visible;
+            opacity: 1;
+            transition: all .3s ease-out;
+            .service-aside__sticky {
+                transform: translateY(0);
+                transition: all .3s .1s ease-out;
+            }
+        }        
+        &__sticky {
+            margin-top: auto;
+            position: static;
+            width: 100%;
+            max-height: 100%;
+            box-shadow: 2px 2px 4px 0 rgba(189, 191, 193, 0.25);
+            border-radius: 16px 16px 0 0;
+            background: #fcfdff;
+            transform: translateY(100px);
+            transition: all .3s ease-out;
+            display: flex;
+            flex-direction: column;
+        }
+        &__inner {
+            width: 100%;
+            max-width: 880px;
+            padding: 24px 80px;
+            flex: 1 1 auto;
+            max-height: 100%;
+            margin: 0 auto;
+        }
+        &__top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            h5 {
+                font-size: 22px;
+            }
+        }
+        &__close {
+            display: block;
+            flex: 0 0 24px;
+            width: 24px;
+            height: 24px;
+            margin-left: 16px;
+            position: absolute;
+            right: 24px;
+            svg {
+                fill: $light-gray;
+                width: 100%;
+                height: 100%
+            };
+        }
+        &__links {
+            flex: 1 1 auto;
+            padding-right: 10px;
+            &::-webkit-scrollbar-thumb {
+                background-color: $dark-gray;
+                border-radius: 8px;
+                background-clip: padding-box;
+            } 
+            &::-webkit-scrollbar {
+                width: 4px;
+                border-radius: 8px;
+                background-color: $white-gray;
+            }
+        }
+    }
+    @media (max-width: $bp3) {
+        &__top {
+            h5 {
+                font-size: 16px;
+            }
+        }
+        &__close {
+            position: static;
+            flex: 0 0 20px;
+            width: 20px;
+            height: 20px;
+        }
+        &__inner {
+            max-width: 567px;
+            padding: 40px 20px;
+        }
+    }
+    @media (max-width: $bp6) {
+        &__inner {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
+}
+.item-service {
+    display: grid;
+    grid-template-columns: 1.07fr 1fr;
+    gap: 70px;
+    align-items: start;
+    .media-cover {
+        padding-top: 51.68%;
+    }
+	&__content {
+        h3 {
+            margin-bottom: 24px;
+            max-width: 590px;
+        }
+    }
+    @media (max-width: $bp1) {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        &__content h3 {
+            margin-bottom: 20px;
+        }
+    }
+    @media (max-width: $bp2) {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        .media-cover {
+             grid-row: 1/2;
+        }
+        &__content {
+            max-width: none;
+        }
+    }
+    @media (max-width: $bp3) {
+        gap: 16px;
+        p {
+            font-size: 14px;
+            line-height: 1.2;;
+        }
+    }
+    @media (max-width: $bp5) {
+        .stroke-btn {
+            width: 100%;
+        }
+    }
+}
+.service-calc {
+    h2 {
+        margin-bottom: 16px;
+    }
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+	&__content {
+        p {
+            max-width: 669px;
+            margin-bottom: 32px;
+        }
+    }
+	&__lbl {
+        font-size: 20px;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 8px;
+    }
+	&__areas {
+        display: flex;
+        align-items: center;
+        margin: 0 -6px -6px;
+        label {
+            margin: 0 6px 6px;
+            input {
+                display: none;
+                &:checked + span {
+                    background: #F6F7F9;
+                }
+            }
+            span {
+                display: block;
+                padding: 8px 32px;
+                border-radius: 50px;
+                border: 1px solid #DDD;
+                background: #fff;
+                transition: all .3s linear
+            }
+        }
+    }
+    &__footer {
+        padding-top: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid#DDD;
+        .h5 {
+            font-weight: 700;
+        }
+    }
+    @media (max-width: $bp1) {
+        .container {
+            gap: 20px;
+        }
+        .mb-40 {
+            margin-bottom: 24px;
+        }
+        &__lbl {
+            font-size: 16px;
+        }
+        &__content {
+            max-width: 480px;
+        }
+    }
+    @media (max-width: $bp2) {
+        .container {
+            grid-template-columns: 1fr;
+            gap: 60px;
+        }
+        &__content {
+            max-width: none;
+            p {
+                max-width: none;
+            }
+        }
+        &__areas label span {
+            font-weight: 500;
+        }
+    }
+    @media (max-width: $bp3) {
+        .mb-40 {
+            margin-bottom: 40px;
+        }
+        &__content {
+            p {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+            .main-btn {
+                width: 100%;
+            }
+        }
+        &__areas {
+            label {
+                span {
+                    font-size: 12px;
+                    padding: 3px 23px;
+                }
+            }
+        }
+        &__footer {
+            h5, .h5 {
+                font-size: 16px;
+            }
+        }
+    }
+}
+.calc-range {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 30px;
+    &__slider {
+        margin-bottom: 12px;
+    }
+    &__minmax {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        span {
+            color: $light-gray;
+        }
+    }
+    &__lbl {
+        display: block;
+        font-size: 20px;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 8px;
+    }
+    &__val {
+        width: 130px;
+        padding: 12px 16px;
+        border-radius: 50px;
+        border: 1px solid $light-gray;
+        display: grid;
+        grid-template-columns: 40px 1fr;
+        gap: 5px;
+        align-items: center;
+        white-space: nowrap;
+        span {
+            color: $light-gray;
+            display: block;
+        }
+        input, span {
+            font-size: 16px;
+        }
+    }
+    @media (max-width: $bp1) {
+        font-size: 14px;
+        &__lbl {
+            font-size: 16px;
+            margin-bottom: 16px;
+        }
+        &__val {
+            width: 110px;
+            padding: 7px 16px;
+        }
+    }
+    @media (max-width: $bp2) {
+        font-weight: 500;
+        gap: 40px;
+    }
+    @media (max-width: $bp3) {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        &__minmax {
+            span {
+                font-size: 12px;
+            }
+        }
+        &__val {
+            width: 100%;
+            grid-template-columns: 28px 1fr;
+            gap: 2px;
+            input, span {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('_head.html', {   
+    "title": "Отзывы"
+})
+
+<body>
+    <div class="wrap">
+        @@include('_header.html')
+        <!--main-->  
+        <main class="main">
+            @@include('_breadcrumbs.html', {
+                "page": "Отзывы"
+            })
+            <!--reviews-->
+            <section class="section reviews">
+                <div class="container">
+                    <h1>Отзывы (19)</h1>
+                    <form action="" class="reviews-form" onsubmit="event.preventDefault();formSuccess(this)">
+                        <div class="reviews-form__stars">
+                            <label class="reviews-form__check">
+                                <div class="item-checkbox">
+                                    <input type="checkbox" checked>
+                                    <span></span>
+                                </div>
+                                <div class="reviews-form__icon">
+                                    <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                    <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                    <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                    <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                    <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                </div>
+                                <div class="reviews-form__count">12</div>
+                            </label>
+                            <label class="reviews-form__check">
+                                <div class="item-checkbox">
+                                    <input type="checkbox">
+                                    <span></span>
+                                </div>
+                                <div class="reviews-form__icon">
+                                    <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                    <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                    <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                    <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                </div>
+                                <div class="reviews-form__count">12</div>
+                            </label>
+                            <label class="reviews-form__check">
+                                <div class="item-checkbox">
+                                    <input type="checkbox">
+                                    <span></span>
+                                </div>
+                                <div class="reviews-form__icon">
+                                    <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                    <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                    <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                </div>
+                                <div class="reviews-form__count">12</div>
+                            </label>
+                            <label class="reviews-form__check">
+                                <div class="item-checkbox">
+                                    <input type="checkbox">
+                                    <span></span>
+                                </div>
+                                <div class="reviews-form__icon">
+                                    <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                    <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                </div>
+                                <div class="reviews-form__count">12</div>
+                            </label>
+                            <label class="reviews-form__check">
+                                <div class="item-checkbox">
+                                    <input type="checkbox">
+                                    <span></span>
+                                </div>
+                                <div class="reviews-form__icon">
+                                    <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                </div>
+                                <div class="reviews-form__count">12</div>
+                            </label>
+                        </div>
+                        <label class="item-toggle">
+                            <input type="checkbox">
+                            <span>С фото</span>
+                        </label>
+                    </form>
+                    <div class="reviews__row">
+                        <div class="reviews__left">
+                            <div class="reviews__items">
+                                @@include('_item-review.html')
+                                <div class="item-review">
+                                    <div class="item-review__top">
+                                        <div class="rating">
+                                            <span class="rating__container light">
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                            </span>
+                                            <span class="rating__container dark" style="width: 80%;">
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="item-review__body extra-list">
+                                        <div class="item-review__content">
+                                            <p>Раньше я думала, что фрески на стенах – это только понты, к которым прибегают от излишнего желания продемонстрировать наличие жизненного успеха. Казалось глупым выкидывать огромные суммы, когда есть возможность обойтись качественными обоями или покраской. Решение мужа украсить стену кухни фреской во время моего двухнедельного отсутствия стало небольшим шоком. Первой реакцией было закатить скандал, что я и сделала. Во-первых, к чему ненужный сюрприз за такие деньги? Во-вторых, зачем она нужна на кухне? Однако вскоре эмоции поутихли, и оказалось, что и стоимость услуги вполне демократична, и симпатичный пейзаж во всю стену сделал помещение намного более уютным. В общем, теперь моя претензия к мужу заключается в том, что он не посоветовался, а я бы выбрала что-то другое (хотя это изображение мне очень нравится, как и его качество). Есть мысль украсить подобным образом и остальные комнаты, только выбирать буду уже я.</p>      
+                                        </div>
+                                        <button class="btn icon-chevron extra-list__btn" data-open="Читать далее" data-close="Свернуть">
+                                            <span>Читать далее</span><svg><use xlink:href="img/icons/sprite.svg#chevron"></use></svg>
+                                        </button>
+                                    </div>
+                                    <div class="item-review__info">
+                                        <span>Светлана Д.</span>
+                                        <span>28.04.2017</span>
+                                    </div>
+                                </div>
+                            </div>
+                            @@include('_pagination.html')
+                        </div>
+                        <div class="reviews-aside">
+                            <div class="mb-60 reviews-aside__top">
+                                <div class="reviews-aside__top-inner">
+                                    <div class="mb-40 reviews-aside__header">
+                                        <div class="rating">
+                                            <span class="rating__container light">
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                            </span>
+                                            <span class="rating__container dark" style="width: 96%;">
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                                <svg>
+                                                    <use href="img/icons/sprite.svg#star"></use>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="h5 reviews-aside__total">4,8/5</div>      
+                                    </div>
+                                    <div class="mb-40 det-reviews">
+                                        <div class="det-reviews__item">
+                                            <span class="det-reviews__lbl">5 звёзд</span>
+                                            <span class="det-reviews__bar"><span></span></span>
+                                            <span class="det-reviews__perc">57%</span>
+                                        </div>
+                                        <div class="det-reviews__item">
+                                            <span class="det-reviews__lbl">4 звезды</span>
+                                            <span class="det-reviews__bar"><span></span></span>
+                                            <span class="det-reviews__perc">30%</span>
+                                        </div>
+                                        <div class="det-reviews__item">
+                                            <span class="det-reviews__lbl">3 звезды</span>
+                                            <span class="det-reviews__bar"><span></span></span>
+                                            <span class="det-reviews__perc">13%</span>
+                                        </div>
+                                        <div class="det-reviews__item">
+                                            <span class="det-reviews__lbl">2 звезды</span>
+                                            <span class="det-reviews__bar"><span></span></span>
+                                            <span class="det-reviews__perc">0%</span>
+                                        </div>
+                                        <div class="det-reviews__item">
+                                            <span class="det-reviews__lbl">1 звезда</span>
+                                            <span class="det-reviews__bar"><span></span></span>
+                                            <span class="det-reviews__perc">0%</span>
+                                        </div>
+                                    </div>
+                                    <button class="mb-40 btn main-btn modal-show-btn" data-modal="review-modal">Оставить отзыв</button>
+                                    <a href="#" class="reviews-aside__link">
+                                        <span>Правила публикации отзывов</span>
+                                        <svg><use xlink:href="img/icons/sprite.svg#chevron"></use></svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="reviews-aside__bottom">
+                                <h5>Посмотрите отзывы о нас на других площадках:</h5>
+                                <div class="reviews-stat">
+                                    <a href="#" class="reviews-stat__item">
+                                        <div class="reviews-stat__img">
+                                            <img src="img/zoon.svg" alt="">
+                                        </div>
+                                        <div class="reviews-stat__info">
+                                            <div class="reviews-stat__rating">
+                                                <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                                <span class="h5">4,9</span>
+                                            </div>
+                                            <span class="reviews-stat__total">5 отзывов</span>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="reviews-stat__item">
+                                        <div class="reviews-stat__img">
+                                            <img src="img/otzovik.svg" alt="">
+                                        </div>
+                                        <div class="reviews-stat__info">
+                                            <div class="reviews-stat__rating">
+                                                <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                                <span class="h5">4,9</span>
+                                            </div>
+                                            <span class="reviews-stat__total">5 отзывов</span>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="reviews-stat__item">
+                                        <div class="reviews-stat__img">
+                                            <img src="img/yandex.svg" alt="">
+                                        </div>
+                                        <div class="reviews-stat__info">
+                                            <div class="reviews-stat__rating">
+                                                <svg><use xlink:href="img/icons/sprite.svg#star"></use></svg>
+                                                <span class="h5">4,9</span>
+                                            </div>
+                                            <span class="reviews-stat__total">5 отзывов</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        @@include('_footer.html')
+        @@include('_modal.html')
+    </div>
+    @@include('_js.html')
+</body>
+
+</html>

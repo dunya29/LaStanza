@@ -1,0 +1,132 @@
+.item-portfolio {
+    h5 {
+        font-size: 20px; 
+        font-weight: 600;
+     }        
+     .media-cover {
+         padding-top: 75.47%;
+         margin-bottom: 24px;
+         img {
+             transition: all .8s cubic-bezier(.25,.46,.45,.94);
+         }
+         &:hover img {
+             transform: scale(1.04);
+         }
+    }
+    @media (max-width: $bp1) {
+        .media-cover {
+            margin-bottom: 16px;
+        }
+        h5 {
+            font-size: 16px;
+        }
+    }
+    @media (max-width: $bp3) {
+        h5 {
+            font-size: 14px;
+        }
+        .media-cover {
+            margin-bottom: 10px;
+        }
+    }
+}
+.portfolio, .portfolio-page {
+    .page-top h2 {
+        max-width: calc(100% / 11 * 8 - 15px);
+    }
+    &__items {
+        display: grid;
+        gap: 100px 30px;
+    }
+    @media (max-width: $bp1) {
+        &__items {
+            gap: 60px 20px;
+        }
+    }
+    @media (max-width: $bp2) {
+        &__items {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+.portfolio {
+	&__items {
+        grid-template-columns: repeat(3,1fr);
+    }
+    @media (max-width: $bp3) {
+        &__items {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+    }
+}
+.portfolio-page {
+	&__items {
+        grid-template-columns: repeat(4,1fr);
+    }
+    @media (max-width: $bp3) {
+        .item-portfolio {
+            h5 {
+                font-size: 12px;
+            }
+        }
+        &__items {
+            gap: 40px 20px;
+        }
+    }
+}
+.portfolio-content, .portfolio-page-content {
+    blockquote {
+        margin: 0 0 0 calc(100% / 12 + 0px);
+    }
+    @media (max-width: $bp1) {
+        blockquote {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+    @media (max-width: $bp2) {
+        h2 {
+            font-size: 30px;
+        }
+    } 
+    @media (max-width: $bp3) {
+        .section-sm {
+            margin-bottom: 40px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        .page-top {
+            h2 {
+                max-width: 100%;
+                font-size: 22px;
+            }
+        }
+    }
+}
+.portfolio-content {
+    .page-top h2 {
+        max-width: calc(100% / 11 * 6 );
+    }
+    @media (max-width: $bp1) {
+        .page-top {
+            h2 {
+                max-width: calc(100% / 11 * 9 );
+            }
+        }
+    }
+}
+.portfolio-page-content {
+    .page-top h2 {
+        max-width: calc(100% / 11 * 10 );
+    }
+    @media (max-width: $bp1) {
+        .page-top {
+            h2 {
+                max-width: 100%
+            }
+        }
+    }
+}
+

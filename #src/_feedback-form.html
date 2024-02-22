@@ -1,0 +1,29 @@
+<!--feedback-form-->
+<section class="section main-form feedback-form">
+    <div class="container">
+        <div class="media-cover">
+            <img src="img/feedback-form-bg.jpg" alt="">
+        </div>
+        <div class="main-form__right">
+            <div class="main-form__content">
+                <h3>Трудно выбрать фреску<br>из разнообразия нашего каталога?</h3>
+                <p class="mb-40">Заполните форму и наши дизайнеры бесплатно помогут выбрать идеальную фреску для Вас</p>
+                <form action="" class="form"  onsubmit="event.preventDefault();formSuccess(this)">
+                    <div class="item-form">
+                        <input name="name" type="text" maxlength="100" placeholder="Имя">
+                    </div>
+                    <div class="item-form">
+                        <input name="tel" type="tel" placeholder="Телефон">
+                    </div>
+                    <div class="item-form">
+                        <textarea placeholder="Сообщение" name="message" maxlength="1000" oninput="this.style.height = this.scrollHeight + 'px'"></textarea>
+                    </div>
+                    <div class="form__footer">
+                        <button type="submit" class="btn main-btn">Отправить</button>
+                        <p>Нажимая на кнопку «Отправить», вы даете согласие на <a href="#" target="_blank">обработку персональных данных</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

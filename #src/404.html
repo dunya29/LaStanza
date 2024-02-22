@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('_head.html', {   
+    "title": "Страница не найдена"
+})
+
+<body>
+    <div class="wrap">
+        @@include('_header.html')
+        <!--main-->  
+        <main class="main">
+            <!--notfound-->
+            <section class="section notfound">
+                <div class="container">
+                    <div class="notfound__img">
+                        <div class="media-cover">
+                            <img src="img/404-bg.jpg" alt="Страница не найдена">
+                        </div>
+                    </div>
+                    <div class="notfound__content">
+                        <span class="mb-40">404</span>
+                        <h1 class="h3">Страница не найдена</h1>
+                        <a href="#" class="btn main-btn">На главную<svg><use xlink:href="img/icons/sprite.svg#arrow-right"></use></svg></a>
+                    </div>
+                </div>
+            </section>
+            @@include('_mail-form.html')
+        </main>
+        @@include('_footer.html')
+        @@include('_modal.html')
+    </div>
+    @@include('_js.html')
+</body>
+
+</html>

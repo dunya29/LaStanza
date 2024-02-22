@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('_head.html', {
+"title": "Каталог"
+})
+
+<body>
+    <div class="wrap">
+        @@include('_header.html')
+        <!--main-->
+        <main class="main">
+            <!--catalog-->
+            <section class="section catalog">
+                <div class="container">
+                    <!--catalog__top-->
+                    <div class="catalog__top">
+                        <div class="filter-icon"><svg><use xlink:href="img/icons/sprite.svg#filter-icon"></use></svg></div>
+                        <div class="filter-selected">
+                            <div class="filter-selected__items"></div>
+                            <a href="#" class="filter-selected__reset">Очистить все</a>
+                        </div>
+                        <div class="catalog__actions">
+                            <button class="catalog__btn active" data-column="column-3"><svg>
+                                    <use xlink:href="img/icons/sprite.svg#card-view-3"></use>
+                                </svg></button>
+                            <button class="catalog__btn" data-column="column-2"><svg>
+                                    <use xlink:href="img/icons/sprite.svg#card-view-2"></use>
+                                </svg></button>
+                        </div>
+                    </div>
+                    <div class="catalog__row">
+                        <!--filter-->
+                        <div class="filter">
+                            <form class="filter__form" name="" action="">
+                                <div class="filter__top">
+                                    <button type="reset" class="filter__reset">Очистить</button>
+                                    <span class="h5">Фильтры</span>
+                                    <button type="button" class="filter__close"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+                                </div>
+                                <div class="filter__body">
+                                    <div class="filter-acc">
+                                        <div class="filter-acc__header open active">
+                                            <span>Коллекция</span>
+                                            <svg>
+                                                <use xlink:href="img/icons/sprite.svg#chevron"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="filter-acc__body">
+                                            <div class="filter-acc">
+                                                <div class="filter-acc__header">
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>ALBA</span>
+                                                    </label>
+                                                    <svg>
+                                                        <use xlink:href="img/icons/sprite.svg#chevron"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="filter-acc__body">
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Flora</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Dreams</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Abstract</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Graphics</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Natura</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Ornamental</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Textures</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Tropic</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="filter-acc">
+                                                <div class="filter-acc__header">
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Applico</span>
+                                                    </label>
+                                                    <svg>
+                                                        <use xlink:href="img/icons/sprite.svg#chevron"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="filter-acc__body">
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Flora</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Dreams</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Abstract</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Graphics</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="filter-acc">
+                                                <div class="filter-acc__header">
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Современный дизайн</span>
+                                                    </label>
+                                                    <svg>
+                                                        <use xlink:href="img/icons/sprite.svg#chevron"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="filter-acc__body">
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Реалистичные</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Стены, текстуры</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Фрески 3D</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Черно-белые</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="filter-acc">
+                                        <div class="filter-acc__header">
+                                            <span>Категория</span>
+                                            <svg>
+                                                <use xlink:href="img/icons/sprite.svg#chevron"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="filter-acc__body">
+                                            <label class="item-checkbox">
+                                                <input type="checkbox">
+                                                <span>Детские фрески</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox">
+                                                <span>Цветы, цветочная коллекция</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox">
+                                                <span>Орнаменты, потолки</span>
+                                            </label>
+                                            <div class="filter-acc">
+                                                <div class="filter-acc__header">
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Модульное панно</span>
+                                                    </label>
+                                                    <svg>
+                                                        <use xlink:href="img/icons/sprite.svg#chevron"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="filter-acc__body">
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Flora</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Dreams</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Abstract</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="filter-acc">
+                                                <div class="filter-acc__header">
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Сюжеты</span>
+                                                    </label>
+                                                    <svg>
+                                                        <use xlink:href="img/icons/sprite.svg#chevron"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="filter-acc__body">
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Древние фрески, Восток</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Животные и птицы</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Карта мира</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Классические сюжеты</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="filter-acc">
+                                                <div class="filter-acc__header">
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Пейзажи</span>
+                                                    </label>
+                                                    <svg>
+                                                        <use xlink:href="img/icons/sprite.svg#chevron"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="filter-acc__body">
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Арки, лестницы</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Балконы и террасы</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Большие города</span>
+                                                    </label>
+                                                    <label class="item-checkbox">
+                                                        <input type="checkbox">
+                                                        <span>Восточные страны</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="filter-acc">
+                                        <div class="filter-acc__header open active">
+                                            <span>Цвет</span>
+                                            <svg>
+                                                <use xlink:href="img/icons/sprite.svg#chevron"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="filter-acc__body extra-list">
+                                            <label class="color-checkbox">
+                                                <input type="checkbox">
+                                                <span style="background-color: #CA0813;"></span>
+                                                <span>Красный</span>
+                                            </label>
+                                            <label class="color-checkbox">
+                                                <input type="checkbox">
+                                                <span style="background-color: #FED86F;"></span>
+                                                <span>Желтый</span>
+                                            </label>
+                                            <label class="color-checkbox">
+                                                <input type="checkbox">
+                                                <span style="background-color: #1127BE"></span>
+                                                <span>Синий</span>
+                                            </label>
+                                            <label class="color-checkbox">
+                                                <input type="checkbox">
+                                                <span style="background-color: #CA0813;"></span>
+                                                <span>Красный</span>
+                                            </label>
+                                            <label class="color-checkbox">
+                                                <input type="checkbox">
+                                                <span style="background-color: #FED86F;"></span>
+                                                <span>Желтый</span>
+                                            </label>
+                                            <label class="color-checkbox">
+                                                <input type="checkbox">
+                                                <span style="background-color: #1127BE"></span>
+                                                <span>Синий</span>
+                                            </label>
+                                            <button type="button" class="icon-chevron extra-list__btn"
+                                                data-open="Показать еще" data-close="Свернуть">
+                                                <span>Показать еще</span>
+                                                <svg>
+                                                    <use xlink:href="img/icons/sprite.svg#chevron"></use>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="filter-acc">
+                                        <div class="filter-acc__header open active">
+                                            <span>Ориентация</span>
+                                            <svg>
+                                                <use xlink:href="img/icons/sprite.svg#chevron"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="filter-acc__body">
+                                            <label class="item-checkbox">
+                                                <input type="checkbox">
+                                                <span>Горизонтальная</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox">
+                                                <span>Вертикальная</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox">
+                                                <span>Квадрат</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="filter-acc">
+                                        <div class="filter-acc__header open active">
+                                            <span>Назначение</span>
+                                            <svg>
+                                                <use xlink:href="img/icons/sprite.svg#chevron"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="filter-acc__body">
+                                            <label class="item-checkbox">
+                                                <input type="checkbox">
+                                                <span>В кабинет</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox">
+                                                <span>В спальню</span>
+                                            </label>
+                                            <label class="item-checkbox">
+                                                <input type="checkbox">
+                                                <span>На кухню</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="catalog__content">
+                            <!--catalog__items-->
+                            <div class="catalog__items" data-column="column-3">
+                                @@include("_card.html", {"nmb":"1"})
+                                @@include("_card.html", {"nmb":"2"})
+                                @@include("_card.html", {"nmb":"3"})
+                                @@include("_card.html", {"nmb":"4"})
+                                @@include("_card.html", {"nmb":"1"})
+                                @@include("_card.html", {"nmb":"2"})
+                                @@include("_card.html", {"nmb":"3"})
+                                @@include("_card.html", {"nmb":"4"})
+                                @@include("_card.html", {"nmb":"1"})
+                                @@include("_card.html", {"nmb":"2"})
+                                @@include("_card.html", {"nmb":"3"})
+                                @@include("_card.html", {"nmb":"4"})
+                            </div>
+                            @@include('_pagination.html')
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--last views-swiper-->
+            <section class="section card-swiper">
+                <div class="container">
+                    <div class="mb-40 swiper-top">
+                        <h2 class="h3">Вы смотрели</h2>
+                        <div class="swiper-nav">
+                            <button class="nav-btn nav-btn--prev"><svg>
+                                    <use xlink:href="img/icons/sprite.svg#arrow-left"></use>
+                                </svg></button>
+                            <button class="nav-btn nav-btn--next"><svg>
+                                    <use xlink:href="img/icons/sprite.svg#arrow-right"></use>
+                                </svg></button>
+                        </div>
+                    </div>
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                @@include("_card.html", {"nmb":"1"})
+                            </div>
+                            <div class="swiper-slide">
+                                @@include("_card.html", {"nmb":"2"})
+                            </div>
+                            <div class="swiper-slide">
+                                @@include("_card.html", {"nmb":"3"})
+                            </div>
+                            <div class="swiper-slide">
+                                @@include("_card.html", {"nmb":"4"})
+                            </div>
+                            <div class="swiper-slide">
+                                @@include("_card.html", {"nmb":"1"})
+                            </div>
+                            <div class="swiper-slide">
+                                @@include("_card.html", {"nmb":"2"})
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            @@include("_feedback-form.html")
+        </main>
+        @@include('_footer.html')
+        @@include('_modal.html')
+    </div>
+    @@include('_js.html')
+</body>
+
+</html>

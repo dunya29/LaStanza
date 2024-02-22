@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('_head.html', {   
+    "title": "Монтаж"
+})
+
+<body>
+    <div class="wrap">
+        @@include('_header.html')
+        <!--main-->  
+        <main class="main">
+            <!--breadcrumbs-->
+            <nav class="breadcrumbs breadcrumbs--service">
+                <div class="container">
+                    <ul>
+                        <li><a href="#" class="link">Главная</a></li>
+                        <li><a href="#" class="link">Услуги</a></li>
+                        <li class="active">Монтаж</li>
+                    </ul>
+                </div>
+            </nav>
+            <!--service-->
+            <section class="section service">
+                <div class="container">
+                    <div class="service__row">
+                        <aside class="service-aside">
+                            <div class="service-aside__sticky">
+                                <div class="service-aside__inner">
+                                    <h5 class="mb-40">Инструкция по монтажу</h5>
+                                    <ul class="service-aside__links">                                    
+                                        <a href="#service-1" class="mb-40 js-anchor active">1 шаг - Разметка</a>
+                                        <a href="#service-2" class="mb-40 js-anchor">2 шаг - Нанесение клея</a>
+                                        <a href="#service-3" class="mb-40 js-anchor">3 шаг - Поклейка</a>
+                                        <a href="#service-4" class="mb-40 js-anchor">4 шаг - Наклеивание внахлест</a>
+                                        <a href="#service-5" class="mb-40 js-anchor">5 шаг - Обрезка</a>
+                                        <a href="#service-6" class="mb-40 js-anchor">6 шаг- Плотное прижатие</a>
+                                        <a href="#service-7" class="mb-40 js-anchor">7 шаг - Вдавливание выступающих краев</a>
+                                        <a href="#service-8" class="mb-40 js-anchor">8 шаг - Смонтированная продукция</a>
+                                    </ul>
+                                </div>
+                            </div>
+                        </aside>
+                        <div class="service__content">
+                            <h1>Монтаж</h1>
+                            <div class="service__text">
+                                <p>Фреска La Stanza выполнена на эластичной штукатурной основе, что позволяет ей легко монтироваться на любую поверхность (вогнутую, выпуклую, круглую или с углами). Небольшой вес позволяет без проблем монтировать фреску на потолок.</p>
+                                <p>Обработанную фреску можно переносить на любую, как подготовленную так и не подготовленную поверхность. А так как фреска La Stanza устойчива к влаге и воздействию агрессивной среды, ее можно использовать при декоре влажных помещений (ванной комнаты, бассейна).</p>
+                                <div class="service__btns">
+                                    <a href="#install-order" class="btn main-btn js-anchor">Заказать</a>
+                                    <a download="" href="#" class="btn main-link">Скачать инструкцию.pdf</a>
+                                </div>
+                            </div>
+                            <h2>Инструкция по монтажу</h2>
+                            @@include('_item-service-2.html', {"nmb": "1", "title": "Шаг 1", "txt": "На свободной и чистой горизонтальной поверхности разверните продукцию. Затем произведите осмотр и замер полотна (полотен). На рабочей поверхности разметьте место монтажа"})
+                            @@include('_item-service-2.html', {"nmb": "2", "title": "Шаг 2", "txt": "Предварительно ознакомьтесь с инструкцией на упаковке клея, его необходимо развести немного гуще и нанести малярным валиком на рабочую поверхность (стены или потолок)"})
+                            @@include('_item-service-2.html', {"nmb": "3", "title": "Шаг 3", "txt": "Предварительно ознакомьтесь с инструкцией на упаковке клея, его необходимо развести немного гуще и нанести малярным валиком на рабочую поверхность (стены или потолок)"})
+                            @@include('_item-service-2.html', {"nmb": "4", "title": "Шаг 4", "txt": "Клеить полотна необходимо внахлест, так чтобы совпал рисунок сюжета"})
+                            @@include('_item-service-2.html', {"nmb": "5", "title": "Шаг 5", "txt": "Клеить полотна необходимо внахлест, так чтобы совпал рисунок сюжета"})
+                            @@include('_item-service-2.html', {"nmb": "6", "title": "Шаг 6", "txt": "Места стыка полотен необходимо плотно прижать и прокатать резиновым обойным валиком, убирая излишки клея ветошью."})
+                            @@include('_item-service-2.html', {"nmb": "7", "title": "Шаг 7", "txt": "При необходимости аккуратно вдавите выступающие края шва выпуклой частью ложки"})
+                            @@include('_item-service-2.html', {"nmb": "8", "title": "Шаг 8", "txt": "Смонтированная продукция в интерьере"})
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--service-calc-->
+            <section class="section service-calc" id="install-order">
+                <div class="container">
+                    <div class="service-calc__content">
+                        <h2>Калькулятор стоимости монтажа фрески</h2>
+                        <p>У нас можно заказать услугу монтажа фресок, наш менеджер поможет рассчитать точную стоимость услуги или самостоятельно рассчитайте стоимость с помощью калькулятора.</p>
+                        <button class="btn main-btn modal-show-btn" data-modal="feedback-modal">Заказать</button>
+                    </div>
+                    <div class="service-calc__action">
+                        <div class="mb-40 service-calc__sec">
+                            <span class="service-calc__lbl">Покрытие</span>
+                            <div class="service-calc__areas">
+                                <label>
+                                    <input name="instal-area" type="radio" checked data-price="300">
+                                    <span>Стена</span>
+                                </label>
+                                <label>
+                                    <input name="instal-area" type="radio" data-price="500">
+                                    <span>Потолок</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mb-40 service-calc__sec">
+                            <div class="calc-range" data-min="100" data-max="1000" data-initVal="600">
+                                <div class="calc-range__act">
+                                    <span class="calc-range__lbl">Ширина</span>
+                                    <div class="calc-range__slider"></div>
+                                    <div class="calc-range__minmax">
+                                        <span>100 см</span>
+                                        <span>1000 см</span>
+                                    </div>
+                                </div>
+                                <div class="calc-range__val">
+                                    <input type="number" value="600" class="calc-range__width">
+                                    <span>см</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-60 service-calc__sec">
+                            <div class="calc-range" data-min="100" data-max="1000" data-initVal="200">
+                                <div class="calc-range__act">
+                                    <span class="service-calc__lbl">Высота</span>
+                                    <div class="calc-range__slider"></div>
+                                    <div class="calc-range__minmax">
+                                        <span>100 см</span>
+                                        <span>1000 см</span>
+                                    </div>
+                                </div>
+                                <div class="calc-range__val">
+                                    <input type="number" value="200" class="calc-range__height">
+                                    <span>см</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-calc__footer">
+                            <div class="h5">Итого</div>
+                            <div class="rub h5 service-calc__price">12 220</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        @@include('_footer.html')
+        @@include('_modal.html')
+    </div>
+    @@include('_js.html')
+</body>
+
+</html>

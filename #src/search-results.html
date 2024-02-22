@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('_head.html', {   
+    "title": "Результаты поиска"
+})
+
+<body>
+    <div class="wrap">
+        @@include('_header.html')
+        <!--main-->  
+        <main class="main">
+            <!--breadcrumbs-->
+            <nav class="breadcrumbs breadcrumbs--shift-tab">
+                <div class="container">
+                    <ul>
+                        <li><a href="#" class="link">Главная</a></li>
+                        <li class="active">Поиск</li>
+                    </ul>
+                </div>
+            </nav>
+            <!--search-->
+            <section class="section search">
+                <div class="container">
+                    <form action="" class="mb-60 form search-form">
+                        <div class="search-form__inner">
+                            <div class="item-form">
+                                <input type="text" name="" placeholder="Введите запрос">
+                            </div>
+                            <button type="reset" class="search-form__reset"  aria-label="Очистить поиск"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
+                        </div>
+                        <button class="btn main-btn search-form__submit" type="submit">Найти</button>
+                    </form>
+                    <div class="search-top">
+                        <div class="search-top__txt">
+                            <h1>Результаты поиска</h1>
+                            <p>По запросу “море” найдено 200 изображений</p>
+                        </div>
+                        <div class="page-lbls">
+                            <a href="#search-catalog-1" class="js-anchor active"> Все <span>200</span></a>
+                            <a href="#search-catalog-1" class="js-anchor"> Фрески <span>197</span></a>
+                            <a href="#search-catalog-2" class="js-anchor"> Категории  <span>3</span></a>
+                        </div>
+                    </div>
+                    <div class="section-sm search-catalog" id="search-catalog-1">
+                        <div class="mb-40 page-top"><h3>Фрески</h3></div>
+                        <div class="search-catalog__items">
+                            @@include("_card.html", {"nmb":"1"})
+                            @@include("_card.html", {"nmb":"2"})
+                            @@include("_card.html", {"nmb":"3"})
+                            @@include("_card.html", {"nmb":"4"})
+                        </div>
+                    </div>
+                    <div class="section-sm search-catalog"  id="search-catalog-2">
+                        <div class="mb-40 page-top"><h3>Категории</h3></div>
+                        <div class="search-catalog__items">
+                            @@include("_card.html", {"nmb":"1"})
+                            @@include("_card.html", {"nmb":"2"})
+                            @@include("_card.html", {"nmb":"3"})
+                            @@include("_card.html", {"nmb":"4"})
+                        </div>
+                        @@include('_pagination.html')
+                    </div>
+                </div>
+            </section>
+            @@include('_feedback-form.html')
+        </main>
+        @@include('_footer.html')
+        @@include('_modal.html')
+    </div>
+    @@include('_js.html')
+</body>
+
+</html>

@@ -172,6 +172,13 @@
                 width: 100%;
             }
         }
+        .swiper {
+            overflow: visible;
+        }
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+        }
         &__overlay {
             padding: 40px 0 0;
             overflow: hidden;
@@ -213,6 +220,7 @@
             } 
             &::-webkit-scrollbar {
               width: 4px;
+              height: 0;
               border-radius: 8px;
               background-color: $white-gray;
             }
@@ -824,10 +832,9 @@
     }
     &__btns {
         display: flex;
-        flex-wrap: wrap;
-        margin: 0 -8px -8px;
+        margin: 0 -8px;
         .btn {
-            margin: 0 8px 8px;
+            margin: 0 8px;
         }
     }
     @media (max-width: $bp1) {
@@ -866,11 +873,11 @@
             right: 12px;
         }
         &__btns {
-            margin: 0 -6px -6px;
+            margin: 0 -6px;
             .btn {
                 flex: 0 0 calc(50% - 12px);
                 padding: 10px 20px;
-                margin: 0 6px 6px;
+                margin: 0 6px;
             }
         }
     }
@@ -967,6 +974,7 @@
             } 
             &::-webkit-scrollbar {
                 width: 4px;
+                height: 0;
                 border-radius: 8px;
                 background-color: $white-gray;
             }

@@ -2,6 +2,9 @@
     box-shadow: 0px 2px 4px 0px rgba(199, 199, 199, 0.25);
     &.fixed { 
         margin-bottom: 105px;  
+        &.unshow .header__bottom {
+            transform: translateY(-100%);
+        }
         @media (max-width: $bp1) {
             margin-bottom: 95px;
         }
@@ -17,7 +20,7 @@
             width: 100%;
             z-index: 500;
             box-shadow: 0px 2px 4px 0px rgba(199, 199, 199, 0.25);
-            transition: padding-top .3s linear, padding-bottom .3s linear;
+            transition: transform .3s linear, padding-top .3s linear, padding-bottom .3s linear;
             .container {
                 padding-left: 20px;
                 padding-right: 20px;
@@ -207,6 +210,7 @@
         &__search {
             &::-webkit-scrollbar {
                 width: 4px;
+                height: 0;
             }
         }
     }

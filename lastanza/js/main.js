@@ -131,7 +131,7 @@ function openModal(modal) {
 }
 //close modal
 function closeModal(modal) {
-  if ( modal.querySelector("video")) {
+  if (modal.querySelector("video")) {
     modal.querySelectorAll("video").forEach(item => item.pause())
   }
   modal.classList.remove("open")
@@ -144,7 +144,9 @@ function closeModal(modal) {
 // modal click outside
 modal.forEach(mod => {
   mod.addEventListener("click", e => {
-    if (!mod.querySelector(".modal__content").contains(e.target) || mod.querySelector(".modal__close").contains(e.target)) {
+    if (!mod.querySelector(".modal__content").contains(e.target) || 
+         mod.querySelector(".modal__close").contains(e.target) || 
+         (mod.querySelector(".success-close") && mod.querySelector(".success-close").contains(e.target))) {
       closeModal(mod)
       if (mod.classList.contains("custom-select__options")) {
         closeSelectCustom(mod.parentNode)
@@ -160,10 +162,6 @@ modalShowBtn.forEach(btn => {
     openModal(document.getElementById(href))
   })
 })
-// close success modal 
-document.querySelectorAll(".success-close").forEach(item => {
-  item.addEventListener("click", () => item.parentNode.querySelector(".modal__close").click())
-})
 // city-modal
 const cityModal = document.querySelector('.city-modal')
 if (cityModal) {
@@ -175,16 +173,38 @@ if (cityModal) {
     }, animSpd);  
   })
 }
+//anchor
+$(".js-anchor").click((function(e) {
+  e.preventDefault()
+  let href = $(this).attr("href")
+  let dest = $(href).offset().top;
+  let fixedHeaderH = (dest < scrollPos() && scrollPos() > 150 && !serviceScroll) ?  $(".header__bottom").height() : 0
+  return $("html,body").animate({
+      scrollTop: dest - 20 - fixedHeaderH
+  }, 500)
+  }
+))
 // fixed header
+function scrollPos() {
+  return window.pageYOffset || document.documentElement.scrollTop;
+}
+let lastScroll = scrollPos();
+let serviceScroll = false
 window.addEventListener("scroll", () => {
    if (document.querySelector(".header__top").getBoundingClientRect().bottom < 0) {
     header.classList.add("fixed")
     document.querySelector(".header__bottom").classList.add("fixed-block")
+    if ((scrollPos() > lastScroll && scrollPos() > 150 && !header.classList.contains("unshow")) || (scrollPos() > 150 && serviceScroll)) {
+      header.classList.add("unshow")   
+    } else if (scrollPos() < lastScroll && header.classList.contains("unshow")) {
+      header.classList.remove("unshow")
+    }
    } else {
     header.classList.remove("fixed")
     document.querySelector(".header__bottom").classList.remove("fixed-block")
    }
-})
+   lastScroll = scrollPos()
+}) 
 // open mob menu
 iconMenu.addEventListener("click", () => {
   disableScroll()
@@ -211,22 +231,18 @@ searchToggle.addEventListener("click", () => {
   document.querySelector(".header__search").classList.add("show")
   disableScroll()
   overlay.classList.add("show")
-  header.classList.remove("open")
-  iconMenu.setAttribute('aria-label', 'Открыть меню');
 })
 searchClose.addEventListener("click", () => {
  document.querySelector(".header__search").classList.remove("show")
   overlay.classList.remove("show")
   setTimeout(() => {
-    if (!header.classList.contains("open")) {
-      enableScroll()
-    }
+    enableScroll()
   }, animSpd); 
 })
 overlay.addEventListener("click", () => {
   searchClose.click()
 })
-//search form
+//search form show/unshow reset btn
 const searchForm = document.querySelectorAll(".search-form")
 if (searchForm) {
   searchForm.forEach(item => {
@@ -253,39 +269,24 @@ if (inp) {
 const lazyVid = document.querySelectorAll(".lazy-video")
 if (lazyVid) {
   lazyVid.forEach(item => {
-    item.addEventListener("click", function lazyVidOnClick() {
-      let url = item.getAttribute("data-src"); 
-      let webmUrl = item.getAttribute("data-src-webm");
-      const video = document.createElement("video")
-      video.setAttribute("loop","")
-      video.setAttribute("playsinline","")
-      video.setAttribute("controls","")
-      item.append(video)
-      let webm = "" !== item.querySelector("video").canPlayType('video/webm; codecs="vp8, vorbis"')
-      if (webm && webmUrl) {
-        item.querySelector("video").innerHTML = `<source src="${webmUrl}" type='video/webm'>`
-      } else {
-        item.querySelector("video").innerHTML = `<source src="${url}">`
+    item.addEventListener("click", () => {
+      item.querySelectorAll("[data-src]").forEach(el => {
+        el.src = el.dataset.src;
+        el.removeAttribute("data-src")
+        item.classList.remove("lazy-video")
+      })
+      if (item.querySelector("video")) {
+        item.querySelector("video").load();
+      } 
+      if (item.querySelector("iframe"))  {
+        var symbol = item.querySelector("iframe").src.indexOf("?") > -1 ? "&" : "?"
+        item.querySelector("iframe").src += symbol + "autoplay=1&mute=1"
+        item.querySelector("iframe").setAttribute("allow", "autoplay; encrypted-media")
       }
-      setTimeout(() => {
-        item.querySelector("video").muted = true
-        item.querySelector("video").play()
-        item.classList.add("play")
-      }, 0); 
-      item.removeEventListener("click", lazyVidOnClick)
+      item.classList.add("play")
     })
   })
 }
-//anchor
-$(".js-anchor").click((function(e) {
-  e.preventDefault()
-  let href = $(this).attr("href")
-  let dest = $(href).offset().top;
-  return $("html,body").animate({
-      scrollTop: dest - $(".header__bottom").height() - 20 
-  }, 500)
-  }
-))
 //file-form
 let fileTypes = ["image/png", "image/jpeg"]
 document.querySelectorAll(".file-form").forEach(item => {
@@ -420,7 +421,7 @@ if (mainArt) {
         spaceBetween: 20,
       },
       699.98: {
-        slidesPerView: 2.42,
+        slidesPerView: 2.46,
         spaceBetween: 20,
       },
     }
@@ -443,30 +444,8 @@ $(".accordion__header").on("click", function () {
       .siblings(".accordion__body")
       .slideUp();
 })
-/* 
-const accHeader = document.querySelectorAll(".accordion__header")
-const accBody = document.querySelectorAll(".accordion__body")
-accHeader.forEach((item,idx) => {
-  item.addEventListener("click", e => {
-    accHeader.forEach( el => {
-      if (!item.classList.contains("active") && el.classList.contains("active")) {
-        el.click()
-      }
-    })
-    smoothDrop(accHeader[idx], accBody[idx], 500)
-  })
-}) */
 //filter accordion
 const filterAcc = document.querySelectorAll(".filter-acc")
-/* $(".filter-acc__header").on("click", function(e) {
-  if (!["input", "label"].includes(e.target.localName)) {
-    if ($(this).hasClass("open")) {
-      $(this).removeClass("open").siblings(".filter-acc__body").slideUp()
-    } else {
-      $(this).addClass("open").siblings(".filter-acc__body").slideDown()
-    }
-  }
-}) */
 filterAcc.forEach(item => {
   item.querySelector(".filter-acc__header").addEventListener("click", e => {
     if (!["input", "label"].includes(e.target.localName)) {
@@ -483,7 +462,6 @@ if (cardSwiper) {
       spaceBetween: 20,
       observe: true,
       observeParents: true,
-      loop: true,
       navigation: {
         prevEl: item.querySelector(".nav-btn--prev"),
         nextEl: item.querySelector(".nav-btn--next")
@@ -625,7 +603,7 @@ if (extraList) {
     })
   })
 }
-//quantity onclick
+//quantity
 const quantity = document.querySelectorAll(".quantity")
 if (quantity) {
   quantity.forEach(item => {
@@ -677,6 +655,7 @@ function closeSelectCustom(select) {
     closeModal(select.querySelector(".modal"));
   }
 }
+//open/close select-custom
 if (customSelect) {
   customSelect.forEach(select => {
     select.querySelector(".custom-select__selected").addEventListener("click", () => {
@@ -685,7 +664,7 @@ if (customSelect) {
           openModal(select.querySelector(".modal"))
         }
         if (window.innerWidth < 992.98 && document.querySelector(".self-size.active")) {
-          sizeProduct.querySelectorAll(".size-product__btn")[0].click()
+          sizeProduct.querySelector(".size-product__btn--select").click()
         }
         openSelectCustom(select)
       } else {
@@ -701,6 +680,7 @@ if (customSelect) {
     })
   })
 }
+//intro
 const intro = document.querySelector(".intro")
 if (intro) {
   document.querySelectorAll(".intro-thumb__nmb").forEach(item => +item.textContent < 10 ? item.textContent = "0"+ item.textContent : "")
@@ -787,7 +767,10 @@ let lastCallTimer
 let doc
 let lastCall = Date.now()
 let interval
+let isClicking = false
 let activeTextureIdx = 0
+let checkedWidth
+let checkedHeight
 if (product) {
   initialData = {
     width: +orderForm.querySelector("input[name=width]").value,
@@ -810,6 +793,15 @@ if (product) {
     imgURl: orderForm.querySelector("input[name=imgURl]").value,
   }
   modifiedData = Object.assign({}, initialData)
+  function checkedData() {
+    let data = {
+      width: +sizeProduct.querySelector(".custom-select").querySelector("input[type=radio]:checked").getAttribute("data-width"),
+      height: +sizeProduct.querySelector(".custom-select").querySelector("input[type=radio]:checked").getAttribute("data-height")
+    }
+    return data
+  }
+  checkedWidth = checkedData().width
+  checkedHeight = checkedData().height
   function setTotal() {
     document.querySelector(".total-product__price").textContent = String(modifiedData.designPrice ? modifiedData.priceDesign : modifiedData.priceStandart).replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()
     document.querySelector(".total-product__square").textContent = modifiedData.square
@@ -819,7 +811,7 @@ if (product) {
     document.querySelector(".total-product__mobprice").textContent = String(modifiedData.priceTotal).replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()
   }
   function setDesignPrice() {
-    if (modifiedData.reflectX || modifiedData.greyscale || modifiedData.imgStartX != 0 || modifiedData.cropped || modifiedData.selfSize) {
+    if (modifiedData.reflectX || modifiedData.greyscale ||  modifiedData.selfSize) {
       modifiedData.designPrice = true
     } else {
       modifiedData.designPrice = false
@@ -829,7 +821,9 @@ if (product) {
   }
   function setSize() {
     modifiedData.square = ((modifiedData.width * modifiedData.height) / 10000).toFixed(2)
+    modifiedData.aRatio = modifiedData.width / modifiedData.height
     orderForm.querySelector("input[name=square]").value = modifiedData.square
+    orderForm.querySelector("input[name=aRatio]").value = modifiedData.aRatio
     orderForm.querySelector("input[name=width]").value = modifiedData.width
     orderForm.querySelector("input[name=height]").value = modifiedData.height
     sizeProduct.querySelector("input[name=selfWidth]").value = modifiedData.width
@@ -843,15 +837,15 @@ if (product) {
   function imgStartX(e) {
     if (e.target.classList.contains("prev")) {
       if (!modifiedData.reflectX) {
-        shiftImg = shiftImg + 2
+        shiftImg = shiftImg + 1.5
       } else {
-        shiftImg = shiftImg - 2
+        shiftImg = shiftImg - 1.5
       }
     } else {
       if (!modifiedData.reflectX) {
-        shiftImg = shiftImg - 2
+        shiftImg = shiftImg - 1.5
       } else {
-        shiftImg = shiftImg + 2
+        shiftImg = shiftImg + 1.5
       }
     }
     cropperCanvas.style.backgroundPosition = `${shiftImg}px center`
@@ -903,6 +897,9 @@ if (product) {
     observer: true,
     observeParents: true,
     effect: "fade",
+    fadeEffect: {
+      crossFade: true
+    },
     speed: 0,
     allowTouchMove: false,
     thumbs: {
@@ -956,7 +953,7 @@ if (product) {
     //item-texture onclick
     product.querySelectorAll(".item-texture").forEach((item, idx) => {
       item.addEventListener("click", e => {
-        if (!item.querySelector(".media-cover").contains(e.target)) {
+        if (!item.querySelector(".item-texture__play").contains(e.target)) {
           activeTextureIdx = idx
           selectTexture()
         } else {
@@ -973,7 +970,7 @@ if (product) {
     // select texture in textureAllModal
     textureAllModal.querySelectorAll(".item-texture").forEach((item, idx) => {
       item.addEventListener("click", e => {
-        if (!item.querySelector(".media-cover").contains(e.target)) {
+        if (!item.querySelector(".item-texture__play").contains(e.target)) {
           textureAllModal.querySelectorAll(".item-texture").forEach(el => el.classList.remove("selected"))
           item.classList.add("selected")
           activeTextureIdx = idx
@@ -1005,12 +1002,12 @@ if (product) {
   }
   // order colorize
   colorize.querySelector("input").addEventListener("change", e => {
-    modifiedData.colorize = e.target.checked ? true : false
+    modifiedData.colorize = e.target.checked
     orderForm.querySelector("input[name=colorize]").value = e.target.checked
   })
   //reflect
   reflect.querySelector("input").addEventListener("change", e => {
-    modifiedData.reflectX = e.target.checked ? true : false
+    modifiedData.reflectX = e.target.checked
     orderForm.querySelector("input[name=reflectX]").value = e.target.checked
     e.target.checked ? cropper.scale(-1, 1) : cropper.scale(1, 1)
     mainImg.classList.toggle("reverse")
@@ -1023,7 +1020,7 @@ if (product) {
   })
   //greyscale
   greyscale.querySelector("input").addEventListener("change", e => {
-    modifiedData.greyscale = e.target.checked ? true : false
+    modifiedData.greyscale = e.target.checked 
     orderForm.querySelector("input[name=greyscale]").value = e.target.checked
     mainImg.classList.toggle("greyscale")
     cropperCanvas.classList.toggle("greyscale")
@@ -1042,7 +1039,7 @@ if (product) {
       item.classList.toggle("active")
       if (item.classList.contains("self-size")) {
         modifiedData.selfSize = true
-        document.querySelector(".main-product__top").classList.add("size-show")
+        document.querySelector(".main-product__size").classList.remove("size-show")
         document.querySelector(".main-product__preview").classList.remove("swiper-show")
         cropper.resize() 
         if (window.innerWidth < 992.98) {
@@ -1052,9 +1049,11 @@ if (product) {
         shiftImg = 0
         modifiedData.selfSize = false
         modifiedData.imgStartX = "0%"
-        modifiedData.width = +sizeProduct.querySelector(".custom-select").querySelector("input[type=radio]:checked").getAttribute("data-width")
-        modifiedData.height = +sizeProduct.querySelector(".custom-select").querySelector("input[type=radio]:checked").getAttribute("data-height")
-        document.querySelector(".main-product__top").classList.remove("size-show")
+        checkedWidth = checkedData().width
+        checkedHeight = checkedData().height
+        modifiedData.width = checkedData().width
+        modifiedData.height = checkedData().height
+        document.querySelector(".main-product__size").classList.add("size-show")
         document.querySelector(".main-product__preview").classList.add("swiper-show")
         mainImg.style.backgroundPosition = null
         cropper.reset()
@@ -1071,27 +1070,26 @@ if (product) {
     item.addEventListener("change", () => {
       modifiedData.width = +item.getAttribute("data-width")
       modifiedData.height = +item.getAttribute("data-height")
+      checkedWidth = checkedData().width
+      checkedHeight = checkedData().height
       setSize()
     })
   })
   //set ratio
   sizeProduct.querySelector(".size-product__fixed").addEventListener("change", e => {
     if (e.target.checked) {
-      modifiedData.aRatio = modifiedData.width / modifiedData.height
       cropper.options.aspectRatio = modifiedData.aRatio
     } else {
-      modifiedData.aRatio = modifiedData.aRatioDefault
       cropper.options.aspectRatio = ""
     }
-    orderForm.querySelector("input[name=aRatio]").value = modifiedData.aRatio
   })
   //set self size
   document.querySelectorAll(".size-product__inp input").forEach(inp => {
     inp.addEventListener("change", e => {
       if (Number.isInteger(e.target.value) || e.target.value > 0) {
-        let initW = +sizeProduct.querySelector(".custom-select").querySelector("input[type=radio]:checked").getAttribute("data-width")
-        let initH = +sizeProduct.querySelector(".custom-select").querySelector("input[type=radio]:checked").getAttribute("data-height")
-        if (modifiedData.aRatio != modifiedData.aRatioDefault) {
+        let initW = checkedData().width
+        let initH = checkedData().height
+        if (sizeProduct.querySelector(".size-product__fixed").checked) {
           if (e.target.name == "selfHeight") {
             sizeProduct.querySelector("input[name=selfWidth]").value = Math.round(sizeProduct.querySelector("input[name=selfWidth]").value * (e.target.value / modifiedData.height))
           } else if (e.target.name == "selfWidth") {
@@ -1115,8 +1113,31 @@ if (product) {
         } else if (wPercent < hPercent) {
           wPercent = wPercent / heightInc
         }
-        modifiedData.width = dataW
-        modifiedData.height = dataH
+        //modifiedData.width = dataW
+        //modifiedData.height = dataH
+
+        if (dataW > checkedWidth && e.target.name == "selfWidth") {
+          checkedHeight = checkedHeight * (dataW / checkedWidth)
+          checkedWidth = dataW
+        } 
+        if (dataH > checkedHeight && e.target.name == "selfHeight") {
+          checkedWidth = checkedWidth * ( dataH / checkedHeight )
+          checkedHeight = dataH
+        }
+        if (dataW < checkedWidth && dataH < checkedHeight) {
+          if (dataW > initW || dataH > initH) {
+            if (dataW > dataH) {
+              checkedHeight = checkedHeight * (dataW / checkedWidth)
+              checkedWidth = dataW
+            } else {
+              checkedWidth = checkedWidth * ( dataH / checkedHeight )
+              checkedHeight = dataH
+            }
+          } else {
+            checkedWidth = initW
+            checkedHeight = initH
+          }
+        }
         let data = {
           left: (cropper.containerData.width - cropper.containerData.width * wPercent / 100) / 2,
           top: (cropper.containerData.height - cropper.containerData.height * hPercent / 100) / 2,
@@ -1135,7 +1156,7 @@ if (product) {
     document.querySelectorAll(".self-modal .btn").forEach(item => {
       item.addEventListener("click", () => {
         if(item.classList.contains("stroke-btn")) {
-          sizeProduct.querySelectorAll(".size-product__btn")[0].click()
+          sizeProduct.querySelector(".size-product__btn--select").click()
         }
         closeModal(document.querySelector(".self-modal.open"))
       })
@@ -1152,16 +1173,19 @@ if (product) {
       clearInterval(interval)
       interval = setInterval(() => {
         imgStartX(e)
-      }, 50);
+      }, 70);
     })
     item.addEventListener("mouseup", e => {
+      clearInterval(interval)
+    })
+    item.addEventListener("mouseleave", e => {
       clearInterval(interval)
     })
     item.addEventListener("touchstart", e => {
       clearInterval(interval)
       interval = setInterval(() => {
         imgStartX(e)
-      }, 50);
+      }, 70);
     })
     item.addEventListener("touchend", e => {
       clearInterval(interval)
@@ -1204,21 +1228,27 @@ if (product) {
       modifiedData.imgStartY = Math.round(cropper.getCropBoxData().top)
       orderForm.querySelector("input[name=imgStartX").value =  Math.floor(modifiedData.imgStartX * 100 / cropper.containerData.width) + "%"
       orderForm.querySelector("input[name=imgStartY").value =  Math.floor(modifiedData.imgStartY * 100 / cropper.containerData.height) + "%"
-      //let widthDiff = (Math.ceil(cropper.cropBoxData.width) / cropper.containerData.width) * 100
-      let checkedWidth = +sizeProduct.querySelector(".custom-select").querySelector("input[type=radio]:checked").getAttribute("data-width")
-      let checkedHeight = +sizeProduct.querySelector(".custom-select").querySelector("input[type=radio]:checked").getAttribute("data-height")
+      //let checkedWidth = +sizeProduct.querySelector(".custom-select").querySelector("input[type=radio]:checked").getAttribute("data-width")
+      //let checkedHeight = +sizeProduct.querySelector(".custom-select").querySelector("input[type=radio]:checked").getAttribute("data-height")
       let widthDiff = (cropper.cropBoxData.width / cropper.containerData.width) * 100
       let heightDiff = (cropper.cropBoxData.height / cropper.containerData.height) * 100
-      let diffW = 1
-      let diffH = 1
-      let diffT = 1
-      if ((modifiedData.width > checkedWidth) || (modifiedData.height > checkedHeight)) {
+      //let diffW = 1
+      //let diffH = 1
+      //let diffT = 1
+     /*  if ((modifiedData.width > checkedWidth) || (modifiedData.height > checkedHeight)) {
         diffW = modifiedData.width / checkedWidth
         diffH = modifiedData.height / checkedHeight
         diffT = ( diffW >= diffH) ? diffW : diffH
-      }
+      } 
       modifiedData.width = Math.round((checkedWidth * widthDiff * diffT) / 100)
-      modifiedData.height = Math.round((checkedHeight * heightDiff * diffT) / 100)
+      modifiedData.height = Math.round((checkedHeight * heightDiff * diffT) / 100)*/
+    /*   if ((modifiedData.width > checkedWidth) || (modifiedData.height > checkedHeight)) {
+        diffW = modifiedData.width / checkedWidth
+        diffH = modifiedData.height / checkedHeight
+        diffT = ( diffW >= diffH) ? diffW : diffH
+      }  */
+      modifiedData.width = Math.round((checkedWidth * widthDiff) / 100)
+      modifiedData.height = Math.round((checkedHeight * heightDiff) / 100)
       setSize()
       setImg(2000)
     },
@@ -1259,6 +1289,7 @@ if (product) {
     }
   })
 }
+// catalog grid
 document.querySelectorAll(".catalog__btn").forEach(item => {
   item.addEventListener("click", () => {
     document.querySelectorAll(".catalog__btn").forEach(item => item.classList.remove("active"))
@@ -1270,6 +1301,7 @@ document.querySelectorAll(".catalog__btn").forEach(item => {
     }, 150);
   })
 })
+// cart delivery 
 const tippy = document.querySelectorAll('.tippy')
 const tippyContent = document.querySelector(".tippy-content")
 if (tippy) {
@@ -1307,22 +1339,23 @@ if (tippy) {
     tippyContent.classList.remove("show")
   })
 }
-const dataDelNav = document.querySelectorAll("[data-del-nav]")
-const dataDelBlock = document.querySelectorAll("[data-del-block]")
-if (dataDelNav && dataDelBlock) {
-  dataDelNav.forEach((item,idx) => {
+const delNav = document.querySelectorAll("[data-del-nav]")
+const delBlock = document.querySelectorAll("[data-del-block]")
+if (delNav && delBlock) {
+  delNav.forEach((item,idx) => {
     item.addEventListener("change", () => {
-      dataDelBlock.forEach(el => {
+      delBlock.forEach(el => {
         el.classList.remove("active")
       })
-      dataDelBlock[idx].classList.add("active")
-      dataDelBlock[idx].style.opacity = "0"
+      delBlock[idx].classList.add("active")
+      delBlock[idx].style.opacity = "0"
       setTimeout(() => {
-        dataDelBlock[idx].style.opacity = "1"
+        delBlock[idx].style.opacity = "1"
       }, 0);
     })
   })
 }
+//show /unshow pickup radio
 const cart = document.querySelector(".cart")
 if (cart) {
   document.querySelector(".item-cart__comment-btn").addEventListener("click", () => {
@@ -1342,52 +1375,27 @@ const serviceAside = document.querySelector(".service-aside")
 const serviceBtn = document.querySelector(".service__mobBtn")
 const serviceLinks =  document.querySelector(".service-aside__links")
 if (serviceAside) {
- /* const anchors = serviceLinks.querySelectorAll(".js-anchor")
-  anchors.forEach((item,i) => {
-    const elementClick = item.getAttribute("href")
-    const destination = document.querySelector(`${elementClick}`)
-    $(item).click((function(e) {
-      e.preventDefault()
-      let href = $(this).attr("href")
-      let dest = $(href).offset().top - window.innerHeight / 3;
-      return $("html,body").animate({
-          scrollTop: dest
-      }, 500)
-      }
-    ))
-    let options = {
-      rootMargin: "0px",
-      threshold: 1,
-    };
-    let callback = function (entries, observer) {
-      entries.forEach(observe => {
-        if (observe.isIntersecting) {
-          anchors.forEach(el => {
-            el.classList.remove("active")
-          })
-          item.classList.add("active")
-          let scrollDiff = serviceLinks.querySelector(".js-anchor.active").getBoundingClientRect().top - serviceLinks.getBoundingClientRect().top ; 
-          serviceLinks.scrollTop = serviceLinks.scrollTop + scrollDiff 
-        }
-      })
-    }
-    let observer = new IntersectionObserver(callback, options);
-    observer.observe(destination)
-  }) */
   window.addEventListener("scroll", () => {
+    if (window.innerWidth > 992.98 && serviceAside.getBoundingClientRect().bottom > 0) {
+      serviceScroll = true
+    } else {
+      serviceScroll = false
+    }
     const anchors = serviceLinks.querySelectorAll(".js-anchor")
     anchors.forEach((item,i) => {
       const elementClick = item.getAttribute("href")
-      const destination = document.querySelector(`${elementClick}`)
-      //let offTop = parseInt(getComputedStyle(destination).marginBottom) < 30 ? 100 : (parseInt(getComputedStyle(destination).marginBottom) + 20)
-      let offTop = document.querySelector(".header__bottom").clientHeight + (parseInt(getComputedStyle(destination).marginBottom) < 30 ? 20 : (parseInt(getComputedStyle(destination).marginBottom) / 2))
-      if (destination.getBoundingClientRect().top < offTop) {
+      const dest = document.querySelector(`${elementClick}`)
+      let offTop = parseInt(getComputedStyle(dest).marginBottom) < 30 ? 20 : (parseInt(getComputedStyle(dest).marginBottom) / 2)
+      if (!header.classList.contains("unshow")) {
+        offTop = document.querySelector(".header__bottom").clientHeight + offTop    
+      }
+      if (parseInt(dest.getBoundingClientRect().top) <= offTop) {
         anchors.forEach(el => {
           el.classList.remove("active")
         })
         item.classList.add("active")
         let scrollDiff = serviceLinks.querySelector(".js-anchor.active").getBoundingClientRect().top - serviceLinks.getBoundingClientRect().top ; 
-        serviceLinks.scrollTop = serviceLinks.scrollTop + scrollDiff 
+        serviceLinks.scrollTop = parseInt(serviceLinks.scrollTop + scrollDiff )
       } 
     })   
   })
@@ -1442,6 +1450,7 @@ if (rangeSliders) {
     inp.addEventListener("change", setRangePrice)
   })
 }
+// reviews extra txt
 const itemReview = document.querySelectorAll(".item-review")
 if (itemReview) {
   function showExtraBtn() {

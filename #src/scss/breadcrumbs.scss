@@ -29,6 +29,9 @@
         ul li {
             font-size: 18px;
         }
+        &--service ul  {
+            padding-left: calc(100% / 12 * 3 + 6px);
+        }
         &--shift ul {
             padding-left:0
         }

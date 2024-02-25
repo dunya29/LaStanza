@@ -757,6 +757,13 @@ blockquote {
   align-items: center;
   white-space: nowrap;
 }
+.card-swiper {
+  @media (max-width: $bp3) {
+    .swiper {
+      overflow: visible;
+    }
+  }
+}
 .nav-btn {
   flex: 0 0 60px;
   width: 60px;
@@ -1261,6 +1268,7 @@ blockquote {
           } 
           &::-webkit-scrollbar {
               width: 4px;
+              height: 0;
               border-radius: 8px;
               background-color: $white-gray;
           }
@@ -1366,6 +1374,11 @@ blockquote {
         content: none;
     }
 }
+}
+.lazy-video {
+  video,iframe {
+    display: none;
+  }
 }
 .item-contact {
   font-size: 20px;

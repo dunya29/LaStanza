@@ -3877,6 +3877,10 @@ blockquote p {
   position: relative;
 }
 
+.cropBox picture {
+  display: block;
+}
+
 .cropBox__img {
   position: absolute;
   top: 0;
@@ -3894,10 +3898,6 @@ blockquote p {
 .greyscale {
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
-}
-
-.cropBox picture {
-  display: block;
 }
 
 .cropper-view-box {

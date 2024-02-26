@@ -771,6 +771,7 @@ let isClicking = false
 let activeTextureIdx = 0
 let checkedWidth
 let checkedHeight
+let touchscreen = false
 if (product) {
   initialData = {
     width: +orderForm.querySelector("input[name=width]").value,
@@ -837,15 +838,15 @@ if (product) {
   function imgStartX(e) {
     if (e.target.classList.contains("prev")) {
       if (!modifiedData.reflectX) {
-        shiftImg = shiftImg + 1.5
+        shiftImg = shiftImg + 7.5
       } else {
-        shiftImg = shiftImg - 1.5
+        shiftImg = shiftImg - 7.5
       }
     } else {
       if (!modifiedData.reflectX) {
-        shiftImg = shiftImg - 1.5
+        shiftImg = shiftImg - 7.5
       } else {
-        shiftImg = shiftImg + 1.5
+        shiftImg = shiftImg + 7.5
       }
     }
     cropperCanvas.style.backgroundPosition = `${shiftImg}px center`
@@ -1191,6 +1192,7 @@ if (product) {
       clearInterval(interval)
     })
   })
+  
   // cropper
   cropper = new Cropper(imageCrop, {
     viewMode: 2,

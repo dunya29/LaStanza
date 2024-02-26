@@ -874,6 +874,9 @@
     width: calc(100% - 120px);
     margin-left: 60px;
     position: relative;
+    picture {
+        display: block;
+    }
     &__img {
         position: absolute;
         top: 0;
@@ -891,11 +894,6 @@
 }
 .greyscale {
     filter: grayscale(1);
-}
-.cropBox {
-    picture {
-        display: block;
-    }
 }
 .cropper-view-box {
     outline: none;

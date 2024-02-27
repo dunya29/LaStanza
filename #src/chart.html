@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('_head.html', {
+"title": "chart"
+})
+
+<body>
+    <div class="wrap">
+        <!--header-->
+        @@include('_header.html')
+        <!--main-->
+        <main class="main">
+            <div class="container">
+                <div class="section chart" style="padding-top: 60px;">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+        </main>
+        <!--footer-->
+        @@include('_footer.html')
+        <!--texture-modal-->
+        @@include('_modal.html')
+    </div>   
+    <script src="js/libs/chart.min.js"></script>
+    @@include('_js.html')
+    <script src="js/chart.js"></script>
+</body>
+
+</html>

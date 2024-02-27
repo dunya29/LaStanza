@@ -269,7 +269,7 @@ if (inp) {
 const lazyVid = document.querySelectorAll(".lazy-video")
 if (lazyVid) {
   lazyVid.forEach(item => {
-    item.addEventListener("click", () => {
+    item.addEventListener("click", function loadVid() {
       item.querySelectorAll("[data-src]").forEach(el => {
         el.src = el.dataset.src;
         el.removeAttribute("data-src")
@@ -284,6 +284,7 @@ if (lazyVid) {
         item.querySelector("iframe").setAttribute("allow", "autoplay; encrypted-media")
       }
       item.classList.add("play")
+      item.removeEventListener("click", loadVid)
     })
   })
 }
@@ -1254,6 +1255,17 @@ if (product) {
       setSize()
       setImg(2000)
     },
+    cropmove: function (event) {
+      if(cropper.cropBoxData.left <= 1) {
+        console.log("left")
+      }
+      if(cropper.cropBoxData.left + cropper.cropBoxData.width >= cropper.cropBoxData.maxWidth) {
+        console.log("right")
+      }
+    },
+    cropend: function() {
+      console.log("h")
+    }
   });
   //share pdf
   sharePdf.addEventListener("click", e => {

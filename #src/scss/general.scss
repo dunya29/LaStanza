@@ -1143,6 +1143,7 @@ blockquote {
     .custom-select__options {
       visibility: visible;
       opacity: 1;
+      pointer-events: auto;
     }  
     .custom-select__selected {
       svg {
@@ -1187,6 +1188,7 @@ blockquote {
     margin-top: 8px;
     visibility: hidden;
     opacity: 0;
+    pointer-events: none;
     transition: all .3s ease;
     label {
       &:last-child span {

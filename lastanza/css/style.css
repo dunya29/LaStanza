@@ -1404,6 +1404,7 @@ blockquote p {
 .custom-select.open .custom-select__options {
   visibility: visible;
   opacity: 1;
+  pointer-events: auto;
 }
 
 .custom-select.open .custom-select__selected svg {
@@ -1462,6 +1463,7 @@ blockquote p {
   margin-top: 8px;
   visibility: hidden;
   opacity: 0;
+  pointer-events: none;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }

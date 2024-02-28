@@ -1188,12 +1188,14 @@ if (product) {
       clearInterval(interval)
     })
     item.addEventListener("touchstart", e => {
+      e.preventDefault()
       clearInterval(interval)
       interval = setInterval(() => {
         imgStartX(e)
       }, 70);
     })
     item.addEventListener("touchend", e => {
+      e.preventDefault()
       clearInterval(interval)
     })
   })

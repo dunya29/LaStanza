@@ -585,6 +585,11 @@ blockquote p {
   margin-bottom: 0 !important;
 }
 
+.page-content a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 .page-content h1,
 .page-content h2,
 .page-content h3,
@@ -3514,6 +3519,7 @@ blockquote p {
 
 .main-product__swiper .media-cover {
   padding-top: 75%;
+  cursor: pointer;
 }
 
 .main-product__preview {

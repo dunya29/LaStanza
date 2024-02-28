@@ -383,10 +383,14 @@ blockquote {
   & > *:last-child {
     margin-bottom: 0!important;
   }
+  a {
+    color: inherit;
+    text-decoration: underline;
+  }
   h1, h2, h3, h4 {
     margin-bottom: 40px;
   }
-  h5, h6,  p, hr, ol, ul {
+  h5, h6, p, hr, ol, ul {
     margin-bottom: 24px;
   }
   p + h1, p + h2, p + h3, p + h4 {

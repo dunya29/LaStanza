@@ -902,12 +902,6 @@
         }
     }
     @media (max-width: $bp3) {
-        .item-form input{
-            font-size: 14px;
-            &::placeholder {
-                font-size: 14px;
-            }
-        }
         .modal__content, .modal__scroll{
             max-height: 100%;
             display: flex;

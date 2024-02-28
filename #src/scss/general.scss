@@ -517,6 +517,7 @@ blockquote {
   }
   &:disabled, &.disabled {
     background: rgba(#131313, 0.4);
+    pointer-events: none;
   }
   @media (max-width: $bp2) {
     svg {
@@ -539,6 +540,7 @@ blockquote {
   }
   &:disabled, &.disabled {
     opacity: 0.4;
+    pointer-events: none;
   }
 }
 .link {
@@ -569,7 +571,8 @@ blockquote {
     color: $maincolor;
   }
   &:disabled, &.disabled {
-    color: rgba($maincolor, 0.2)
+    color: rgba($maincolor, 0.2);
+    pointer-events: none;
   }
   &.chevron {
     color: $light-gray;
@@ -861,6 +864,7 @@ blockquote {
   }
   &__del {
     flex: 0 0 16px;
+    cursor: pointer;
     svg {
       fill: $gray;
       width: 16px;
@@ -954,11 +958,7 @@ blockquote {
   }
   @media (max-width: $bp3) {
     input,  textarea {
-      font-size: 14px;
       padding: 8px 16px;
-      &::placeholder {
-        font-size: 14px;
-      }
     }
     textarea {
       min-height: 100px;
@@ -1009,6 +1009,7 @@ blockquote {
   }
   &.disabled {
     opacity: 0.4;
+    pointer-events: none;
   }
   @media (max-width: $bp3) {
     span {
@@ -1074,6 +1075,7 @@ blockquote {
   }
   &.disabled {
     opacity: 0.4;
+    pointer-events: none;
   }
 }
 .item-toggle {
@@ -1121,6 +1123,7 @@ blockquote {
   }
   &.disabled {
     opacity: 0.5;
+    pointer-events: none;
   }
   @media (max-width: $bp1) {
     span {
@@ -1180,7 +1183,7 @@ blockquote {
     margin-top: 8px;
     visibility: hidden;
     opacity: 0;
-    transition: all .5s ease;
+    transition: all .3s ease;
     label {
       &:last-child span {
         border-radius: 0 0 16px 16px;

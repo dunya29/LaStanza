@@ -122,6 +122,12 @@ function formSuccess(form) {
 function mailFormSuccess(form) {
   form.querySelector("input").value = ""
 }
+//searchFormSuccess
+function searchFormSuccess(form) {
+  form.querySelector("input").value = ""
+  form.querySelector(".search-form__reset").classList.remove("show")
+  form.querySelector(".search-form__submit").classList.add("disabled")
+}
 //open modal
 function openModal(modal) {
   if (!mobMenu.classList.contains("open") && !document.querySelector(".header__search.show")) {
@@ -145,8 +151,8 @@ function closeModal(modal) {
 modal.forEach(mod => {
   mod.addEventListener("click", e => {
     if (!mod.querySelector(".modal__content").contains(e.target) || 
-         mod.querySelector(".modal__close").contains(e.target) || 
-         (mod.querySelector(".success-close") && mod.querySelector(".success-close").contains(e.target))) {
+      mod.querySelector(".modal__close").contains(e.target) || 
+      (mod.querySelector(".success-close") && mod.querySelector(".success-close").contains(e.target))) {
       closeModal(mod)
       if (mod.classList.contains("custom-select__options")) {
         closeSelectCustom(mod.parentNode)
@@ -249,12 +255,20 @@ if (searchForm) {
     item.querySelector("input").addEventListener("input", () => {
       if (item.querySelector("input").value.length > 0) {
         item.querySelector(".search-form__reset").classList.add("show")
+        if (item.querySelector(".search-form__submit") && item.querySelector("input").value.length > 2) {
+          item.querySelector(".search-form__submit").classList.remove("disabled")
+        } else {
+          item.querySelector(".search-form__submit").classList.add("disabled")
+        }
       } else {
         item.querySelector(".search-form__reset").classList.remove("show")
       }
     })
     item.addEventListener("reset", () => {
       item.querySelector(".search-form__reset").classList.remove("show")
+      if (item.querySelector(".search-form__submit")) {
+        item.querySelector(".search-form__submit").classList.add("disabled")
+      }   
     })
   })
 }
@@ -289,43 +303,50 @@ if (lazyVid) {
   })
 }
 //file-form
+function addFile(files, item) {
+  for (let i = 0; i < files.length; i++) {
+    let file = files[i]
+    if (file.size >  10 * 1024 * 1024) {
+      item.querySelector("input").value = "" 
+      item.querySelector(".file-form__items").innerHTML = ""
+      item.classList.add("error")
+      item.querySelectorAll(".file-form__item").forEach((el=>el.remove()));
+      item.querySelector(".item-form__error").textContent = "Файл должен быть менее 10 МБ"
+      return
+    } else if (!fileTypes.includes(file.type)) {
+      item.querySelector("input").value = "" 
+      item.querySelector(".file-form__items").innerHTML = ""
+      item.classList.add("error")
+      item.querySelectorAll(".file-form__item").forEach((el=>el.remove()));
+      item.querySelector(".item-form__error").textContent = 'Разрешённые форматы: png, jpg'
+      return
+    } else {
+      item.classList.remove("error")
+      item.querySelector(".item-form__error").textContent = "" 
+      let reader = new FileReader()
+      reader.readAsDataURL(file);
+      reader.onload = () => {
+        item.querySelector(".file-form__items").innerHTML += `<div class="file-form__item">
+        <img src=${reader.result} alt="">
+        <div class="file-form__name">${file.name}</div>
+        <div class="file-form__size">${(file.size / (1024 * 1024)).toFixed(2)}Mb</div>
+        <div class="file-form__del">${sprite("close")}</div>
+       </div>
+      `
+      }
+      reader.onerror = () => {
+        console.log(reader.error);
+      }
+      
+    }
+  }
+}
 let fileTypes = ["image/png", "image/jpeg"]
 document.querySelectorAll(".file-form").forEach(item => {
   item.querySelector("input").addEventListener("change", e => {  
     item.querySelectorAll(".file-form__item").forEach((el=>el.remove()));
     let files = e.target.files;
-    for (let i = 0; i < files.length; i++) {
-      let file = files[i]
-      if (file.size >  10 * 1024 * 1024) {
-        item.querySelector("input").value = "" 
-        item.classList.add("error")
-        item.querySelectorAll(".file-form__item").forEach((el=>el.remove()));
-        item.querySelector(".item-form__error").textContent = "Файл должен быть менее 10 МБ"
-      } else if (!fileTypes.includes(file.type)) {
-        item.querySelector("input").value = "" 
-        item.classList.add("error")
-        item.querySelectorAll(".file-form__item").forEach((el=>el.remove()));
-        item.querySelector(".item-form__error").textContent = 'Разрешённые форматы: png, jpg'
-      } else {
-        item.classList.remove("error")
-        item.querySelector(".item-form__error").textContent = "" 
-        let reader = new FileReader()
-        reader.readAsDataURL(file);
-        reader.onload = () => {
-          item.querySelector(".file-form__items").innerHTML += `<div class="file-form__item">
-          <img src=${reader.result} alt="">
-          <div class="file-form__name">${file.name}</div>
-          <div class="file-form__size">${(file.size / (1024 * 1024)).toFixed(2)}Mb</div>
-          <div class="file-form__del">${sprite("close")}</div>
-         </div>
-        `
-        }
-        reader.onerror = () => {
-          console.log(reader.error);
-        }
-        
-      }
-    }
+    addFile(files, item)
   })
   //delete file
   item.addEventListener("click", e => {
@@ -336,8 +357,9 @@ document.querySelectorAll(".file-form").forEach(item => {
             const { files } = input
             for (let i = 0; i < files.length; i++) {
                 let file = files[i]
-                if (i !== idx)
-                    dt.items.add(file)
+                if (i !== idx) {
+                  dt.items.add(file)
+                }      
             }
             input.files = dt.files
             setTimeout(() => {
@@ -346,7 +368,24 @@ document.querySelectorAll(".file-form").forEach(item => {
         }
     })
 
-})
+  })
+  item.addEventListener("dragenter", e => {
+    e.preventDefault();
+  })
+  item.addEventListener("dragover", e => {
+    e.preventDefault();
+  })
+  item.addEventListener("dragleave", e => {
+    e.preventDefault();
+  })
+  // Это самое важное событие, событие, которое дает доступ к файлам
+  item.addEventListener("drop", function(e) {
+    e.preventDefault();
+    let files = Array.from(e.dataTransfer.files);
+    item.querySelector("input").files = e.dataTransfer.files
+    item.querySelector(".file-form__items").innerHTML = ""
+    addFile(files, item)
+  });
 })
 //modal swiper
 const swiper1 = document.querySelectorAll(".swiper-1")
@@ -392,7 +431,7 @@ if (bestsellers) {
           }
         }
       })
-    } else if (initBest) {
+    } else if (window.innerWidth > 992.98 && initBest) {
       initBest = false
       bestSwiper.destroy()
     }
@@ -400,6 +439,7 @@ if (bestsellers) {
   initTheBestsSwiper()
   window.addEventListener("resize", initTheBestsSwiper)
 }
+// articles swiper
 const mainArt = document.querySelector(".main-articles")
 if (mainArt) {
   const artSwiper = new Swiper(mainArt.querySelector(".swiper"), {
@@ -664,9 +704,6 @@ if (customSelect) {
         if (window.innerWidth < 992.98 && select.querySelector(".modal")) {
           openModal(select.querySelector(".modal"))
         }
-        if (window.innerWidth < 992.98 && document.querySelector(".self-size.active")) {
-          sizeProduct.querySelector(".size-product__btn--select").click()
-        }
         openSelectCustom(select)
       } else {
         closeSelectCustom(select)
@@ -879,9 +916,9 @@ if (product) {
   }
   setImg(2000)
   // product-swiper
-  document.querySelectorAll(".main-product__mainswiper .media-contain").forEach(slide => slide.style.paddingTop = (initialData.height / initialData.width) * 100 + "%")
+  document.querySelector(".main-product__mainImg .media-contain").style.paddingTop = (initialData.height / initialData.width) * 100 + "%"
   document.querySelector(".main-product__ratio span").style.paddingTop = (initialData.height / (initialData.width)) * 100 + "%"
-  const productThumbs = new Swiper(".main-product__thumbs", {
+  const productSwiper = new Swiper(".main-product__swiper", {
     slidesPerView: 3,
     spaceBetween: 20,
     observer: true,
@@ -892,20 +929,6 @@ if (product) {
         slidesPerView: 3.55,
         spaceBetween: 12,
       }
-    }
-  })
-  const productMain = new Swiper(".main-product__mainswiper", {
-    slidesPerView: 1,
-    observer: true,
-    observeParents: true,
-    effect: "fade",
-    fadeEffect: {
-      crossFade: true
-    },
-    speed: 0,
-    allowTouchMove: false,
-    thumbs: {
-      swiper: productThumbs
     }
   })
   //select texture
@@ -1042,11 +1065,8 @@ if (product) {
       if (item.classList.contains("self-size")) {
         modifiedData.selfSize = true
         document.querySelector(".main-product__size").classList.remove("size-show")
-        document.querySelector(".main-product__preview").classList.remove("swiper-show")
-        cropper.resize() 
-        if (window.innerWidth < 992.98) {
-          openModal(sizeProduct.querySelector(".self-modal"))
-        }    
+        document.querySelector(".main-product__preview").classList.remove("crop-hidden")
+        cropper.resize()    
       } else {
         shiftImg = 0
         modifiedData.selfSize = false
@@ -1056,7 +1076,7 @@ if (product) {
         modifiedData.width = checkedData().width
         modifiedData.height = checkedData().height
         document.querySelector(".main-product__size").classList.add("size-show")
-        document.querySelector(".main-product__preview").classList.add("swiper-show")
+        document.querySelector(".main-product__preview").classList.add("crop-hidden")
         mainImg.style.backgroundPosition = null
         cropper.reset()
         cropperCanvas.style.backgroundPosition = `${shiftImg}px center`
@@ -1153,22 +1173,6 @@ if (product) {
       }
     })
   })
-  //self-modal__btns onlick
-  if (document.querySelector(".self-modal")) {
-    document.querySelectorAll(".self-modal .btn").forEach(item => {
-      item.addEventListener("click", () => {
-        if(item.classList.contains("stroke-btn")) {
-          sizeProduct.querySelector(".size-product__btn--select").click()
-        }
-        closeModal(document.querySelector(".self-modal.open"))
-      })
-    })
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 992.98 && document.querySelector(".self-modal.open")) {       
-        closeModal(document.querySelector(".self-modal"))
-      } 
-    })
-  }
   //shift image
   document.querySelectorAll(".main-product__btn").forEach(item => {
     item.addEventListener("mousedown", e => {
@@ -1295,7 +1299,6 @@ if (product) {
   document.querySelector(".total-product .main-btn").addEventListener("click",  addToCart)
   // remove fixed btn on scroll to footer
   window.addEventListener('scroll', () => {
-    let windowTop = window.pageYOffset || document.documentElement.scrollTop
     if (window.innerHeight - document.querySelector(".footer").getBoundingClientRect().bottom + 30 >= 0) {
       document.querySelector(".total-product__body").classList.add("hidden")
     } else {

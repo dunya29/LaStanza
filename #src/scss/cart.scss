@@ -331,6 +331,7 @@
     }
 }
 .cart {
+    overflow: visible;
     h1 {
         margin-bottom: 40px;
     }
@@ -344,6 +345,7 @@
     display: grid;
     grid-template-columns: 2.05fr 1fr;
     gap: 30px;
+    align-items: start;
     .item-cart__grid {
         padding: 0 40px;
     }
@@ -566,6 +568,8 @@
     }
 }
 .cart-total {
+    position: sticky;
+    top: 20px;
     .main-btn {
         width: 100%;
     }
@@ -668,7 +672,8 @@
             margin-top: 24px;
         }
     }
-    @media (max-width: $bp1) {
+    @media (max-width: $bp2) {
+        position: static;
         &__top, &__bottom-inner {
             max-width: 440px;
             margin-left: auto;

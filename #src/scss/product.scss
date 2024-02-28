@@ -189,20 +189,20 @@
         background: $maincolor;
         position: absolute;
     }
-    &__mainswiper {
+    &__mainImg {
         display: none;
         position: relative;
         z-index: 2;
     }
-    &__thumbs {
+    &__swiper {
         .media-cover {
             padding-top: 75%;
         }
     }
     &__preview {
         position: relative;
-        &.swiper-show {
-            .main-product__mainswiper {
+        &.crop-hidden {
+            .main-product__mainImg {
                 display: block;
             }
             .main-product__ratio {
@@ -522,19 +522,16 @@
         }
     }
     @media (min-width: $bp2) {
+        .custom-select {
+            .modal {
+                transition: all .3s linear;
+            }
+        }
         .modal {
             position: absolute;
             top: 100%;
             width: auto;
             height: auto;
-            &.self-modal {
-                position: static;
-                visibility: visible;
-                opacity: 1;
-            }
-        }
-        .self-modal__btns {
-            display: none;
         }
         .modal__overlay {
             display: block;
@@ -580,20 +577,6 @@
               background: transparent;
               box-shadow: none;
         }
-        .self-modal__items {
-            overflow: auto;
-        }
-        .self-modal__btns {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 24px;
-            .btn {
-                padding: 10px 20px;
-                flex: 0 0 calc(50% - 6px);
-            }
-        }
         .modal__overlay {
               overflow: hidden;
         }
@@ -608,7 +591,7 @@
               overflow: hidden;
         }
         &__inputs {
-            margin: 0 0 24px;
+            margin: 8px 0 24px;
         }
         &__inp {
             border-radius: 8px;
@@ -616,21 +599,6 @@
             input, span {
                 font-weight: 500;
             }
-        }
-        &__container {
-            &:first-child {
-                .size-product__btn {
-                    display: none!important;
-                }
-            }
-            &:last-child {
-                .size-product__btn {
-                    display: block!important;
-                }
-            }
-        }
-        &__action {
-            display: block;
         }
       }
     @media (max-width: $bp3) {
@@ -867,6 +835,11 @@
             .btn {
                 font-weight: 600;
             }
+        }
+    }
+    @media (max-width: $bp3) {
+        &__body {
+            padding: 10px;
         }
     }
 }

@@ -118,14 +118,14 @@
                 </button>
             </div>
             <div class="search__body">
-                <form action="" class="mb-60 form search-form">
+                <form action="" class="mb-60 form search-form" onsubmit="event.preventDefault();searchFormSuccess(this)">
                     <div class="search-form__inner">
                         <div class="item-form">
                             <input type="text" name="" placeholder="Введите запрос">
                         </div>
                         <button type="reset" class="search-form__reset"  aria-label="Очистить поиск"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
                     </div>
-                    <button class="btn main-btn search-form__submit" type="submit">Найти</button>
+                    <button class="btn main-btn search-form__submit disabled" type="submit">Найти</button>
                 </form>
                 <div class="search-catalog">
                     <div class="mb-40 page-top">
@@ -226,6 +226,8 @@
                 </ul>
                 <ul>
                     <li><a href="#">О студии</a></li>
+                    <li><a href="#">Статьи</a></li>
+                    <li><a href="#">Отзывы</a></li>
                     <li><a href="#">Партнерам</a></li>
                     <li><a href="#">Контакты</a></li>
                 </ul>

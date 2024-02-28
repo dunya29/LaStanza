@@ -6,6 +6,11 @@
     .soc-items {
         margin-top: 64px;
     }
+    &--main {
+        .footer__logo {
+            pointer-events: none;
+        }
+    }
     &__top {
         display: grid;
         grid-template-columns: repeat(12,1fr);

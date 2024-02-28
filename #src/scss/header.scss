@@ -1,5 +1,10 @@
 .header {
     box-shadow: 0px 2px 4px 0px rgba(199, 199, 199, 0.25);
+    &--main {
+        .header__logo {
+            pointer-events: none;
+        }
+    }
     &.fixed { 
         margin-bottom: 105px;  
         &.unshow .header__bottom {

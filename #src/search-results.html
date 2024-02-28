@@ -22,14 +22,14 @@
             <!--search-->
             <section class="section search">
                 <div class="container">
-                    <form action="" class="mb-60 form search-form">
+                    <form action="" class="mb-60 form search-form" onsubmit="event.preventDefault();searchFormSuccess(this)">
                         <div class="search-form__inner">
                             <div class="item-form">
                                 <input type="text" name="" placeholder="Введите запрос">
                             </div>
                             <button type="reset" class="search-form__reset"  aria-label="Очистить поиск"><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></button>
                         </div>
-                        <button class="btn main-btn search-form__submit" type="submit">Найти</button>
+                        <button class="btn main-btn search-form__submit disabled" type="submit">Найти</button>
                     </form>
                     <div class="search-top">
                         <div class="search-top__txt">

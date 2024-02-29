@@ -295,7 +295,7 @@
         }
     }
 }
-.catalog__items, .search-catalog__items {
+.catalog__items, .search-catalog__items, .favorites-cat__items {
     @media (max-width: $bp3) {
         .card {
             .media-cover {
@@ -691,6 +691,13 @@
     @media (max-width: $bp3) {
         .media-cover {
             margin-bottom: 16px;
+        }
+    }
+}
+.favorites-cat {
+    @media (min-width: $bp2) and (max-width: $bp1) {
+        .mb-40 {
+            margin-bottom: 40px;
         }
     }
 }

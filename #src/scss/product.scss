@@ -713,27 +713,6 @@
     .main-btn {
         margin-bottom: 16px;
     }
-    .modal-show-btn {
-        font-size: 20px;
-        width: 100%;
-        padding: 20px 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 4px;
-        border-bottom: 1px solid #EAEAEA;
-        &:last-child {
-            margin-bottom: 0;
-            border-bottom: none
-        }
-        svg {
-            flex: 0 0 24px;
-            width: 24px;
-            height: 24px;
-            transform: rotate(-90deg);
-            margin-left: 12px;
-        }
-    }
     &__body {
         margin-bottom: 16px;
     }
@@ -750,6 +729,29 @@
     }
     &__mobprice {
         display: none;
+    }
+    &__footer {
+        .modal-show-btn {
+            font-size: 20px;
+            width: 100%;
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 4px;
+            border-bottom: 1px solid #EAEAEA;
+            &:last-child {
+                margin-bottom: 0;
+                border-bottom: none
+            }
+            svg {
+                flex: 0 0 24px;
+                width: 24px;
+                height: 24px;
+                transform: rotate(-90deg);
+                margin-left: 12px;
+            }
+        }
     }
     @media (max-width: $bp1) {
         padding: 32px 20px;
@@ -772,9 +774,6 @@
         border-radius: 0;
         .mb-40 {
             margin-bottom: 20px;
-        }
-        .modal-show-btn {
-            padding: 12px 0;
         }
         .btn {
             font-size: 16px;
@@ -809,6 +808,11 @@
         }
         &__mobprice {
             display: flex;
+        }
+        &__footer {
+            .modal-show-btn {
+                padding: 12px 0;
+            }
         }
     }
     @media (max-width: $bp3) {

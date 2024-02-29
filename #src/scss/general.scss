@@ -393,13 +393,22 @@ blockquote {
   h5, h6, p, hr, ol, ul {
     margin-bottom: 24px;
   }
-  p + h1, p + h2, p + h3, p + h4 {
+  p + h1, p + h2, p + h3, p + h4, ol + h1, ol + h2, ol + h3, ol + h4, ul + h1, ul + h2, ul + h3, ul + h4{
       margin-top: 80px;
   }
   ol li, ul li {
+    font-size: 20px;
+    font-weight: 500;
     margin-bottom: 16px;
     &:last-child {
       margin-bottom: 0;
+    }
+  }
+  ul li {
+    &:before {
+      content: "•";
+      display: inline;
+      margin-right: 3px;
     }
   }
   picture, img, iframe, video {
@@ -426,6 +435,9 @@ blockquote {
     p + h1, p + h2, p + h3, p + h4 {
       margin-top: 60px;
     }
+    ul li, ol li {
+      font-size: 16px;
+    }
     picture, img, iframe, video {
       margin: 60px 0
     }
@@ -439,7 +451,7 @@ blockquote {
     h1, h2, h3, h4 {
       margin-bottom: 24px;
     }
-    p {
+    p , ul li, ol li{
       font-size: 14px;
       line-height: 1.28;
     }
@@ -472,6 +484,25 @@ blockquote {
     a, &__item {
       font-weight: 500;
   }
+  }
+}
+.text-page {
+  h1 {
+    max-width: 1090px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    @media (max-width: $bp1) {
+      max-width: 600px;
+      margin-bottom: 40px;
+    }
+    @media (max-width: $bp2) {
+      margin-bottom: 40px;
+    }
+    @media (max-width: $bp3) {
+      max-width: none;
+      text-align: left;
+    }
   }
 }
 .btn {

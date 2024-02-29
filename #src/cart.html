@@ -16,7 +16,9 @@
             <!--cart-->
             <section class="section cart">
                 <div class="container">
-                    <h1>Корзина (1)</h1>
+                    <div class="cart__top">
+                        <h1>Корзина (1)</h1>
+                    </div>
                     <form class="cart-form">
                         <div class="cart-form__body">
                             <div class="section-sm cart-form__items">
@@ -27,13 +29,22 @@
                                 <div class="mb-60 cart-form__fieldset">
                                     <h3>Покупатель</h3>
                                     <div class="form__grid">
-                                        <div class="item-form"><input type="text" maxlength="100" placeholder="Фамилия"></div>
+                                        <div class="item-form">
+                                            <input type="text" maxlength="100" placeholder="Фамилия">
+                                            <span class="item-form__error"></span>
+                                        </div>
                                         <div class="item-form error">
                                             <input type="text" maxlength="100" placeholder="Имя">
                                             <span class="item-form__error">Введите имя</span>
                                         </div>
-                                        <div class="item-form"><input type="text" placeholder="E-mail"></div>
-                                        <div class="item-form"><input type="tel" placeholder="Телефон"></div>
+                                        <div class="item-form">
+                                            <input type="text" placeholder="E-mail">
+                                            <span class="item-form__error"></span>
+                                        </div>
+                                        <div class="item-form">
+                                            <input type="tel" placeholder="Телефон">
+                                            <span class="item-form__error"></span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="mb-60 cart-form__fieldset cart-del">
@@ -91,10 +102,22 @@
                                     </div>
                                     <div class="cart-del__content active" data-del-block="">
                                         <div class="form__grid">
-                                            <div class="item-form"><input type="text" placeholder="Город доставки"></div>
-                                            <div class="item-form"><input type="text" placeholder="Улица"></div>
-                                            <div class="item-form"><input type="text" placeholder="Дом"></div>
-                                            <div class="item-form"><input type="text" placeholder="Кв/офис"></div>
+                                            <div class="item-form">
+                                                <input type="text" placeholder="Город доставки">
+                                                <span class="item-form__error"></span>
+                                            </div>
+                                            <div class="item-form">
+                                                <input type="text" placeholder="Улица">
+                                                <span class="item-form__error"></span>
+                                            </div>
+                                                <div class="item-form">
+                                                    <input type="text" placeholder="Дом">
+                                                    <span class="item-form__error"></span>
+                                            </div>
+                                                <div class="item-form">
+                                                    <input type="text" placeholder="Кв/офис">
+                                                    <span class="item-form__error"></span>
+                                            </div>
                                         </div>
                                         <div class="item-form">
                                             <textarea placeholder="Комментарий" name="" maxlength="1000" oninput="this.style.height = this.scrollHeight + 'px'"></textarea>

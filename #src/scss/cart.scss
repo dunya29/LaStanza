@@ -332,8 +332,31 @@
 }
 .cart {
     overflow: visible;
-    h1 {
+    &__top {
         margin-bottom: 40px;
+        h3 {           
+            margin-top: 24px;
+        }
+        .main-btn {
+            margin-top: 40px;
+        }
+        @media (max-width: $bp2) {
+            h3 {           
+                margin-top: 16px;
+            }
+            .main-btn {
+                width: 100%;
+                margin-top: 24px;
+            }
+        }
+        @media (max-width: $bp3) {
+            h3 {           
+                margin-top: 8px;
+            }
+            .main-btn {
+                margin-top: 20px;
+            }
+        }
     }
 }
 .cart-modal{

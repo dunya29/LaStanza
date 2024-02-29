@@ -159,7 +159,7 @@
         }
     }
 }
-.search-catalog {
+.search-catalog, .favorites-cat {
     &__items {
         display: grid;
         grid-template-columns: repeat(4,1fr);

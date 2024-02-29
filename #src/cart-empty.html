@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('_head.html', {
+"title": "Корзина"
+})
+
+<body>
+    <div class="wrap">
+        @@include('_header.html')
+        <!--main-->
+        <main class="main">
+            @@include('_breadcrumbs.html', {
+            "page": "Корзина"
+            })
+            <!--cart-->
+            <section class="section cart">
+                <div class="container">
+                    <div class="cart__top">
+                        <h1>Корзина (0)</h1>
+                        <h3>Ваша корзина пуста</h3>
+                        <a href="#" class="btn main-btn">Перейти к покупкам</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        @@include('_footer.html')
+        @@include('_modal.html')
+    </div>
+    @@include('_js.html')
+</body>
+
+</html>

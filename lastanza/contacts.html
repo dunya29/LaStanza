@@ -355,9 +355,11 @@
                 <form action="" class="form"  onsubmit="event.preventDefault();formSuccess(this)">
                     <div class="item-form">
                         <input name="name" type="text" maxlength="100" placeholder="Имя">
+                        <span class="item-form__error"></span>
                     </div>
                     <div class="item-form">
                         <input name="tel" type="tel" placeholder="Телефон">
+                        <span class="item-form__error"></span>
                     </div>
                     <div class="item-form">
                         <textarea placeholder="Сообщение" name="message" maxlength="1000" oninput="this.style.height = this.scrollHeight + 'px'"></textarea>
@@ -454,6 +456,27 @@
 <div class="overlay"></div>
 <!--tippy-->
 <div class="tippy-content"></div>
+<!--order-succes-modal-->
+<div class="modal subscribe-modal" id="subscribe-modal">
+    <div class="modal__overlay">
+        <div class="modal__content">
+            <div class="modal__scroll">
+                <div class="container">
+                    <button type="button" class="modal__close">
+                        <svg>
+                            <use xlink:href="img/icons/sprite.svg#close"></use>
+                        </svg>
+                    </button>
+                    <div class="modal__top">
+                        <h3>Спасибо за подписку</h3>
+                        <p>На ваш е-mail отправлено письмо с дальнейшими инструкциями</p>
+                    </div>
+                    <button class="btn stroke-btn success-close">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!--feedback-modal-->
 <div class="modal feedback-modal" id="feedback-modal">
     <div class="modal__overlay">
@@ -469,9 +492,11 @@
                     <form action="" class="form" onsubmit="event.preventDefault();formSuccess(this)">
                         <div class="item-form">
                             <input type="text" maxlength="100" placeholder="Имя">
+                            <span class="item-form__error"></span>
                         </div>
                         <div class="item-form">
                             <input type="tel" placeholder="Телефон">
+                            <span class="item-form__error"></span>
                         </div>
                         <div class="item-form">
                             <textarea placeholder="Сообщение" name="" maxlength="5000" oninput="this.style.height = this.scrollHeight + 'px'"></textarea>
@@ -521,6 +546,84 @@
                     <div class="modal__top">
                         <h3><span><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></span>Ошибка</h3>
                         <p>Не удалось отправить заявку, попробуйте снова</p>
+                    </div>
+                    <button class="btn stroke-btn success-close">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--feedback-modal-->
+<div class="modal order-modal" id="order-modal">
+    <div class="modal__overlay">
+        <div class="modal__content">
+            <div class="modal__scroll">
+                <div class="container">
+                    <button type="button" class="modal__close">
+                        <svg>
+                            <use xlink:href="img/icons/sprite.svg#close"></use>
+                        </svg>
+                    </button>
+                    <div class="modal__top"><h3>Купить в 1 клик</h3></div>
+                    <form action="" class="form" onsubmit="event.preventDefault();formSuccess(this,'Номер заказа 3478392853')">
+                        <div class="item-form">
+                            <input type="text" maxlength="100" placeholder="Имя">
+                            <span class="item-form__error"></span>
+                        </div>
+                        <div class="item-form">
+                            <input type="tel" placeholder="Телефон">
+                            <span class="item-form__error"></span>
+                        </div>
+                        <div class="item-form">
+                            <input type="text" placeholder="E-mail">
+                            <span class="item-form__error"></span>
+                        </div>
+                        <div class="form__footer">
+                            <button type="submit" class="btn main-btn">Отправить</button>
+                            <p>Нажимая на кнопку «Отправить», вы даете согласие на <a href="#" target="_blank">обработку персональных данных</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--order-succes-modal-->
+<div class="modal order-success-modal" id="order-success-modal">
+    <div class="modal__overlay">
+        <div class="modal__content">
+            <div class="modal__scroll">
+                <div class="container">
+                    <button type="button" class="modal__close">
+                        <svg>
+                            <use xlink:href="img/icons/sprite.svg#close"></use>
+                        </svg>
+                    </button>
+                    <div class="modal__top">
+                        <h3>Ваш заказ успешно оформлен</h3>
+                        <h6 class="order-txt"></h6>
+                        <p>Наш менеджер свяжется с вами в течении дня</p>
+                    </div>
+                    <button class="btn stroke-btn success-close">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--order-error-modal-->
+<div class="modal order-error-modal" id="order-error-modal">
+    <div class="modal__overlay">
+        <div class="modal__content">
+            <div class="modal__scroll">
+                <div class="container">
+                    <button type="button" class="modal__close">
+                        <svg>
+                            <use xlink:href="img/icons/sprite.svg#close"></use>
+                        </svg>
+                    </button>
+                    <div class="modal__top">
+                        <h3><span><svg><use xlink:href="img/icons/sprite.svg#close"></use></svg></span>Ошибка</h3>
+                        <p>Не удалось отправить заказ, попробуйте снова</p>
                     </div>
                     <button class="btn stroke-btn success-close">Закрыть</button>
                 </div>
@@ -874,12 +977,15 @@
                         </div>
                         <div class="item-form">
                             <input type="text" maxlength="100" placeholder="Имя">
+                            <span class="item-form__error"></span>
                         </div>
                         <div class="item-form">
                             <input type="text" maxlength="100" placeholder="Фамилия">
+                            <span class="item-form__error"></span>
                         </div>
                         <div class="item-form">
                             <input type="text" placeholder="E-mail">
+                            <span class="item-form__error"></span>
                         </div>
                         <div class="item-form file-form">
                             <div class="file-form__header">

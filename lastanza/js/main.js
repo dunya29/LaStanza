@@ -94,7 +94,7 @@ function  addToCart() {
   openModal(cartModal)
 }
 // formSuccess
-function formSuccess(form) {
+function formSuccess(form, txt = false) {
   form.querySelectorAll(".item-form").forEach(item => item.classList.remove("error"))
   form.querySelectorAll("input").forEach(inp => {
     if (!["hidden", "checkbox", "radio"].includes(inp.type)) {
@@ -113,7 +113,14 @@ function formSuccess(form) {
   let modal = document.querySelector(".modal.open")
   if (modal) {
     modal.classList.remove("open")
-    modal.classList.contains("review-modal") ? document.querySelector(".review-success-modal").classList.add("open") : successModal.classList.add("open")
+    if (modal.classList.contains(("review-modal"))) {
+      document.querySelector(".review-success-modal").classList.add("open")
+    } else if (modal.classList.contains(("order-modal"))) {
+      document.querySelector(".order-success-modal .order-txt").textContent = txt ? txt : ""
+      document.querySelector(".order-success-modal").classList.add("open")
+    }else {
+      successModal.classList.add("open")
+    }
   } else {
     openModal(successModal)
   }
@@ -121,6 +128,7 @@ function formSuccess(form) {
 // mailFormSuccess
 function mailFormSuccess(form) {
   form.querySelector("input").value = ""
+  openModal(document.querySelector(".subscribe-modal"))
 }
 //searchFormSuccess
 function searchFormSuccess(form) {

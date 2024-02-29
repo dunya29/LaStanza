@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+@@include('_head.html', {   
+    "title": "Избранное"
+})
+
+<body>
+    <div class="wrap">
+        @@include('_header.html')
+        <!--main-->  
+        <main class="main">
+            <!--breadcrumbs-->
+            <nav class="breadcrumbs breadcrumbs--shift-tab">
+                <div class="container">
+                    <ul>
+                        <li><a href="#" class="link">Главная</a></li>
+                        <li class="active">Избранное</li>
+                    </ul>
+                </div>
+            </nav>
+            <!--favorites-->
+            <section class="section favorites-cat">
+                <div class="container">
+                    <div class="mb-40 page-top">
+                        <h1>Избранное</h1>
+                    </div>
+                    <div class="favorites-cat__items">
+                        @@include("_card-fav.html", {"nmb":"1"})
+                        @@include("_card-fav.html", {"nmb":"2"})
+                        @@include("_card-fav.html", {"nmb":"3"})
+                        @@include("_card-fav.html", {"nmb":"4"})
+                        @@include("_card-fav.html", {"nmb":"3"})
+                        @@include("_card-fav.html", {"nmb":"2"})
+                        @@include("_card-fav.html", {"nmb":"1"})
+                        @@include("_card-fav.html", {"nmb":"2"})
+                        @@include("_card-fav.html", {"nmb":"3"})
+                        @@include("_card-fav.html", {"nmb":"4"})
+                        @@include("_card-fav.html", {"nmb":"1"})
+                        @@include("_card-fav.html", {"nmb":"2"})
+                    </div>
+                    @@include('_pagination.html')
+                </div>
+            </section>
+        </main>
+        @@include('_footer.html')
+        @@include('_modal.html')
+    </div>
+    @@include('_js.html')
+</body>
+
+</html>

@@ -149,9 +149,11 @@
                             <form action="" class="form"  onsubmit="event.preventDefault();formSuccess(this)">
                                 <div class="item-form">
                                     <input name="name" type="text" maxlength="100" placeholder="Имя">
+                                    <div class="item-form__error"></div>
                                 </div>
                                 <div class="item-form">
                                     <input name="tel" type="tel" placeholder="Телефон">
+                                    <div class="item-form__error"></div>
                                 </div>
                                 <div class="item-form">
                                     <textarea placeholder="Сообщение" name="message" maxlength="3000" oninput="this.style.height = this.scrollHeight + 'px'"></textarea>

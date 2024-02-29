@@ -17,7 +17,7 @@
     <link href="css/fancybox.min.css" type="text/css" rel="stylesheet">
     <link href="css/cropper.min.css" type="text/css" rel="stylesheet">
     <link href="css/style.min.css" type="text/css" rel="stylesheet">
-    <title>Страница не найдена</title>
+    <title>Избранное</title>
 </head>
 
 <body>
@@ -237,43 +237,264 @@
 </header>
         <!--main-->  
         <main class="main">
-            <!--notfound-->
-            <section class="section notfound">
+            <!--breadcrumbs-->
+            <nav class="breadcrumbs breadcrumbs--shift-tab">
                 <div class="container">
-                    <div class="notfound__img">
-                        <div class="media-cover">
-                            <picture><source srcset="img/404-bg.webp" type="image/webp"><img src="img/404-bg.jpg" alt="Страница не найдена"></picture>
-                        </div>
-                    </div>
-                    <div class="notfound__content">
-                        <span class="mb-40">404</span>
-                        <h1 class="h3">Страница не найдена</h1>
-                        <a href="#" class="btn main-btn">На главную<svg><use xlink:href="img/icons/sprite.svg#arrow-right"></use></svg></a>
-                    </div>
+                    <ul>
+                        <li><a href="#" class="link">Главная</a></li>
+                        <li class="active">Избранное</li>
+                    </ul>
                 </div>
-            </section>
-            <!--mail-form-->
-<section class="section main-form mail-form">
-    <div class="container">
-        <div class="media-cover">
-            <picture><source srcset="img/mail-form-bg.webp" type="image/webp"><img src="img/mail-form-bg.jpg" alt=""></picture>
+            </nav>
+            <!--favorites-->
+            <section class="section favorites-cat">
+                <div class="container">
+                    <div class="mb-40 page-top">
+                        <h1>Избранное</h1>
+                    </div>
+                    <div class="favorites-cat__items">
+                        <!--card-->
+<article class="card">
+    <button class="btn card__heart active"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-1.webp" type="image/webp"><img src="img/product-1.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-4.jpg)"></a>
         </div>
-        <div class="main-form__right">
-            <div class="main-form__content">
-                <h4>Подпишитесь и будьте в курсе интерьерных изменений</h4>
-                <form action="" class="form" onsubmit="event.preventDefault();mailFormSuccess(this)">
-                    <div class="item-form">
-                        <input name="e-mail" type="text" placeholder="E-mail">
-                        <span class="item-form__error"></span>
-                    </div>
-                    <div class="form__footer">
-                        <button type="submit" class="btn main-btn">Подписаться</button>
-                    </div>
-                </form>
-            </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
         </div>
     </div>
-</section>
+</article>
+                        <!--card-->
+<article class="card">
+    <button class="btn card__heart active"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-2.webp" type="image/webp"><img src="img/product-2.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-4.jpg)"></a>
+        </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
+        </div>
+    </div>
+</article>
+                        <!--card-->
+<article class="card">
+    <button class="btn card__heart active"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-3.webp" type="image/webp"><img src="img/product-3.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-4.jpg)"></a>
+        </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
+        </div>
+    </div>
+</article>
+                        <!--card-->
+<article class="card">
+    <button class="btn card__heart active"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-4.webp" type="image/webp"><img src="img/product-4.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-4.jpg)"></a>
+        </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
+        </div>
+    </div>
+</article>
+                        <!--card-->
+<article class="card">
+    <button class="btn card__heart active"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-3.webp" type="image/webp"><img src="img/product-3.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-4.jpg)"></a>
+        </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
+        </div>
+    </div>
+</article>
+                        <!--card-->
+<article class="card">
+    <button class="btn card__heart active"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-2.webp" type="image/webp"><img src="img/product-2.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-4.jpg)"></a>
+        </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
+        </div>
+    </div>
+</article>
+                        <!--card-->
+<article class="card">
+    <button class="btn card__heart active"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-1.webp" type="image/webp"><img src="img/product-1.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-4.jpg)"></a>
+        </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
+        </div>
+    </div>
+</article>
+                        <!--card-->
+<article class="card">
+    <button class="btn card__heart active"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-2.webp" type="image/webp"><img src="img/product-2.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-4.jpg)"></a>
+        </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
+        </div>
+    </div>
+</article>
+                        <!--card-->
+<article class="card">
+    <button class="btn card__heart active"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-3.webp" type="image/webp"><img src="img/product-3.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-4.jpg)"></a>
+        </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
+        </div>
+    </div>
+</article>
+                        <!--card-->
+<article class="card">
+    <button class="btn card__heart active"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-4.webp" type="image/webp"><img src="img/product-4.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-4.jpg)"></a>
+        </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
+        </div>
+    </div>
+</article>
+                        <!--card-->
+<article class="card">
+    <button class="btn card__heart active"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-1.webp" type="image/webp"><img src="img/product-1.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-4.jpg)"></a>
+        </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
+        </div>
+    </div>
+</article>
+                        <!--card-->
+<article class="card">
+    <button class="btn card__heart active"><svg><use xlink:href="img/icons/sprite.svg#heart"></use></svg></button>
+    <a href="#" class="media-cover">
+        <picture><source srcset="img/product-2.webp" type="image/webp"><img src="img/product-2.jpg" alt=""></picture>
+    </a>
+    <div class="card__content">
+        <div class="card__colors">
+            <a href="#" style="background-image: url(img/color-1.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-2.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-3.jpg)"></a>
+            <a href="#" style="background-image: url(img/color-4.jpg)"></a>
+        </div>
+        <div class="card__info">
+            <span class="card__art">Арт. 800256</span>
+            <div class="card__price">От 2 690 ₽ за м²</div>
+        </div>
+    </div>
+</article>
+                    </div>
+                    <!--pagination-->
+<nav class="pagination">
+    <a class="nav-btn" href="#"><svg><use href="img/icons/sprite.svg#arrow-left"></use></svg></a>
+    <a class="pagination__link current" href="#">01</a>
+    <a class="pagination__link" href="#">02</a>
+    <a class="pagination__link" href="#">03</a>
+    <a class="pagination__link" href="#">04</a>
+    <span class="pagination__item">...</span>
+    <a class="pagination__link" href="#">10</a>
+    <a class="nav-btn" href="#"><svg><use href="img/icons/sprite.svg#arrow-right"></use></svg></a>
+</nav>
+                </div>
+            </section>
         </main>
         <!--footer-->
 <footer class="footer">

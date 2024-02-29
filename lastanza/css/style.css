@@ -1913,6 +1913,34 @@ blockquote p {
   height: 100%;
 }
 
+.header__action a {
+  position: relative;
+}
+
+.header__action a span {
+  font-size: 12px;
+  line-height: 1;
+  color: #ffffff;
+  background: #242626;
+  border-radius: 50%;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 50%;
+  left: 50%;
+  white-space: nowrap;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: 1px solid #fff;
+}
+
 .header__search {
   background: #fff;
   position: fixed;
@@ -8647,6 +8675,12 @@ blockquote p {
     width: 20px;
     height: 20px;
     margin-left: 10px;
+  }
+
+  .header__action a span {
+    font-size: 8px;
+    width: 16px;
+    height: 16px;
   }
 
   .header__search::-webkit-scrollbar {

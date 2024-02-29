@@ -1268,17 +1268,6 @@ if (product) {
       modifiedData.height = Math.round((checkedHeight * heightDiff) / 100)
       setSize()
       setImg(2000)
-    },
-    cropmove: function (event) {
-      if(cropper.cropBoxData.left <= 1) {
-        console.log("left")
-      }
-      if(cropper.cropBoxData.left + cropper.cropBoxData.width >= cropper.cropBoxData.maxWidth) {
-        console.log("right")
-      }
-    },
-    cropend: function() {
-      console.log("h")
     }
   });
   //share pdf

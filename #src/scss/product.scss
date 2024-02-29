@@ -491,6 +491,8 @@
         font-weight: 600;
         line-height: 1.2;
         color: $dark-gray;
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
         &.active {
             display: none;
         }

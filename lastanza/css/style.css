@@ -3757,6 +3757,9 @@ blockquote p {
   font-weight: 600;
   line-height: 1.2;
   color: #5A5A5A;
+  text-decoration: underline;
+  -webkit-text-decoration-skip-ink: none;
+  text-decoration-skip-ink: none;
 }
 
 .size-product__btn.active {

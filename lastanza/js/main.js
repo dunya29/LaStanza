@@ -905,8 +905,7 @@ if (product) {
       clearTimeout(lastCallTimer);
     }
     lastCallTimer = setTimeout(async () => {
-      if (cropBox && modifiedData.selfSize) {
-        await htmlToImage.toJpeg(cropBox)
+      await htmlToImage.toJpeg(cropBox)
         .then(function (dataUrl) {
           modifiedData.imgURl = dataUrl
         })
@@ -914,9 +913,6 @@ if (product) {
           modifiedData.imgURl = initialData.imgURl
           console.error('oops, something went wrong!', error);
         }); 
-      } else {
-        modifiedData.imgURl = initialData.imgURl
-      } 
       //orderForm.querySelector("input[name=imgURl]").value = modifiedData.imgURl
       shareImg.setAttribute("href", modifiedData.imgURl)
       shareImg.download = document.title + ".jpeg"
@@ -1072,7 +1068,6 @@ if (product) {
       item.classList.toggle("active")
       if (item.classList.contains("self-size")) {
         modifiedData.selfSize = true
-        document.querySelector(".main-product__size").classList.remove("size-show")
         document.querySelector(".main-product__preview").classList.remove("crop-hidden")
         cropper.resize()    
       } else {
@@ -1083,7 +1078,6 @@ if (product) {
         checkedHeight = checkedData().height
         modifiedData.width = checkedData().width
         modifiedData.height = checkedData().height
-        document.querySelector(".main-product__size").classList.add("size-show")
         document.querySelector(".main-product__preview").classList.add("crop-hidden")
         mainImg.style.backgroundPosition = null
         cropper.reset()
@@ -1207,7 +1201,7 @@ if (product) {
       clearInterval(interval)
     })
   })
-  
+  let cropstart
   // cropper
   cropper = new Cropper(imageCrop, {
     viewMode: 2,
@@ -1245,29 +1239,37 @@ if (product) {
       modifiedData.imgStartY = Math.round(cropper.getCropBoxData().top)
       orderForm.querySelector("input[name=imgStartX").value =  Math.floor(modifiedData.imgStartX * 100 / cropper.containerData.width) + "%"
       orderForm.querySelector("input[name=imgStartY").value =  Math.floor(modifiedData.imgStartY * 100 / cropper.containerData.height) + "%"
-      //let checkedWidth = +sizeProduct.querySelector(".custom-select").querySelector("input[type=radio]:checked").getAttribute("data-width")
-      //let checkedHeight = +sizeProduct.querySelector(".custom-select").querySelector("input[type=radio]:checked").getAttribute("data-height")
       let widthDiff = (cropper.cropBoxData.width / cropper.containerData.width) * 100
       let heightDiff = (cropper.cropBoxData.height / cropper.containerData.height) * 100
-      //let diffW = 1
-      //let diffH = 1
-      //let diffT = 1
-     /*  if ((modifiedData.width > checkedWidth) || (modifiedData.height > checkedHeight)) {
-        diffW = modifiedData.width / checkedWidth
-        diffH = modifiedData.height / checkedHeight
-        diffT = ( diffW >= diffH) ? diffW : diffH
-      } 
-      modifiedData.width = Math.round((checkedWidth * widthDiff * diffT) / 100)
-      modifiedData.height = Math.round((checkedHeight * heightDiff * diffT) / 100)*/
-    /*   if ((modifiedData.width > checkedWidth) || (modifiedData.height > checkedHeight)) {
-        diffW = modifiedData.width / checkedWidth
-        diffH = modifiedData.height / checkedHeight
-        diffT = ( diffW >= diffH) ? diffW : diffH
-      }  */
       modifiedData.width = Math.round((checkedWidth * widthDiff) / 100)
       modifiedData.height = Math.round((checkedHeight * heightDiff) / 100)
       setSize()
       setImg(2000)
+    },
+    cropstart: function(event) {
+      cropstart = event.detail.originalEvent.pageX
+    },
+    cropmove: function (event) {
+      if (!product.classList.contains("no-raport")) {
+        if (cropper.cropBoxData.left < 1 && cropstart > event.detail.originalEvent.pageX) {
+          if (!modifiedData.reflectX) {
+            shiftImg = shiftImg + 7.5
+          } else {
+            shiftImg = shiftImg - 7.5
+          }
+        }  
+        if ((Math.abs(cropper.cropBoxData.maxWidth - cropper.cropBoxData.left - cropper.cropBoxData.width) < 1) && cropstart < event.detail.originalEvent.pageX) {   
+          if (!modifiedData.reflectX) {
+            shiftImg = shiftImg - 7.5
+          } else {
+            shiftImg = shiftImg + 7.5
+          }
+        }
+        cropperCanvas.style.backgroundPosition = `${shiftImg}px center`
+        mainImg.style.backgroundPosition = `${document.querySelector(".main-product__btn").clientWidth + shiftImg}px center`
+        cropper.setCropBoxData(cropper.getCropBoxData())
+        cropstart = event.detail.originalEvent.pageX
+      }
     }
   });
   //share pdf
@@ -1390,8 +1392,10 @@ if (cart) {
 const serviceAside = document.querySelector(".service-aside")
 const serviceBtn = document.querySelector(".service__mobBtn")
 const serviceLinks =  document.querySelector(".service-aside__links")
+const itemService = document.querySelectorAll(".item-service")
 if (serviceAside) {
   window.addEventListener("scroll", () => {
+    let margin = parseInt(getComputedStyle(itemService[0]).marginBottom)
     if (window.innerWidth > 992.98 && serviceAside.getBoundingClientRect().bottom > 0) {
       serviceScroll = true
     } else {
@@ -1401,7 +1405,8 @@ if (serviceAside) {
     anchors.forEach((item,i) => {
       const elementClick = item.getAttribute("href")
       const dest = document.querySelector(`${elementClick}`)
-      let offTop = parseInt(getComputedStyle(dest).marginBottom) < 30 ? 20 : (parseInt(getComputedStyle(dest).marginBottom) / 2)
+      let offTop = margin ? margin : 0
+      // let offtop = parseInt(getComputedStyle(dest).marginBottom) < 30 ? 20 : (parseInt(getComputedStyle(dest).marginBottom) / 2)
       if (!header.classList.contains("unshow")) {
         offTop = document.querySelector(".header__bottom").clientHeight + offTop    
       }

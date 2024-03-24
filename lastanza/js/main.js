@@ -1043,9 +1043,9 @@ if (product) {
     cropperCanvas.classList.toggle("reverse")
     cropBox.classList.toggle("reverse")
     setDesignPrice()
-    if (!document.querySelector(".size-product__btn.self-size").classList.contains("active")) {
+/*     if (!document.querySelector(".size-product__btn.self-size").classList.contains("active")) {
       document.querySelector(".size-product__btn.self-size").click()
-    }
+    } */
   })
   //greyscale
   greyscale.querySelector("input").addEventListener("change", e => {
@@ -1055,9 +1055,9 @@ if (product) {
     cropperCanvas.classList.toggle("greyscale")
     cropBox.classList.toggle("greyscale")
     setDesignPrice()
-    if (!document.querySelector(".size-product__btn.self-size").classList.contains("active")) {
+/*     if (!document.querySelector(".size-product__btn.self-size").classList.contains("active")) {
       document.querySelector(".size-product__btn.self-size").click()
-    }
+    } */
   })
   // check/uncheck self-size
   sizeProduct.querySelectorAll(".size-product__btn").forEach(item => {
@@ -1201,7 +1201,8 @@ if (product) {
       clearInterval(interval)
     })
   })
-  let cropstart
+  let cropStartX
+  let cropStartY
   // cropper
   cropper = new Cropper(imageCrop, {
     viewMode: 2,
@@ -1247,18 +1248,21 @@ if (product) {
       setImg(2000)
     },
     cropstart: function(event) {
-      cropstart = event.detail.originalEvent.pageX
+      cropStartX = event.detail.originalEvent.pageX
+      cropStartY = event.detail.originalEvent.pageY
     },
     cropmove: function (event) {
-      if (!product.classList.contains("no-raport")) {
-        if (cropper.cropBoxData.left < 1 && cropstart > event.detail.originalEvent.pageX) {
+      let diffX = Math.abs(event.detail.originalEvent.pageX - cropStartX) / cropper.getCropBoxData().width
+      let diffY = Math.abs(event.detail.originalEvent.pageY - cropStartY) / cropper.getCropBoxData().height
+      if (!product.classList.contains("no-raport") && event.detail.action === "all" && (diffX > diffY))  {
+        if (cropper.cropBoxData.left < 1 && cropStartX > event.detail.originalEvent.pageX) {
           if (!modifiedData.reflectX) {
             shiftImg = shiftImg + 7.5
           } else {
             shiftImg = shiftImg - 7.5
           }
         }  
-        if ((Math.abs(cropper.cropBoxData.maxWidth - cropper.cropBoxData.left - cropper.cropBoxData.width) < 1) && cropstart < event.detail.originalEvent.pageX) {   
+        if ((Math.abs(cropper.cropBoxData.maxWidth - cropper.cropBoxData.left - cropper.cropBoxData.width) < 1) && cropStartX < event.detail.originalEvent.pageX) {   
           if (!modifiedData.reflectX) {
             shiftImg = shiftImg - 7.5
           } else {
@@ -1268,7 +1272,8 @@ if (product) {
         cropperCanvas.style.backgroundPosition = `${shiftImg}px center`
         mainImg.style.backgroundPosition = `${document.querySelector(".main-product__btn").clientWidth + shiftImg}px center`
         cropper.setCropBoxData(cropper.getCropBoxData())
-        cropstart = event.detail.originalEvent.pageX
+        cropStartX = event.detail.originalEvent.pageX
+        cropStartY = event.detail.originalEvent.pageY
       }
     }
   });

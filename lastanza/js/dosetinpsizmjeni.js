@@ -1113,75 +1113,74 @@ if (product) {
             cropper.options.aspectRatio = ""
         }
     })
-  //setInp
-  function setInp(dataW,dataH, changedInp) {
-    let initW = checkedData().width
-    let initH = checkedData().height
-    let wPercent = (dataW / initW) * 100
-    let hPercent = (dataH / initH) * 100
-    let widthInc = 1
-    let heightInc = 1
-    if (wPercent > 100) {
-      widthInc = wPercent / 100
-    }
-    if (hPercent > 100) {
-      heightInc = hPercent / 100
-    } 
-    if (wPercent > hPercent) {
-      hPercent = hPercent / widthInc
-    } else if (wPercent < hPercent) {
-      wPercent = wPercent / heightInc
-    }
-    if (dataW > checkedWidth && changedInp == "selfWidth") {
-      checkedHeight = checkedHeight * (dataW / checkedWidth)
-      checkedWidth = dataW
-    } 
-    if (dataH > checkedHeight && changedInp == "selfHeight") {
-      checkedWidth = checkedWidth * ( dataH / checkedHeight )
-      checkedHeight = dataH
-    }
-    if (dataW < checkedWidth && dataH < checkedHeight) {
-      if (dataW > initW || dataH > initH) {
-        if (dataW > dataH) {
-          checkedHeight = checkedHeight * (dataW / checkedWidth)
-          checkedWidth = dataW
-        } else {
-          checkedWidth = checkedWidth * ( dataH / checkedHeight )
-          checkedHeight = dataH
-        }
-      } else {
-        checkedWidth = initW
-        checkedHeight = initH
-      }
-    }
-    let data = {
-      left: (cropper.containerData.width - cropper.containerData.width * wPercent / 100) / 2,
-      top: (cropper.containerData.height - cropper.containerData.height * hPercent / 100) / 2,
-      width: wPercent > 100 ? cropper.containerData.width : cropper.containerData.width * wPercent / 100,
-      height: hPercent > 100 ? cropper.containerData.height : cropper.containerData.height * hPercent / 100,
-    }
-    cropper.setCropBoxData(data)
-  }
-  //set self size
-  document.querySelectorAll(".size-product__inp input").forEach(inp => {
-    inp.addEventListener("change", e => {
-      if (Number.isInteger(e.target.value) || e.target.value > 0) {
-        if (sizeProduct.querySelector(".size-product__fixed").checked) {
-          if (e.target.name == "selfHeight") {
-            sizeProduct.querySelector("input[name=selfWidth]").value = Math.round(sizeProduct.querySelector("input[name=selfWidth]").value * (e.target.value / modifiedData.height))
-          } else if (e.target.name == "selfWidth") {
-            sizeProduct.querySelector("input[name=selfHeight]").value = Math.round(sizeProduct.querySelector("input[name=selfHeight]").value * (e.target.value / modifiedData.width))
-          }
-        }
-        let dataW = Math.round(sizeProduct.querySelector("input[name=selfWidth]").value)
-        let dataH = Math.round(sizeProduct.querySelector("input[name=selfHeight]").value)
-        setInp(dataW,dataH,e.target.name)
-      } else {
-        sizeProduct.querySelector("input[name=selfWidth]").value = modifiedData.width
-        sizeProduct.querySelector("input[name=selfHeight]").value = modifiedData.height
-      }
+    //set self size
+    document.querySelectorAll(".size-product__inp input").forEach(inp => {
+        inp.addEventListener("change", e => {
+            if (Number.isInteger(e.target.value) || e.target.value > 0) {
+                let initW = checkedData().width
+                let initH = checkedData().height
+                if (sizeProduct.querySelector(".size-product__fixed").checked) {
+                    if (e.target.name == "selfHeight") {
+                        sizeProduct.querySelector("input[name=selfWidth]").value = Math.round(sizeProduct.querySelector("input[name=selfWidth]").value * (e.target.value / modifiedData.height))
+                    } else if (e.target.name == "selfWidth") {
+                        sizeProduct.querySelector("input[name=selfHeight]").value = Math.round(sizeProduct.querySelector("input[name=selfHeight]").value * (e.target.value / modifiedData.width))
+                    }
+                }
+                let dataW = Math.round(sizeProduct.querySelector("input[name=selfWidth]").value)
+                let dataH = Math.round(sizeProduct.querySelector("input[name=selfHeight]").value)
+                let wPercent = (dataW / initW) * 100
+                let hPercent = (dataH / initH) * 100
+                let widthInc = 1
+                let heightInc = 1
+                if (wPercent > 100) {
+                    widthInc = wPercent / 100
+                }
+                if (hPercent > 100) {
+                    heightInc = hPercent / 100
+                }
+                if (wPercent > hPercent) {
+                    hPercent = hPercent / widthInc
+                } else if (wPercent < hPercent) {
+                    wPercent = wPercent / heightInc
+                }
+                //modifiedData.width = dataW
+                //modifiedData.height = dataH
+
+                if (dataW > checkedWidth && e.target.name == "selfWidth") {
+                    checkedHeight = checkedHeight * (dataW / checkedWidth)
+                    checkedWidth = dataW
+                }
+                if (dataH > checkedHeight && e.target.name == "selfHeight") {
+                    checkedWidth = checkedWidth * ( dataH / checkedHeight )
+                    checkedHeight = dataH
+                }
+                if (dataW < checkedWidth && dataH < checkedHeight) {
+                    if (dataW > initW || dataH > initH) {
+                        if (dataW > dataH) {
+                            checkedHeight = checkedHeight * (dataW / checkedWidth)
+                            checkedWidth = dataW
+                        } else {
+                            checkedWidth = checkedWidth * ( dataH / checkedHeight )
+                            checkedHeight = dataH
+                        }
+                    } else {
+                        checkedWidth = initW
+                        checkedHeight = initH
+                    }
+                }
+                let data = {
+                    left: (cropper.containerData.width - cropper.containerData.width * wPercent / 100) / 2,
+                    top: (cropper.containerData.height - cropper.containerData.height * hPercent / 100) / 2,
+                    width: wPercent > 100 ? cropper.containerData.width : cropper.containerData.width * wPercent / 100,
+                    height: hPercent > 100 ? cropper.containerData.height : cropper.containerData.height * hPercent / 100,
+                }
+                cropper.setCropBoxData(data)
+            } else {
+                sizeProduct.querySelector("input[name=selfWidth]").value = modifiedData.width
+                sizeProduct.querySelector("input[name=selfHeight]").value = modifiedData.height
+            }
+        })
     })
-  })
     //shift image
     document.querySelectorAll(".main-product__btn").forEach(item => {
         item.addEventListener("mousedown", e => {

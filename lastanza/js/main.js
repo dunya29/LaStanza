@@ -319,14 +319,14 @@ function addFile(files, item) {
             item.querySelector(".file-form__items").innerHTML = ""
             item.classList.add("error")
             item.querySelectorAll(".file-form__item").forEach((el=>el.remove()));
-            item.querySelector(".item-form__error").textContent = "Р¤Р°Р№Р» РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ РјРµРЅРµРµ 10 РњР‘"
+            item.querySelector(".item-form__error").textContent = "Файл должен быть менее 10 МБ"
             return
         } else if (!fileTypes.includes(file.type)) {
             item.querySelector("input").value = ""
             item.querySelector(".file-form__items").innerHTML = ""
             item.classList.add("error")
             item.querySelectorAll(".file-form__item").forEach((el=>el.remove()));
-            item.querySelector(".item-form__error").textContent = 'Р Р°Р·СЂРµС€С‘РЅРЅС‹Рµ С„РѕСЂРјР°С‚С‹: png, jpg'
+            item.querySelector(".item-form__error").textContent = 'Разрешённые форматы: png, jpg'
             return
         } else {
             item.classList.remove("error")
@@ -1577,8 +1577,8 @@ if (portfolioPage) {
                             <div class="media-cover">
                               <img src=${item} alt="${title[idx]}">
                             </div>
-                          </div>
-                          <a href="${url[idx]}" class="btn main-btn">Р—Р°РєР°Р·Р°С‚СЊ С‚Р°РєСѓСЋ Р¶Рµ</a>
+                          </div>            
+                          ${url[idx].length > 0 ? `<a href="${url[idx]}" class="btn main-btn">Заказать такую же</a>` : ""}
                            </div>`).join("")}
                         </div>
                       </div>

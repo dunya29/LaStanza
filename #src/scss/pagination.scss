@@ -26,7 +26,6 @@
         &.current, &:active {
             color: $white;
             background: $maincolor;
-            pointer-events: none;
         }
     }
     &__link, &__item, .nav-btn {

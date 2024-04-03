@@ -2327,7 +2327,6 @@ blockquote p {
 .pagination__item:active {
   color: #ffffff;
   background: #242626;
-  pointer-events: none;
 }
 
 .pagination__link,

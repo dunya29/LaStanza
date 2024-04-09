@@ -74,6 +74,10 @@
     .media-cover {
         padding-top: 75%;
         border-radius: 16px;
+        background: rgba(152, 152, 152, 0.25);
+        img {
+            object-fit: contain;
+        }
     }
     .extra-list__btn {
         margin-top: 0;

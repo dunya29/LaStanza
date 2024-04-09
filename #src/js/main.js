@@ -456,6 +456,7 @@ if (mainArt) {
         observe: true,
         observeParents: true,
         speed: 800,
+        loop: true,
         navigation: {
             nextEl: mainArt.querySelector(".nav-btn--next"),
             prevEl: mainArt.querySelector(".nav-btn--prev")
@@ -511,6 +512,7 @@ if (cardSwiper) {
             spaceBetween: 20,
             observe: true,
             observeParents: true,
+            loop: true,
             navigation: {
                 prevEl: item.querySelector(".nav-btn--prev"),
                 nextEl: item.querySelector(".nav-btn--next")
@@ -637,21 +639,25 @@ if (filter && filterSelected) {
 }
 // show more
 const extraList = document.querySelectorAll(".extra-list")
-if (extraList) {
-    extraList.forEach(item => {
-        let openTxt = item.querySelector(".extra-list__btn").getAttribute("data-open")
-        let closeTxt = item.querySelector(".extra-list__btn").getAttribute("data-close")
-        item.querySelector(".extra-list__btn").addEventListener("click", () => {
-            if (!item.classList.contains("open")) {
-                item.classList.add("open")
-                item.querySelector(".extra-list__btn span").textContent = closeTxt
-            } else {
-                item.classList.remove("open")
-                item.querySelector(".extra-list__btn span").textContent = openTxt
-            }
+function showExtra() {
+    if (extraList) {
+        extraList.forEach(item => {
+            let openTxt = item.querySelector(".extra-list__btn").getAttribute("data-open")
+            let closeTxt = item.querySelector(".extra-list__btn").getAttribute("data-close")
+            item.querySelector(".extra-list__btn").addEventListener("click", () => {
+                if (!item.classList.contains("open")) {
+                    item.classList.add("open")
+                    item.querySelector(".extra-list__btn span").textContent = closeTxt
+                } else {
+                    item.classList.remove("open")
+                    item.querySelector(".extra-list__btn span").textContent = openTxt
+                }
+            })
         })
-    })
+    }
 }
+showExtra()
+
 //quantity
 const quantity = document.querySelectorAll(".quantity")
 if (quantity) {
@@ -1264,16 +1270,16 @@ if (product) {
             if (!product.classList.contains("no-raport") && event.detail.action === "all" && (diffX > diffY))  {
                 if (cropper.cropBoxData.left < 1 && cropStartX > event.detail.originalEvent.pageX) {
                     if (!modifiedData.reflectX) {
-                        shiftImg = shiftImg + 7.5
+                        shiftImg = shiftImg - 5
                     } else {
-                        shiftImg = shiftImg - 7.5
+                        shiftImg = shiftImg + 5
                     }
                 }
                 if ((Math.abs(cropper.cropBoxData.maxWidth - cropper.cropBoxData.left - cropper.cropBoxData.width) < 1) && cropStartX < event.detail.originalEvent.pageX) {
                     if (!modifiedData.reflectX) {
-                        shiftImg = shiftImg - 7.5
+                        shiftImg = shiftImg + 5
                     } else {
-                        shiftImg = shiftImg + 7.5
+                        shiftImg = shiftImg - 5
                     }
                 }
                 cropperCanvas.style.backgroundPosition = `${shiftImg}px center`

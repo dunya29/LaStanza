@@ -76,8 +76,35 @@
     }
 }
 .portfolio-content, .portfolio-page-content {
+    .page-content {
+        max-width: none;
+        margin-left: calc(100% / 12);
+        p {
+            column-count: 2;
+            column-gap: 60px;
+            margin-bottom: 60px;
+            span, a {
+                display: inline;
+            }
+        }
+        h2 {
+            max-width: calc(100% / 11 * 6 );
+        }
+        @media (max-width: $bp1) {
+            h2 {
+                max-width: calc(100% / 11 * 9 );
+            }
+        }
+        @media (max-width: $bp2) {
+            margin-left: 0;
+            p {
+                column-count: 1;
+                margin-bottom: 16px;
+            }
+        }
+    }
     blockquote {
-        margin: 0 0 0 calc(100% / 12 + 0px);
+        /* margin: 0 0 0 calc(100% / 12 + 0px); */
     }
     @media (max-width: $bp1) {
         blockquote {

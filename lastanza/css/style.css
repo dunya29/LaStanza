@@ -2880,21 +2880,11 @@ blockquote p {
 .article picture,
 .article img {
   display: block;
-  margin: 80px 0;
-}
-
-.article picture:first-child,
-.article img:first-child {
-  margin-top: 0 !important;
-}
-
-.article picture:last-child,
-.article img:last-child {
-  margin-bottom: 0 !important;
+  margin: 80px auto;
 }
 
 .article picture img {
-  margin: 0;
+  margin: 0 auto;
 }
 
 .article__top {
@@ -5103,6 +5093,12 @@ blockquote p {
 .item-cart .media-cover {
   padding-top: 75%;
   border-radius: 16px;
+  background: rgba(152, 152, 152, 0.25);
+}
+
+.item-cart .media-cover img {
+  -o-object-fit: contain;
+  object-fit: contain;
 }
 
 .item-cart .extra-list__btn {
@@ -6566,9 +6562,38 @@ blockquote p {
   grid-template-columns: repeat(4, 1fr);
 }
 
+.portfolio-content .page-content,
+.portfolio-page-content .page-content {
+  max-width: none;
+  margin-left: 8.3333333333%;
+}
+
+.portfolio-content .page-content p,
+.portfolio-page-content .page-content p {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  -webkit-column-gap: 60px;
+  -moz-column-gap: 60px;
+  column-gap: 60px;
+  margin-bottom: 60px;
+}
+
+.portfolio-content .page-content p span,
+.portfolio-content .page-content p a,
+.portfolio-page-content .page-content p span,
+.portfolio-page-content .page-content p a {
+  display: inline;
+}
+
+.portfolio-content .page-content h2,
+.portfolio-page-content .page-content h2 {
+  max-width: 54.5454545455%;
+}
+
 .portfolio-content blockquote,
 .portfolio-page-content blockquote {
-  margin: 0 0 0 calc(8.3333333333% + 0px);
+  /* margin: 0 0 0 calc(100% / 12 + 0px); */
 }
 
 .portfolio-content .page-top h2 {
@@ -7248,7 +7273,7 @@ blockquote p {
 
   .article picture,
   .article img {
-    margin: 60px 0;
+    margin: 60px auto;
   }
 
   .main-articles .swiper {
@@ -8209,6 +8234,11 @@ blockquote p {
   .portfolio__items,
   .portfolio-page__items {
     gap: 60px 20px;
+  }
+
+  .portfolio-content .page-content h2,
+  .portfolio-page-content .page-content h2 {
+    max-width: 81.8181818182%;
   }
 
   .portfolio-content blockquote,
@@ -10295,6 +10325,19 @@ blockquote p {
     grid-template-columns: 1fr 1fr;
   }
 
+  .portfolio-content .page-content,
+  .portfolio-page-content .page-content {
+    margin-left: 0;
+  }
+
+  .portfolio-content .page-content p,
+  .portfolio-page-content .page-content p {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+    margin-bottom: 16px;
+  }
+
   .portfolio-content h2,
   .portfolio-page-content h2 {
     font-size: 30px;
@@ -10828,7 +10871,7 @@ blockquote p {
 
   .article picture,
   .article img {
-    margin: 24px 0;
+    margin: 24px auto;
   }
 
   .main-articles .swiper {

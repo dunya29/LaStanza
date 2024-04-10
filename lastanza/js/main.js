@@ -10,7 +10,7 @@ const cartModal = document.querySelector(".cart-modal")
 const successModal = document.querySelector(".success-modal")
 const errorModal = document.querySelector(".error-modal")
 const shareImg = document.querySelector('.share-modal__img')
-const sharePdf = document.querySelector('.share-modal__pdf')
+const sharePrint = document.querySelector('.share-modal__print')
 const shareEmail = document.querySelector(".share-modal__mail")
 const shareLink = document.querySelector(".share-modal__link")
 let paddingValue
@@ -173,6 +173,11 @@ modalShowBtn.forEach(btn => {
     btn.addEventListener("click", e => {
         e.preventDefault()
         let href = btn.getAttribute("data-modal")
+        let title = btn.getAttribute("data-modal-title")
+        console.log(!!title)
+        if (href == "feedback-modal") {
+            document.getElementById(href).querySelector(".modal__top h3").textContent = !!title ? title : "Заказать звонок"
+        }
         openModal(document.getElementById(href))
     })
 })
@@ -639,25 +644,42 @@ if (filter && filterSelected) {
 }
 // show more
 const extraList = document.querySelectorAll(".extra-list")
-function showExtra() {
-    if (extraList) {
-        extraList.forEach(item => {
-            let openTxt = item.querySelector(".extra-list__btn").getAttribute("data-open")
-            let closeTxt = item.querySelector(".extra-list__btn").getAttribute("data-close")
-            item.querySelector(".extra-list__btn").addEventListener("click", () => {
-                if (!item.classList.contains("open")) {
-                    item.classList.add("open")
-                    item.querySelector(".extra-list__btn span").textContent = closeTxt
-                } else {
-                    item.classList.remove("open")
-                    item.querySelector(".extra-list__btn span").textContent = openTxt
+if (extraList) {
+    extraList.forEach(item => {
+        let openTxt = item.querySelector(".extra-list__btn").getAttribute("data-open")
+        let closeTxt = item.querySelector(".extra-list__btn").getAttribute("data-close")
+        item.querySelector(".extra-list__btn").addEventListener("click", () => {
+            if (!item.classList.contains("open")) {
+                item.classList.add("open")
+                item.querySelector(".extra-list__btn span").textContent = closeTxt
+            } else {
+                item.classList.remove("open")
+                item.querySelector(".extra-list__btn span").textContent = openTxt
+            }
+        })
+    })
+}
+//showCartExtra
+function showCartExtra() {
+    document.querySelector(".cart-modal").addEventListener("click", e => {
+        const extraList = document.querySelectorAll(".cart-modal .extra-list")
+        if (extraList) {
+            extraList.forEach(item => {
+                if (item.contains(e.target)) {
+                    let openTxt = item.querySelector(".extra-list__btn").getAttribute("data-open")
+                    let closeTxt = item.querySelector(".extra-list__btn").getAttribute("data-close")
+                    if (!item.classList.contains("open")) {
+                        item.classList.add("open")
+                        item.querySelector(".extra-list__btn span").textContent = closeTxt
+                    } else {
+                        item.classList.remove("open")
+                        item.querySelector(".extra-list__btn span").textContent = openTxt
+                    }
                 }
             })
-        })
-    }
+        }
+    }) 
 }
-showExtra()
-
 //quantity
 const quantity = document.querySelectorAll(".quantity")
 if (quantity) {
@@ -856,11 +878,19 @@ if (product) {
     checkedWidth = checkedData().width
     checkedHeight = checkedData().height
     function setTotal() {
-        document.querySelector(".total-product__price").textContent = String(modifiedData.designPrice ? modifiedData.priceDesign : modifiedData.priceStandart).replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()
-        document.querySelector(".total-product__square").textContent = modifiedData.square
-        modifiedData.priceTotal = Math.round(modifiedData.square * (modifiedData.designPrice ? modifiedData.priceDesign : modifiedData.priceStandart))
+        document.querySelectorAll(".total-product__price").forEach(item => {
+            item.textContent = String(modifiedData.designPrice ? modifiedData.priceDesign : modifiedData.priceStandart).replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()     
+        })
+        document.querySelectorAll(".total-product__square").forEach(item => item.textContent = modifiedData.square)
+        if (modifiedData.square >= 1) {
+            modifiedData.priceTotal = Math.round(modifiedData.square * (modifiedData.designPrice ? modifiedData.priceDesign : modifiedData.priceStandart))
+        } else {
+            modifiedData.priceTotal = Math.round((modifiedData.designPrice ? modifiedData.priceDesign : modifiedData.priceStandart))
+        }
         orderForm.querySelector("input[name=priceTotal]").value = modifiedData.priceTotal
-        document.querySelector(".total-product__totalprice").textContent = String(modifiedData.priceTotal).replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()
+        document.querySelectorAll(".total-product__totalprice").forEach(item => {
+            item.textContent = String(modifiedData.priceTotal).replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()
+        });
         document.querySelector(".total-product__mobprice").textContent = String(modifiedData.priceTotal).replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()
     }
     function setDesignPrice() {
@@ -905,7 +935,7 @@ if (product) {
         mainImg.style.backgroundPosition = `${document.querySelector(".main-product__btn").clientWidth + shiftImg}px center`
         cropper.setCropBoxData(cropper.getCropBoxData())
     }
-    function setImg(t) {
+    /* function setImg(t) {
         lastCall = Date.now();
         if ((lastCall - previousCall) <= t) {
             clearTimeout(lastCallTimer);
@@ -924,8 +954,22 @@ if (product) {
             shareImg.setAttribute("href", modifiedData.imgURl)
             shareImg.download = document.title + ".jpeg"
         }, t);
+    } 
+    setImg(2000)*/
+    async function setImg() {
+        await htmlToImage.toJpeg(cropBox)
+        .then(function (dataUrl) {
+            modifiedData.imgURl = dataUrl
+        })
+        .catch(function (error) {
+            modifiedData.imgURl = initialData.imgURl
+            console.error('oops, something went wrong!', error);
+        });
+        let saveImg = modifiedData.imgURl.slice(23,-23)
+        orderForm.querySelector("input[name=imgURl]").value = saveImg
+        shareImg.setAttribute("href", modifiedData.imgURl)
+        shareImg.download = document.title + ".jpeg"
     }
-    setImg(2000)
     // product-swiper
     document.querySelector(".main-product__mainImg .media-contain").style.paddingTop = (initialData.height / initialData.width) * 100 + "%"
     document.querySelector(".main-product__ratio span").style.paddingTop = (initialData.height / (initialData.width)) * 100 + "%"
@@ -976,6 +1020,7 @@ if (product) {
                 crossFade: true
             },
             speed: 800,
+            allowTouchMove: false,
             navigation: {
                 nextEl: textureModal.querySelector(".nav-btn--next"),
                 prevEl: textureModal.querySelector(".nav-btn--prev")
@@ -1119,75 +1164,75 @@ if (product) {
             cropper.options.aspectRatio = ""
         }
     })
-  //setInp
-  function setInp(dataW,dataH, changedInp) {
-    let initW = checkedData().width
-    let initH = checkedData().height
-    let wPercent = (dataW / initW) * 100
-    let hPercent = (dataH / initH) * 100
-    let widthInc = 1
-    let heightInc = 1
-    if (wPercent > 100) {
-      widthInc = wPercent / 100
-    }
-    if (hPercent > 100) {
-      heightInc = hPercent / 100
-    } 
-    if (wPercent > hPercent) {
-      hPercent = hPercent / widthInc
-    } else if (wPercent < hPercent) {
-      wPercent = wPercent / heightInc
-    }
-    if (dataW > checkedWidth && changedInp == "selfWidth") {
-      checkedHeight = checkedHeight * (dataW / checkedWidth)
-      checkedWidth = dataW
-    } 
-    if (dataH > checkedHeight && changedInp == "selfHeight") {
-      checkedWidth = checkedWidth * ( dataH / checkedHeight )
-      checkedHeight = dataH
-    }
-    if (dataW < checkedWidth && dataH < checkedHeight) {
-      if (dataW > initW || dataH > initH) {
-        if (dataW > dataH) {
+    //setInp
+    function setInp(dataW,dataH, changedInp) {
+        let initW = checkedData().width
+        let initH = checkedData().height
+        let wPercent = (dataW / initW) * 100
+        let hPercent = (dataH / initH) * 100
+        let widthInc = 1
+        let heightInc = 1
+        if (wPercent > 100) {
+          widthInc = wPercent / 100
+        }
+        if (hPercent > 100) {
+          heightInc = hPercent / 100
+        } 
+        if (wPercent > hPercent) {
+          hPercent = hPercent / widthInc
+        } else if (wPercent < hPercent) {
+          wPercent = wPercent / heightInc
+        }
+        if (dataW > checkedWidth && changedInp == "selfWidth") {
           checkedHeight = checkedHeight * (dataW / checkedWidth)
           checkedWidth = dataW
-        } else {
+        } 
+        if (dataH > checkedHeight && changedInp == "selfHeight") {
           checkedWidth = checkedWidth * ( dataH / checkedHeight )
           checkedHeight = dataH
         }
-      } else {
-        checkedWidth = initW
-        checkedHeight = initH
-      }
-    }
-    let data = {
-      left: (cropper.containerData.width - cropper.containerData.width * wPercent / 100) / 2,
-      top: (cropper.containerData.height - cropper.containerData.height * hPercent / 100) / 2,
-      width: wPercent > 100 ? cropper.containerData.width : cropper.containerData.width * wPercent / 100,
-      height: hPercent > 100 ? cropper.containerData.height : cropper.containerData.height * hPercent / 100,
-    }
-    cropper.setCropBoxData(data)
-  }
-  //set self size
-  document.querySelectorAll(".size-product__inp input").forEach(inp => {
-    inp.addEventListener("change", e => {
-      if (Number.isInteger(e.target.value) || e.target.value > 0) {
-        if (sizeProduct.querySelector(".size-product__fixed").checked) {
-          if (e.target.name == "selfHeight") {
-            sizeProduct.querySelector("input[name=selfWidth]").value = Math.round(sizeProduct.querySelector("input[name=selfWidth]").value * (e.target.value / modifiedData.height))
-          } else if (e.target.name == "selfWidth") {
-            sizeProduct.querySelector("input[name=selfHeight]").value = Math.round(sizeProduct.querySelector("input[name=selfHeight]").value * (e.target.value / modifiedData.width))
+        if (dataW < checkedWidth && dataH < checkedHeight) {
+          if (dataW > initW || dataH > initH) {
+            if (dataW > dataH) {
+              checkedHeight = checkedHeight * (dataW / checkedWidth)
+              checkedWidth = dataW
+            } else {
+              checkedWidth = checkedWidth * ( dataH / checkedHeight )
+              checkedHeight = dataH
+            }
+          } else {
+            checkedWidth = initW
+            checkedHeight = initH
           }
         }
-        let dataW = Math.round(sizeProduct.querySelector("input[name=selfWidth]").value)
-        let dataH = Math.round(sizeProduct.querySelector("input[name=selfHeight]").value)
-        setInp(dataW,dataH,e.target.name)
-      } else {
-        sizeProduct.querySelector("input[name=selfWidth]").value = modifiedData.width
-        sizeProduct.querySelector("input[name=selfHeight]").value = modifiedData.height
-      }
+        let data = {
+          left: (cropper.containerData.width - cropper.containerData.width * wPercent / 100) / 2,
+          top: (cropper.containerData.height - cropper.containerData.height * hPercent / 100) / 2,
+          width: wPercent > 100 ? cropper.containerData.width : cropper.containerData.width * wPercent / 100,
+          height: hPercent > 100 ? cropper.containerData.height : cropper.containerData.height * hPercent / 100,
+        }
+        cropper.setCropBoxData(data)
+    }
+    //set self size
+    document.querySelectorAll(".size-product__inp input").forEach(inp => {
+        inp.addEventListener("change", e => {
+          if (Number.isInteger(e.target.value) || e.target.value > 0) {
+            if (sizeProduct.querySelector(".size-product__fixed").checked) {
+              if (e.target.name == "selfHeight") {
+                sizeProduct.querySelector("input[name=selfWidth]").value = Math.round(sizeProduct.querySelector("input[name=selfWidth]").value * (e.target.value / modifiedData.height))
+              } else if (e.target.name == "selfWidth") {
+                sizeProduct.querySelector("input[name=selfHeight]").value = Math.round(sizeProduct.querySelector("input[name=selfHeight]").value * (e.target.value / modifiedData.width))
+              }
+            }
+            let dataW = Math.round(sizeProduct.querySelector("input[name=selfWidth]").value)
+            let dataH = Math.round(sizeProduct.querySelector("input[name=selfHeight]").value)
+            setInp(dataW,dataH,e.target.name)
+          } else {
+            sizeProduct.querySelector("input[name=selfWidth]").value = modifiedData.width
+            sizeProduct.querySelector("input[name=selfHeight]").value = modifiedData.height
+          }
+        })
     })
-  })
     //shift image
     document.querySelectorAll(".main-product__btn").forEach(item => {
         item.addEventListener("mousedown", e => {
@@ -1258,7 +1303,7 @@ if (product) {
             modifiedData.width = Math.round((checkedWidth * widthDiff) / 100)
             modifiedData.height = Math.round((checkedHeight * heightDiff) / 100)
             setSize()
-            setImg(2000)
+            /* setImg(2000) */
         },
         cropstart: function(event) {
             cropStartX = event.detail.originalEvent.pageX
@@ -1290,15 +1335,16 @@ if (product) {
             }
         }
     });
-    //share pdf
-    sharePdf.addEventListener("click", e => {
+    //share print
+    sharePrint.addEventListener("click", e => {
         e.preventDefault()
-        window.jsPDF = window.jspdf.jsPDF
-        let incrVal = Math.trunc(595/modifiedData.width) - 1
-        doc = new jsPDF('p', 'pt', 'a4', false);
-        doc.setFillColor(238, 238, 238);
-        doc.addImage(modifiedData.imgURl, undefined, (595 - modifiedData.width * incrVal)/2, 100, modifiedData.width * incrVal ,  modifiedData.height * incrVal, undefined, undefined);
-        doc.save(document.title + '.pdf')
+        document.querySelector(".print-modal .total-product__size").textContent = modifiedData.width + " см" + " x " + modifiedData.height + " см"
+        document.querySelector(".print-modal__preview img").src = modifiedData.imgURl
+        document.querySelector(".print-modal .total-product__texture").textContent = modifiedData.texture
+        closeModal(document.querySelector(".share-modal"))
+        setTimeout(() => {
+           window.print() 
+        }, 0);
     })
     //share email
     shareEmail.addEventListener("click", () => {
@@ -1324,6 +1370,16 @@ if (product) {
             document.querySelector(".total-product__body").classList.remove("hidden")
         }
     })
+    product.querySelectorAll(".total-product__body .btn").forEach(item => {
+        item.addEventListener("click", () => {
+            setImg()
+        })
+    });
+    product.querySelectorAll(".product__action .btn").forEach(item => {
+        item.addEventListener("click", () => {
+            setImg()
+        })
+    });
 }
 // catalog grid
 document.querySelectorAll(".catalog__btn").forEach(item => {
@@ -1382,9 +1438,21 @@ if (delNav && delBlock) {
         item.addEventListener("change", () => {
             delBlock.forEach(el => {
                 el.classList.remove("active")
+                if (el.querySelector("input.required")) {
+                   el.querySelectorAll("input.required").forEach(item => {
+                        item.removeAttribute("data-required")
+                        item.removeAttribute("data-type")
+                    })
+                }
             })
             delBlock[idx].classList.add("active")
             delBlock[idx].style.opacity = "0"
+            if (delBlock[idx].querySelector("input.required")) {
+                delBlock[idx].querySelectorAll("input.required").forEach(item => {
+                    item.setAttribute("data-required", "required")
+                    item.setAttribute("data-type", "string")
+                })
+            }
             setTimeout(() => {
                 delBlock[idx].style.opacity = "1"
             }, 0);

@@ -16,6 +16,8 @@
     <link rel="preload" href="fonts/Gilroy-Regular.woff2" as="font" type="font/woff2" crossorigin> 
     <link href="css/fancybox.min.css" type="text/css" rel="stylesheet">
     <link href="css/cropper.min.css" type="text/css" rel="stylesheet">
+    <link href="css/image-compare-viewer.min.css" type="text/css" rel="stylesheet">
+    <link href="css/beerslider.min.css" type="text/css" rel="stylesheet">
     <link href="css/style.min.css" type="text/css" rel="stylesheet">
     <title>Главная</title>
 </head>
@@ -855,9 +857,20 @@
         </div>
         <div class="footer__bottom">
             <div class="footer__copy">© 2007- 2023, La Stanza. <span>Все права защищены</span></div>
-            <div class="footer__links">
-                <a href="#" target="_blank">Политика конфиденциальности</a>
-                <a href="#" target="_blank">Пользовательское соглашение</a>
+            <div class="footer__right">
+                <div class="footer__links">
+                    <a href="#" target="_blank">Политика конфиденциальности</a>
+                    <a href="#" target="_blank">Пользовательское соглашение</a>
+                </div>
+                <div class="footer__dev">
+                    <noindex>
+                        <div class="footer__dev--dev">                            
+                            <a href="https://omniagency.ru/" title="Разработчик сайта" rel="nofollow" target="_blank">
+                                <img src="img/icons/dev.svg" alt="Omni Agency">
+                           </a>
+                        </div>
+                    </noindex>
+                </div>
             </div>
         </div>
     </div>
@@ -1060,11 +1073,11 @@
                             </div>
                             <span class="share-modal__lbl">Скачать .jpeg</span>
                         </a>
-                        <a href="#" download="" class="share-modal__item share-modal__pdf">
+                        <a href="#" download="" class="share-modal__item share-modal__print">
                             <div class="share-modal__icon">
-                                <svg><use xlink:href="img/icons/sprite.svg#pdf"></use></svg>
+                                <svg><use xlink:href="img/icons/sprite.svg#print"></use></svg>
                             </div>
-                            <span class="share-modal__lbl">Скачать .pdf</span>
+                            <span class="share-modal__lbl">Отправить на печать</span>
                         </a>
                         <a href="#" class="share-modal__item share-modal__mail" target="_blank">
                             <div class="share-modal__icon">
@@ -1580,11 +1593,12 @@
     <script src="js/libs/jquery.min.js"></script>
 <script src="js/libs/cropper.min.js"></script>
 <script src="js/libs/htmltoimage.js"></script>
-<script src="js/libs/jspdf.min.js"></script>
 <script src="js/libs/fancybox.min.js"></script>
 <script src="js/libs/inputmask.min.js"></script>
 <script src="js/libs/swiper.min.js"></script>
 <script src="js/libs/nouislider.min.js"></script>
+<script src="js/libs/beforeafter.min.js"></script>
+<script src="js/libs/beerslider.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/custom.js"></script>
 </body>

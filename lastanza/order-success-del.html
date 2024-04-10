@@ -16,6 +16,8 @@
     <link rel="preload" href="fonts/Gilroy-Regular.woff2" as="font" type="font/woff2" crossorigin> 
     <link href="css/fancybox.min.css" type="text/css" rel="stylesheet">
     <link href="css/cropper.min.css" type="text/css" rel="stylesheet">
+    <link href="css/image-compare-viewer.min.css" type="text/css" rel="stylesheet">
+    <link href="css/beerslider.min.css" type="text/css" rel="stylesheet">
     <link href="css/style.min.css" type="text/css" rel="stylesheet">
     <title>Заказ успешно оформлен</title>
 </head>
@@ -394,9 +396,20 @@
         </div>
         <div class="footer__bottom">
             <div class="footer__copy">© 2007- 2023, La Stanza. <span>Все права защищены</span></div>
-            <div class="footer__links">
-                <a href="#" target="_blank">Политика конфиденциальности</a>
-                <a href="#" target="_blank">Пользовательское соглашение</a>
+            <div class="footer__right">
+                <div class="footer__links">
+                    <a href="#" target="_blank">Политика конфиденциальности</a>
+                    <a href="#" target="_blank">Пользовательское соглашение</a>
+                </div>
+                <div class="footer__dev">
+                    <noindex>
+                        <div class="footer__dev--dev">                            
+                            <a href="https://omniagency.ru/" title="Разработчик сайта" rel="nofollow" target="_blank">
+                                <img src="img/icons/dev.svg" alt="Omni Agency">
+                           </a>
+                        </div>
+                    </noindex>
+                </div>
             </div>
         </div>
     </div>
@@ -599,11 +612,11 @@
                             </div>
                             <span class="share-modal__lbl">Скачать .jpeg</span>
                         </a>
-                        <a href="#" download="" class="share-modal__item share-modal__pdf">
+                        <a href="#" download="" class="share-modal__item share-modal__print">
                             <div class="share-modal__icon">
-                                <svg><use xlink:href="img/icons/sprite.svg#pdf"></use></svg>
+                                <svg><use xlink:href="img/icons/sprite.svg#print"></use></svg>
                             </div>
-                            <span class="share-modal__lbl">Скачать .pdf</span>
+                            <span class="share-modal__lbl">Отправить на печать</span>
                         </a>
                         <a href="#" class="share-modal__item share-modal__mail" target="_blank">
                             <div class="share-modal__icon">
@@ -1071,7 +1084,7 @@
                         </svg>
                     </button>
                     <div class="modal__top">
-                        <h3>Выберете город</h3>
+                        <h3>Выберите город</h3>
                     </div>
                     <div class="city-search">
                         <form class="form search-form" action="">
@@ -1112,17 +1125,54 @@
         </div>
     </div>
 </div>
+<!--print-modal-->
+<div class="print-modal" id="print-modal">
+    <div class="container">
+        <div class="print-modal__content">
+            <h3 class="print-modal__title">Фреска Applico 01202-G</h3>
+            <div class="print-modal__preview">
+                <picture><source srcset="img/product-1.webp" type="image/webp"><img src="img/product-1.jpg" alt=""></picture>
+            </div>
+            <div class="total-product">
+                <div class="mb-40 total-product__top">
+                    <div class="total-product__det">
+                        <span>Размер</span>
+                        <div><span class="total-product__size">150 см х 90 см</div>
+                    </div>
+                    <div class="total-product__det">
+                        <span>Фактура</span>
+                        <div><span class="total-product__texture">Breeze Light</span></div>
+                        
+                    </div>
+                    <div class="total-product__det">
+                        <span>Цена</span>
+                        <div><span class="rub total-product__price">4 580</span> за 1 м²</div>
+                    </div>
+                    <div class="total-product__det">
+                        <span>Площадь</span>
+                        <div><span class="total-product__square">1.35</span> м²</div>
+                    </div>
+                    <div class="total-product__det">
+                        <span>Стоимость</span>
+                        <div class="rub h5 total-product__totalprice">6 183</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
     </div>
     <script src="js/libs/jquery.min.js"></script>
 <script src="js/libs/cropper.min.js"></script>
 <script src="js/libs/htmltoimage.js"></script>
-<script src="js/libs/jspdf.min.js"></script>
 <script src="js/libs/fancybox.min.js"></script>
 <script src="js/libs/inputmask.min.js"></script>
 <script src="js/libs/swiper.min.js"></script>
 <script src="js/libs/nouislider.min.js"></script>
+<script src="js/libs/beforeafter.min.js"></script>
+<script src="js/libs/beerslider.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/custom.js"></script>
 </body>

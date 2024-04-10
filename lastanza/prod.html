@@ -16,6 +16,8 @@
     <link rel="preload" href="fonts/Gilroy-Regular.woff2" as="font" type="font/woff2" crossorigin> 
     <link href="css/fancybox.min.css" type="text/css" rel="stylesheet">
     <link href="css/cropper.min.css" type="text/css" rel="stylesheet">
+    <link href="css/image-compare-viewer.min.css" type="text/css" rel="stylesheet">
+    <link href="css/beerslider.min.css" type="text/css" rel="stylesheet">
     <link href="css/style.min.css" type="text/css" rel="stylesheet">
     <title>Фреска Applico 01202-G</title>
 </head>
@@ -270,7 +272,10 @@
                         <h1 class="h4">Фреска Applico 01202-G</h1>
                         <div class="product__action">
                             <button type="button" class="btn modal-show-btn" data-modal="share-modal"><svg><use xlink:href="img/icons/sprite.svg#share"></use></svg>Поделиться</button>
-                            <button type="button" class="btn"><svg><use xlink:href="img/icons/sprite.svg#favorites"></use></svg>В избранное</button>
+                            <button type="button" class="btn product__fav"><svg id="favorites" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30">
+                                <path d="M25.9111 6.05778C23.0834 3.31445 18.4833 3.31445 15.6564 6.05778L14.9998 6.69459L14.3435 6.05778C11.5166 3.31407 6.91612 3.31407 4.08918 6.05778C1.31963 8.74541 1.30165 13.0056 4.04747 15.9676C6.55185 18.6683 13.9379 24.5028 14.2513 24.7498C14.4555 24.9114 14.711 24.9995 14.9745 24.9993L14.9994 24.9989C15.2626 25.0108 15.5278 24.9232 15.7474 24.7498C16.0608 24.5028 23.4477 18.6683 25.9528 15.9673C28.6983 13.0056 28.6803 8.74541 25.9111 6.05778ZM24.2462 14.4771C22.2936 16.5822 16.9264 20.9237 14.9994 22.4643C13.0724 20.924 7.70627 16.5829 5.75404 14.4775C3.83855 12.4115 3.82056 9.46911 5.71233 7.6333C6.6785 6.69608 7.94733 6.2271 9.21616 6.2271C10.485 6.2271 11.7538 6.69571 12.72 7.6333L14.1633 9.03392C14.3304 9.19516 14.546 9.30062 14.779 9.33507C14.9669 9.37459 15.162 9.36776 15.3465 9.31522C15.531 9.26268 15.699 9.16609 15.8351 9.0343L17.2791 7.6333C19.2119 5.75849 22.3556 5.75886 24.2872 7.6333C26.179 9.46911 26.161 12.4115 24.2462 14.4771Z"/>
+                                <path d="M19.8717 4.8175C18.8399 4.83237 17.8306 5.0991 16.9458 5.59077C16.0609 6.08243 15.3318 6.78162 14.8321 7.61773C14.3324 6.78162 13.6033 6.08243 12.7184 5.59077C11.8336 5.0991 10.8243 4.83237 9.79249 4.8175C8.14768 4.88368 6.59801 5.55002 5.48203 6.67094C4.36605 7.79186 3.77448 9.27625 3.83656 10.7998C3.83656 16.5488 13.8755 23.1887 14.3025 23.4704L14.8321 23.8175L15.3617 23.4704C15.7887 23.1904 25.8277 16.5488 25.8277 10.7998C25.8897 9.27625 25.2982 7.79186 24.1822 6.67094C23.0662 5.55002 21.5165 4.88368 19.8717 4.8175Z"/>
+                            </svg>В избранное</button>
                         </div>
                     </div>  
                     <!--main-product--> 
@@ -1033,9 +1038,20 @@
         </div>
         <div class="footer__bottom">
             <div class="footer__copy">© 2007- 2023, La Stanza. <span>Все права защищены</span></div>
-            <div class="footer__links">
-                <a href="#" target="_blank">Политика конфиденциальности</a>
-                <a href="#" target="_blank">Пользовательское соглашение</a>
+            <div class="footer__right">
+                <div class="footer__links">
+                    <a href="#" target="_blank">Политика конфиденциальности</a>
+                    <a href="#" target="_blank">Пользовательское соглашение</a>
+                </div>
+                <div class="footer__dev">
+                    <noindex>
+                        <div class="footer__dev--dev">                            
+                            <a href="https://omniagency.ru/" title="Разработчик сайта" rel="nofollow" target="_blank">
+                                <img src="img/icons/dev.svg" alt="Omni Agency">
+                           </a>
+                        </div>
+                    </noindex>
+                </div>
             </div>
         </div>
     </div>
@@ -1581,11 +1597,11 @@
                             </div>
                             <span class="share-modal__lbl">Скачать .jpeg</span>
                         </a>
-                        <a href="#" download="" class="share-modal__item share-modal__pdf">
+                        <a href="#" download="" class="share-modal__item share-modal__print">
                             <div class="share-modal__icon">
-                                <svg><use xlink:href="img/icons/sprite.svg#pdf"></use></svg>
+                                <svg><use xlink:href="img/icons/sprite.svg#print"></use></svg>
                             </div>
-                            <span class="share-modal__lbl">Скачать .pdf</span>
+                            <span class="share-modal__lbl">Отправить на печать</span>
                         </a>
                         <a href="#" class="share-modal__item share-modal__mail" target="_blank">
                             <div class="share-modal__icon">
@@ -2053,7 +2069,7 @@
                         </svg>
                     </button>
                     <div class="modal__top">
-                        <h3>Выберете город</h3>
+                        <h3>Выберите город</h3>
                     </div>
                     <div class="city-search">
                         <form class="form search-form" action="">
@@ -2094,17 +2110,54 @@
         </div>
     </div>
 </div>
+<!--print-modal-->
+<div class="print-modal" id="print-modal">
+    <div class="container">
+        <div class="print-modal__content">
+            <h3 class="print-modal__title">Фреска Applico 01202-G</h3>
+            <div class="print-modal__preview">
+                <picture><source srcset="img/product-1.webp" type="image/webp"><img src="img/product-1.jpg" alt=""></picture>
+            </div>
+            <div class="total-product">
+                <div class="mb-40 total-product__top">
+                    <div class="total-product__det">
+                        <span>Размер</span>
+                        <div><span class="total-product__size">150 см х 90 см</div>
+                    </div>
+                    <div class="total-product__det">
+                        <span>Фактура</span>
+                        <div><span class="total-product__texture">Breeze Light</span></div>
+                        
+                    </div>
+                    <div class="total-product__det">
+                        <span>Цена</span>
+                        <div><span class="rub total-product__price">4 580</span> за 1 м²</div>
+                    </div>
+                    <div class="total-product__det">
+                        <span>Площадь</span>
+                        <div><span class="total-product__square">1.35</span> м²</div>
+                    </div>
+                    <div class="total-product__det">
+                        <span>Стоимость</span>
+                        <div class="rub h5 total-product__totalprice">6 183</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
     </div>
     <script src="js/libs/jquery.min.js"></script>
 <script src="js/libs/cropper.min.js"></script>
 <script src="js/libs/htmltoimage.js"></script>
-<script src="js/libs/jspdf.min.js"></script>
 <script src="js/libs/fancybox.min.js"></script>
 <script src="js/libs/inputmask.min.js"></script>
 <script src="js/libs/swiper.min.js"></script>
 <script src="js/libs/nouislider.min.js"></script>
+<script src="js/libs/beforeafter.min.js"></script>
+<script src="js/libs/beerslider.min.js"></script>
 <script src="js/main.js"></script>
 <script src="js/custom.js"></script>
 </body>

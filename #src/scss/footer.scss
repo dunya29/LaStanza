@@ -54,18 +54,24 @@
         display: grid;
         grid-template-columns: repeat(12, 1fr);
         gap: 30px;
+        align-items: center;
     }
     &__copy {
         grid-column: 2/5;
     }
-    &__links {
+    &__right {
         grid-column: 7/13;
         display: flex;
+        align-items: center;
+    }
+    &__links {
+        display: flex;
         flex-wrap: wrap;
-        margin: 0 -20px;
+        align-items: center;
+        margin: 0 -15px;
         a {
             line-height: 1.2;
-            margin: 0 20px 20px;
+            margin: 0 15px 20px;
             position: relative;
             &::after {
                 content: '';
@@ -82,6 +88,11 @@
                 }
             }
         }
+    }
+    &__dev {
+        max-width: 110px;
+        margin-bottom: 20px;
+        margin-left: auto;
     }
     @media (max-width: $bp1) {
         padding: 60px 0 20px;
@@ -116,7 +127,7 @@
                 display: block;
             }
         }
-        &__links {
+        &__right{
             grid-column: 5/13;
         }
     }
@@ -151,9 +162,15 @@
                 display: inline;
             }
         }
+        &__right {
+            display: block;
+        }
         &__links {
             flex-direction: column;
             align-items: flex-start;
+        }
+        &__dev {
+            margin:0
         }
     }
     @media (max-width: $bp3) {

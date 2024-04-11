@@ -32,3 +32,14 @@
 .fancybox__button--fullscreen,.fancybox__button--slideshow,.fancybox__button--thumbs,.fancybox__button--zoom,.fancybox__thumbs {
     display: none
 }
+.before-after-slider {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+.beer-handle {
+    background: #fff;
+}
+.beer-reveal[data-beer-label]:after, .beer-slider[data-beer-label]:after {
+   content: none;
+}

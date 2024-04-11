@@ -174,7 +174,6 @@ modalShowBtn.forEach(btn => {
         e.preventDefault()
         let href = btn.getAttribute("data-modal")
         let title = btn.getAttribute("data-modal-title")
-        console.log(!!title)
         if (href == "feedback-modal") {
             document.getElementById(href).querySelector(".modal__top h3").textContent = !!title ? title : "Заказать звонок"
         }
@@ -1696,3 +1695,10 @@ if (portfolioPage) {
         })
     })
 }
+const beerSlider = document.querySelectorAll(".beer-slider")
+if (beerSlider) {
+    beerSlider.forEach(item => {
+        new BeerSlider( item )
+    })
+}
+   

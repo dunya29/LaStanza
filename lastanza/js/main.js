@@ -176,6 +176,7 @@ modalShowBtn.forEach(btn => {
         let title = btn.getAttribute("data-modal-title")
         if (href == "feedback-modal") {
             document.getElementById(href).querySelector(".modal__top h3").textContent = !!title ? title : "Заказать звонок"
+            document.getElementById(href).querySelector("input[name=title]").value = !!title ? title : "Заказать звонок"
         }
         openModal(document.getElementById(href))
     })

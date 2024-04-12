@@ -176,7 +176,6 @@ modalShowBtn.forEach(btn => {
         let title = btn.getAttribute("data-modal-title")
         if (href == "feedback-modal") {
             document.getElementById(href).querySelector(".modal__top h3").textContent = !!title ? title : "Заказать звонок"
-            document.getElementById(href).querySelector("input[name=title]").value = !!title ? title : "Заказать звонок"
         }
         openModal(document.getElementById(href))
     })
@@ -498,6 +497,9 @@ $(".accordion__header").on("click", function () {
         .removeClass("open")
         .siblings(".accordion__body")
         .slideUp();
+    if ($(this).parents(".accordion").hasClass("textures-acc")) {
+        window.dispatchEvent(new Event('resize'));
+    }
 })
 //filter accordion
 const filterAcc = document.querySelectorAll(".filter-acc")
@@ -660,26 +662,24 @@ if (extraList) {
     })
 }
 //showCartExtra
-function showCartExtra() {
-    document.querySelector(".cart-modal").addEventListener("click", e => {
-        const extraList = document.querySelectorAll(".cart-modal .extra-list")
-        if (extraList) {
-            extraList.forEach(item => {
-                if (item.contains(e.target)) {
-                    let openTxt = item.querySelector(".extra-list__btn").getAttribute("data-open")
-                    let closeTxt = item.querySelector(".extra-list__btn").getAttribute("data-close")
-                    if (!item.classList.contains("open")) {
-                        item.classList.add("open")
-                        item.querySelector(".extra-list__btn span").textContent = closeTxt
-                    } else {
-                        item.classList.remove("open")
-                        item.querySelector(".extra-list__btn span").textContent = openTxt
-                    }
+document.querySelector(".cart-modal").addEventListener("click", e => {
+    const extraList = document.querySelectorAll(".cart-modal .extra-list")
+    if (extraList) {
+        extraList.forEach(item => {
+            if (item.querySelector(".extra-list__btn").contains(e.target)) {
+                let openTxt = item.querySelector(".extra-list__btn").getAttribute("data-open")
+                let closeTxt = item.querySelector(".extra-list__btn").getAttribute("data-close")
+                if (!item.classList.contains("open")) {
+                    item.classList.add("open")
+                    item.querySelector(".extra-list__btn span").textContent = closeTxt
+                } else {
+                    item.classList.remove("open")
+                    item.querySelector(".extra-list__btn span").textContent = openTxt
                 }
-            })
-        }
-    }) 
-}
+            }
+        })
+    }
+})
 //quantity
 const quantity = document.querySelectorAll(".quantity")
 if (quantity) {
@@ -847,6 +847,7 @@ let checkedWidth
 let checkedHeight
 let touchscreen = false
 if (product) {
+    document.querySelector(".wrap").classList.add("product-wrap")
     initialData = {
         width: +orderForm.querySelector("input[name=width]").value,
         height: +orderForm.querySelector("input[name=height]").value,
@@ -1361,7 +1362,10 @@ if (product) {
         inp.remove()
     })*/
     // open cartmodal on success
-    document.querySelector(".total-product .main-btn").addEventListener("click",  addToCart)
+    document.querySelector(".total-product .main-btn").addEventListener("click",  async() => {
+        await setImg()
+        addToCart()
+    })
     // remove fixed btn on scroll to footer
     window.addEventListener('scroll', () => {
         if (window.innerHeight - document.querySelector(".footer").getBoundingClientRect().bottom + 30 >= 0) {
@@ -1370,16 +1374,39 @@ if (product) {
             document.querySelector(".total-product__body").classList.remove("hidden")
         }
     })
-    product.querySelectorAll(".total-product__body .btn").forEach(item => {
-        item.addEventListener("click", () => {
-            setImg()
-        })
+    product.querySelector(".total-product__body .stroke-btn").addEventListener("click", () => {
+        setImg()
     });
     product.querySelectorAll(".product__action .btn").forEach(item => {
         item.addEventListener("click", () => {
             setImg()
         })
     });
+    const fancybox = Fancybox.bind('[data-fancybox="product-gallery"]', {
+        Hash: false,
+        Toolbar: {
+          display: ["close"]
+        },
+        Hash: false,
+        on: {
+            done: (fancybox) => {
+                setTimeout(() => {
+                    document.querySelectorAll(".fancybox__content").forEach((item,idx) => {
+                        if (item.querySelector(".fancybox__image")) {
+                            item.querySelector(".fancybox__image").style.cssText = 'opacity: 1 !important'; 
+                        }
+                        item.querySelector("img").style.backgroundImage = `url(${fancybox.Carousel.slides[idx].bg})`
+                     })
+                }, 0);
+            },
+            closing: () =>  {
+                document.querySelectorAll(".fancybox__content").forEach(item => {
+                    item.remove()
+                })
+            },
+        }
+    });
+      
 }
 // catalog grid
 document.querySelectorAll(".catalog__btn").forEach(item => {
@@ -1701,5 +1728,5 @@ if (beerSlider) {
     beerSlider.forEach(item => {
         new BeerSlider( item )
     })
-}
+} 
    

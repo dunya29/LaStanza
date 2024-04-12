@@ -3490,16 +3490,17 @@ blockquote p {
   margin-right: 8px;
 }
 
-.product__fav svg path:nth-child(2) {
+.product .js-add-favorite svg path:nth-child(2) {
   fill: none;
 }
 
-.product__fav.active svg {
+.product .js-add-favorite.active svg {
   fill: #242626;
 }
 
-.product__fav.active svg path:nth-child(2) {
+.product .js-add-favorite.active svg path:nth-child(2) {
   fill: #242626;
+  stroke: #242626;
 }
 
 .main-product .page-lbls {
@@ -6818,6 +6819,35 @@ blockquote p {
 .fancybox__button--zoom,
 .fancybox__thumbs {
   display: none;
+}
+
+.fancybox__content canvas,
+.fancybox__bg {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 50%);
+  -ms-transform: translate(-50%, 50%);
+  transform: translate(-50%, 50%);
+  z-index: -1;
+  -o-object-fit: contain;
+  object-fit: contain;
+}
+
+.fancybox__content {
+  overflow: hidden;
+}
+
+.fancybox__image {
+  opacity: 0;
+  -webkit-transform: translate3d(0, 0, 0) scale(1) !important;
+  transform: translate3d(0, 0, 0) scale(1) !important;
+  background-position: bottom 60% center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .before-after-slider {
@@ -12788,11 +12818,11 @@ blockquote p {
 }
 
 @media print {
-  .wrap > * {
+  .product-wrap > * {
     display: none;
   }
 
-  .wrap .print-modal {
+  .product-wrap .print-modal {
     display: block !important;
     padding: 60px 0;
   }

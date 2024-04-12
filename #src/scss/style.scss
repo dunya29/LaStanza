@@ -32,6 +32,27 @@
 .fancybox__button--fullscreen,.fancybox__button--slideshow,.fancybox__button--thumbs,.fancybox__button--zoom,.fancybox__thumbs {
     display: none
 }
+.fancybox__content canvas, .fancybox__bg {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    z-index: -1;
+    object-fit: contain;
+}
+.fancybox__content {
+    overflow: hidden;
+} 
+.fancybox__image {
+   opacity: 0 ;
+   transform: translate3d(0,0,0) scale(1)!important;
+   background-position: bottom 60% center;
+   background-size: contain;
+   background-repeat: no-repeat;
+}
 .before-after-slider {
     display: flex;
     justify-content: center;

@@ -1,3 +1,51 @@
+const fancybox = Fancybox.bind('[data-fancybox="product-gallery"]', {
+    infinite : true,
+    autoFocus: false,
+    dragToClose: false,
+    closeButton: "inside",
+    openSpeed : 0,
+    Toolbar: {
+      display: ["close"]
+    },
+    Hash: false,
+    on: {
+        ready:  (fancybox,slide) =>  {
+            console.log(fancybox)
+            function setSize(item) {
+                const w = document.querySelector(".cropBox").clientWidth
+                item.style.cssText += `max-width: ${w}px`
+                item.querySelector(".fancybox__image").style.cssText += `max-width: ${w}px` 
+            }
+            setTimeout( () => {
+                htmlToImage.toJpeg(cropBox)
+                .then(function (dataUrl) {
+                     modifiedData.imgURl = dataUrl
+                     document.querySelectorAll(".fancybox__content").forEach(item => {
+                        setSize(item)
+                        item.insertAdjacentHTML("afterbegin", `<img class="fancybox__bg" src=${dataUrl} />`)
+                        window.addEventListener("resize", setSize(item)) 
+                     })
+                 })
+            }, 0);
+        },
+        "Image.endAnimation": () => {
+            document.querySelectorAll(".fancybox__image").forEach(item => {
+                item.style.cssText = 'opacity: 1 !important'; 
+             })
+        }, 
+        closing:  (fancybox,slide) =>  {
+           document.querySelectorAll(".fancybox__content").forEach(item => {
+                item.querySelector(".fancybox__bg").remove()
+                if (item.querySelector(".fancybox__image")) {
+                    item.querySelector(".fancybox__image").style.cssText = 'transition: opacity 0s linear;opacity:0 !important';
+                }
+             })
+        },
+    }
+});
+
+
+
 const customSelect = document.querySelectorAll(".custom-select")
 const overlay = document.querySelector(".overlay")
 const header = document.querySelector(".header")
@@ -1389,14 +1437,26 @@ if (product) {
         },
         Hash: false,
         on: {
-            done: (fancybox) => {
-                setTimeout(() => {
+            ready:  (fancybox,slide) =>  {
+                setTimeout( () => {
                     document.querySelectorAll(".fancybox__content").forEach((item,idx) => {
+                        setMaxSize(item)
                         if (item.querySelector(".fancybox__image")) {
                             item.querySelector(".fancybox__image").style.cssText = 'opacity: 1 !important'; 
                         }
-                        item.querySelector("img").style.backgroundImage = `url(${fancybox.Carousel.slides[idx].bg})`
+                        item.insertAdjacentHTML("afterbegin", `<img class="fancybox__bg" src=${fancybox.Carousel.slides[idx].bg} />`)   
                      })
+                    /* htmlToImage.toJpeg(cropBox)
+                    .then(function (dataUrl) {
+                         document.querySelectorAll(".fancybox__content").forEach((item,idx) => {
+                            setMaxSize(item)
+                            if (item.querySelector(".fancybox__image")) {
+                                item.querySelector(".fancybox__image").style.cssText = 'opacity: 1 !important'; 
+                            }
+                            item.insertAdjacentHTML("afterbegin", `<img class="fancybox__bg" src=${dataUrl} />`)                
+                            window.addEventListener("resize", setMaxSize(item)) 
+                         })
+                     }) */
                 }, 0);
             },
             closing: () =>  {

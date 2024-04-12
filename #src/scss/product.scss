@@ -76,7 +76,7 @@
             }
         }
     }
-    &__fav {
+    .js-add-favorite {
         svg path:nth-child(2) {
             fill: none;
         }
@@ -85,6 +85,7 @@
                 fill: $maincolor;
                 path:nth-child(2) {
                     fill: $maincolor;
+                    stroke: $maincolor;
                 }
             }
         }

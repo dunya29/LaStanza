@@ -33,15 +33,14 @@
     display: none
 }
 .fancybox__content canvas, .fancybox__bg {
-    width: auto;
+    width: 100%;
     max-width: 100%;
     height: auto;
     position: absolute;
-    bottom: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    z-index: -1;
-    object-fit: contain;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    object-position: bottom;
 }
 .fancybox__content {
     overflow: hidden;
@@ -49,8 +48,9 @@
 .fancybox__image {
    opacity: 0 ;
    transform: translate3d(0,0,0) scale(1)!important;
-   background-position: bottom 60% center;
-   background-size: contain;
+   background-color: white;
+   background-position: top center;
+   background-size: auto 86%;
    background-repeat: no-repeat;
 }
 .before-after-slider {

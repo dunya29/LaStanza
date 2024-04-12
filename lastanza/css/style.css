@@ -639,30 +639,11 @@ blockquote p {
   margin-right: 3px;
 }
 
-.page-content picture,
 .page-content img,
 .page-content iframe,
 .page-content video {
   display: block;
-  margin: 80px 0;
-}
-
-.page-content picture:first-child,
-.page-content img:first-child,
-.page-content iframe:first-child,
-.page-content video:first-child {
-  margin-top: 0;
-}
-
-.page-content picture:last-child,
-.page-content img:last-child,
-.page-content iframe:last-child,
-.page-content video:last-child {
-  margin-bottom: 0;
-}
-
-.page-content picture img {
-  margin: 0;
+  margin: 80px auto;
 }
 
 .page-lbls {
@@ -2877,14 +2858,14 @@ blockquote p {
   font-size: 20px;
 }
 
-.article picture,
-.article img {
-  display: block;
-  margin: 80px auto;
+.article .page-content {
+  max-width: 100%;
 }
 
-.article picture img {
-  margin: 0 auto;
+.article img,
+.article iframe,
+.article video {
+  margin: 80px auto;
 }
 
 .article__top {
@@ -6823,18 +6804,15 @@ blockquote p {
 
 .fancybox__content canvas,
 .fancybox__bg {
-  width: auto;
+  width: 100%;
   max-width: 100%;
   height: auto;
   position: absolute;
-  bottom: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, 50%);
-  -ms-transform: translate(-50%, 50%);
-  transform: translate(-50%, 50%);
-  z-index: -1;
-  -o-object-fit: contain;
-  object-fit: contain;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  -o-object-position: bottom;
+  object-position: bottom;
 }
 
 .fancybox__content {
@@ -6845,8 +6823,9 @@ blockquote p {
   opacity: 0;
   -webkit-transform: translate3d(0, 0, 0) scale(1) !important;
   transform: translate3d(0, 0, 0) scale(1) !important;
-  background-position: bottom 60% center;
-  background-size: contain;
+  background-color: white;
+  background-position: top center;
+  background-size: auto 86%;
   background-repeat: no-repeat;
 }
 
@@ -7083,11 +7062,10 @@ blockquote p {
     font-size: 16px;
   }
 
-  .page-content picture,
   .page-content img,
   .page-content iframe,
   .page-content video {
-    margin: 60px 0;
+    margin: 60px auto;
   }
 
   .text-page h1 {
@@ -7380,13 +7358,14 @@ blockquote p {
     margin-bottom: 32px;
   }
 
-  .article h1 {
-    max-width: 950px;
+  .article img,
+  .article iframe,
+  .article video {
+    margin: 60px auto;
   }
 
-  .article picture,
-  .article img {
-    margin: 60px auto;
+  .article h1 {
+    max-width: 950px;
   }
 
   .main-articles .swiper {
@@ -10622,11 +10601,10 @@ blockquote p {
     margin-top: 40px;
   }
 
-  .page-content picture,
   .page-content img,
   .page-content iframe,
   .page-content video {
-    margin: 40px 0;
+    margin: 40px auto;
   }
 
   .text-page h1 {
@@ -10977,13 +10955,14 @@ blockquote p {
     background-size: 12px 12px;
   }
 
-  .article .backward {
-    font-size: 14px;
+  .article img,
+  .article iframe,
+  .article video {
+    margin: 40px auto;
   }
 
-  .article picture,
-  .article img {
-    margin: 24px auto;
+  .article .backward {
+    font-size: 14px;
   }
 
   .main-articles .swiper {

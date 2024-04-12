@@ -454,13 +454,14 @@ if (bestsellers) {
 // articles swiper
 const mainArt = document.querySelector(".main-articles")
 if (mainArt) {
+    let count = mainArt.querySelectorAll(".swiper-slide").length
     const artSwiper = new Swiper(mainArt.querySelector(".swiper"), {
         slidesPerView: 1.13,
         spaceBetween: 20,
         observe: true,
         observeParents: true,
         speed: 800,
-        loop: true,
+        loop: count > 4,
         navigation: {
             nextEl: mainArt.querySelector(".nav-btn--next"),
             prevEl: mainArt.querySelector(".nav-btn--prev")
@@ -514,12 +515,13 @@ filterAcc.forEach(item => {
 const cardSwiper = document.querySelectorAll(".card-swiper")
 if (cardSwiper) {
     cardSwiper.forEach(item => {
+        let count = item.querySelectorAll(".swiper-slide").length
         const swiper = new Swiper(item.querySelector(".swiper"), {
             slidesPerView: 1.13,
             spaceBetween: 20,
             observe: true,
             observeParents: true,
-            loop: true,
+            loop: count > 4,
             navigation: {
                 prevEl: item.querySelector(".nav-btn--prev"),
                 nextEl: item.querySelector(".nav-btn--next")
@@ -1395,13 +1397,16 @@ if (product) {
                         if (item.querySelector(".fancybox__image")) {
                             item.querySelector(".fancybox__image").style.cssText = 'opacity: 1 !important'; 
                         }
+                       /*  if (!item.querySelector(".fancybox__bg")) {
+                            item.insertAdjacentHTML("afterbegin", `<img class="fancybox__bg" src=${fancybox.Carousel.slides[idx].bg} />`)
+                        } */
                         item.querySelector("img").style.backgroundImage = `url(${fancybox.Carousel.slides[idx].bg})`
                      })
                 }, 0);
             },
             closing: () =>  {
                 document.querySelectorAll(".fancybox__content").forEach(item => {
-                    item.remove()
+                    item.style.opacity = "0"
                 })
             },
         }

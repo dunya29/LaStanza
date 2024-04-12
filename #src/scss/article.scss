@@ -118,12 +118,17 @@
 	.backward {
 		font-size: 20px;
 	}
-	picture, img {
-		display: block;
-		margin: 80px auto;
+	.page-content {
+		max-width: 100%;
 	}
-	picture img {
-		margin: 0 auto;
+	img, iframe, video {
+		margin: 80px auto;
+		@media (max-width: $bp1) {
+			margin: 60px auto
+		  }
+		  @media (max-width: $bp3) {
+			margin: 40px auto;
+		  }
 	}
 	&__top {
 		display: flex;
@@ -133,9 +138,6 @@
 	@media (max-width: $bp1) {
 		h1 {
 			max-width: 950px;
-		}
-		picture, img {
-			margin: 60px auto;
 		}
 	}
 	@media (max-width: $bp2) {        
@@ -150,9 +152,6 @@
 	@media (max-width: $bp3) {
 		.backward {
 			font-size: 14px;
-		}
-		picture, img {
-			margin: 24px auto;
 		}
 	}
 }

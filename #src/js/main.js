@@ -974,8 +974,8 @@ if (product) {
         shareImg.download = document.title + ".jpeg"
     }
     // product-swiper
-    document.querySelector(".main-product__mainImg .media-contain").style.paddingTop = (initialData.height / initialData.width) * 100 + "%"
-    document.querySelector(".main-product__ratio span").style.paddingTop = (initialData.height / (initialData.width)) * 100 + "%"
+    document.querySelector(".main-product__mainImg .media-contain").style.paddingTop = (mainImg.getAttribute("data-height") /  mainImg.getAttribute("data-width")) * 100 + "%"//(initialData.height / initialData.width) * 100 + "%"
+    document.querySelector(".main-product__ratio span").style.paddingTop = (mainImg.getAttribute("data-height") /  mainImg.getAttribute("data-width")) * 100 + "%"//(initialData.height / (initialData.width)) * 100 + "%"
     const productSwiper = new Swiper(".main-product__swiper", {
         slidesPerView: 3,
         spaceBetween: 20,
@@ -1213,6 +1213,18 @@ if (product) {
           top: (cropper.containerData.height - cropper.containerData.height * hPercent / 100) / 2,
           width: wPercent > 100 ? cropper.containerData.width : cropper.containerData.width * wPercent / 100,
           height: hPercent > 100 ? cropper.containerData.height : cropper.containerData.height * hPercent / 100,
+        }
+        cropper.setCropBoxData(data)
+    }
+    //setfrag
+    function setFrag(arChangeSave) {
+        modifiedData.imgStartX = arChangeSave.imgStartX
+        modifiedData.imgStartY = arChangeSave.imgStartY
+        let data = {
+            left: cropper.containerData.width * parseInt(arChangeSave.imgStartX) / 100,
+            top: cropper.containerData.height * parseInt(arChangeSave.imgStartY) / 100,
+            width: cropper.getCropBoxData().width,
+            height: cropper.getCropBoxData().height
         }
         cropper.setCropBoxData(data)
     }
@@ -1734,4 +1746,3 @@ if (beerSlider) {
         new BeerSlider( item )
     })
 } 
-   

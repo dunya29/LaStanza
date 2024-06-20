@@ -1456,7 +1456,7 @@ blockquote p {
 
 .custom-select__options {
   background-color: #ffffff;
-  border-radius: 0 0 16px 16px;
+  border-radius: 2px;
   -webkit-box-shadow: 0px 2px 4px 0px rgba(199, 199, 199, 0.25);
   box-shadow: 0px 2px 4px 0px rgba(199, 199, 199, 0.25);
   position: absolute;
@@ -1470,10 +1470,6 @@ blockquote p {
   pointer-events: none;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
-}
-
-.custom-select__options label:last-child span {
-  border-radius: 0 0 16px 16px;
 }
 
 .custom-select__options label input {
@@ -1496,6 +1492,21 @@ blockquote p {
 
 .custom-select__items {
   width: 100%;
+  max-height: 462px;
+  overflow: auto;
+}
+
+.custom-select__items::-webkit-scrollbar-thumb {
+  background-color: #5A5A5A;
+  border-radius: 8px;
+  background-clip: padding-box;
+}
+
+.custom-select__items::-webkit-scrollbar {
+  width: 4px;
+  height: 0;
+  border-radius: 8px;
+  background-color: #DFE2E9;
 }
 
 .form__grid {
@@ -7095,6 +7106,10 @@ blockquote p {
     font-size: 14px;
   }
 
+  .custom-select__items {
+    max-height: 390px;
+  }
+
   .form__grid {
     gap: 16px 20px;
     margin-bottom: 16px;
@@ -8701,20 +8716,7 @@ blockquote p {
 
   .custom-select__items {
     width: 100%;
-    overflow: auto;
-  }
-
-  .custom-select__items::-webkit-scrollbar-thumb {
-    background-color: #5A5A5A;
-    border-radius: 8px;
-    background-clip: padding-box;
-  }
-
-  .custom-select__items::-webkit-scrollbar {
-    width: 4px;
-    height: 0;
-    border-radius: 8px;
-    background-color: #DFE2E9;
+    max-height: none;
   }
 
   .custom-select__options {

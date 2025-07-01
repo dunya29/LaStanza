@@ -90,11 +90,11 @@ function tabSwitch(nav, block) {
     });
 }
 // addToCart
-function  addToCart() {
+function addToCart() {
     openModal(cartModal)
 }
-// formSuccess
-function formSuccess(form, txt = false) {
+//form reset
+function formReset(form) {
     form.querySelectorAll(".item-form").forEach(item => item.classList.remove("error"))
     form.querySelectorAll("input").forEach(inp => {
         if (!["hidden", "checkbox", "radio"].includes(inp.type)) {
@@ -104,12 +104,24 @@ function formSuccess(form, txt = false) {
             inp.checked = false
         }
     })
+    if (form.querySelector(".item-checkbox")) {
+        form.querySelectorAll(".item-checkbox").forEach(item => {
+            item.classList.remove("error")
+            if (item.querySelector("[data-error]")) {
+                item.querySelector("[data-error]").textContent = ""
+            }
+        })
+    }
     if (form.querySelector("textarea")) {
         form.querySelector("textarea").value = ""
     }
     if (form.querySelector(".file-form__items")) {
         form.querySelector(".file-form__items").innerHTML = ""
     }
+}
+// formSuccess
+function formSuccess(form, txt = false) {
+    formReset(form)
     let modal = document.querySelector(".modal.open")
     if (modal) {
         modal.classList.remove("open")
@@ -118,7 +130,7 @@ function formSuccess(form, txt = false) {
         } else if (modal.classList.contains(("order-modal"))) {
             document.querySelector(".order-success-modal .order-txt").textContent = txt ? txt : ""
             document.querySelector(".order-success-modal").classList.add("open")
-        }else {
+        } else {
             successModal.classList.add("open")
         }
     } else {
@@ -127,7 +139,7 @@ function formSuccess(form, txt = false) {
 }
 // mailFormSuccess
 function mailFormSuccess(form) {
-    form.querySelector("input").value = ""
+    formReset(form)
     openModal(document.querySelector(".subscribe-modal"))
 }
 //searchFormSuccess
@@ -135,6 +147,19 @@ function searchFormSuccess(form) {
     form.querySelector("input").value = ""
     form.querySelector(".search-form__reset").classList.remove("show")
     form.querySelector(".search-form__submit").classList.add("disabled")
+}
+// form agree inputs
+const formAgreeInp = document.querySelectorAll(".form__agree")
+if (formAgreeInp.length) {
+    formAgreeInp.forEach(inp => {
+        inp.addEventListener("change", () => {
+            let parent = inp.closest(".item-checkbox")
+            if (parent && parent.querySelector("[data-error]")) {
+                parent.classList.remove("error")
+                parent.querySelector("[data-error]").textContent = ''
+            }
+        })
+    })
 }
 //open modal
 function openModal(modal) {
@@ -192,15 +217,15 @@ if (cityModal) {
     })
 }
 //anchor
-$(".js-anchor").click((function(e) {
-        e.preventDefault()
-        let href = $(this).attr("href")
-        let dest = $(href).offset().top;
-        let fixedHeaderH = (dest < scrollPos() && scrollPos() > 150 && !serviceScroll) ?  $(".header__bottom").height() : 0
-        return $("html,body").animate({
-            scrollTop: dest - 20 - fixedHeaderH
-        }, 500)
-    }
+$(".js-anchor").click((function (e) {
+    e.preventDefault()
+    let href = $(this).attr("href")
+    let dest = $(href).offset().top;
+    let fixedHeaderH = (dest < scrollPos() && scrollPos() > 150 && !serviceScroll) ? $(".header__bottom").height() : 0
+    return $("html,body").animate({
+        scrollTop: dest - 20 - fixedHeaderH
+    }, 500)
+}
 ))
 // fixed header
 function scrollPos() {
@@ -269,7 +294,7 @@ if (searchForm) {
                 item.querySelector(".search-form__reset").classList.add("show")
                 if (item.querySelector(".search-form__submit") && item.querySelector("input").value.length > 2) {
                     item.querySelector(".search-form__submit").classList.remove("disabled")
-                } else if(item.querySelector(".search-form__submit")){
+                } else if (item.querySelector(".search-form__submit")) {
                     item.querySelector(".search-form__submit").classList.add("disabled")
                 }
             } else {
@@ -304,7 +329,7 @@ if (lazyVid) {
             if (item.querySelector("video")) {
                 item.querySelector("video").load();
             }
-            if (item.querySelector("iframe"))  {
+            if (item.querySelector("iframe")) {
                 var symbol = item.querySelector("iframe").src.indexOf("?") > -1 ? "&" : "?"
                 item.querySelector("iframe").src += symbol + "autoplay=1&mute=1"
                 item.querySelector("iframe").setAttribute("allow", "autoplay; encrypted-media")
@@ -318,18 +343,18 @@ if (lazyVid) {
 function addFile(files, item) {
     for (let i = 0; i < files.length; i++) {
         let file = files[i]
-        if (file.size >  10 * 1024 * 1024) {
+        if (file.size > 10 * 1024 * 1024) {
             item.querySelector("input").value = ""
             item.querySelector(".file-form__items").innerHTML = ""
             item.classList.add("error")
-            item.querySelectorAll(".file-form__item").forEach((el=>el.remove()));
+            item.querySelectorAll(".file-form__item").forEach((el => el.remove()));
             item.querySelector(".item-form__error").textContent = "Файл должен быть менее 10 МБ"
             return
         } else if (!fileTypes.includes(file.type)) {
             item.querySelector("input").value = ""
             item.querySelector(".file-form__items").innerHTML = ""
             item.classList.add("error")
-            item.querySelectorAll(".file-form__item").forEach((el=>el.remove()));
+            item.querySelectorAll(".file-form__item").forEach((el => el.remove()));
             item.querySelector(".item-form__error").textContent = 'Разрешённые форматы: png, jpg'
             return
         } else {
@@ -356,7 +381,7 @@ function addFile(files, item) {
 let fileTypes = ["image/png", "image/jpeg"]
 document.querySelectorAll(".file-form").forEach(item => {
     item.querySelector("input").addEventListener("change", e => {
-        item.querySelectorAll(".file-form__item").forEach((el=>el.remove()));
+        item.querySelectorAll(".file-form__item").forEach((el => el.remove()));
         let files = e.target.files;
         addFile(files, item)
     })
@@ -391,7 +416,7 @@ document.querySelectorAll(".file-form").forEach(item => {
         e.preventDefault();
     })
     // Р­С‚Рѕ СЃР°РјРѕРµ РІР°Р¶РЅРѕРµ СЃРѕР±С‹С‚РёРµ, СЃРѕР±С‹С‚РёРµ, РєРѕС‚РѕСЂРѕРµ РґР°РµС‚ РґРѕСЃС‚СѓРї Рє С„Р°Р№Р»Р°Рј
-    item.addEventListener("drop", function(e) {
+    item.addEventListener("drop", function (e) {
         e.preventDefault();
         let files = Array.from(e.dataTransfer.files);
         item.querySelector("input").files = e.dataTransfer.files
@@ -484,8 +509,8 @@ if (mainArt) {
 }
 //accordion
 $(".accordion__header").on("click", function () {
-    $(".accordion").each(function() {
-        if($(this).find("video").length > 0) {
+    $(".accordion").each(function () {
+        if ($(this).find("video").length > 0) {
             $(this).find("video").get(0).pause()
         }
     })
@@ -548,7 +573,7 @@ if (cardSwiper) {
 const filter = document.querySelector(".filter")
 const filterSelected = document.querySelector(".filter-selected__items")
 if (filter && filterSelected) {
-    const catfilter = {
+    /* const catfilter = {
         checkInp: function (inp) {
             inp.checked = true
             inp.setAttribute("checked", true)
@@ -633,14 +658,14 @@ if (filter && filterSelected) {
     filterSelected.addEventListener("click", e => catfilter.selectedOnClick(e))
     document.querySelector(".filter-selected__reset").addEventListener("click", () => catfilter.resetFilter())
     filter.querySelector(".filter__form").addEventListener("reset", () => catfilter.resetFilter())
-    //open mob filter
+     *///open mob filter
     document.querySelector(".filter-icon").addEventListener("click", () => {
         disableScroll()
         filter.classList.add("open")
     })
     //mob filter close
     filter.addEventListener("click", e => {
-        if (!filter.querySelector(".filter__form").contains(e.target) || filter.querySelector(".filter__close").contains(e.target) ) {
+        if (!filter.querySelector(".filter__form").contains(e.target) || filter.querySelector(".filter__close").contains(e.target) || filter.querySelector(".close-filter").contains(e.target)) {
             filter.classList.remove("open")
             enableScroll()
         }
@@ -759,7 +784,7 @@ if (customSelect) {
 //intro
 const intro = document.querySelector(".intro")
 if (intro) {
-    document.querySelectorAll(".intro-thumb__nmb").forEach(item => +item.textContent < 10 ? item.textContent = "0"+ item.textContent : "")
+    document.querySelectorAll(".intro-thumb__nmb").forEach(item => +item.textContent < 10 ? item.textContent = "0" + item.textContent : "")
     let thumbswiper = new Swiper(".intro__thumbswiper", {
         slidesPerView: 1,
         spaceBetween: 56,
@@ -806,7 +831,7 @@ if (intro) {
         observe: true,
         observeParents: true,
         speed: 1000,
-        loop: true,
+        loop: false,
         effect: "fade",
         fadeEffect: {
             crossFade: true
@@ -817,7 +842,7 @@ if (intro) {
             prevEl: intro.querySelector(".nav-btn--prev")
         },
     })
-    bgswiper.on("slideChange",()=> {
+    bgswiper.on("slideChange", () => {
         txtswiper.slideTo(bgswiper.activeIndex)
     })
 }
@@ -871,6 +896,15 @@ if (product) {
         imgURl: orderForm.querySelector("input[name=imgURl]").value,
     }
     modifiedData = Object.assign({}, initialData)
+
+    let prodImg = new Image()
+    prodImg.onload = function () {
+        let prodImgNaturalW = parseInt(getComputedStyle(document.querySelector(".main-product__top")).paddingLeft)
+        document.querySelector('.main-product__top').style.maxWidth = prodImgNaturalW + prodImg.width + document.querySelector('.main-product__btn').clientWidth * 2 + "px"
+        window.addEventListener("resize", () => document.querySelector('.main-product__top').style.maxWidth = prodImgNaturalW + prodImg.width + document.querySelector('.main-product__btn').clientWidth * 2 + "px")
+    }
+    prodImg.src = initialData.imgURl
+
     function checkedData() {
         let data = {
             width: +sizeProduct.querySelector(".custom-select").querySelector("input[type=radio]:checked").getAttribute("data-width"),
@@ -882,7 +916,7 @@ if (product) {
     checkedHeight = checkedData().height
     function setTotal() {
         document.querySelectorAll(".total-product__price").forEach(item => {
-            item.textContent = String(modifiedData.designPrice ? modifiedData.priceDesign : modifiedData.priceStandart).replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()     
+            item.textContent = String(modifiedData.designPrice ? modifiedData.priceDesign : modifiedData.priceStandart).replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()
         })
         document.querySelectorAll(".total-product__square").forEach(item => item.textContent = modifiedData.square)
         if (modifiedData.square >= 1) {
@@ -897,7 +931,7 @@ if (product) {
         document.querySelector(".total-product__mobprice").textContent = String(modifiedData.priceTotal).replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()
     }
     function setDesignPrice() {
-        if (modifiedData.reflectX || modifiedData.greyscale ||  modifiedData.selfSize) {
+        if (modifiedData.reflectX || modifiedData.greyscale || modifiedData.selfSize) {
             modifiedData.designPrice = true
         } else {
             modifiedData.designPrice = false
@@ -961,33 +995,45 @@ if (product) {
     setImg(2000)*/
     async function setImg() {
         await htmlToImage.toJpeg(cropBox)
-        .then(function (dataUrl) {
-            modifiedData.imgURl = dataUrl
-        })
-        .catch(function (error) {
-            modifiedData.imgURl = initialData.imgURl
-            console.error('oops, something went wrong!', error);
-        });
-        let saveImg = modifiedData.imgURl.slice(23,-23)
+            .then(function (dataUrl) {
+                modifiedData.imgURl = dataUrl
+            })
+            .catch(function (error) {
+                modifiedData.imgURl = initialData.imgURl
+                console.error('oops, something went wrong!', error);
+            });
+        let saveImg = modifiedData.imgURl.slice(23, -23)
         orderForm.querySelector("input[name=imgURl]").value = saveImg
         shareImg.setAttribute("href", modifiedData.imgURl)
         shareImg.download = document.title + ".jpeg"
     }
     // product-swiper
-    document.querySelector(".main-product__mainImg .media-contain").style.paddingTop = (mainImg.getAttribute("data-height") /  mainImg.getAttribute("data-width")) * 100 + "%"//(initialData.height / initialData.width) * 100 + "%"
-    document.querySelector(".main-product__ratio span").style.paddingTop = (mainImg.getAttribute("data-height") /  mainImg.getAttribute("data-width")) * 100 + "%"//(initialData.height / (initialData.width)) * 100 + "%"
+    document.querySelector(".main-product__mainImg .media-contain").style.paddingTop = (mainImg.getAttribute("data-height") / mainImg.getAttribute("data-width")) * 100 + "%"//(initialData.height / initialData.width) * 100 + "%"
+    document.querySelector(".main-product__ratio span").style.paddingTop = (mainImg.getAttribute("data-height") / mainImg.getAttribute("data-width")) * 100 + "%"//(initialData.height / (initialData.width)) * 100 + "%"
     const productSwiper = new Swiper(".main-product__swiper", {
-        slidesPerView: 3,
-        spaceBetween: 20,
+        slidesPerView: 3.65,
+        spaceBetween: 8,
         observer: true,
         observeParents: true,
-        speed: 800,
+        navigation: {
+            nextEl: document.querySelector(".main-product__carousel .nav-btn--next"),
+            prevEl: document.querySelector(".main-product__carousel .nav-btn--prev")
+        },
         breakpoints: {
             1690.98: {
                 slidesPerView: 3.55,
                 spaceBetween: 12,
+            },
+            992.98: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
+            699.98: {
+                slidesPerView: 5.7,
+                spaceBetween: 12,
             }
-        }
+        },
+        speed: 800,
     })
     //select texture
     if (textureModal) {
@@ -1030,7 +1076,7 @@ if (product) {
             }
         })
         // pause video onslidechange
-        textureSwiper.on("slideChange", ()=> {
+        textureSwiper.on("slideChange", () => {
             if (textureModal.querySelector("video")) {
                 textureModal.querySelectorAll("video").forEach(video => {
                     video.pause()
@@ -1068,7 +1114,7 @@ if (product) {
                 }
             })
         })
-        textureAllModal.querySelector(".main-btn").addEventListener("click", ()=> {
+        textureAllModal.querySelector(".main-btn").addEventListener("click", () => {
             selectTexture()
             closeModal(textureAllModal)
         })
@@ -1168,7 +1214,7 @@ if (product) {
         }
     })
     //setInp
-    function setInp(dataW,dataH, changedInp) {
+    function setInp(dataW, dataH, changedInp) {
         let initW = checkedData().width
         let initH = checkedData().height
         let wPercent = (dataW / initW) * 100
@@ -1176,43 +1222,43 @@ if (product) {
         let widthInc = 1
         let heightInc = 1
         if (wPercent > 100) {
-          widthInc = wPercent / 100
+            widthInc = wPercent / 100
         }
         if (hPercent > 100) {
-          heightInc = hPercent / 100
-        } 
+            heightInc = hPercent / 100
+        }
         if (wPercent > hPercent) {
-          hPercent = hPercent / widthInc
+            hPercent = hPercent / widthInc
         } else if (wPercent < hPercent) {
-          wPercent = wPercent / heightInc
+            wPercent = wPercent / heightInc
         }
         if (dataW > checkedWidth && changedInp == "selfWidth") {
-          checkedHeight = checkedHeight * (dataW / checkedWidth)
-          checkedWidth = dataW
-        } 
+            checkedHeight = checkedHeight * (dataW / checkedWidth)
+            checkedWidth = dataW
+        }
         if (dataH > checkedHeight && changedInp == "selfHeight") {
-          checkedWidth = checkedWidth * ( dataH / checkedHeight )
-          checkedHeight = dataH
+            checkedWidth = checkedWidth * (dataH / checkedHeight)
+            checkedHeight = dataH
         }
         if (dataW < checkedWidth && dataH < checkedHeight) {
-          if (dataW > initW || dataH > initH) {
-            if (dataW > dataH) {
-              checkedHeight = checkedHeight * (dataW / checkedWidth)
-              checkedWidth = dataW
+            if (dataW > initW || dataH > initH) {
+                if (dataW > dataH) {
+                    checkedHeight = checkedHeight * (dataW / checkedWidth)
+                    checkedWidth = dataW
+                } else {
+                    checkedWidth = checkedWidth * (dataH / checkedHeight)
+                    checkedHeight = dataH
+                }
             } else {
-              checkedWidth = checkedWidth * ( dataH / checkedHeight )
-              checkedHeight = dataH
+                checkedWidth = initW
+                checkedHeight = initH
             }
-          } else {
-            checkedWidth = initW
-            checkedHeight = initH
-          }
         }
         let data = {
-          left: (cropper.containerData.width - cropper.containerData.width * wPercent / 100) / 2,
-          top: (cropper.containerData.height - cropper.containerData.height * hPercent / 100) / 2,
-          width: wPercent > 100 ? cropper.containerData.width : cropper.containerData.width * wPercent / 100,
-          height: hPercent > 100 ? cropper.containerData.height : cropper.containerData.height * hPercent / 100,
+            left: (cropper.containerData.width - cropper.containerData.width * wPercent / 100) / 2,
+            top: (cropper.containerData.height - cropper.containerData.height * hPercent / 100) / 2,
+            width: wPercent > 100 ? cropper.containerData.width : cropper.containerData.width * wPercent / 100,
+            height: hPercent > 100 ? cropper.containerData.height : cropper.containerData.height * hPercent / 100,
         }
         cropper.setCropBoxData(data)
     }
@@ -1231,21 +1277,21 @@ if (product) {
     //set self size
     document.querySelectorAll(".size-product__inp input").forEach(inp => {
         inp.addEventListener("change", e => {
-          if (Number.isInteger(e.target.value) || e.target.value > 0) {
-            if (sizeProduct.querySelector(".size-product__fixed").checked) {
-              if (e.target.name == "selfHeight") {
-                sizeProduct.querySelector("input[name=selfWidth]").value = Math.round(sizeProduct.querySelector("input[name=selfWidth]").value * (e.target.value / modifiedData.height))
-              } else if (e.target.name == "selfWidth") {
-                sizeProduct.querySelector("input[name=selfHeight]").value = Math.round(sizeProduct.querySelector("input[name=selfHeight]").value * (e.target.value / modifiedData.width))
-              }
+            if (Number.isInteger(e.target.value) || e.target.value > 0) {
+                if (sizeProduct.querySelector(".size-product__fixed").checked) {
+                    if (e.target.name == "selfHeight") {
+                        sizeProduct.querySelector("input[name=selfWidth]").value = Math.round(sizeProduct.querySelector("input[name=selfWidth]").value * (e.target.value / modifiedData.height))
+                    } else if (e.target.name == "selfWidth") {
+                        sizeProduct.querySelector("input[name=selfHeight]").value = Math.round(sizeProduct.querySelector("input[name=selfHeight]").value * (e.target.value / modifiedData.width))
+                    }
+                }
+                let dataW = Math.round(sizeProduct.querySelector("input[name=selfWidth]").value)
+                let dataH = Math.round(sizeProduct.querySelector("input[name=selfHeight]").value)
+                setInp(dataW, dataH, e.target.name)
+            } else {
+                sizeProduct.querySelector("input[name=selfWidth]").value = modifiedData.width
+                sizeProduct.querySelector("input[name=selfHeight]").value = modifiedData.height
             }
-            let dataW = Math.round(sizeProduct.querySelector("input[name=selfWidth]").value)
-            let dataH = Math.round(sizeProduct.querySelector("input[name=selfHeight]").value)
-            setInp(dataW,dataH,e.target.name)
-          } else {
-            sizeProduct.querySelector("input[name=selfWidth]").value = modifiedData.width
-            sizeProduct.querySelector("input[name=selfHeight]").value = modifiedData.height
-          }
         })
     })
     //shift image
@@ -1311,8 +1357,8 @@ if (product) {
                 modifiedData.imgStartX = ((cropper.containerData.width - sdvigX) > 1 && (sdvigX > 1)) ? cropper.containerData.width - sdvigX : 0
             }
             modifiedData.imgStartY = Math.round(cropper.getCropBoxData().top)
-            orderForm.querySelector("input[name=imgStartX").value =  Math.floor(modifiedData.imgStartX * 100 / cropper.containerData.width) + "%"
-            orderForm.querySelector("input[name=imgStartY").value =  Math.floor(modifiedData.imgStartY * 100 / cropper.containerData.height) + "%"
+            orderForm.querySelector("input[name=imgStartX").value = Math.floor(modifiedData.imgStartX * 100 / cropper.containerData.width) + "%"
+            orderForm.querySelector("input[name=imgStartY").value = Math.floor(modifiedData.imgStartY * 100 / cropper.containerData.height) + "%"
             let widthDiff = (cropper.cropBoxData.width / cropper.containerData.width) * 100
             let heightDiff = (cropper.cropBoxData.height / cropper.containerData.height) * 100
             modifiedData.width = Math.round((checkedWidth * widthDiff) / 100)
@@ -1320,14 +1366,14 @@ if (product) {
             setSize()
             /* setImg(2000) */
         },
-        cropstart: function(event) {
+        cropstart: function (event) {
             cropStartX = event.detail.originalEvent.pageX
             cropStartY = event.detail.originalEvent.pageY
         },
         cropmove: function (event) {
             let diffX = Math.abs(event.detail.originalEvent.pageX - cropStartX) / cropper.getCropBoxData().width
             let diffY = Math.abs(event.detail.originalEvent.pageY - cropStartY) / cropper.getCropBoxData().height
-            if (!product.classList.contains("no-raport") && event.detail.action === "all" && (diffX > diffY))  {
+            if (!product.classList.contains("no-raport") && event.detail.action === "all" && (diffX > diffY)) {
                 if (cropper.cropBoxData.left < 1 && cropStartX > event.detail.originalEvent.pageX) {
                     if (!modifiedData.reflectX) {
                         shiftImg = shiftImg - 5
@@ -1358,7 +1404,7 @@ if (product) {
         document.querySelector(".print-modal .total-product__texture").textContent = modifiedData.texture
         closeModal(document.querySelector(".share-modal"))
         setTimeout(() => {
-           window.print() 
+            window.print()
         }, 0);
     })
     //share email
@@ -1376,7 +1422,7 @@ if (product) {
         inp.remove()
     })*/
     // open cartmodal on success
-    document.querySelector(".total-product .main-btn").addEventListener("click",  async() => {
+    document.querySelector(".total-product .main-btn").addEventListener("click", async () => {
         await setImg()
         addToCart()
     })
@@ -1399,31 +1445,32 @@ if (product) {
     const fancybox = Fancybox.bind('[data-fancybox="product-gallery"]', {
         Hash: false,
         Toolbar: {
-          display: ["close"]
+            display: ["close"]
         },
         Hash: false,
         on: {
             done: (fancybox) => {
                 setTimeout(() => {
-                    document.querySelectorAll(".fancybox__content").forEach((item,idx) => {
+                    document.querySelectorAll(".fancybox__content").forEach((item, idx) => {
                         if (item.querySelector(".fancybox__image")) {
-                            item.querySelector(".fancybox__image").style.cssText = 'opacity: 1 !important'; 
+                            item.querySelector(".fancybox__image").style.cssText = 'opacity: 1 !important';
                         }
-                       /*  if (!item.querySelector(".fancybox__bg")) {
-                            item.insertAdjacentHTML("afterbegin", `<img class="fancybox__bg" src=${fancybox.Carousel.slides[idx].bg} />`)
-                        } */
-                        item.querySelector("img").style.backgroundImage = `url(${fancybox.Carousel.slides[idx].bg})`
-                     })
+                        /*  if (!item.querySelector(".fancybox__bg")) {
+                             item.insertAdjacentHTML("afterbegin", `<img class="fancybox__bg" src=${fancybox.Carousel.slides[idx].bg} />`)
+                         } */
+                        if (item.querySelector("img")) {
+                            item.querySelector("img").style.backgroundImage = `url(${fancybox.Carousel.slides[idx].bg})`
+                        }
+                    })
                 }, 0);
             },
-            closing: () =>  {
+            closing: () => {
                 document.querySelectorAll(".fancybox__content").forEach(item => {
                     item.style.opacity = "0"
                 })
             },
         }
     });
-      
 }
 // catalog grid
 document.querySelectorAll(".catalog__btn").forEach(item => {
@@ -1432,7 +1479,7 @@ document.querySelectorAll(".catalog__btn").forEach(item => {
         document.querySelector(".catalog__items").style.opacity = 0
         setTimeout(() => {
             item.classList.add("active")
-            document.querySelector(".catalog__items").setAttribute("data-column",item.getAttribute("data-column"))
+            document.querySelector(".catalog__items").setAttribute("data-column", item.getAttribute("data-column"))
             document.querySelector(".catalog__items").style.opacity = ""
         }, 150);
     })
@@ -1478,12 +1525,12 @@ if (tippy) {
 const delNav = document.querySelectorAll("[data-del-nav]")
 const delBlock = document.querySelectorAll("[data-del-block]")
 if (delNav && delBlock) {
-    delNav.forEach((item,idx) => {
+    delNav.forEach((item, idx) => {
         item.addEventListener("change", () => {
             delBlock.forEach(el => {
                 el.classList.remove("active")
                 if (el.querySelector("input.required")) {
-                   el.querySelectorAll("input.required").forEach(item => {
+                    el.querySelectorAll("input.required").forEach(item => {
                         item.removeAttribute("data-required")
                         item.removeAttribute("data-type")
                     })
@@ -1510,8 +1557,8 @@ if (cart) {
         document.querySelector(".item-cart__comment-txt").classList.toggle("show")
     })
     document.querySelector(".cart-del").querySelectorAll("input[type=radio]").forEach(item => {
-        item.addEventListener("change", ()=> {
-            if(item.classList.contains("pickup")) {
+        item.addEventListener("change", () => {
+            if (item.classList.contains("pickup")) {
                 document.querySelector(".cart-payment .pickup").classList.add("show")
             } else {
                 document.querySelector(".cart-payment .pickup").classList.remove("show")
@@ -1521,7 +1568,7 @@ if (cart) {
 }
 const serviceAside = document.querySelector(".service-aside")
 const serviceBtn = document.querySelector(".service__mobBtn")
-const serviceLinks =  document.querySelector(".service-aside__links")
+const serviceLinks = document.querySelector(".service-aside__links")
 const itemService = document.querySelectorAll(".item-service")
 if (serviceAside) {
     window.addEventListener("scroll", () => {
@@ -1532,7 +1579,7 @@ if (serviceAside) {
             serviceScroll = false
         }
         const anchors = serviceLinks.querySelectorAll(".js-anchor")
-        anchors.forEach((item,i) => {
+        anchors.forEach((item, i) => {
             const elementClick = item.getAttribute("href")
             const dest = document.querySelector(`${elementClick}`)
             let offTop = margin ? margin : 0
@@ -1545,14 +1592,14 @@ if (serviceAside) {
                     el.classList.remove("active")
                 })
                 item.classList.add("active")
-                let scrollDiff = serviceLinks.querySelector(".js-anchor.active").getBoundingClientRect().top - serviceLinks.getBoundingClientRect().top ;
-                serviceLinks.scrollTop = parseInt(serviceLinks.scrollTop + scrollDiff )
+                let scrollDiff = serviceLinks.querySelector(".js-anchor.active").getBoundingClientRect().top - serviceLinks.getBoundingClientRect().top;
+                serviceLinks.scrollTop = parseInt(serviceLinks.scrollTop + scrollDiff)
             }
         })
     })
     // mob serviceLinks
     if (serviceBtn) {
-        serviceBtn.addEventListener("click", ()=> {
+        serviceBtn.addEventListener("click", () => {
             disableScroll()
             serviceAside.classList.add("open")
         })
@@ -1610,7 +1657,7 @@ if (itemReview) {
             item.querySelector(".item-review__content").classList.remove("line-clamp")
             let fullHeight = item.querySelector(".item-review__content").clientHeight
             item.querySelector(".item-review__content").classList.add("line-clamp")
-            if (fullHeight > height ) {
+            if (fullHeight > height) {
                 item.querySelector(".item-review__body").classList.add("extra-btn-show")
             } else {
                 item.querySelector(".item-review__body").classList.remove("extra-btn-show")
@@ -1618,7 +1665,7 @@ if (itemReview) {
         })
     }
     showExtraBtn()
-    window.addEventListener("resize",showExtraBtn)
+    window.addEventListener("resize", showExtraBtn)
 }
 // reviews slider
 const reviewSwipers = document.querySelectorAll(".item-review__images")
@@ -1686,7 +1733,7 @@ if (portfolioPage) {
                     <div class="swiper-1 modal__swiper">
                       <div class="swiper">
                         <div class="swiper-wrapper">
-                          ${imgSrc.map((item,idx) => `<div class="swiper-slide">
+                          ${imgSrc.map((item, idx) => `<div class="swiper-slide">
                           <div class="mb-40 modal__top">
                             <h3>${title[idx]}</h3>
                             <span class="portfolio-modal__art">${art[idx]}</span>
@@ -1743,6 +1790,41 @@ if (portfolioPage) {
 const beerSlider = document.querySelectorAll(".beer-slider")
 if (beerSlider) {
     beerSlider.forEach(item => {
-        new BeerSlider( item )
+        new BeerSlider(item)
     })
-} 
+}
+const cookiePopup = document.querySelector("#cookie-popup")
+//show cookie
+function showCookie() {
+    if (cookiePopup) {
+        cookiePopup.classList.add("show")
+    }
+}
+//show cookie
+function unshowCookie() {
+    if (cookiePopup) {
+        cookiePopup.classList.remove("show")
+    }
+}
+//pageUp
+const fixedBtns = document.querySelector(".fixed-btns")
+if (fixedBtns) {
+    function showFixedBtns() {
+        let scrollTop = scrollPos()
+        if (scrollTop > window.innerHeight && scrollTop + window.innerHeight < document.documentElement.scrollHeight) {
+            fixedBtns.classList.add('show');
+        } else {
+            fixedBtns.classList.remove('show');
+        }
+    }
+    window.addEventListener("scroll", showFixedBtns)
+}
+const jsPageUp = document.querySelector(".js-pageUp")
+if (jsPageUp) {
+    jsPageUp.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+    })
+}

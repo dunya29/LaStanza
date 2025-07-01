@@ -2,6 +2,27 @@
 <div class="overlay"></div>
 <!--tippy-->
 <div class="tippy-content"></div>
+<!--cookie-popup-->
+<div class="cookie" id="cookie-popup">
+    <div class="container cookie__inner">
+        <p class="h3">Мы используем cookies.</p>
+        <div class="cookie__content">
+            <p>Используя сайт, Вы соглашаетесь с нашей <a href="#" target="_blank">политикой использования</a> cookie-файлов. Cookies можно отключить в настройках Вашего
+                бразуера.</p>
+        </div>
+        <button class="btn stroke-btn cookie-popup__btn" onclick="unshowCookie()">Хорошо</button>
+    </div>
+</div>
+<!--fixed-btns-->
+<div class="fixed-btns">
+    <div class="container">
+        <button type="button" class="btn main-btn js-pageUp">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" fill="none">
+                <path d="M2.03996 8.02502L5.29996 4.76502C5.68496 4.38002 6.31496 4.38002 6.69996 4.76502L9.95996 8.02502" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </button>
+    </div>
+</div>
 <!--order-succes-modal-->
 <div class="modal subscribe-modal" id="subscribe-modal">
     <div class="modal__overlay">
@@ -35,7 +56,7 @@
                         </svg>
                     </button>
                     <div class="modal__top"><h3>Заказать звонок</h3></div>
-                    <form action="" class="form" onsubmit="event.preventDefault();formSuccess(this)">
+                    <form action class="form" onsubmit="event.preventDefault();formSuccess(this)">
                         <input type="hidden" name="title" value="Заказать звонок">
                         <div class="item-form">
                             <input type="text" maxlength="100" placeholder="Имя">
@@ -46,11 +67,15 @@
                             <span class="item-form__error"></span>
                         </div>
                         <div class="item-form">
-                            <textarea placeholder="Сообщение" name="" maxlength="5000" oninput="this.style.height = this.scrollHeight + 'px'"></textarea>
+                            <textarea placeholder="Сообщение" name maxlength="5000" oninput="this.style.height = this.scrollHeight + 'px'"></textarea>
                         </div>
                         <div class="form__footer">
+                            <label class="item-checkbox">
+                                <input type="checkbox" class="required form__agree">
+                                <span>Я соглашаюсь с <a href="#" target="_blank">Политикой обработки персональных данных</a></span>
+                                <span data-error></span>
+                            </label>
                             <button type="submit" class="btn main-btn">Отправить</button>
-                            <p>Нажимая на кнопку «Отправить», вы даете согласие на <a href="#" target="_blank">обработку персональных данных</a></p>
                         </div>
                     </form>
                 </div>
@@ -112,7 +137,7 @@
                         </svg>
                     </button>
                     <div class="modal__top"><h3>Купить в 1 клик</h3></div>
-                    <form action="" class="form" onsubmit="event.preventDefault();formSuccess(this,'Номер заказа 3478392853')">
+                    <form action class="form" onsubmit="event.preventDefault();formSuccess(this,'Номер заказа 3478392853')">
                         <div class="item-form">
                             <input type="text" maxlength="100" placeholder="Имя">
                             <span class="item-form__error"></span>
@@ -126,8 +151,12 @@
                             <span class="item-form__error"></span>
                         </div>
                         <div class="form__footer">
+                            <label class="item-checkbox">
+                                <input type="checkbox" class="required form__agree">
+                                <span>Я соглашаюсь с <a href="#" target="_blank">Политикой обработки персональных данных</a></span>
+                                <span data-error></span>
+                            </label>
                             <button type="submit" class="btn main-btn">Отправить</button>
-                            <p>Нажимая на кнопку «Отправить», вы даете согласие на <a href="#" target="_blank">обработку персональных данных</a></p>
                         </div>
                     </form>
                 </div>
@@ -191,13 +220,13 @@
                     </button>
                     <div class="modal__top"><h3>Поделиться</h3></div>
                     <div class="share-modal__items">
-                        <a href="#" download="" class="share-modal__item share-modal__img">
+                        <a href="#" download class="share-modal__item share-modal__img">
                             <div class="share-modal__icon">
                                 <svg><use xlink:href="img/icons/sprite.svg#jpg"></use></svg>
                             </div>
                             <span class="share-modal__lbl">Скачать .jpeg</span>
                         </a>
-                        <a href="#" download="" class="share-modal__item share-modal__print">
+                        <a href="#" download class="share-modal__item share-modal__print">
                             <div class="share-modal__icon">
                                 <svg><use xlink:href="img/icons/sprite.svg#print"></use></svg>
                             </div>
@@ -238,7 +267,9 @@
                                     <p>Вы можете забрать ваш заказ у нас офисе по адресу: г. Москва, м. Академическая, ул. Дмитрия Ульянова, д. 42</p>
                                 </div>
                                 <div class="delivery-acc__right">
-                                    <a href="https://yandex.ru/maps/213/moscow/?ll=37.593038%2C55.682577&mode=usermaps&source=constructorLink&um=constructor%3A49e1d43eb0f6c5b828ce5ab48e416b552eb6fe2a119dbe84b399b889e621d3fd&z=12" target="_blank" class="btn stroke-btn">Смотреть на карте</a>
+                                    <a
+                                        href="https://yandex.ru/maps/213/moscow/?ll=37.593038%2C55.682577&mode=usermaps&source=constructorLink&um=constructor%3A49e1d43eb0f6c5b828ce5ab48e416b552eb6fe2a119dbe84b399b889e621d3fd&z=12"
+                                        target="_blank" class="btn stroke-btn">Смотреть на карте</a>
                                 </div>
                             </div>
                         </div>
@@ -262,14 +293,15 @@
                         <div class="accordion__body">
                             <div class="delivery-acc__content">
                                 <div class="delivery-acc__left">
-                                    <p>Доставка до терминала ТК в пределах МКАД осуществляется бесплатно, стоимость доставки от терминала ТК до вашего города уточняйте у перевозчика. Наличие офисов ТК в вашем городе уточняйте на сайте перевозчика.</p>
+                                    <p>Доставка до терминала ТК в пределах МКАД осуществляется бесплатно, стоимость доставки от терминала ТК до вашего города уточняйте у
+                                        перевозчика. Наличие офисов ТК в вашем городе уточняйте на сайте перевозчика.</p>
                                 </div>
                                 <div class="delivery-acc__right">
                                     <div class="delivery-acc__comp">
-                                        <img src="img/delivery/sdek.svg" alt="">
-                                        <img src="img/delivery/delovie-linii.svg" alt="">
-                                        <img src="img/delivery/pek.svg" alt="">
-                                        <img src="img/delivery/jde.svg" alt="">
+                                        <img src="img/delivery/sdek.svg" alt>
+                                        <img src="img/delivery/delovie-linii.svg" alt>
+                                        <img src="img/delivery/pek.svg" alt>
+                                        <img src="img/delivery/jde.svg" alt>
                                     </div>
                                 </div>
                             </div>
@@ -292,7 +324,9 @@
                         </svg>
                     </button>
                     <div class="modal__top"><h3>Гарантия</h3></div>
-                    <p>Фрески La Stanza — это эксклюзивная продукция, универсальная для декорирования и оформления интерьеров. Мы готовы выполнять требования клиентов на самом высоком уровне, обеспечивая качество и оперативность. Современное оборудование, высокие технологии и квалифицированный персонал позволяют нам гарантировать высокий результат.</p>
+                    <p>Фрески La Stanza — это эксклюзивная продукция, универсальная для декорирования и оформления интерьеров. Мы готовы выполнять требования клиентов на самом
+                        высоком уровне, обеспечивая качество и оперативность. Современное оборудование, высокие технологии и квалифицированный персонал позволяют нам
+                        гарантировать высокий результат.</p>
                 </div>
             </div>
         </div>
@@ -310,7 +344,9 @@
                         </svg>
                     </button>
                     <div class="modal__top"><h3>Монтаж</h3></div>
-                    <p>Фрески La Stanza — это эксклюзивная продукция, универсальная для декорирования и оформления интерьеров. Мы готовы выполнять требования клиентов на самом высоком уровне, обеспечивая качество и оперативность. Современное оборудование, высокие технологии и квалифицированный персонал позволяют нам гарантировать высокий результат.</p>
+                    <p>Фрески La Stanza — это эксклюзивная продукция, универсальная для декорирования и оформления интерьеров. Мы готовы выполнять требования клиентов на самом
+                        высоком уровне, обеспечивая качество и оперативность. Современное оборудование, высокие технологии и квалифицированный персонал позволяют нам
+                        гарантировать высокий результат.</p>
                 </div>
             </div>
         </div>
@@ -336,7 +372,7 @@
                                         <span>Срок действия: с 16.11.2020 по 15.11.2025 г.</span>
                                     </div>
                                     <div class="cert-modal__preview">
-                                        <img src="img/cert/cert-1.jpg" alt="">
+                                        <img src="img/cert/cert-1.jpg" alt>
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
@@ -345,7 +381,7 @@
                                         <span>Срок действия: с 16.11.2020 по 15.11.2025 г.</span>
                                     </div>
                                     <div class="cert-modal__preview">
-                                        <img src="img/cert/cert-1.jpg" alt="">
+                                        <img src="img/cert/cert-1.jpg" alt>
                                     </div>
                                 </div>
                             </div>
@@ -374,7 +410,7 @@
                     <div class="modal__top">
                         <h3>Товар добавлен в корзину</h3>
                     </div>
-                    <form action="">
+                    <form action>
                         <div class="item-cart">
                             <div class="item-cart__left">
                                 <div class="item-cart__preview"><a href="#" class="media-cover"><img src="img/product-1-sm.jpg" alt="Фреска Applico 01202-G"></a></div>
@@ -416,7 +452,7 @@
                                 <div class="item-cart__total">
                                     <div class="quantity">
                                         <button class="quantity__btn js-minus" type="button"></button>
-                                        <input type="number" value="1"/>
+                                        <input type="number" value="1" />
                                         <button class="quantity__btn js-plus" type="button"></button>
                                     </div>
                                     <div class="h4 rub item-cart__price">41 220</div>
@@ -464,7 +500,7 @@
                                 <div class="item-cart__total">
                                     <div class="quantity">
                                         <button class="quantity__btn js-minus" type="button"></button>
-                                        <input type="number" value="1"/>
+                                        <input type="number" value="1" />
                                         <button class="quantity__btn js-plus" type="button"></button>
                                     </div>
                                     <div class="h4 rub item-cart__price">41 220</div>
@@ -496,7 +532,7 @@
                     <div class="modal__top">
                         <h3>Оставить отзыв</h3>
                     </div>
-                    <form action="" class="form" onsubmit="event.preventDefault();formSuccess(this)">
+                    <form action class="form" onsubmit="event.preventDefault();formSuccess(this)">
                         <div class="40 rating-form">
                             <div class="rating-form__lbl">Оцените</div>
                             <div class="rate">
@@ -541,18 +577,22 @@
                             </div>
                             <label>
                                 <input type="file" name="file" multiple accept=".png,.jpg,.jpeg">
-                                <img src="img/icons/download.svg" alt="">
+                                <img src="img/icons/download.svg" alt>
                                 <span>Перетащите, или <span>выберете файл</span></span>
                             </label>
                             <div class="file-form__items"></div>
                             <div class="item-form__error"></div>
                         </div>
                         <div class="item-form">
-                            <textarea placeholder="Текст вашего отзыва" name="" maxlength="5000" oninput="this.style.height = this.scrollHeight + 'px'"></textarea>
+                            <textarea placeholder="Текст вашего отзыва" name maxlength="5000" oninput="this.style.height = this.scrollHeight + 'px'"></textarea>
                         </div>
                         <div class="form__footer">
+                            <label class="item-checkbox">
+                                <input type="checkbox" class="required form__agree">
+                                <span>Я соглашаюсь с <a href="#" target="_blank">Политикой обработки персональных данных</a></span>
+                                <span data-error></span>
+                            </label>
                             <button type="submit" class="btn main-btn">Отправить</button>
-                            <p>Нажимая на кнопку «Отправить», вы даете согласие на <a href="#" target="_blank">обработку персональных данных</a></p>
                         </div>
                     </form>
                 </div>
@@ -619,10 +659,10 @@
                         <h3>Укажите свой город</h3>
                     </div>
                     <div class="city-search">
-                        <form class="form search-form" action="">
+                        <form class="form search-form" action>
                             <div class="search-form__inner">
                                 <div class="item-form">
-                                    <input type="text" name="" placeholder="Введите запрос">
+                                    <input type="text" name placeholder="Введите запрос">
                                 </div>
                                 <button type="reset" class="search-form__reset" aria-label="Очистить поиск"><svg><use href="img/icons/sprite.svg#close"></use></svg></button>
                             </div>
@@ -672,10 +712,10 @@
                         <h3>Выберите город</h3>
                     </div>
                     <div class="city-search">
-                        <form class="form search-form" action="">
+                        <form class="form search-form" action>
                             <div class="search-form__inner">
                                 <div class="item-form">
-                                    <input type="text" name="" placeholder="Введите запрос">
+                                    <input type="text" name placeholder="Введите запрос">
                                 </div>
                                 <button type="reset" class="search-form__reset" aria-label="Очистить поиск"><svg><use href="img/icons/sprite.svg#close"></use></svg></button>
                             </div>
@@ -716,34 +756,33 @@
         <div class="print-modal__content">
             <h3 class="print-modal__title">Фреска Applico 01202-G</h3>
             <div class="print-modal__preview">
-                <img src="img/product-1.jpg" alt="">
+                <img src="img/product-1.jpg" alt>
             </div>
             <div class="total-product">
                 <div class="mb-40 total-product__top">
                     <div class="total-product__det">
                         <span>Размер</span>
                         <div><span class="total-product__size">150 см х 90 см</div>
-                    </div>
-                    <div class="total-product__det">
-                        <span>Фактура</span>
-                        <div><span class="total-product__texture">Breeze Light</span></div>
-                        
-                    </div>
-                    <div class="total-product__det">
-                        <span>Цена</span>
-                        <div><span class="rub total-product__price">4 580</span> за 1 м²</div>
-                    </div>
-                    <div class="total-product__det">
-                        <span>Площадь</span>
-                        <div><span class="total-product__square">1.35</span> м²</div>
-                    </div>
-                    <div class="total-product__det">
-                        <span>Стоимость</span>
-                        <div class="rub h5 total-product__totalprice">6 183</div>
+                        </div>
+                        <div class="total-product__det">
+                            <span>Фактура</span>
+                            <div><span class="total-product__texture">Breeze Light</span></div>
+
+                        </div>
+                        <div class="total-product__det">
+                            <span>Цена</span>
+                            <div><span class="rub total-product__price">4 580</span> за 1 м²</div>
+                        </div>
+                        <div class="total-product__det">
+                            <span>Площадь</span>
+                            <div><span class="total-product__square">1.35</span> м²</div>
+                        </div>
+                        <div class="total-product__det">
+                            <span>Стоимость</span>
+                            <div class="rub h5 total-product__totalprice">6 183</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-

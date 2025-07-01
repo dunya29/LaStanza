@@ -1,4 +1,7 @@
-:root {--vh: 1%}
+:root {
+    --vh: 1%;
+    --content-width: 1650px;
+}
 $bp1: 1690.98px;
 //$bp1: 1300px;
 $bp2: 992.98px;
@@ -14,6 +17,21 @@ $dark-gray: #5A5A5A;
 $white: #ffffff;
 $black: #000000;
 $red: #FF5C60;
-$gold: #FC9701
+$gold: #FC9701;
+@media (max-width: $bp1) {
+    :root {
+        --content-width: 1180px;
+    }
+}
+@media (max-width: $bp2) {
+    :root {
+        --content-width: 720px;
+    }
+}
+@media (max-width: $bp3) {
+    .container {
+        max-width: 527px;
+    }
+}
 
 

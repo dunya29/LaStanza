@@ -1,159 +1,183 @@
 <!DOCTYPE html>
 <html lang="ru">
 
-@@include('_head.html', {
-"title": "Фреска Applico 01202-G"
-})
+    @@include('_head.html', {
+    "title": "Фреска Applico 01202-G"
+    })
 
-<body>
-    <div class="wrap">
-        <!--header-->
-        @@include('_header.html')
-        <!--main-->
-        <main class="main">
-            <!--product-->
-            <section class="section product no-raport">
-                <form id="orderPafarmsForm">
-                    <input name="url" value="" type="hidden">
-                    <input name="id" value="" type="hidden">
-                    <input name="art" value="" type="hidden">
-                    <input name="greyscale" value="false" type="hidden">
-                    <input name="reflectX" value="false" type="hidden">
-                    <input name="imgStartX" value="0" type="hidden">
-                    <input name="imgStartY" value="0" type="hidden">
-                    <input name="cropped" value="false" type="hidden">
-                    <input name="colorize" value="false" type="hidden">
-                    <input name="product" value="Фрески" type="hidden">
-                    <input name="texture" value="Stacco" type="hidden">
-                    <input name="width" value="150" type="hidden">
-                    <input name="height" value="90" type="hidden">
-                    <input name="square" value="1.35" type="hidden">
-                    <input name="aRatio" value="1.66666666667" type="hidden">
-                    <input name="aRatioDefault" value="1.66666666667" type="hidden">
-                    <input name="selfSize" value="false" type="hidden">
-                    <input name="designPrice" value="false" type="hidden">
-                    <input name="priceStandart" value="4580" type="hidden">
-                    <input name="priceDesign" value="5292" type="hidden">
-                    <input name="priceTotal" value="6183" type="hidden">
-                    <input name="imgURl" value="img/product-1-1.jpg" type="hidden">
-                </form>
-                <div class="container product__container">
-                    <!--product__top-->
-                    <div class="product__top">
-                        <h1 class="h4">Фреска Applico 01202-G</h1>
-                        <div class="product__action">
-                            <button type="button" class="btn modal-show-btn" data-modal="share-modal"><svg><use xlink:href="img/icons/sprite.svg#share"></use></svg>Поделиться</button>
-                            <button type="button" class="btn product__fav"><svg id="favorites" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 30 30">
-                                <path d="M25.9111 6.05778C23.0834 3.31445 18.4833 3.31445 15.6564 6.05778L14.9998 6.69459L14.3435 6.05778C11.5166 3.31407 6.91612 3.31407 4.08918 6.05778C1.31963 8.74541 1.30165 13.0056 4.04747 15.9676C6.55185 18.6683 13.9379 24.5028 14.2513 24.7498C14.4555 24.9114 14.711 24.9995 14.9745 24.9993L14.9994 24.9989C15.2626 25.0108 15.5278 24.9232 15.7474 24.7498C16.0608 24.5028 23.4477 18.6683 25.9528 15.9673C28.6983 13.0056 28.6803 8.74541 25.9111 6.05778ZM24.2462 14.4771C22.2936 16.5822 16.9264 20.9237 14.9994 22.4643C13.0724 20.924 7.70627 16.5829 5.75404 14.4775C3.83855 12.4115 3.82056 9.46911 5.71233 7.6333C6.6785 6.69608 7.94733 6.2271 9.21616 6.2271C10.485 6.2271 11.7538 6.69571 12.72 7.6333L14.1633 9.03392C14.3304 9.19516 14.546 9.30062 14.779 9.33507C14.9669 9.37459 15.162 9.36776 15.3465 9.31522C15.531 9.26268 15.699 9.16609 15.8351 9.0343L17.2791 7.6333C19.2119 5.75849 22.3556 5.75886 24.2872 7.6333C26.179 9.46911 26.161 12.4115 24.2462 14.4771Z"/>
-                                <path d="M19.8717 4.8175C18.8399 4.83237 17.8306 5.0991 16.9458 5.59077C16.0609 6.08243 15.3318 6.78162 14.8321 7.61773C14.3324 6.78162 13.6033 6.08243 12.7184 5.59077C11.8336 5.0991 10.8243 4.83237 9.79249 4.8175C8.14768 4.88368 6.59801 5.55002 5.48203 6.67094C4.36605 7.79186 3.77448 9.27625 3.83656 10.7998C3.83656 16.5488 13.8755 23.1887 14.3025 23.4704L14.8321 23.8175L15.3617 23.4704C15.7887 23.1904 25.8277 16.5488 25.8277 10.7998C25.8897 9.27625 25.2982 7.79186 24.1822 6.67094C23.0662 5.55002 21.5165 4.88368 19.8717 4.8175Z"/>
-                            </svg>В избранное</button>
-                        </div>
-                    </div>  
-                    <!--main-product--> 
-                    <div class="main-product">
-                        <div class="main-product__top">
-                            <div class="main-product__size size-show">
-                                <div class="main-product__width">
-                                    <span>150</span>
-                                    <div class="main-product__line"></div>
-                                </div>
-                                <div class="main-product__height">
-                                    <span>90</span>
-                                    <div class="main-product__line"></div>
-                                </div>
-                            </div>
-                            <div class="main-product__preview crop-hidden">
-                                <div class="main-product__mainImg">
-                                    <div class="media-contain"><img src="img/product-1-1.jpg" alt=""></div>
-                                </div>
-                                <div class="main-product__ratio"><span></span></div>
-                                <div class="main-product__crop">
-                                    <div class="main-product__img" style="background-image: url(img/product-1-1.jpg)" data-width="150" data-height="90"></div>
-                                    <div class="cropBox">
-                                        <div class="cropBox__img">
-                                            <img id="imageCrop" src="img/product-1-1.jpg" alt="">
-                                        </div>
-                                    </div> 
-                                    <div class="main-product__btns">
-                                        <div class="main-product__btn prev"><svg><use xlink:href="img/icons/sprite.svg#chevron"></use></svg></div>
-                                        <div class="main-product__btn next"><svg><use xlink:href="img/icons/sprite.svg#chevron"></use></svg></div>
-                                    </div>
-                                </div>
+    <body>
+        <div class="wrap">
+            <!--header-->
+            @@include('_header.html', {"main": false})
+            <!--main-->
+            <main class="main">
+                <!--product-->
+                <section class="section product no-raport">
+                    <form id="orderPafarmsForm">
+                        <input name="url" value type="hidden">
+                        <input name="id" value type="hidden">
+                        <input name="art" value type="hidden">
+                        <input name="greyscale" value="false" type="hidden">
+                        <input name="reflectX" value="false" type="hidden">
+                        <input name="imgStartX" value="0" type="hidden">
+                        <input name="imgStartY" value="0" type="hidden">
+                        <input name="cropped" value="false" type="hidden">
+                        <input name="colorize" value="false" type="hidden">
+                        <input name="product" value="Фрески" type="hidden">
+                        <input name="texture" value="Stacco" type="hidden">
+                        <input name="width" value="150" type="hidden">
+                        <input name="height" value="90" type="hidden">
+                        <input name="square" value="1.35" type="hidden">
+                        <input name="aRatio" value="1.66666666667" type="hidden">
+                        <input name="aRatioDefault" value="1.66666666667" type="hidden">
+                        <input name="selfSize" value="false" type="hidden">
+                        <input name="designPrice" value="false" type="hidden">
+                        <input name="priceStandart" value="4580" type="hidden">
+                        <input name="priceDesign" value="5292" type="hidden">
+                        <input name="priceTotal" value="6183" type="hidden">
+                        <input name="imgURl" value="img/product-1-1.jpg" type="hidden">
+                    </form>
+                    <div class="container product__container">
+                        <!--product__top-->
+                        <div class="product__top">
+                            <h1 class="h4">Фреска Applico 01202-G</h1>
+                            <div class="product__action">
+                                <button type="button" class="btn modal-show-btn" data-modal="share-modal"><svg><use
+                                            xlink:href="img/icons/sprite.svg#share"></use></svg>Поделиться</button>
+                                <button type="button" class="btn product__fav"><svg id="favorites" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+                                        <path
+                                            d="M25.9111 6.05778C23.0834 3.31445 18.4833 3.31445 15.6564 6.05778L14.9998 6.69459L14.3435 6.05778C11.5166 3.31407 6.91612 3.31407 4.08918 6.05778C1.31963 8.74541 1.30165 13.0056 4.04747 15.9676C6.55185 18.6683 13.9379 24.5028 14.2513 24.7498C14.4555 24.9114 14.711 24.9995 14.9745 24.9993L14.9994 24.9989C15.2626 25.0108 15.5278 24.9232 15.7474 24.7498C16.0608 24.5028 23.4477 18.6683 25.9528 15.9673C28.6983 13.0056 28.6803 8.74541 25.9111 6.05778ZM24.2462 14.4771C22.2936 16.5822 16.9264 20.9237 14.9994 22.4643C13.0724 20.924 7.70627 16.5829 5.75404 14.4775C3.83855 12.4115 3.82056 9.46911 5.71233 7.6333C6.6785 6.69608 7.94733 6.2271 9.21616 6.2271C10.485 6.2271 11.7538 6.69571 12.72 7.6333L14.1633 9.03392C14.3304 9.19516 14.546 9.30062 14.779 9.33507C14.9669 9.37459 15.162 9.36776 15.3465 9.31522C15.531 9.26268 15.699 9.16609 15.8351 9.0343L17.2791 7.6333C19.2119 5.75849 22.3556 5.75886 24.2872 7.6333C26.179 9.46911 26.161 12.4115 24.2462 14.4771Z" />
+                                        <path
+                                            d="M19.8717 4.8175C18.8399 4.83237 17.8306 5.0991 16.9458 5.59077C16.0609 6.08243 15.3318 6.78162 14.8321 7.61773C14.3324 6.78162 13.6033 6.08243 12.7184 5.59077C11.8336 5.0991 10.8243 4.83237 9.79249 4.8175C8.14768 4.88368 6.59801 5.55002 5.48203 6.67094C4.36605 7.79186 3.77448 9.27625 3.83656 10.7998C3.83656 16.5488 13.8755 23.1887 14.3025 23.4704L14.8321 23.8175L15.3617 23.4704C15.7887 23.1904 25.8277 16.5488 25.8277 10.7998C25.8897 9.27625 25.2982 7.79186 24.1822 6.67094C23.0662 5.55002 21.5165 4.88368 19.8717 4.8175Z" />
+                                    </svg>В избранное</button>
                             </div>
                         </div>
-                        <div class="main-product__carousel">
-                            <div class="swiper main-product__swiper">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <div class="media-cover" data-src="img/product-1-1.jpg" data-fancybox="product-gallery"><img src="img/product-1-1.jpg" alt=""></div>
+                        <!--main-product-->
+                        <div class="main-product">
+                            <div class="main-product__top">
+                                <div class="main-product__size size-show">
+                                    <div class="main-product__width">
+                                        <span>150</span>
+                                        <div class="main-product__line"></div>
                                     </div>
-                                    <div class="swiper-slide">
-                                        <div class="media-cover" data-src="img/product-1-2.jpg" data-fancybox="product-gallery"><img src="img/product-1-2.jpg" alt=""></div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="media-cover" data-src="img/product-1-3.jpg" data-fancybox="product-gallery"><img src="img/product-1-3.jpg" alt=""></div>
+                                    <div class="main-product__height">
+                                        <span>90</span>
+                                        <div class="main-product__line"></div>
                                     </div>
                                 </div>
-                            </div>  
-                        </div>
-                        <div class="page-lbls">
-                            <a href="#">Природа</a>
-                            <a href="#">Море</a>
-                            <a href="#">Синий</a>
-                        </div>
-                    </div>
-                    <!--params-product-->
-                    <div class="params-product">
-                        <div class="params-product__col">
-                            <span class="params-product__lbl">Укажите размер (Ш x В):</span>
-                            <div class="size-product">
-                                <div class="size-product__container">
-                                    <button class="size-product__btn active">Выбрать из списка</button>
-                                    <div class="size-product__action">
-                                        <div class="custom-select">
-                                            <div class="custom-select__selected">
-                                                <span>150 x 90</span>
-                                                <svg>
-                                                    <use xlink:href="img/icons/sprite.svg#chevron"></use>
-                                                </svg>
+                                <div class="main-product__preview crop-hidden">
+                                    <div class="main-product__mainImg">
+                                        <div class="media-contain"><img src="img/product-1-1.jpg" alt></div>
+                                    </div>
+                                    <div class="main-product__ratio"><span></span></div>
+                                    <div class="main-product__crop">
+                                        <div class="main-product__img" style="background-image: url(img/product-1-1.jpg)" data-width="150" data-height="90"></div>
+                                        <div class="cropBox">
+                                            <div class="cropBox__img">
+                                                <img id="imageCrop" src="img/product-1-1.jpg" alt>
                                             </div>
-                                            <div class="modal custom-select__options">
-                                                <div class="modal__overlay">
-                                                    <div class="modal__content">
-                                                        <div class="container">
-                                                            <button type="button" class="modal__close">
-                                                                <svg>
-                                                                    <use xlink:href="img/icons/sprite.svg#close"></use>
-                                                                </svg>
-                                                            </button>
-                                                            <div class="modal__top">
-                                                                <h3>Укажите размер (Ш x В):</h3>
-                                                            </div>
-                                                            <div class="custom-select__items">
-                                                                <label>
-                                                                    <input type="radio" name="size" data-width="150" data-height="90" checked>
-                                                                    <span>150 x 90</span>
-                                                                </label>
-                                                                <label>
-                                                                    <input type="radio" name="size" data-width="167" data-height="100">
-                                                                    <span>167 x 100</span>
-                                                                </label>
-                                                                <label>
-                                                                    <input type="radio" name="size" data-width="183" data-height="110">
-                                                                    <span>183 x 110</span>
-                                                                </label>
-                                                                <label>
-                                                                    <input type="radio" name="size" data-width="200" data-height="120">
-                                                                    <span>200 x 120</span>
-                                                                </label>
-                                                                <label>
-                                                                    <input type="radio" name="size" data-width="217" data-height="130">
-                                                                    <span>217 x 130</span>
-                                                                </label>
-                                                                <label>
-                                                                    <input type="radio" name="size" data-width="233" data-height="140">
-                                                                    <span>233 x 140</span>
-                                                                </label>
+                                        </div>
+                                        <div class="main-product__btns">
+                                            <div class="main-product__btn prev"><svg><use xlink:href="img/icons/sprite.svg#chevron"></use></svg></div>
+                                            <div class="main-product__btn next"><svg><use xlink:href="img/icons/sprite.svg#chevron"></use></svg></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="main-product__carousel">
+                                <div class="swiper main-product__swiper">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="media-cover" data-src="img/product-1-1.jpg" data-fancybox="product-gallery"><img src="img/product-1-1.jpg" alt></div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="media-cover" data-src="img/product-1-2.jpg" data-fancybox="product-gallery"><img src="img/product-1-2.jpg" alt></div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="media-cover" data-src="img/product-1-3.jpg" data-fancybox="product-gallery"><img src="img/product-1-3.jpg" alt></div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="media-cover" data-src="img/product-1-1.jpg" data-fancybox="product-gallery"><img src="img/product-1-1.jpg" alt></div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="media-cover" data-src="img/product-1-2.jpg" data-fancybox="product-gallery"><img src="img/product-1-2.jpg" alt></div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="media-cover" data-src="img/product-1-3.jpg" data-fancybox="product-gallery"><img src="img/product-1-3.jpg" alt></div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="media-cover" data-src="img/product-1-1.jpg" data-fancybox="product-gallery"><img src="img/product-1-1.jpg" alt></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-nav">
+                                    <button class="nav-btn nav-btn--prev">
+                                        <svg><use xlink:href="img/icons/sprite.svg#arrow-left"></use></svg>
+                                    </button>
+                                    <button class="nav-btn nav-btn--next">
+                                        <svg><use xlink:href="img/icons/sprite.svg#arrow-right"></use></svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="page-lbls">
+                                <a href="#">Природа</a>
+                                <a href="#">Море</a>
+                                <a href="#">Синий</a>
+                            </div>
+                        </div>
+                        <!--params-product-->
+                        <div class="params-product">
+                            <div class="params-product__col">
+                                <span class="params-product__lbl">Укажите размер (Ш x В):</span>
+                                <div class="size-product">
+                                    <div class="size-product__container">
+                                        <button class="size-product__btn active">Выбрать из списка</button>
+                                        <div class="size-product__action">
+                                            <div class="custom-select">
+                                                <div class="custom-select__selected">
+                                                    <span>150 x 90</span>
+                                                    <svg>
+                                                        <use xlink:href="img/icons/sprite.svg#chevron"></use>
+                                                    </svg>
+                                                </div>
+                                                <div class="modal custom-select__options">
+                                                    <div class="modal__overlay">
+                                                        <div class="modal__content">
+                                                            <div class="container">
+                                                                <button type="button" class="modal__close">
+                                                                    <svg>
+                                                                        <use xlink:href="img/icons/sprite.svg#close"></use>
+                                                                    </svg>
+                                                                </button>
+                                                                <div class="modal__top">
+                                                                    <h3>Укажите размер (Ш x В):</h3>
+                                                                </div>
+                                                                <div class="custom-select__items">
+                                                                    <label>
+                                                                        <input type="radio" name="size" data-width="150" data-height="90" checked>
+                                                                        <span>150 x 90</span>
+                                                                    </label>
+                                                                    <label>
+                                                                        <input type="radio" name="size" data-width="167" data-height="100">
+                                                                        <span>167 x 100</span>
+                                                                    </label>
+                                                                    <label>
+                                                                        <input type="radio" name="size" data-width="183" data-height="110">
+                                                                        <span>183 x 110</span>
+                                                                    </label>
+                                                                    <label>
+                                                                        <input type="radio" name="size" data-width="200" data-height="120">
+                                                                        <span>200 x 120</span>
+                                                                    </label>
+                                                                    <label>
+                                                                        <input type="radio" name="size" data-width="217" data-height="130">
+                                                                        <span>217 x 130</span>
+                                                                    </label>
+                                                                    <label>
+                                                                        <input type="radio" name="size" data-width="233" data-height="140">
+                                                                        <span>233 x 140</span>
+                                                                    </label>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -161,515 +185,600 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="size-product__container">
-                                   <button class="size-product__btn self-size">Указать свои размеры</button>
-                                   <div class="size-product__action">
-                                        <div class="size-product__inputs">
-                                            <div class="size-product__inp">
-                                                <input type="text" name="selfWidth" value="150">
-                                                <span>см</span>
+                                    <div class="size-product__container">
+                                        <button class="size-product__btn self-size">Указать свои размеры</button>
+                                        <div class="size-product__action">
+                                            <div class="size-product__inputs">
+                                                <div class="size-product__inp">
+                                                    <input type="text" name="selfWidth" value="150">
+                                                    <span>см</span>
+                                                </div>
+                                                <div class="size-product__inp">
+                                                    <input type="text" name="selfHeight" value="90">
+                                                    <span>см</span>
+                                                </div>
                                             </div>
-                                            <div class="size-product__inp">
-                                                <input type="text" name="selfHeight" value="90">
-                                                <span>см</span>
-                                            </div>   
+                                            <label class="item-toggle">
+                                                <input type="checkbox" class="size-product__fixed">
+                                                <span>Зафиксировать пропорции</span>
+                                            </label>
                                         </div>
-                                        <label class="item-toggle">
-                                            <input type="checkbox" class="size-product__fixed">
-                                            <span>Зафиксировать пропорции</span>
-                                        </label>
-                                   </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="params-product__col">
+                                <div class="params-product__colorize">
+                                    <label class="item-toggle">
+                                        <input type="checkbox">
+                                        <span>Заказать цветоподборку</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="params-product__col">
+                                <span class="params-product__lbl">Выберите фактуру:</span>
+                                <div class="params-product__texture">
+                                    <div class="item-texture selected">
+                                        <div class="media-cover">
+                                            <img src="img/texture-1.jpg" alt="Stacco">
+                                            <span class="item-texture__play"></span>
+                                        </div>
+                                        <span class="item-texture__txt">Stacco</span>
+                                    </div>
+                                    <div class="item-texture">
+                                        <div class="media-cover">
+                                            <img src="img/texture-1.jpg" alt="Песок">
+                                            <span class="item-texture__play"></span>
+                                        </div>
+                                        <span class="item-texture__txt">Песок</span>
+                                    </div>
+                                    <div class="item-texture">
+                                        <div class="media-cover">
+                                            <img src="img/texture-1.jpg" alt="Stacco">
+                                            <span class="item-texture__play"></span>
+                                        </div>
+                                        <span class="item-texture__txt">Stacco</span>
+                                    </div>
+                                    <div class="item-texture">
+                                        <div class="media-cover">
+                                            <img src="img/texture-1.jpg" alt="Песок">
+                                            <span class="item-texture__play"></span>
+                                        </div>
+                                        <span class="item-texture__txt">Песок</span>
+                                    </div>
+                                    <div class="item-texture">
+                                        <div class="media-cover">
+                                            <img src="img/texture-1.jpg" alt="Stacco">
+                                            <span class="item-texture__play"></span>
+                                        </div>
+                                        <span class="item-texture__txt">Stacco</span>
+                                    </div>
+                                    <div class="item-texture">
+                                        <div class="media-cover">
+                                            <img src="img/texture-1.jpg" alt="Песок">
+                                            <span class="item-texture__play"></span>
+                                        </div>
+                                        <span class="item-texture__txt">Песок</span>
+                                    </div>
+                                    <div class="item-texture">
+                                        <div class="media-cover">
+                                            <img src="img/texture-1.jpg" alt="Stacco">
+                                            <span class="item-texture__play"></span>
+                                        </div>
+                                        <span class="item-texture__txt">Stacco</span>
+                                    </div>
+                                    <div class="item-texture">
+                                        <div class="media-cover">
+                                            <img src="img/texture-1.jpg" alt="Песок">
+                                            <span class="item-texture__play"></span>
+                                        </div>
+                                        <span class="item-texture__txt">Песок</span>
+                                    </div>
+                                </div>
+                                <button class="btn main-link modal-show-btn params-product__texture-btn" data-modal="texture-modal-all">Смотреть все</button>
+                            </div>
+                            <div class="params-product__col">
+                                <div class="params-product__lbl">Редактировать изображение:</div>
+                                <div class="params-product__filter">
+                                    <label class="params-product__reflect">
+                                        <input type="checkbox">
+                                        <span><svg><use xlink:href="img/icons/sprite.svg#reflect"></use></svg></span>
+                                    </label>
+                                    <label class="params-product__greyscale">
+                                        <input type="checkbox">
+                                        <span><svg><use xlink:href="img/icons/sprite.svg#greyscale"></use></svg></span>
+                                    </label>
                                 </div>
                             </div>
                         </div>
-                        <div class="params-product__col">
-                            <div class="params-product__colorize">
-                                <label class="item-toggle">
-                                    <input type="checkbox">
-                                    <span>Заказать цветоподборку</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="params-product__col">
-                            <span class="params-product__lbl">Выберите фактуру:</span>
-                            <div class="params-product__texture">
-                                <div class="item-texture selected">
-                                    <div class="media-cover">
-                                        <img src="img/texture-1.jpg" alt="Stacco">
-                                        <span class="item-texture__play"></span>
-                                    </div>
-                                    <span class="item-texture__txt">Stacco</span>
+                        <!--total product-->
+                        <div class="total-product">
+                            <div class="mb-40 total-product__top">
+                                <div class="total-product__det">
+                                    <span>Цена</span>
+                                    <div><span class="rub total-product__price">4 580</span> за 1 м²</div>
                                 </div>
-                                <div class="item-texture">
-                                    <div class="media-cover">
-                                        <img src="img/texture-1.jpg" alt="Песок">
-                                        <span class="item-texture__play"></span>
-                                    </div>
-                                    <span class="item-texture__txt">Песок</span>
+                                <div class="total-product__det">
+                                    <span>Площадь</span>
+                                    <div><span class="total-product__square">1.35</span> м²</div>
                                 </div>
-                                <div class="item-texture">
-                                    <div class="media-cover">
-                                        <img src="img/texture-1.jpg" alt="Stacco">
-                                        <span class="item-texture__play"></span>
-                                    </div>
-                                    <span class="item-texture__txt">Stacco</span>
-                                </div>
-                                <div class="item-texture">
-                                    <div class="media-cover">
-                                        <img src="img/texture-1.jpg" alt="Песок">
-                                        <span class="item-texture__play"></span>
-                                    </div>
-                                    <span class="item-texture__txt">Песок</span>
-                                </div>
-                                <div class="item-texture">
-                                    <div class="media-cover">
-                                        <img src="img/texture-1.jpg" alt="Stacco">
-                                        <span class="item-texture__play"></span>
-                                    </div>
-                                    <span class="item-texture__txt">Stacco</span>
-                                </div>
-                                <div class="item-texture">
-                                    <div class="media-cover">
-                                        <img src="img/texture-1.jpg" alt="Песок">
-                                        <span class="item-texture__play"></span>
-                                    </div>
-                                    <span class="item-texture__txt">Песок</span>
-                                </div>
-                                <div class="item-texture">
-                                    <div class="media-cover">
-                                        <img src="img/texture-1.jpg" alt="Stacco">
-                                        <span class="item-texture__play"></span>
-                                    </div>
-                                    <span class="item-texture__txt">Stacco</span>
-                                </div>
-                                <div class="item-texture">
-                                    <div class="media-cover">
-                                        <img src="img/texture-1.jpg" alt="Песок">
-                                        <span class="item-texture__play"></span>
-                                    </div>
-                                    <span class="item-texture__txt">Песок</span>
+                                <div class="total-product__det">
+                                    <span>Стоимость</span>
+                                    <div class="rub h5 total-product__totalprice">6 183</div>
                                 </div>
                             </div>
-                            <button class="btn main-link modal-show-btn params-product__texture-btn" data-modal="texture-modal-all">Смотреть все</button>
-                        </div>
-                        <div class="params-product__col">
-                            <div class="params-product__lbl">Редактировать изображение:</div>
-                            <div class="params-product__filter">
-                                <label class="params-product__reflect">
-                                    <input type="checkbox">
-                                    <span><svg><use xlink:href="img/icons/sprite.svg#reflect"></use></svg></span>
-                                </label>
-                                <label class="params-product__greyscale">
-                                    <input type="checkbox">
-                                    <span><svg><use xlink:href="img/icons/sprite.svg#greyscale"></use></svg></span>
-                                </label>
+                            <div class="total-product__body mob-fixed">
+                                <button type="button" class="btn main-btn">Добавить в корзину<span class="rub mobprice total-product__mobprice">6 183</span></button>
+                                <button type="button" class="btn stroke-btn modal-show-btn" data-modal="order-modal">Купить в 1 клик</button>
+                            </div>
+                            <div class="total-product__footer">
+                                <button type="button" class="btn modal-show-btn" data-modal="delivery-modal">Доставка <svg><use
+                                            xlink:href="img/icons/sprite.svg#chevron"></use></svg></button>
+                                <button type="button" class="btn modal-show-btn" data-modal="cert-modal">Сертификаты <svg><use
+                                            xlink:href="img/icons/sprite.svg#chevron"></use></svg></button>
+                                <button type="button" class="btn modal-show-btn" data-modal="garanty-modal">Гарантия <svg><use
+                                            xlink:href="img/icons/sprite.svg#chevron"></use></svg></button>
+                                <button type="button" class="btn modal-show-btn" data-modal="install-modal">Монтаж <svg><use
+                                            xlink:href="img/icons/sprite.svg#chevron"></use></svg></button>
                             </div>
                         </div>
                     </div>
-                    <!--total product-->
-                    <div class="total-product">
-                        <div class="mb-40 total-product__top">
-                            <div class="total-product__det">
-                                <span>Цена</span>
-                                <div><span class="rub total-product__price">4 580</span> за 1 м²</div>
-                            </div>
-                            <div class="total-product__det">
-                                <span>Площадь</span>
-                                <div><span class="total-product__square">1.35</span> м²</div>
-                            </div>
-                            <div class="total-product__det">
-                                <span>Стоимость</span>
-                                <div class="rub h5 total-product__totalprice">6 183</div>
-                            </div>
-                        </div>
-                        <div class="total-product__body mob-fixed">
-                            <button type="button" class="btn main-btn">Добавить в корзину<span class="rub mobprice total-product__mobprice">6 183</span></button>
-                            <button type="button" class="btn stroke-btn modal-show-btn" data-modal="order-modal">Купить в 1 клик</button>
-                        </div>
-                        <div class="total-product__footer">
-                            <button type="button" class="btn modal-show-btn" data-modal="delivery-modal">Доставка <svg><use xlink:href="img/icons/sprite.svg#chevron"></use></svg></button>
-                            <button type="button" class="btn modal-show-btn" data-modal="cert-modal">Сертификаты <svg><use xlink:href="img/icons/sprite.svg#chevron"></use></svg></button>
-                            <button type="button" class="btn modal-show-btn" data-modal="garanty-modal">Гарантия <svg><use xlink:href="img/icons/sprite.svg#chevron"></use></svg></button>
-                            <button type="button" class="btn modal-show-btn" data-modal="install-modal">Монтаж <svg><use xlink:href="img/icons/sprite.svg#chevron"></use></svg></button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--product swipers-->
-            <section class="section">
-                <!--color-swiper-->
-                <div class="card-swiper section-sm">
-                    <div class="container">
-                        <div class="mb-40 swiper-top">
-                            <h2 class="h3">Другие цвета этого изображения</h2>
-                            <div class="swiper-nav">
-                                <button class="nav-btn nav-btn--prev"><svg>
-                                        <use xlink:href="img/icons/sprite.svg#arrow-left"></use>
-                                    </svg></button>
-                                <button class="nav-btn nav-btn--next"><svg>
-                                        <use xlink:href="img/icons/sprite.svg#arrow-right"></use>
-                                    </svg></button>
-                            </div>
-                        </div>
-                        <div class="swiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"1"})
-                                </div>
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"2"})
-                                </div>
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"3"})
-                                </div>
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"4"})
-                                </div>
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"1"})
-                                </div>
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"2"})
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--catalog-swiper-->
-                <div class="card-swiper section-sm">
-                    <div class="container">
-                        <div class="mb-40 swiper-top">
-                            <h2 class="h3">Еще из каталога Applico</h2>
-                            <div class="swiper-nav">
-                                <button class="nav-btn nav-btn--prev"><svg>
-                                        <use xlink:href="img/icons/sprite.svg#arrow-left"></use>
-                                    </svg></button>
-                                <button class="nav-btn nav-btn--next"><svg>
-                                        <use xlink:href="img/icons/sprite.svg#arrow-right"></use>
-                                    </svg></button>
-                            </div>
-                        </div>
-                        <div class="swiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"1"})
-                                </div>
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"2"})
-                                </div>
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"3"})
-                                </div>
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"4"})
-                                </div>
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"1"})
-                                </div>
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"2"})
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!--category-swiper-->
-                <div class="card-swiper section-sm">
-                    <div class="container">
-                        <div class="mb-40 swiper-top">
-                            <h2 class="h3">Еще изображение Природа</h2>
-                            <div class="swiper-nav">
-                                <button class="nav-btn nav-btn--prev"><svg>
-                                        <use xlink:href="img/icons/sprite.svg#arrow-left"></use>
-                                    </svg></button>
-                                <button class="nav-btn nav-btn--next"><svg>
-                                        <use xlink:href="img/icons/sprite.svg#arrow-right"></use>
-                                    </svg></button>
-                            </div>
-                        </div>
-                        <div class="swiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"1"})
-                                </div>
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"2"})
-                                </div>
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"3"})
-                                </div>
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"4"})
-                                </div>
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"1"})
-                                </div>
-                                <div class="swiper-slide">
-                                    @@include("_card.html", {"nmb":"2"})
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <!--footer-->
-        @@include('_footer.html')
-        <!--texture-modal-->
-        <div class="modal texture-modal" id="texture-modal">
-            <div class="modal__overlay">
-                <div class="modal__content">
-                    <div class="modal__scroll">
+                </section>
+                <!--product swipers-->
+                <section class="section">
+                    <!--color-swiper-->
+                    <div class="card-swiper section-sm">
                         <div class="container">
-                            <button type="button" class="modal__close">
-                                <svg>
-                                    <use xlink:href="img/icons/sprite.svg#close"></use>
-                                </svg>
-                            </button>
-                            <div class="modal__swiper">
-                                <div class="swiper">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide" data-texture-name="Stacco" data-texture-priceStandart="4580" data-texture-priceDesign="5292">
-                                            <div class="modal__top">
-                                                <h3>Stacco</h3>
-                                           </div>
-                                            <div class="mb-40 texture-modal__preview">
-                                                <div class="video media-cover lazy-video">
-                                                    <img src="img/texture-1.jpg" alt="Stacco">
-                                                    <video autoplay="" controls="" muted="" playsinline="" loop="">
-                                                        <source data-src="media/stacco.webm" type="video/webm">
-                                                        <source data-src="media/stacco.mp4" type="video/mp4">
-                                                    </video>
+                            <div class="mb-40 swiper-top">
+                                <h2 class="h3">Другие цвета этого изображения</h2>
+                                <div class="swiper-nav">
+                                    <button class="nav-btn nav-btn--prev"><svg>
+                                            <use xlink:href="img/icons/sprite.svg#arrow-left"></use>
+                                        </svg></button>
+                                    <button class="nav-btn nav-btn--next"><svg>
+                                            <use xlink:href="img/icons/sprite.svg#arrow-right"></use>
+                                        </svg></button>
+                                </div>
+                            </div>
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"1"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"2"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"3"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"4"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"1"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"2"})
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--catalog-swiper-->
+                    <div class="card-swiper section-sm">
+                        <div class="container">
+                            <div class="mb-40 swiper-top">
+                                <h2 class="h3">Еще из каталога Applico</h2>
+                                <div class="swiper-nav">
+                                    <button class="nav-btn nav-btn--prev"><svg>
+                                            <use xlink:href="img/icons/sprite.svg#arrow-left"></use>
+                                        </svg></button>
+                                    <button class="nav-btn nav-btn--next"><svg>
+                                            <use xlink:href="img/icons/sprite.svg#arrow-right"></use>
+                                        </svg></button>
+                                </div>
+                            </div>
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"1"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"2"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"3"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"4"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"1"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"2"})
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--category-swiper-->
+                    <div class="card-swiper section-sm">
+                        <div class="container">
+                            <div class="mb-40 swiper-top">
+                                <h2 class="h3">Еще изображение Природа</h2>
+                                <div class="swiper-nav">
+                                    <button class="nav-btn nav-btn--prev"><svg>
+                                            <use xlink:href="img/icons/sprite.svg#arrow-left"></use>
+                                        </svg></button>
+                                    <button class="nav-btn nav-btn--next"><svg>
+                                            <use xlink:href="img/icons/sprite.svg#arrow-right"></use>
+                                        </svg></button>
+                                </div>
+                            </div>
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"1"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"2"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"3"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"4"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"1"})
+                                    </div>
+                                    <div class="swiper-slide">
+                                        @@include("_card.html", {"nmb":"2"})
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <!--footer-->
+            @@include('_footer.html')
+            <!--texture-modal-->
+            <div class="modal texture-modal" id="texture-modal">
+                <div class="modal__overlay">
+                    <div class="modal__content">
+                        <div class="modal__scroll">
+                            <div class="container">
+                                <button type="button" class="modal__close">
+                                    <svg>
+                                        <use xlink:href="img/icons/sprite.svg#close"></use>
+                                    </svg>
+                                </button>
+                                <div class="modal__swiper">
+                                    <div class="swiper">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide" data-texture-name="Stacco" data-texture-priceStandart="4580" data-texture-priceDesign="5292">
+                                                <div class="modal__top">
+                                                    <h3>Stacco</h3>
+                                                </div>
+                                                <div class="mb-40 texture-modal__preview">
+                                                    <div class="video media-cover lazy-video">
+                                                        <img src="img/texture-1.jpg" alt="Stacco">
+                                                        <video autoplay controls muted playsinline loop>
+                                                            <source data-src="media/stacco.webm" type="video/webm">
+                                                            <source data-src="media/stacco.mp4" type="video/mp4">
+                                                        </video>
+                                                    </div>
+                                                </div>
+                                                <div class="texture-modal__details">
+                                                    <div class="texture-modal__det">
+                                                        <span>Стандартные размеры по каталогу</span>
+                                                        <span class="h5">3 890 ₽ за 1 м²</span>
+                                                    </div>
+                                                    <div class="texture-modal__det">
+                                                        <span>С услугой дизайна</span>
+                                                        <span class="h5">4 290 ₽ за 1 м²</span>
+                                                    </div>
+                                                </div>
+                                                <div class="texture-modal__content">
+                                                    <p>"Бриз Лайт" - бархатистая неоднородная поверхность с мягким рельефом, приятная на ощупь.
+                                                        Подходит для большинства изображений и любого типа интерьера. Основа фактуры - плотный
+                                                        флизелин. Максимальный размер без стыка 315 х 1200 см</p>
                                                 </div>
                                             </div>
-                                            <div class="texture-modal__details">
-                                                <div class="texture-modal__det">
-                                                    <span>Стандартные размеры по каталогу</span>
-                                                    <span class="h5">3 890 ₽ за 1 м²</span>
+                                            <div class="swiper-slide" data-texture-name="Песок" data-texture-priceStandart="2890" data-texture-priceDesign="4090">
+                                                <div class="modal__top">
+                                                    <h3>Песок</h3>
                                                 </div>
-                                                <div class="texture-modal__det">
-                                                    <span>С услугой дизайна</span>
-                                                    <span class="h5">4 290 ₽ за 1 м²</span>
+                                                <div class="mb-40 texture-modal__preview">
+                                                    <div class="video media-cover lazy-video">
+                                                        <img src="img/texture-1.jpg" alt="Песок">
+                                                        <video autoplay controls muted playsinline loop>
+                                                            <source data-src="media/stacco.webm" type="video/webm">
+                                                            <source data-src="media/stacco.mp4" type="video/mp4">
+                                                        </video>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="texture-modal__content">
-                                                <p>"Бриз Лайт" - бархатистая неоднородная поверхность с мягким рельефом, приятная на ощупь.
-                                                Подходит для большинства изображений и любого типа интерьера. Основа фактуры - плотный
-                                                флизелин. Максимальный размер без стыка 315 х 1200 см</p>
-                                            </div>  
-                                        </div>
-                                        <div class="swiper-slide"  data-texture-name="Песок" data-texture-priceStandart="2890" data-texture-priceDesign="4090">
-                                            <div class="modal__top">
-                                                <h3>Песок</h3>
-                                           </div>
-                                            <div class="mb-40 texture-modal__preview">
-                                                <div class="video media-cover lazy-video">
-                                                    <img src="img/texture-1.jpg" alt="Песок">
-                                                    <video autoplay="" controls="" muted="" playsinline="" loop="">
-                                                        <source data-src="media/stacco.webm" type="video/webm">
-                                                        <source data-src="media/stacco.mp4" type="video/mp4">
-                                                    </video>
+                                                <div class="texture-modal__details">
+                                                    <div class="texture-modal__det">
+                                                        <span>Стандартные размеры по каталогу</span>
+                                                        <span class="h5">2 890 ₽ за 1 м²</span>
+                                                    </div>
+                                                    <div class="texture-modal__det">
+                                                        <span>С услугой дизайна</span>
+                                                        <span class="h5">4 090 ₽ за 1 м²</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="texture-modal__details">
-                                                <div class="texture-modal__det">
-                                                    <span>Стандартные размеры по каталогу</span>
-                                                    <span class="h5">2 890 ₽ за 1 м²</span>
-                                                </div>
-                                                <div class="texture-modal__det">
-                                                    <span>С услугой дизайна</span>
-                                                    <span class="h5">4 090 ₽ за 1 м²</span>
+                                                <div class="texture-modal__content">
+                                                    <p>"Песок" - бархатистая неоднородная поверхность с мягким рельефом, приятная на ощупь.
+                                                        Подходит для большинства изображений и любого типа интерьера. Основа фактуры - плотный
+                                                        флизелин. Максимальный размер без стыка 315 х 1200 см</p>
                                                 </div>
                                             </div>
-                                            <div class="texture-modal__content">
-                                                <p>"Песок" - бархатистая неоднородная поверхность с мягким рельефом, приятная на ощупь.
-                                                    Подходит для большинства изображений и любого типа интерьера. Основа фактуры - плотный
-                                                    флизелин. Максимальный размер без стыка 315 х 1200 см</p>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide" data-texture-name="Stacco" data-texture-priceStandart="4580" data-texture-priceDesign="5292">
-                                            <div class="modal__top">
-                                                <h3>Stacco</h3>
-                                           </div>
-                                            <div class="mb-40 texture-modal__preview">
-                                                <div class="video media-cover lazy-video">
-                                                    <img src="img/texture-1.jpg" alt="Stacco">
-                                                    <video autoplay="" controls="" muted="" playsinline="" loop="">
-                                                        <source data-src="media/stacco.webm" type="video/webm">
-                                                        <source data-src="media/stacco.mp4" type="video/mp4">
-                                                    </video>
+                                            <div class="swiper-slide" data-texture-name="Stacco" data-texture-priceStandart="4580" data-texture-priceDesign="5292">
+                                                <div class="modal__top">
+                                                    <h3>Stacco</h3>
+                                                </div>
+                                                <div class="mb-40 texture-modal__preview">
+                                                    <div class="video media-cover lazy-video">
+                                                        <img src="img/texture-1.jpg" alt="Stacco">
+                                                        <video autoplay controls muted playsinline loop>
+                                                            <source data-src="media/stacco.webm" type="video/webm">
+                                                            <source data-src="media/stacco.mp4" type="video/mp4">
+                                                        </video>
+                                                    </div>
+                                                </div>
+                                                <div class="texture-modal__details">
+                                                    <div class="texture-modal__det">
+                                                        <span>Стандартные размеры по каталогу</span>
+                                                        <span class="h5">3 890 ₽ за 1 м²</span>
+                                                    </div>
+                                                    <div class="texture-modal__det">
+                                                        <span>С услугой дизайна</span>
+                                                        <span class="h5">4 290 ₽ за 1 м²</span>
+                                                    </div>
+                                                </div>
+                                                <div class="texture-modal__content">
+                                                    <p>"Бриз Лайт" - бархатистая неоднородная поверхность с мягким рельефом, приятная на ощупь.
+                                                        Подходит для большинства изображений и любого типа интерьера. Основа фактуры - плотный
+                                                        флизелин. Максимальный размер без стыка 315 х 1200 см</p>
                                                 </div>
                                             </div>
-                                            <div class="texture-modal__details">
-                                                <div class="texture-modal__det">
-                                                    <span>Стандартные размеры по каталогу</span>
-                                                    <span class="h5">3 890 ₽ за 1 м²</span>
+                                            <div class="swiper-slide" data-texture-name="Песок" data-texture-priceStandart="2890" data-texture-priceDesign="4090">
+                                                <div class="modal__top">
+                                                    <h3>Песок</h3>
                                                 </div>
-                                                <div class="texture-modal__det">
-                                                    <span>С услугой дизайна</span>
-                                                    <span class="h5">4 290 ₽ за 1 м²</span>
+                                                <div class="mb-40 texture-modal__preview">
+                                                    <div class="video media-cover lazy-video">
+                                                        <img src="img/texture-1.jpg" alt="Песок">
+                                                        <video autoplay controls muted playsinline loop>
+                                                            <source data-src="media/stacco.webm" type="video/webm">
+                                                            <source data-src="media/stacco.mp4" type="video/mp4">
+                                                        </video>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="texture-modal__content">
-                                                <p>"Бриз Лайт" - бархатистая неоднородная поверхность с мягким рельефом, приятная на ощупь.
-                                                Подходит для большинства изображений и любого типа интерьера. Основа фактуры - плотный
-                                                флизелин. Максимальный размер без стыка 315 х 1200 см</p>
-                                            </div>  
-                                        </div>
-                                        <div class="swiper-slide"  data-texture-name="Песок" data-texture-priceStandart="2890" data-texture-priceDesign="4090">
-                                            <div class="modal__top">
-                                                <h3>Песок</h3>
-                                           </div>
-                                            <div class="mb-40 texture-modal__preview">
-                                                <div class="video media-cover lazy-video">
-                                                    <img src="img/texture-1.jpg" alt="Песок">
-                                                    <video autoplay="" controls="" muted="" playsinline="" loop="">
-                                                        <source data-src="media/stacco.webm" type="video/webm">
-                                                        <source data-src="media/stacco.mp4" type="video/mp4">
-                                                    </video>
+                                                <div class="texture-modal__details">
+                                                    <div class="texture-modal__det">
+                                                        <span>Стандартные размеры по каталогу</span>
+                                                        <span class="h5">2 890 ₽ за 1 м²</span>
+                                                    </div>
+                                                    <div class="texture-modal__det">
+                                                        <span>С услугой дизайна</span>
+                                                        <span class="h5">4 090 ₽ за 1 м²</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="texture-modal__details">
-                                                <div class="texture-modal__det">
-                                                    <span>Стандартные размеры по каталогу</span>
-                                                    <span class="h5">2 890 ₽ за 1 м²</span>
-                                                </div>
-                                                <div class="texture-modal__det">
-                                                    <span>С услугой дизайна</span>
-                                                    <span class="h5">4 090 ₽ за 1 м²</span>
+                                                <div class="texture-modal__content">
+                                                    <p>"Песок" - бархатистая неоднородная поверхность с мягким рельефом, приятная на ощупь.
+                                                        Подходит для большинства изображений и любого типа интерьера. Основа фактуры - плотный
+                                                        флизелин. Максимальный размер без стыка 315 х 1200 см</p>
                                                 </div>
                                             </div>
-                                            <div class="texture-modal__content">
-                                                <p>"Песок" - бархатистая неоднородная поверхность с мягким рельефом, приятная на ощупь.
-                                                    Подходит для большинства изображений и любого типа интерьера. Основа фактуры - плотный
-                                                    флизелин. Максимальный размер без стыка 315 х 1200 см</p>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide" data-texture-name="Stacco" data-texture-priceStandart="4580" data-texture-priceDesign="5292">
-                                            <div class="modal__top">
-                                                <h3>Stacco</h3>
-                                           </div>
-                                            <div class="mb-40 texture-modal__preview">
-                                                <div class="video media-cover lazy-video">
-                                                    <img src="img/texture-1.jpg" alt="Stacco">
-                                                    <video autoplay="" controls="" muted="" playsinline="" loop="">
-                                                        <source data-src="media/stacco.webm" type="video/webm">
-                                                        <source data-src="media/stacco.mp4" type="video/mp4">
-                                                    </video>
+                                            <div class="swiper-slide" data-texture-name="Stacco" data-texture-priceStandart="4580" data-texture-priceDesign="5292">
+                                                <div class="modal__top">
+                                                    <h3>Stacco</h3>
+                                                </div>
+                                                <div class="mb-40 texture-modal__preview">
+                                                    <div class="video media-cover lazy-video">
+                                                        <img src="img/texture-1.jpg" alt="Stacco">
+                                                        <video autoplay controls muted playsinline loop>
+                                                            <source data-src="media/stacco.webm" type="video/webm">
+                                                            <source data-src="media/stacco.mp4" type="video/mp4">
+                                                        </video>
+                                                    </div>
+                                                </div>
+                                                <div class="texture-modal__details">
+                                                    <div class="texture-modal__det">
+                                                        <span>Стандартные размеры по каталогу</span>
+                                                        <span class="h5">3 890 ₽ за 1 м²</span>
+                                                    </div>
+                                                    <div class="texture-modal__det">
+                                                        <span>С услугой дизайна</span>
+                                                        <span class="h5">4 290 ₽ за 1 м²</span>
+                                                    </div>
+                                                </div>
+                                                <div class="texture-modal__content">
+                                                    <p>"Бриз Лайт" - бархатистая неоднородная поверхность с мягким рельефом, приятная на ощупь.
+                                                        Подходит для большинства изображений и любого типа интерьера. Основа фактуры - плотный
+                                                        флизелин. Максимальный размер без стыка 315 х 1200 см</p>
                                                 </div>
                                             </div>
-                                            <div class="texture-modal__details">
-                                                <div class="texture-modal__det">
-                                                    <span>Стандартные размеры по каталогу</span>
-                                                    <span class="h5">3 890 ₽ за 1 м²</span>
+                                            <div class="swiper-slide" data-texture-name="Песок" data-texture-priceStandart="2890" data-texture-priceDesign="4090">
+                                                <div class="modal__top">
+                                                    <h3>Песок</h3>
                                                 </div>
-                                                <div class="texture-modal__det">
-                                                    <span>С услугой дизайна</span>
-                                                    <span class="h5">4 290 ₽ за 1 м²</span>
+                                                <div class="mb-40 texture-modal__preview">
+                                                    <div class="video media-cover lazy-video">
+                                                        <img src="img/texture-1.jpg" alt="Песок">
+                                                        <video autoplay controls muted playsinline loop>
+                                                            <source data-src="media/stacco.webm" type="video/webm">
+                                                            <source data-src="media/stacco.mp4" type="video/mp4">
+                                                        </video>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="texture-modal__content">
-                                                <p>"Бриз Лайт" - бархатистая неоднородная поверхность с мягким рельефом, приятная на ощупь.
-                                                Подходит для большинства изображений и любого типа интерьера. Основа фактуры - плотный
-                                                флизелин. Максимальный размер без стыка 315 х 1200 см</p>
-                                            </div>  
-                                        </div>
-                                        <div class="swiper-slide"  data-texture-name="Песок" data-texture-priceStandart="2890" data-texture-priceDesign="4090">
-                                            <div class="modal__top">
-                                                <h3>Песок</h3>
-                                           </div>
-                                            <div class="mb-40 texture-modal__preview">
-                                                <div class="video media-cover lazy-video">
-                                                    <img src="img/texture-1.jpg" alt="Песок">
-                                                    <video autoplay="" controls="" muted="" playsinline="" loop="">
-                                                        <source data-src="media/stacco.webm" type="video/webm">
-                                                        <source data-src="media/stacco.mp4" type="video/mp4">
-                                                    </video>
+                                                <div class="texture-modal__details">
+                                                    <div class="texture-modal__det">
+                                                        <span>Стандартные размеры по каталогу</span>
+                                                        <span class="h5">2 890 ₽ за 1 м²</span>
+                                                    </div>
+                                                    <div class="texture-modal__det">
+                                                        <span>С услугой дизайна</span>
+                                                        <span class="h5">4 090 ₽ за 1 м²</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="texture-modal__details">
-                                                <div class="texture-modal__det">
-                                                    <span>Стандартные размеры по каталогу</span>
-                                                    <span class="h5">2 890 ₽ за 1 м²</span>
-                                                </div>
-                                                <div class="texture-modal__det">
-                                                    <span>С услугой дизайна</span>
-                                                    <span class="h5">4 090 ₽ за 1 м²</span>
+                                                <div class="texture-modal__content">
+                                                    <p>"Песок" - бархатистая неоднородная поверхность с мягким рельефом, приятная на ощупь.
+                                                        Подходит для большинства изображений и любого типа интерьера. Основа фактуры - плотный
+                                                        флизелин. Максимальный размер без стыка 315 х 1200 см</p>
                                                 </div>
                                             </div>
-                                            <div class="texture-modal__content">
-                                                <p>"Песок" - бархатистая неоднородная поверхность с мягким рельефом, приятная на ощупь.
-                                                    Подходит для большинства изображений и любого типа интерьера. Основа фактуры - плотный
-                                                    флизелин. Максимальный размер без стыка 315 х 1200 см</p>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide" data-texture-name="Stacco" data-texture-priceStandart="4580" data-texture-priceDesign="5292">
-                                            <div class="modal__top">
-                                                <h3>Stacco</h3>
-                                           </div>
-                                            <div class="mb-40 texture-modal__preview">
-                                                <div class="video media-cover lazy-video">
-                                                    <img src="img/texture-1.jpg" alt="Stacco">
-                                                    <video autoplay="" controls="" muted="" playsinline="" loop="">
-                                                        <source data-src="media/stacco.webm" type="video/webm">
-                                                        <source data-src="media/stacco.mp4" type="video/mp4">
-                                                    </video>
+                                            <div class="swiper-slide" data-texture-name="Stacco" data-texture-priceStandart="4580" data-texture-priceDesign="5292">
+                                                <div class="modal__top">
+                                                    <h3>Stacco</h3>
+                                                </div>
+                                                <div class="mb-40 texture-modal__preview">
+                                                    <div class="video media-cover lazy-video">
+                                                        <img src="img/texture-1.jpg" alt="Stacco">
+                                                        <video autoplay controls muted playsinline loop>
+                                                            <source data-src="media/stacco.webm" type="video/webm">
+                                                            <source data-src="media/stacco.mp4" type="video/mp4">
+                                                        </video>
+                                                    </div>
+                                                </div>
+                                                <div class="texture-modal__details">
+                                                    <div class="texture-modal__det">
+                                                        <span>Стандартные размеры по каталогу</span>
+                                                        <span class="h5">3 890 ₽ за 1 м²</span>
+                                                    </div>
+                                                    <div class="texture-modal__det">
+                                                        <span>С услугой дизайна</span>
+                                                        <span class="h5">4 290 ₽ за 1 м²</span>
+                                                    </div>
+                                                </div>
+                                                <div class="texture-modal__content">
+                                                    <p>"Бриз Лайт" - бархатистая неоднородная поверхность с мягким рельефом, приятная на ощупь.
+                                                        Подходит для большинства изображений и любого типа интерьера. Основа фактуры - плотный
+                                                        флизелин. Максимальный размер без стыка 315 х 1200 см</p>
                                                 </div>
                                             </div>
-                                            <div class="texture-modal__details">
-                                                <div class="texture-modal__det">
-                                                    <span>Стандартные размеры по каталогу</span>
-                                                    <span class="h5">3 890 ₽ за 1 м²</span>
+                                            <div class="swiper-slide" data-texture-name="Песок" data-texture-priceStandart="2890" data-texture-priceDesign="4090">
+                                                <div class="modal__top">
+                                                    <h3>Песок</h3>
                                                 </div>
-                                                <div class="texture-modal__det">
-                                                    <span>С услугой дизайна</span>
-                                                    <span class="h5">4 290 ₽ за 1 м²</span>
+                                                <div class="mb-40 texture-modal__preview">
+                                                    <div class="video media-cover lazy-video">
+                                                        <img src="img/texture-1.jpg" alt="Песок">
+                                                        <video autoplay controls muted playsinline loop>
+                                                            <source data-src="media/stacco.webm" type="video/webm">
+                                                            <source data-src="media/stacco.mp4" type="video/mp4">
+                                                        </video>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="texture-modal__content">
-                                                <p>"Бриз Лайт" - бархатистая неоднородная поверхность с мягким рельефом, приятная на ощупь.
-                                                Подходит для большинства изображений и любого типа интерьера. Основа фактуры - плотный
-                                                флизелин. Максимальный размер без стыка 315 х 1200 см</p>
-                                            </div>  
-                                        </div>
-                                        <div class="swiper-slide"  data-texture-name="Песок" data-texture-priceStandart="2890" data-texture-priceDesign="4090">
-                                            <div class="modal__top">
-                                                <h3>Песок</h3>
-                                           </div>
-                                            <div class="mb-40 texture-modal__preview">
-                                                <div class="video media-cover lazy-video">
-                                                    <img src="img/texture-1.jpg" alt="Песок">
-                                                    <video autoplay="" controls="" muted="" playsinline="" loop="">
-                                                        <source data-src="media/stacco.webm" type="video/webm">
-                                                        <source data-src="media/stacco.mp4" type="video/mp4">
-                                                    </video>
+                                                <div class="texture-modal__details">
+                                                    <div class="texture-modal__det">
+                                                        <span>Стандартные размеры по каталогу</span>
+                                                        <span class="h5">2 890 ₽ за 1 м²</span>
+                                                    </div>
+                                                    <div class="texture-modal__det">
+                                                        <span>С услугой дизайна</span>
+                                                        <span class="h5">4 090 ₽ за 1 м²</span>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="texture-modal__details">
-                                                <div class="texture-modal__det">
-                                                    <span>Стандартные размеры по каталогу</span>
-                                                    <span class="h5">2 890 ₽ за 1 м²</span>
+                                                <div class="texture-modal__content">
+                                                    <p>"Песок" - бархатистая неоднородная поверхность с мягким рельефом, приятная на ощупь.
+                                                        Подходит для большинства изображений и любого типа интерьера. Основа фактуры - плотный
+                                                        флизелин. Максимальный размер без стыка 315 х 1200 см</p>
                                                 </div>
-                                                <div class="texture-modal__det">
-                                                    <span>С услугой дизайна</span>
-                                                    <span class="h5">4 090 ₽ за 1 м²</span>
-                                                </div>
-                                            </div>
-                                            <div class="texture-modal__content">
-                                                <p>"Песок" - бархатистая неоднородная поверхность с мягким рельефом, приятная на ощупь.
-                                                    Подходит для большинства изображений и любого типа интерьера. Основа фактуры - плотный
-                                                    флизелин. Максимальный размер без стыка 315 х 1200 см</p>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="swiper-nav">
+                                        <button type="button" class="nav-btn nav-btn--prev"><svg><use xlink:href="img/icons/sprite.svg#arrow-left"></use></svg></button>
+                                        <button type="button" class="nav-btn nav-btn--next"><svg><use xlink:href="img/icons/sprite.svg#arrow-right"></use></svg></button>
+                                    </div>
+                                    <div class="texture-modal__btns">
+                                        <button type="button" class="btn main-btn texture-modal__btn">Выбрать</button>
+                                        <button type="button" class="btn stroke-btn texture-modal__resetBtn">Отменить</button>
+                                    </div>
                                 </div>
-                                <div class="swiper-nav">
-                                    <button type="button" class="nav-btn nav-btn--prev"><svg><use xlink:href="img/icons/sprite.svg#arrow-left"></use></svg></button>
-                                    <button type="button" class="nav-btn nav-btn--next"><svg><use xlink:href="img/icons/sprite.svg#arrow-right"></use></svg></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--texture-modal-all-->
+            <div class="modal texture-all" id="texture-modal-all">
+                <div class="modal__overlay">
+                    <div class="modal__content">
+                        <div class="modal__scroll">
+                            <div class="container">
+                                <button type="button" class="modal__close">
+                                    <svg>
+                                        <use xlink:href="img/icons/sprite.svg#close"></use>
+                                    </svg>
+                                </button>
+                                <div class="modal__top">
+                                    <h3>Выберите фактуру:</h3>
                                 </div>
-                                <div class="texture-modal__btns">
-                                    <button type="button" class="btn main-btn texture-modal__btn">Выбрать</button>
+                                <div class="mb-40 texture-all__items">
+                                    <div class="item-texture selected">
+                                        <div class="media-cover">
+                                            <img src="img/texture-1.jpg" alt="Stacco">
+                                            <span class="item-texture__play"></span>
+                                        </div>
+                                        <span class="item-texture__txt">Stacco</span>
+                                    </div>
+                                    <div class="item-texture">
+                                        <div class="media-cover">
+                                            <img src="img/texture-1.jpg" alt="Песок">
+                                            <span class="item-texture__play"></span>
+                                        </div>
+                                        <span class="item-texture__txt">Песок</span>
+                                    </div>
+                                    <div class="item-texture">
+                                        <div class="media-cover">
+                                            <img src="img/texture-1.jpg" alt="Stacco">
+                                            <span class="item-texture__play"></span>
+                                        </div>
+                                        <span class="item-texture__txt">Stacco</span>
+                                    </div>
+                                    <div class="item-texture">
+                                        <div class="media-cover">
+                                            <img src="img/texture-1.jpg" alt="Песок">
+                                            <span class="item-texture__play"></span>
+                                        </div>
+                                        <span class="item-texture__txt">Песок</span>
+                                    </div>
+                                    <div class="item-texture">
+                                        <div class="media-cover">
+                                            <img src="img/texture-1.jpg" alt="Stacco">
+                                            <span class="item-texture__play"></span>
+                                        </div>
+                                        <span class="item-texture__txt">Stacco</span>
+                                    </div>
+                                    <div class="item-texture">
+                                        <div class="media-cover">
+                                            <img src="img/texture-1.jpg" alt="Песок">
+                                            <span class="item-texture__play"></span>
+                                        </div>
+                                        <span class="item-texture__txt">Песок</span>
+                                    </div>
+                                    <div class="item-texture">
+                                        <div class="media-cover">
+                                            <img src="img/texture-1.jpg" alt="Stacco">
+                                            <span class="item-texture__play"></span>
+                                        </div>
+                                        <span class="item-texture__txt">Stacco</span>
+                                    </div>
+                                    <div class="item-texture">
+                                        <div class="media-cover">
+                                            <img src="img/texture-1.jpg" alt="Песок">
+                                            <span class="item-texture__play"></span>
+                                        </div>
+                                        <span class="item-texture__txt">Песок</span>
+                                    </div>
+                                </div>
+                                <div class="texture-all__btns">
+                                    <button type="button" class="btn main-btn">Выбрать</button>
                                     <button type="button" class="btn stroke-btn texture-modal__resetBtn">Отменить</button>
                                 </div>
                             </div>
@@ -677,91 +786,9 @@
                     </div>
                 </div>
             </div>
+            @@include('_modal.html')
         </div>
-        <!--texture-modal-all-->
-        <div class="modal texture-all" id="texture-modal-all">
-            <div class="modal__overlay">
-                <div class="modal__content">
-                    <div class="modal__scroll">
-                        <div class="container">
-                            <button type="button" class="modal__close">
-                                <svg>
-                                    <use xlink:href="img/icons/sprite.svg#close"></use>
-                                </svg>
-                            </button>
-                            <div class="modal__top">
-                                <h3>Выберите фактуру:</h3>
-                            </div>
-                            <div class="mb-40 texture-all__items">
-                                <div class="item-texture selected">
-                                    <div class="media-cover">
-                                        <img src="img/texture-1.jpg" alt="Stacco">
-                                        <span class="item-texture__play"></span>
-                                    </div>
-                                    <span class="item-texture__txt">Stacco</span>
-                                </div>
-                                <div class="item-texture">
-                                    <div class="media-cover">
-                                        <img src="img/texture-1.jpg" alt="Песок">
-                                        <span class="item-texture__play"></span>
-                                    </div>
-                                    <span class="item-texture__txt">Песок</span>
-                                </div>
-                                <div class="item-texture">
-                                    <div class="media-cover">
-                                        <img src="img/texture-1.jpg" alt="Stacco">
-                                        <span class="item-texture__play"></span>
-                                    </div>
-                                    <span class="item-texture__txt">Stacco</span>
-                                </div>
-                                <div class="item-texture">
-                                    <div class="media-cover">
-                                        <img src="img/texture-1.jpg" alt="Песок">
-                                        <span class="item-texture__play"></span>
-                                    </div>
-                                    <span class="item-texture__txt">Песок</span>
-                                </div>
-                                <div class="item-texture">
-                                    <div class="media-cover">
-                                        <img src="img/texture-1.jpg" alt="Stacco">
-                                        <span class="item-texture__play"></span>
-                                    </div>
-                                    <span class="item-texture__txt">Stacco</span>
-                                </div>
-                                <div class="item-texture">
-                                    <div class="media-cover">
-                                        <img src="img/texture-1.jpg" alt="Песок">
-                                        <span class="item-texture__play"></span>
-                                    </div>
-                                    <span class="item-texture__txt">Песок</span>
-                                </div>
-                                <div class="item-texture">
-                                    <div class="media-cover">
-                                        <img src="img/texture-1.jpg" alt="Stacco">
-                                        <span class="item-texture__play"></span>
-                                    </div>
-                                    <span class="item-texture__txt">Stacco</span>
-                                </div>
-                                <div class="item-texture">
-                                    <div class="media-cover">
-                                        <img src="img/texture-1.jpg" alt="Песок">
-                                        <span class="item-texture__play"></span>
-                                    </div>
-                                    <span class="item-texture__txt">Песок</span>
-                                </div>
-                            </div>
-                            <div class="texture-all__btns">
-                                <button type="button" class="btn main-btn">Выбрать</button>
-                                <button type="button" class="btn stroke-btn texture-modal__resetBtn">Отменить</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @@include('_modal.html')
-    </div>
-    @@include('_js.html')
-</body>
+        @@include('_js.html')
+    </body>
 
 </html>

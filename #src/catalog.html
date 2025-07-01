@@ -7,7 +7,7 @@
 
 <body>
     <div class="wrap">
-        @@include('_header.html')
+        @@include('_header.html', {"main": false})
         <!--main-->
         <main class="main">
             <!--catalog-->
@@ -348,6 +348,9 @@
                                             </label>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="filter__bottom">
+                                    <button type="button" class="btn main-btn close-filter">Применить</button>
                                 </div>
                             </form>
                         </div>

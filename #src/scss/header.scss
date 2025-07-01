@@ -5,13 +5,13 @@
             pointer-events: none;
         }
     }
-    &.fixed { 
-        margin-bottom: 105px;  
+    &.fixed {
+        margin-bottom: 105px;
         &.unshow .header__bottom {
-            transform: translateY(-100%);
+            // transform: translateY(-100%);
         }
         @media (max-width: $bp1) {
-            margin-bottom: 95px;
+           // margin-bottom: 95px;
         }
         @media (max-width: $bp2) {
             margin-bottom: 64px;
@@ -25,7 +25,10 @@
             width: 100%;
             z-index: 500;
             box-shadow: 0px 2px 4px 0px rgba(199, 199, 199, 0.25);
-            transition: transform .3s linear, padding-top .3s linear, padding-bottom .3s linear;
+            transition:
+                transform 0.3s linear,
+                padding-top 0.3s linear,
+                padding-bottom 0.3s linear;
             .container {
                 padding-left: 20px;
                 padding-right: 20px;
@@ -41,7 +44,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-bottom: 1px solid #E7E7E7;
+        border-bottom: 1px solid #e7e7e7;
     }
     &__contacts {
         display: flex;
@@ -73,7 +76,8 @@
     &__action {
         display: flex;
         align-items: center;
-        a, button {
+        a,
+        button {
             flex: 0 0 30px;
             width: 30px;
             height: 30px;
@@ -115,8 +119,8 @@
         max-height: 100%;
         visibility: hidden;
         transform: translateY(-100%);
-        transition: all .5s linear;
-        transition-timing-function: cubic-bezier(.25,.74,.22,.99);
+        transition: all 0.5s linear;
+        transition-timing-function: cubic-bezier(0.25, 0.74, 0.22, 0.99);
         z-index: 502;
         display: flex;
         flex-direction: column;
@@ -124,7 +128,7 @@
         &::-webkit-scrollbar-thumb {
             border-radius: 8px;
             background-color: $dark-gray;
-        } 
+        }
         &::-webkit-scrollbar {
             width: 8px;
             border-radius: 8px;
@@ -168,7 +172,7 @@
         }
         &__contacts {
             .item-contact {
-                margin-left: 60px;
+                margin-left: 40px;
                 &.phone {
                     font-size: 20px;
                 }
@@ -178,7 +182,8 @@
             }
         }
         &__action {
-            a, button {
+            a,
+            button {
                 flex: 0 0 24px;
                 width: 24px;
                 height: 24px;
@@ -195,11 +200,11 @@
         }
         &__contacts {
             width: 100%;
-            justify-content: space-between;
-            margin: 0;
+            flex-direction: row-reverse;
+            margin: -8px -15px 0;
             .item-contact {
                 font-size: 14px;
-                margin: 0;
+                margin: 8px 15px 0;
                 svg {
                     flex: 0 0 20px;
                     width: 20px;
@@ -222,10 +227,11 @@
         &__bottom {
             padding-top: 4px;
             padding-bottom: 16px;
-         }
+        }
         &__action {
             margin-left: auto;
-            a, button {
+            a,
+            button {
                 flex: 0 0 20px;
                 width: 20px;
                 height: 20px;
@@ -255,7 +261,7 @@
     }
 }
 .top-menu {
-    &__list  {
+    &__list {
         display: flex;
         flex-wrap: wrap;
         align-items: center;
@@ -275,7 +281,7 @@
                 }
                 .top-menu__subnavs {
                     visibility: visible;
-                    clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+                    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
                 }
             }
         }
@@ -297,8 +303,8 @@
         left: -33px;
         z-index: 2;
         visibility: hidden;
-        clip-path: polygon(0 0,100% 0,100% 0,0 0);
-        transition: all .3s linear;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+        transition: all 0.3s linear;
         ul li {
             margin: 0;
             border-bottom: 1px solid $white-gray;
@@ -318,11 +324,16 @@
     }
     @media (max-width: $bp1) {
         &__list {
+            margin: 0 -20px;
             li {
+                margin: 0 20px;
                 a {
                     font-size: 16px;
                 }
             }
+        }
+        &__subnavs {
+            left: 0;
         }
     }
     @media (max-width: $bp2) {
@@ -342,7 +353,7 @@
             border-radius: 2px;
             background: $maincolor;
             margin: 6px 0;
-            transition: all .5s linear;
+            transition: all 0.5s linear;
         }
         span:first-child {
             width: 20px;
@@ -350,7 +361,7 @@
         span:last-child {
             width: 12px;
         }
-/*         &.active {
+        /*         &.active {
             span:first-child {
                 width: 20px;
                 transform: translateY(4px) rotateZ(135deg);
@@ -408,18 +419,18 @@
     right: 0;
     bottom: 0;
     z-index: 1000;
-    background: rgba(64, 64, 64, 0.50);
+    background: rgba(64, 64, 64, 0.5);
     visibility: hidden;
     opacity: 0;
-    transition: all .3s .1s ease-out;
+    transition: all 0.3s 0.1s ease-out;
     overflow: hidden;
     &.open {
         visibility: visible;
         opacity: 1;
-        transition: all .3s ease-out;
+        transition: all 0.3s ease-out;
         .mobile-menu__inner {
             transform: translateX(0);
-            transition: all .3s .1s ease-out;
+            transition: all 0.3s 0.1s ease-out;
         }
     }
     ul {
@@ -459,7 +470,7 @@
         background: #fcfdff;
         border-radius: 0 16px 16px 0;
         transform: translateX(-100%);
-        transition: all .3s ease-out;
+        transition: all 0.3s ease-out;
         scrollbar-width: none;
         &::-webkit-scrollbar {
             display: none;
@@ -474,7 +485,7 @@
         border-radius: 50%;
         background: $maincolor;
         margin-bottom: 40px;
-        svg{
+        svg {
             fill: $white;
         }
     }

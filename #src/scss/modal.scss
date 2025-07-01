@@ -101,6 +101,7 @@
     }
     @media (max-width: $bp2) {
         display: block !important;
+        right: 0;
         .btn {
             min-height: 46px;
             padding: 10px 13px;

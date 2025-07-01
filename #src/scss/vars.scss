@@ -1,5 +1,6 @@
 :root {
     --vh: 1%;
+    --header-fixed-height: 88px;
     --content-width: 1650px;
 }
 $bp1: 1690.98px;
@@ -21,11 +22,13 @@ $gold: #FC9701;
 @media (max-width: $bp1) {
     :root {
         --content-width: 1180px;
+        --header-fixed-height: 58px
     }
 }
 @media (max-width: $bp2) {
     :root {
         --content-width: 720px;
+        --header-fixed-height: 44px
     }
 }
 @media (max-width: $bp3) {

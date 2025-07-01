@@ -283,6 +283,7 @@ input[type=number] {
 
 :root {
   --vh: 1%;
+  --header-fixed-height: 88px;
   --content-width: 1650px;
 }
 
@@ -4270,7 +4271,7 @@ blockquote p {
 
 .service-aside__sticky {
   position: sticky;
-  top: 0;
+  top: calc(var(--header-fixed-height) + 20px);
 }
 
 .service-aside__inner {
@@ -5554,7 +5555,7 @@ blockquote p {
 
 .cart-total {
   position: sticky;
-  top: 20px;
+  top: calc(var(--header-fixed-height) + 20px);
 }
 
 .cart-total .main-btn {
@@ -7101,6 +7102,7 @@ blockquote p {
 @media (max-width: 1690.98px) {
   :root {
     --content-width: 1180px;
+    --header-fixed-height: 58px;
   }
 
   body {
@@ -8699,6 +8701,7 @@ blockquote p {
 @media (max-width: 992.98px) {
   :root {
     --content-width: 720px;
+    --header-fixed-height: 44px;
   }
 
   body {
@@ -9982,6 +9985,7 @@ blockquote p {
 
   .fixed-btns {
     display: block !important;
+    right: 0;
   }
 
   .fixed-btns .btn {

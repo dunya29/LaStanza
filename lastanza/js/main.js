@@ -1811,7 +1811,7 @@ const fixedBtns = document.querySelector(".fixed-btns")
 if (fixedBtns) {
     function showFixedBtns() {
         let scrollTop = scrollPos()
-        if (scrollTop > window.innerHeight && scrollTop + window.innerHeight < document.documentElement.scrollHeight) {
+        if (scrollTop > window.innerHeight) {
             fixedBtns.classList.add('show');
         } else {
             fixedBtns.classList.remove('show');
